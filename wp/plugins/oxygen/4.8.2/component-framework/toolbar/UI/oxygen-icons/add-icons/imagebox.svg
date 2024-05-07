@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="59px" height="33px" viewBox="0 0 59 33" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49 (51002) - http://www.bohemiancoding.com/sketch -->
+    <title>image-box</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Icons" transform="translate(-352.000000, -321.000000)">
+            <rect id="Rectangle" fill="#60666A" x="380" y="329" width="25" height="2" rx="1"></rect>
+            <rect id="Rectangle" fill="#60666A" x="380" y="334" width="25" height="2" rx="1"></rect>
+            <rect id="Rectangle" fill="#60666A" x="380" y="339" width="25" height="2" rx="1"></rect>
+            <rect id="Rectangle" fill="#60666A" x="380" y="344" width="16" height="2" rx="1"></rect>
+            <path d="M368.459887,340.226007 L369.714835,339.004946 C369.912751,338.812374 370.229304,338.816706 370.421876,339.014622 C370.43774,339.030927 370.452473,339.048295 370.465972,339.066605 L372.895048,342.361503 C373.058911,342.583772 373.011562,342.896794 372.789293,343.060656 C372.703346,343.124018 372.599372,343.158202 372.492594,343.158202 L362.505684,343.158202 C362.229542,343.158202 362.005684,342.934344 362.005684,342.658202 C362.005684,342.564673 362.031917,342.473019 362.081403,342.393654 L365.336267,337.173504 C365.482373,336.939179 365.790772,336.867664 366.025096,337.01377 C366.102607,337.0621 366.165398,337.13074 366.206652,337.212238 L367.665101,340.093462 C367.789815,340.339838 368.090642,340.438466 368.337018,340.313752 C368.38218,340.290892 368.423608,340.261306 368.459887,340.226007 Z" id="Path" fill="#60666A"></path>
+            <circle id="Oval-4" fill="#60666A" cx="370.5" cy="334.5" r="1.5"></circle>
+            <rect id="Rectangle-16" stroke="#4E555A" stroke-width="2" x="359" y="329" width="17" height="17" rx="2"></rect>
+        </g>
+    </g>
+</svg>

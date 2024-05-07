@@ -1,0 +1,581 @@
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,500,600,700");
+
+#oxygen-setup-wizard {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 100000;
+  overflow: auto;
+  background-color: #262e35;
+  background: url(https://oxygenbuilder.com/wp-content/uploads/2019/09/competitions-back2x.png),
+    linear-gradient(-45deg, #5137c3, #221969);
+}
+
+#oxygen-setup-wizard .inside {
+  padding: 0px;
+}
+
+.oxygen-wizard-wrapper {
+  margin-left: 220px;
+  margin-top: 120px;
+  width: 800px;
+}
+
+.oxygen-wizard-title {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.oxygen-wizard-title h1 {
+  font-size: 60px;
+  font-weight: var(--oxy-regular-font-weight);
+  color: #fff;
+  margin-left: 40px;
+  margin-bottom: 24px;
+}
+
+.oxygen-wizard-title h1 + h1 {
+  font-size: 36px;
+  font-weight: var(--oxy-regular-font-weight);
+  margin-bottom: 30px;
+}
+
+.oxygen-setup-wizard-logo {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  width: 100px;
+}
+
+.oxygen-wizard-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.oxygen-wizard-install-types {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+
+.oxygen-wizard-install-type {
+  margin-bottom: 40px;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  margin: 40px;
+}
+
+.oxygen-wizard-install-type * {
+  color: #fff;
+}
+
+.oxygen-wizard-install-type h4 {
+  font-size: 21px;
+  font-weight: var(--oxy-bold-font-weight);
+  text-transform: capitalize;
+  letter-spacing: 1px;
+  margin: 0;
+  margin-bottom: 12px;
+}
+
+.oxygen-wizard-install-type p {
+  font-size: var(--oxy-big-text-size);
+  font-weight: var(--oxy-regular-font-weight);
+  margin: 0;
+  margin-bottom: 30px;
+  margin-top: 12px;
+}
+
+.oxygen-wizard-install-type .open-oxygen-button {
+  background: linear-gradient(180deg, #26a0f5 0%, #0c89e1 100%);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+  border: 1px solid #161e25;
+  background-clip: padding-box;
+  color: #fff;
+  font-weight: var(--oxy-regular-font-weight);
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+  margin-bottom: 15px;
+  margin-left: 0;
+  margin-right: auto;
+  font-size: var(--oxy-medium-text-size);
+  margin-top: auto;
+  line-height: 1 !important;
+  padding: 9px 16px !important;
+  height: auto !important;
+}
+
+.oxygen-wizard-install-type .open-oxygen-button:hover {
+  background: linear-gradient(180deg, #36b0ff 0%, #1c99f1 100%);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+  border: 1px solid #161e25;
+  background-clip: padding-box;
+  color: #fff;
+  font-weight: var(--oxy-regular-font-weight);
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+  margin-bottom: 15px;
+  margin-left: 0;
+  margin-right: auto;
+  font-size: var(--oxy-medium-text-size);
+  margin-top: auto;
+  line-height: 1 !important;
+  padding: 9px 16px !important;
+  height: auto !important;
+}
+
+.oxygen-wizard-install-type .open-oxygen-button::after {
+  content: "\00BB";
+  margin-left: 8px;
+}
+
+#oxygen-setup-wizard .inside {
+  padding: 0px;
+}
+
+.oxygen-wizard-wrapper {
+  margin-left: 220px;
+  margin-top: 120px;
+  width: 700px;
+}
+
+.oxygen-wizard-title {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.oxygen-wizard-title h1 {
+  font-size: 60px;
+  font-weight: var(--oxy-regular-font-weight);
+  color: #fff;
+  margin-left: 40px;
+  margin-bottom: 24px;
+}
+
+.oxygen-wizard-title h1 + h1 {
+  font-size: 36px;
+  font-weight: var(--oxy-regular-font-weight);
+  margin-bottom: 30px;
+}
+
+.oxygen-setup-wizard-logo {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  width: 100px;
+}
+
+.oxygen-wizard-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.oxygen-wizard-install-types {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+
+.oxygen-wizard-install-type {
+  margin-bottom: 40px;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  margin: 40px;
+}
+
+.oxygen-wizard-install-type h4 {
+  font-size: 21px;
+  font-weight: var(--oxy-bold-font-weight);
+  text-transform: capitalize;
+  letter-spacing: 1px;
+  margin: 0;
+  margin-bottom: 12px;
+}
+
+.oxygen-wizard-install-type p {
+  font-size: var(--oxy-big-text-size);
+  font-weight: var(--oxy-regular-font-weight);
+  margin: 0;
+  margin-bottom: 30px;
+  margin-top: 12px;
+}
+
+.oxygen-wizard-install-type .open-oxygen-button {
+  margin-left: 0;
+  margin-right: auto;
+  font-size: var(--oxy-medium-text-size);
+  padding: 9px 16px;
+  margin-top: auto;
+}
+
+.oxygen-wizard-install-type .open-oxygen-button::after {
+  content: "\00BB";
+  margin-left: 8px;
+}
+
+.oxygen-metabox {
+  background-color: #262e35;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  box-shadow: initial;
+  color: #fff;
+  font-family: var(--oxy-ui-font-family);
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
+.oxygen-metabox .hndle {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.oxygen-metabox .hndle span {
+  color: #fff;
+  font-weight: var(--oxy-bold-font-weight);
+  font-size: var(--oxy-big-text-size);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.oxygen-metabox .toggle-indicator::before {
+  color: #fff;
+}
+
+.oxygen-metabox .inside {
+  margin: 0px;
+  padding: 20px;
+  padding-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.oxygen-metabox.closed .inside {
+  display: none;
+}
+
+.open-oxygen-button {
+  color: rgba(255, 255, 255, 0.75);
+  border-color: rgba(255, 255, 255, 0.75);
+  border: 1px solid;
+  font-size: var(--oxy-big-text-size);
+  padding: 25px 90px;
+  text-decoration: none;
+  border-radius: 3px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 18px;
+  font-weight: var(--oxy-regular-font-weight);
+  line-height: var(--oxy-small-line-height);
+}
+
+.open-oxygen-button:hover,
+.open-oxygen-button:focus {
+  color: rgba(255, 255, 255, 1);
+  border-color: rgba(255, 255, 255, 1);
+  box-shadow: none;
+}
+
+.open-oxygen-button {
+  background: linear-gradient(180deg, #26a0f5 0%, #0c89e1 100%);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+  border: 1px solid #161e25;
+  background-clip: padding-box;
+  color: #fff;
+  font-weight: var(--oxy-regular-font-weight);
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+  margin-bottom: 15px;
+}
+
+.open-oxygen-button:hover,
+.open-oxygen-button:focus {
+  border: 1px solid #161e25;
+  background-clip: padding-box;
+  background: linear-gradient(180deg, #36b0ff 0%, #1c99f1 100%);
+}
+
+.oxygen-metabox .oxygen-metabox-control-group {
+  margin-top: 25px;
+  width: 100%;
+}
+
+.oxygen-metabox .inside h2 {
+  color: #fff;
+  font-weight: 500 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  line-height: 1.4 !important;
+  margin-bottom: 6px !important;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-size: 12px !important;
+  justify-content: flex-start;
+  align-items: center;
+  display: flex;
+}
+
+.oxygen-metabox .oxy-tooltip {
+  display: none;
+}
+
+.oxygen-metabox .inside select {
+  color: #fff;
+  border: none;
+  background-color: #3f464e;
+  display: flex;
+  height: 35px;
+  min-width: 200px;
+  align-items: center;
+  font-size: var(--oxy-medium-text-size);
+}
+
+.oxygen-metabox .open-oxygen-shortcodes {
+  margin-top: 40px;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 0.25em;
+}
+
+.oxygen-metabox .open-oxygen-shortcodes:focus {
+  box-shadow: none;
+}
+
+.oxygen-metabox .open-oxygen-shortcodes:hover {
+  color: rgba(255, 255, 255, 1);
+}
+
+.oxygen-metabox .oxygen-shortcodes-textarea {
+  font-family: var(--oxy-code-font-family);
+  color: #fff;
+  font-size: var(--oxy-small-text-size);
+  line-height: var(--oxy-big-line-height);
+  border: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 8px;
+  width: 100%;
+  height: 250px;
+}
+
+.oxygen-metabox .inside select:focus,
+.oxygen-metabox .inside textarea:focus,
+.oxygen-metabox .inside input:focus {
+  box-shadow: none;
+}
+
+.oxygen-metabox .oxygen-template-accordion {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid 1px solid rgba(0, 0, 0, 0.2);
+  margin-top: 8px;
+}
+
+.oxygen-metabox .oxygen-template-accordion-item {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  font-size: var(--oxy-medium-text-size);
+  font-weight: 600 !important;
+  padding: 20px;
+  line-height: var(--oxy-small-line-height);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  cursor: pointer;
+  transition: 0.1s background-color;
+}
+
+.oxygen-metabox .oxygen-template-accordion-item:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.oxygen-metabox .oxygen-template-accordion-item img {
+  margin-left: auto;
+}
+
+.oxygen-metabox .oxygen-template-accordion-item-open img {
+  transform: rotate(180deg);
+}
+
+.oxygen-metabox .oxygen-template-accordion input[type="checkbox"] {
+  margin: 0px !important;
+  margin-right: 6px !important;
+  border: 1px solid #262e35 !important;
+}
+
+.oxygen-metabox .oxygen-template-accordion-item:last-child {
+  border-bottom: none;
+}
+
+.oxygen-metabox .oxygen-metabox-input {
+  color: #fff;
+  border: none;
+  background-color: #3f464e;
+  min-width: 120px;
+  border-radius: 4px;
+  display: flex;
+  height: 35px;
+  align-items: center;
+  font-size: var(--oxy-medium-text-size);
+  padding-left: 9px;
+  padding-right: 9px;
+}
+
+.oxygen-metabox .oxygen-selector-input {
+  min-width: 300px;
+}
+
+.oxygen-metabox .oxygen-template-accordion-item-inner {
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 30px 30px;
+  font-size: var(--oxy-medium-text-size);
+  display: none;
+}
+
+.oxygen-metabox .oxygen-template-accordion-individual-control {
+  margin-top: 12px;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.oxygen-metabox .oxygen-template-accordion-individual-control:first-child {
+  margin-top: 0px;
+}
+
+#oxygen-template-accordion-post-types-group {
+}
+
+#oxygen-template-accordion-post-types-restrictions-group {
+}
+
+#oxygen-template-accordion-post-types-separator {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  width: 100%;
+}
+
+.oxygen-template-accordion-checkbox-then-input {
+  margin-bottom: 12px;
+}
+
+.oxygen-template-accordion-checkbox-then-input .oxygen-selector-input {
+  margin-top: 8px;
+}
+
+.oxygen-template-accordion-item-inner-archive
+  .oxygen-template-accordion-checkbox-then-input {
+  margin-bottom: 12px;
+}
+
+.oxygen-template-accordion-item-inner-archive
+  .oxygen-template-accordion-checkbox-then-input
+  .oxygen-selector-input {
+  margin-bottom: 12px;
+}
+
+.oxygen-template-accordion-item-inner-archive
+  > .oxygen-template-accordion-individual-control {
+  margin-bottom: 12px;
+  margin-top: 0px;
+}
+
+.oxygen-metabox .oxy-tooltip {
+  display: inline-block;
+  margin-left: 6px;
+  position: relative;
+}
+
+.oxygen-metabox .oxy-tooltip::before {
+  content: "i";
+  width: 18px;
+  height: 18px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: var(--oxy-small-line-height);
+  font-weight: var(--oxy-bold-font-weight);
+  font-size: 11px;
+  letter-spacing: 0px;
+  text-transform: lowercase;
+  font-family: var(--oxy-code-font-family);
+  cursor: help;
+}
+
+.oxygen-metabox .oxy-tooltip .oxy-tooltip-text {
+  display: none;
+}
+
+.oxygen-metabox .oxy-tooltip:hover .oxy-tooltip-text {
+  display: block;
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  padding: 8px;
+  background-color: #000;
+  font-size: var(--oxy-small-text-size);
+  min-width: 200px;
+  text-transform: none;
+}
+
+.oxygen-template-accordion-item
+  .oxygen-template-accordion-item-indicator-light {
+  width: 16px;
+  height: 16px;
+  border-radius: 2px;
+  background-color: rgba(255, 255, 255, 0.2);
+  background-clip: padding-box;
+  margin-right: 12px;
+  box-sizing: border-box;
+}
+
+.oxygen-template-accordion-item.oxygen-template-accordion-item-settings-present
+  .oxygen-template-accordion-item-indicator-light {
+  border: 5px solid #ffffff;
+  background-color: #43a3fc;
+  box-shadow: 0 0 4px 0 #43a3fc;
+}
+
+/* wizard tweaks */
+a.oxygen-wizard-other-website {
+  margin-left: 12px;
+  line-height: var(--oxy-small-line-height);
+}
+
+.oxygen-wizard-button-bar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.oxygen-wizard-button-bar .button {
+  margin-right: 0px !important;
+  margin-bottom: 0px !important;
+}
+
+/* New styles */
+
+.oxygen-wizard-button,
+.oxygen-wizard-button:hover {
+  text-decoration: none;
+  padding: 8px 16px;
+  background: linear-gradient(120deg, #ffffff 0%, #e6e6e6 100%);
+  border-radius: 8px;
+  color: #4931b3;
+  margin-bottom: 16px;
+}
+
+.oxygen-wizard-install-type {
+  align-items: flex-start;
+}
+
+.oxygen-wizard-button-bar {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}

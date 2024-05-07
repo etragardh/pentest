@@ -1,0 +1,100 @@
+%%SELECTOR%% {
+  width: {{ design.container.width.style }};
+}
+
+%%SELECTOR%% .bde-table-of-contents__wrapper {
+  background-color: {{ design.container.background }};
+  {{ macros.borders(design.container.borders) }}
+  {{ macros.spacing_margin_y(design.spacing.wrapper) }}
+  width: {{ design.container.width.style }};
+}
+
+%%SELECTOR%% .bde-table-of-contents__header {
+  {{ macros.spacing_padding_all(design.header.padding|default(design.container.padding)) }}
+  background-color: {{ design.header.background|default(design.container.background) }};
+
+  {% if design.header.disable %}
+    display: none;
+  {% endif %}
+}
+
+%%SELECTOR%% .bde-table-of-contents__list {
+  {{ macros.spacing_padding_all(design.container.padding) }}
+  padding-top: {{ design.spacing.below_header.style }};
+}
+
+%%SELECTOR%% .bde-table-of-contents__title {
+  {{ macros.typography(design.header.typography, globalSettings) }}
+}
+
+%%SELECTOR%% .toc-link::before {
+  background-color: {{ design.list.bar.background }};
+  width: {{ design.list.bar.width.style }};
+}
+
+%%SELECTOR%%.bde-table-of-contents .is-active-link::before {
+  background-color: {{ design.list.bar.active }};
+}
+
+%%SELECTOR%% .toc-list {
+  padding-left: {{ design.list.indent.style }};
+  list-style-type: {{ design.list.style }};
+}
+
+%%SELECTOR%% .toc-list-item {
+  line-height: {{ design.list.between_items }};
+}
+
+%%SELECTOR%% .toc-list-item::marker,
+%%SELECTOR%% .toc-link {
+  {{ macros.typography(design.list.typography, globalSettings) }}
+}
+
+%%SELECTOR%% .toc-list a.toc-link:hover,
+%%SELECTOR%% .toc-list .toc-list-item:hover::marker {
+  {{ macros.typographyWithHoverableColorAndEffects(design.list.typography) }}
+}
+
+%%SELECTOR%% .toc-list a.is-active-link,
+%%SELECTOR%% .toc-list .is-active-li::marker{
+  font-weight: {{ design.list.active_typography.weight }};
+  color: {{ design.list.active_typography.color }};
+  font-size: {{ design.list.active_typography.size.style }};
+}
+
+%%SELECTOR%% .bde-table-of-contents__icon {
+   font-size: {{ design.header.icon.size.style }};
+   color: {{ design.header.icon.color }}
+}
+
+%%SELECTOR%% .bde-table-of-contents__button {
+  width: {{ design.header.icon.size.style }};
+  height:{{ design.header.icon.size.style }};
+} 
+
+
+{% if design.container.content_alignment == 'right' %}
+
+%%SELECTOR%% .bde-table-of-contents__header {
+  flex-direction: row-reverse;
+}
+
+%%SELECTOR%% {
+  text-align: right;
+}
+
+%%SELECTOR%% .toc-link::before {
+  right: 0;
+  left: auto;
+}
+
+%%SELECTOR%% .toc-list {
+  padding-right: {{ design.list.indent.style|default('16px') }};
+  padding-left: 0;
+}
+
+{% endif %}
+
+
+
+

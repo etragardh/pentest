@@ -1,0 +1,147 @@
+.wrap h2.oxygen-vsb-settings-title {
+  padding: 40px;
+  background: url(https://oxygenbuilder.com/wp-content/uploads/2019/09/competitions-back2x.png),
+    linear-gradient(-45deg, #5137c3, #221969);
+  background-size: 100%, cover;
+  background-position: 50% 20%;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  color: #fff;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+.wrap h2 {
+  font-size: 23px;
+  font-weight: var(--oxy-regular-font-weight);
+  margin: 0;
+  padding: 9px 0 4px 0;
+  line-height: var(--oxy-small-line-height);
+  margin-bottom: 16px;
+}
+
+.nav-tab-wrapper .nav-tab {
+  border-top-right-radius: 8px;
+  border-top-left-radius: 8px;
+  background-color: white;
+  border-bottom: 1px solid #ccc;
+}
+
+.nav-tab-wrapper .nav-tab-active {
+  background-color: #241a6c;
+  color: #fff;
+  border-bottom: 1px solid #241a6c;
+}
+
+.oxygen-vsb-settings-container {
+  background: #fff;
+  padding: 20px;
+  border-radius: 0 8px 8px 8px;
+  -webkit-box-shadow: 10px 10px 20px 0px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 10px 10px 20px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 10px 10px 20px 0px rgb(0, 0, 0, 0.2);
+}
+
+.nav-tab-wrapper .nav-tab:first-child {
+  margin-left: 0;
+}
+
+.nav-tab-wrapper,
+.wrap h2.nav-tab-wrapper {
+  border: none;
+}
+
+.oxygen-vsb-settings-container th {
+  text-align: right;
+  vertical-align: middle;
+}
+
+.oxygen-vsb-settings-container th label {
+  margin-right: 8px;
+}
+
+.oxygen-vsb-settings-container input[type="submit"],
+.oxygen-vsb-settings-container
+  input[type="submit"]:hover
+  #oxygen_user_access_add_user,
+.oxygen-vsb-settings-button,
+.oxygen-vsb-settings-button:hover,
+.oxygen-vsb-settings-button:active,
+.oxygen-vsb-settings-button:visited,
+.wp-core-ui .button-primary:hover,
+.wp-core-ui .button-primary,
+#oxygen_user_access_add_user {
+  text-decoration: none;
+  padding: 8px 16px;
+  background: #241a6c;
+  border-radius: 8px;
+  color: #fff;
+  box-shadow: none;
+  border: 0;
+  outline: none;
+  display: inline-block;
+  font-size: var(--oxy-small-text-size);
+  line-height: 2.15384615;
+  min-height: 30px;
+  margin: 0;
+  cursor: pointer;
+  white-space: nowrap;
+  box-sizing: border-box;
+  transition: none;
+}
+
+.oxygen-vsb-settings-info-button,
+.oxygen-vsb-settings-info-button:hover,
+.oxygen-vsb-settings-info-button:visited,
+.oxygen-vsb-settings-info-button:active {
+  text-decoration: none;
+  padding: 8px 16px;
+  background: #29a8f9;
+  border-radius: 8px;
+  color: #fff;
+  box-shadow: none;
+  border: 0;
+  display: flex;
+  align-items: center;
+  outline: 0;
+  transition: none;
+  margin-bottom: 16px;
+}
+
+.oxygen-vsb-settings-container table {
+  margin-bottom: 16px;
+}
+
+.oxygen-vsb-settings-flex {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  flex-wrap: wrap;
+}
+
+.oxygen-vsb-settings-flex-column {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  margin-top: 20px;
+}
+
+.oxygen-vsb-settings-flex-column:nth-child(2) {
+  margin-left: 20px;
+}
+
+.oxygen-vsb-settings-info-div {
+  display: flex;
+  margin-bottom: 16px;
+}
+
+.oxygen-vsb-settings-flex-column p {
+  margin: 0;
+  padding: 0;
+}
+
+.oxygen-vsb-settings-svg-div {
+  margin-bottom: 8px;
+}

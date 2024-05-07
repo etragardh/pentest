@@ -1,0 +1,20 @@
+<select
+    class="breakdance-form-field__input"
+    id="{{ field.advanced.id }}"
+    name="{{ field.name }}{{ field.multiple ? '[]' : '' }}"
+    {{ field.advanced.required ? 'required' : '' }}
+    {{ field.multiple ? 'multiple' : '' }}
+    {% if field.multiple and field.rows %}
+      size="{{ field.rows }}"
+    {% endif %}
+    {% if field.advanced.conditional %}
+        {{ macros.conditionalFormFieldAttributes(field.advanced.condition) }}
+    {% endif %}
+>
+  {% if field.multiple != true %}
+    <option value="">{{ field.advanced.placeholder | default('Select...') }}</option>
+  {% endif %}
+  {% for option in field.options %}
+      <option value="{{ option.value ?? option.label | escape }}" {{ option.selected ? 'selected' }}>{{ option.label }}</option>
+  {% endfor %}
+</select>

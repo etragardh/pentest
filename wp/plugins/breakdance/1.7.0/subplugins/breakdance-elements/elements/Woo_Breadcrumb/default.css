@@ -1,0 +1,22 @@
+.breakdance .bde-woo-breadcrumb .woocommerce-breadcrumb {
+  margin-bottom: 0;
+}
+
+.breakdance .bde-woo-breadcrumb .bde-woo-breadcrumb_delimiter:before {
+  content: "/";
+}
+
+.breakdance .bde-woo-breadcrumb .woocommerce-breadcrumb > * {
+  display: inline-block;
+}
+
+.breakdance .bde-woo-breadcrumb .woocommerce-breadcrumb a {
+  text-decoration: none;
+  transition: all ease 0.2s;
+}
+
+.breakdance .bde-woo-breadcrumb .bde-woo-breadcrumb_delimiter:before {
+  content: "/";
+  margin: 0 8px;
+  color: #ccc;
+}

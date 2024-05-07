@@ -1,0 +1,27 @@
+{% if field.options %}
+  <fieldset role="radiogroup"
+    {% if field.label %}
+      aria-label="{{ field.label }}"
+    {% endif %}
+  >
+    {% if field.label %}
+      <legend class="breakdance-form-field__label">{{ field.label }}{{ field.advanced.required ? '<span class="breakdance-form-field__required">*</span>' : '' }}</legend>
+    {% endif %}
+    {% for option in field.options %}
+        <div class="breakdance-form-radio">
+            <input
+                type="radio"
+                name="{{ field.name }}{{ loop.length > 1 ? '[]' }}"
+                value="{{ option.value ?? option.label | escape }}"
+                id="{{ field.advanced.id }}-{{ loop.index }}"
+                {{ field.advanced.required ? 'required' }}
+                {{ option.selected ? 'checked' }}
+                {% if field.advanced.conditional %}
+                  {{ macros.conditionalFormFieldAttributes(field.advanced.condition) }}
+                {% endif %}
+            >
+            <label class="breakdance-form-radio__text" for="{{ field.advanced.id }}-{{ loop.index }}">{{ option.label }}</label>
+        </div>
+    {% endfor %}
+  </fieldset>
+{% endif %}

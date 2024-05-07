@@ -1,0 +1,22 @@
+.breakdance .bde-wp-widget {
+   max-width: 100%;
+}
+.breakdance .bde-wp-widget select {
+  width: 100%;
+  padding: 8px;
+}
+.breakdance .bde-wp-widget table {
+  width: 100%;
+}
+.breakdance .bde-wp-widget caption {
+  font-size: 1.1em;
+  margin-bottom: 8px;
+}
+
+.breakdance .bde-wp-widget .widgettitle {
+  margin-top: 0;
+}
+
+.breakdance .bde-wp-widget ul {
+  margin-bottom: 0;
+}

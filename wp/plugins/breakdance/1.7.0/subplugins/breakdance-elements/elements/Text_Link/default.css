@@ -1,0 +1,8 @@
+.breakdance .bde-text-link {
+   display: flex;
+}
+
+.breakdance .bde-text-link > * {
+  margin: 0;
+  color: currentColor;
+}

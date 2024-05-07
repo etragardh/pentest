@@ -1,0 +1,14 @@
+{% import _self as dualHeading %}
+
+{% macro dualHeadingItem(item, design) %}
+  {% set style = item.secondary_style ? 'secondary' : 'primary' %}
+  {% set annotatePrimary = not item.secondary_style and design.primary.annotate ? 'js-annotate' : '' %}
+  {% set annotateSecondary = item.secondary_style and design.secondary.annotate ? 'js-annotate' : '' %}
+  {% set cssClasses = ['dual-heading--' ~ style, annotatePrimary, annotateSecondary]|join(" ") %}
+  <span data-style="{{style}}" class="{{ cssClasses }}">{{ item.text }}</span>
+{% endmacro %}
+
+{% for item in content.content.words %}
+  {{ dualHeading.dualHeadingItem(item, design) }}
+{% endfor %}
+

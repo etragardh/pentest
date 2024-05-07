@@ -1,0 +1,393 @@
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,500,600,700");
+
+.oxygen-admin-screen-design-set-install-wizard * {
+  box-sizing: border-box;
+  font-family: var(--oxy-ui-font-family);
+}
+
+.oxygen-vsb-design-set-install-wizard {
+  background: #fafafa;
+  -webkit-font-smoothing: subpixel-antialiased;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100000;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+}
+
+.oxygen-vsb-design-set-install-wizard-button {
+  font-family: "Geomanist", sans-serif;
+  font-size: var(--oxy-medium-text-size);
+  padding: 12px 28px;
+  background: white;
+  box-shadow: 0 12px 28px -10px rgba(0, 0, 0, 0.3);
+  background-clip: padding-box;
+  color: #fff;
+  font-weight: var(--oxy-regular-font-weight);
+  display: inline-block;
+  border-radius: 100px;
+  text-decoration: none;
+  color: #5137c3;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  float: right;
+  transition: all ease 0.2s;
+}
+
+.oxygen-vsb-design-set-install-wizard-button:hover {
+  background-clip: padding-box;
+  transform: scale(1.05);
+  color: #5137c3;
+}
+
+.oxygen-vsb-design-set-install-wizard-header {
+  margin: 0;
+  width: 100%;
+  padding: 40px;
+  background: url(https://oxygenbuilder.com/wp-content/uploads/2019/09/competitions-back2x.png),
+    linear-gradient(-45deg, #5137c3, #221969);
+  background-size: 1200px, cover;
+  background-position: 50% 20%;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.oxygen-vsb-design-set-install-wizard-header div {
+  display: flex;
+  flex-direction: column;
+}
+
+.oxygen-vsb-design-set-install-wizard-header h1 {
+  font-size: 48px;
+  color: white;
+  font-family: "Geomanist", sans-serif;
+  font-weight: var(--oxy-regular-font-weight);
+  margin: 0;
+  line-height: var(--oxy-small-line-height);
+}
+
+.oxygen-vsb-design-set-install-wizard-header a {
+  font-size: var(--oxy-small-text-size);
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 12px;
+  font-family: "Geomanist", sans-serif;
+  text-decoration: none;
+  font-weight: var(--oxy-regular-font-weight);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  transition: all ease 0.2s;
+}
+
+.oxygen-vsb-design-set-install-wizard-header a:hover {
+  color: white;
+}
+
+.oxygen-vsb-design-set-install-wizard img {
+  margin-left: auto;
+  height: 30px;
+}
+
+.oxygen-vsb-design-set-install-wizard-design-sets {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  overflow: auto;
+  flex-grow: 1;
+  padding: 30px;
+  padding-right: 20px;
+}
+
+.oxygen-vsb-design-set-install-wizard-design-sets-design-set {
+  padding: 20px;
+  margin: 0px;
+  width: calc(25% - 10px);
+  margin-right: 10px;
+}
+
+.oxygen-vsb-design-set-install-wizard-design-sets-wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  overflow: auto;
+  flex-grow: 1;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+@media (max-width: 1200px) {
+  .oxygen-vsb-design-set-install-wizard-design-sets-design-set {
+    padding: 20px;
+    margin: 0px;
+    width: calc(33.33% - 10px);
+    margin-right: 10px;
+  }
+}
+
+@media (max-width: 800px) {
+  .oxygen-vsb-design-set-install-wizard-design-sets-design-set {
+    padding: 20px;
+    margin: 0px;
+    width: calc(50% - 10px);
+    margin-right: 10px;
+  }
+
+  .oxygen-vsb-design-set-install-wizard-header {
+    flex-direction: column;
+  }
+
+  .oxygen-vsb-design-set-install-wizard-header div {
+    align-items: center;
+    order: 2;
+  }
+
+  .oxygen-vsb-design-set-install-wizard img {
+    margin: 0 auto 16px;
+    order: 1;
+  }
+}
+
+.oxygen-vsb-design-set-install-wizard-design-sets-design-set-image {
+  padding-top: 75%;
+  background-size: cover;
+  margin-bottom: 0px;
+  border-radius: 6px;
+}
+
+.oxygen-vsb-design-set-install-wizard-wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.oxygen-vsb-design-set-install-wizard-design-sets-design-set-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 20px;
+  float: left;
+}
+
+@media (max-width: 800px) {
+  .oxygen-vsb-design-set-install-wizard-design-sets-design-set-info {
+    flex-direction: column;
+  }
+}
+
+.oxygen-vsb-design-set-install-wizard-design-sets-design-set-info h2 {
+  font-family: "Geomanist", sans-serif;
+  font-size: var(--oxy-big-text-size);
+  font-weight: var(--oxy-regular-font-weight);
+  margin: 0;
+  line-height: var(--oxy-small-line-height);
+  color: #000;
+  margin-bottom: 8px;
+}
+
+.oxygen-vsb-design-set-install-wizard-design-sets-design-set-info a {
+  font-family: "Geomanist", sans-serif;
+  font-size: var(--oxy-small-text-size);
+  text-decoration: none;
+  text-transform: lowercase;
+  line-height: var(--oxy-small-line-height);
+  color: #5137c3;
+  transition: all ease 0.2s;
+}
+.oxygen-vsb-design-set-install-wizard-design-sets-design-set-info a:hover {
+  color: #221969;
+}
+
+.oxygen-vsb-design-set-install-wizard-design-sets-design-set-info a::after {
+  content: "\00bb";
+  margin-left: 6px;
+}
+
+.oxygen-vsb-design-set-install-wizard-confirmation {
+  background-color: #262e35;
+  background: url(https://oxygenbuilder.com/wp-content/uploads/2019/09/competitions-back2x.png),
+    linear-gradient(-45deg, #5137c3, #221969);
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 200000;
+}
+
+.oxygen-vsb-design-set-install-wizard-confirmation-content {
+  color: white;
+  max-width: 100%;
+  width: 800px;
+  margin-left: 150px;
+  margin-right: auto;
+  padding: 80px;
+  -webkit-font-smoothing: subpixel-antialiased;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.oxygen-vsb-design-set-install-wizard-confirmation-content h2 {
+  font-size: 36px;
+  font-weight: var(--oxy-regular-font-weight);
+  color: white;
+  margin: 0;
+  margin-bottom: 40px;
+}
+
+.oxygen-vsb-design-set-install-wizard-confirmation-content h3 {
+  font-weight: var(--oxy-regular-font-weight);
+  font-size: 20px;
+  line-height: var(--oxy-big-line-height);
+  margin: 0;
+  color: white;
+}
+
+.oxygen-vsb-design-set-install-wizard-confirmation-content
+  .oxygen-vsb-design-set-install-wizard-button {
+  font-size: 20px;
+  padding: 25px 60px;
+  margin-bottom: 12px;
+  margin-top: 12px;
+}
+
+.oxygen-vsb-design-set-install-wizard-confirmation-content
+  .oxygen-vsb-design-set-install-wizard-button
+  + a {
+  color: white;
+  text-decoration: none;
+}
+
+.oxygen-vsb-design-set-install-wizard-confirmation-content-form {
+  margin-top: 30px;
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.oxygen-vsb-design-set-install-wizard-confirmation-content-form label {
+  font-size: 20px;
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.oxygen-vsb-design-set-install-wizard-confirmation-content-form label input {
+  margin: 0;
+  margin-right: 8px;
+}
+
+.oxygen-vsb-design-set-install-wizard-confirmation-content-form .oxy-tooltip {
+  display: inline-block;
+  margin-left: 6px;
+  position: relative;
+}
+
+.oxygen-vsb-design-set-install-wizard-confirmation-content-form
+  .oxy-tooltip::before {
+  content: "i";
+  width: 20px;
+  height: 20px;
+  background-color: black;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: var(--oxy-small-line-height);
+  font-weight: var(--oxy-bold-font-weight);
+  font-size: var(--oxy-small-text-size);
+  letter-spacing: 0px;
+  text-transform: lowercase;
+  font-family: var(--oxy-code-font-family);
+  cursor: help;
+  margin-left: 10px;
+}
+
+.oxygen-vsb-design-set-install-wizard-confirmation-content-form
+  .oxy-tooltip
+  .oxy-tooltip-text {
+  display: none;
+}
+
+.oxygen-vsb-design-set-install-wizard-confirmation-content-form
+  .oxy-tooltip:hover
+  .oxy-tooltip-text {
+  display: block;
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  padding: 8px;
+  background-color: #000;
+  font-size: var(--oxy-small-text-size);
+  min-width: 200px;
+  text-transform: none;
+}
+
+.oxygen-vsb-design-set-install-wizard-confirmation-content-form
+  #delete:checked
+  + .oxy-tooltip
+  + .oxygen-vsb-design-set-install-wizard-confirmation-content-form-delete-confirmation {
+  display: flex;
+}
+
+.oxygen-vsb-design-set-install-wizard-confirmation-content-form-delete-confirmation {
+  display: none;
+  font-size: var(--oxy-big-text-size);
+  color: red;
+  width: 100%;
+  line-height: var(--oxy-big-line-height);
+  margin-top: 20px;
+  margin-top: 12px;
+  margin-bottom: 12px;
+  flex-direction: column;
+}
+
+.oxygen-vsb-design-set-install-wizard-confirmation-content-form-delete-confirmation
+  input {
+  padding: 8px;
+  background-color: rgba(255, 255, 255, 0.2);
+  height: 35px;
+  border-radius: 3px;
+  border: 0px;
+  width: 120px;
+  color: white;
+}
+
+.oxygen-vsb-design-set-install-wizard-confirmation-nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.oxygen-vsb-design-set-install-wizard-confirmation-nav a:first-child {
+  margin-right: 20px;
+}
+
+.oxygen-vsb-design-set-install-wizard-confirmation-blank {
+  margin-bottom: 30px;
+}
+
+#oxygen-vsb-default-install.disabled,
+#oxygen-vsb-default-install.disabled:hover {
+  background: linear-gradient(180deg, #666 0%, #333 100%);
+  text-shadow: none;
+  color: #ccc;
+  cursor: not-allowed;
+}

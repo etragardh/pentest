@@ -1,0 +1,29 @@
+<div class="notification-bar-type-{{ content.content.type|default('tip') }} notification-bar-style-{{ content.content.style|default('style1') }}">
+
+    {% if content.content.icon.svgCode %}
+        <div class="ee-alertbox-icon">{{ content.content.icon.svgCode }}</div>
+    {% endif %}
+
+    <div class="ee-alertbox-content">
+        {% if content.content.title %}<div class="ee-alertbox-title" {{ dataContentEditablePropertyPath('content.content.title') }}>{{ content.content.title }}</div>{% endif %}
+        {% if content.content.description %}
+      		<div class="ee-alertbox-desc" {{ dataContentEditablePropertyPath('content.content.description') }}>
+            	{{ content.content.description }}
+      		</div>
+        {% endif %}
+        {% if content.content.link_text %}
+            <div class="ee-alertbox-link">
+              {{ macros.linkStart(content.content.link) }}
+                {{ content.content.link_text }}
+              {{ macros.linkEnd() }}
+      		</div>
+        {% endif %}
+    </div>
+
+    {% if content.content.show_close_button %}
+        <button type="button" class="ee-alertbox-close">
+        <span aria-hidden="true">×</span>
+        </button>
+    {% endif %}
+
+</div>

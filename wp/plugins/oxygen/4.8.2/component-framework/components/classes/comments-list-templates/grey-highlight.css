@@ -1,0 +1,63 @@
+.oxy-comments li.comment .comment-body .comment-content {
+  border: 1px solid #eee;
+  padding: 1.5em;
+  margin-top: 1.5em;
+  border-radius: 3px;
+  background-color: #fafafa;
+  margin-bottom: 0;
+}
+
+.oxy-comments li.comment .comment-body {
+  margin-bottom: 35px;
+}
+
+.oxy-comments li.comment .comment-body .comment-content p {
+  margin-top: 0;
+}
+
+.oxy-comments li.comment .comment-body .comment-content p:last-child {
+  margin-bottom: 0;
+}
+
+.oxy-comments .reply {
+  display: flex;
+  margin: 0;
+}
+
+.oxy-comments .reply .comment-reply-link {
+  margin-left: auto;
+  font-size: 0.75em;
+  background-color: #eee;
+  margin-right: 1em;
+  padding: 5px 10px;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  line-height: var(--oxy-small-line-height);
+}
+
+.oxy-comments .comment-meta {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.oxy-comments .comment-meta .comment-metadata {
+  margin: 0;
+}
+
+.oxy-comments .comment-meta .comment-author .avatar {
+  max-width: 50px;
+  max-height: 50px;
+  border-radius: 50%;
+  border: 1px solid #eee;
+  padding: 2px;
+}
+
+.oxy-comments .comment-meta .comment-author span.says {
+  display: none;
+}
+
+.oxy-comments .comment-meta .comment-metadata a {
+  color: rgba(0, 0, 0, 0.35);
+}

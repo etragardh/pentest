@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="59px" height="33px" viewBox="0 0 59 33" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.4 (67378) - http://www.bohemiancoding.com/sketch -->
+    <title>modal-blue</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Icons" transform="translate(-419.000000, -469.000000)">
+            <path d="M461.5,495 L462,495 C462.552285,495 463,495.447715 463,496 C463,497.104569 462.104569,498 461,498 L425,498 C423.895431,498 423,497.104569 423,496 L423,480 C423,478.895431 423.895431,478 425,478 L431,478 C431.552285,478 432,478.447715 432,479 L432,479 C432,479.552285 431.552285,480 431,480 L425.5,480 C425.223858,480 425,480.223858 425,480.5 L425,495.5 C425,495.776142 425.223858,496 425.5,496 L460.5,496 C460.776142,496 461,495.776142 461,495.5 L461,495.5 C461,495.223858 461.223858,495 461.5,495 Z" id="Path" fill="#577E9C" fill-rule="nonzero"></path>
+            <path d="M436,473 L472,473 C473.104569,473 474,473.895431 474,475 L474,491 C474,492.104569 473.104569,493 472,493 L436,493 C434.895431,493 434,492.104569 434,491 L434,475 C434,473.895431 434.895431,473 436,473 Z" id="Combined-Shape" fill="#386689"></path>
+            <rect id="Rectangle" fill="#577E9C" x="438" y="481" width="22" height="2" rx="1"></rect>
+            <rect id="Rectangle" fill="#577E9C" x="438" y="477" width="22" height="2" rx="1"></rect>
+            <rect id="Rectangle" fill="#577E9C" x="438" y="485" width="8" height="2" rx="1"></rect>
+            <rect id="Rectangle-Copy-42" fill="#577E9C" transform="translate(467.535534, 479.535534) rotate(-315.000000) translate(-467.535534, -479.535534) " x="463.535534" y="478.535534" width="8" height="2" rx="1"></rect>
+            <rect id="Rectangle-Copy-42" fill="#577E9C" transform="translate(467.535534, 479.535534) rotate(-225.000000) translate(-467.535534, -479.535534) " x="463.535534" y="478.535534" width="8" height="2" rx="1"></rect>
+        </g>
+    </g>
+</svg>

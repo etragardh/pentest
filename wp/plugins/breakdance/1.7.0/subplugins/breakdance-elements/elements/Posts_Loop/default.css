@@ -1,0 +1,125 @@
+.breakdance .bde-post-loop {
+  max-width: 100%;
+  width: 100%;
+}
+
+/* Grid Layout */
+.breakdance .bde-post-loop .ee-posts {
+  --bde-posts-per-row: 1;
+  --bde-posts-gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(var(--bde-posts-per-row), minmax(0, 1fr));
+  gap: var(--bde-posts-gap);
+  grid-auto-rows: auto;
+}
+
+/* List Layout */
+.breakdance .bde-post-loop .ee-posts-list {
+  --bde-posts-per-row: 1;
+}
+
+/* Slider Layout */
+.breakdance .bde-post-loop .ee-posts-slider {
+  --bde-posts-gap: 0px;
+  display: flex;
+  flex-wrap: nowrap!important;
+}
+
+.breakdance .bde-post-loop .ee-post {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+}
+
+/* Isotope Layout */
+.breakdance .bde-post-loop .ee-posts-isotope {
+  --bde-posts-isotope-width: calc(100% / var(--bde-posts-per-row));
+  --bde-posts-isotope-width-diff: calc(
+    var(--bde-posts-gap) - (var(--bde-posts-gap) / var(--bde-posts-per-row))
+  );
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.breakdance .bde-post-loop .ee-posts-isotope > .ee-post,
+.breakdance .bde-post-loop .ee-posts-isotope .ee-post-sizer {
+  width: calc(var(--bde-posts-isotope-width) - var(--bde-posts-isotope-width-diff));
+  margin-bottom: var(--bde-posts-gap);
+}
+
+.breakdance .bde-post-loop .ee-posts-isotope .ee-post-gutter {
+  width: var(--bde-posts-gap);
+}
+
+/* Pass through html elements from global block */
+.breakdance .bde-post-loop .ee-post .breakdance {
+  display: contents;
+}
+
+/* Force cell to be full-width */
+.breakdance .bde-post-loop .ee-posts-list .ee-post-sizer {
+  width: 100%;
+}
+
+.breakdance .bde-post-list .ee-posts-list .ee-post-sizer,
+.breakdance .bde-post-list .ee-posts-isotope .ee-post-gutter {
+  pointer-events: none;
+}
+
+/* Pagination */
+
+.breakdance .bde-post-loop .bde-posts-pagination-infinite-loader-wrapper {
+  text-align: center;
+}
+
+.breakdance .bde-post-loop .bde-posts-pagination-infinite-loader-wrapper {
+  margin-top: 32px;
+  font-size: 32px;
+}
+
+.bde-posts-pagination {
+  font-size: 16px;
+  gap: 20px;
+  margin-top: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bde-posts-pagination ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 0;
+  justify-content: inherit;
+}
+
+.breakdance .bde-posts-pagination a,
+.breakdance .bde-posts-pagination a:hover {
+  color: inherit;
+  text-decoration: none;
+}
+
+.breakdance .bde-posts-pagination ul li a.is-active {
+  color: var(--bde-brand-primary-color);
+}
+
+.bde-posts-navigation-numbers-prev-next {
+  flex-direction: column;
+}
+
+.bde-posts-pagination .breakdance-form-loader {
+  animation: posts-list-loading-spinner 1.5s linear infinite;
+}
+
+@keyframes posts-list-loading-spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

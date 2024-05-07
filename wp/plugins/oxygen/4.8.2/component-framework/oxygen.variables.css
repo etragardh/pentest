@@ -1,0 +1,27 @@
+:root {
+  /* Colors */
+  --oxy-dark: #2b2b2b;
+  --oxy-mid: #404040;
+  --oxy-light: #7B66FF;
+  --oxy-active: #7B66FF;
+  --oxy-active-text: white;
+  --oxy-hover: #000000;
+  --oxy-dark-transparent: rgba(0, 0, 0, 0.25);
+  --oxy-destructive: #ff5656;
+  --oxy-light-text: white;
+
+  /* Typography */
+  --oxy-small-text-size: 12px;
+  --oxy-medium-text-size: 14px;
+  --oxy-big-text-size: 16px;
+  --oxy-small-line-height: 1.2;
+  --oxy-big-line-height: 1.6;
+  --oxy-regular-font-weight: 400;
+  --oxy-bold-font-weight: 700;
+  --oxy-ui-font-family: "Geomanist", "system-ui", sans-serif;
+  --oxy-code-font-family: monospace;
+  --oxy-wide-letter-spacing: 0.1em;
+
+  /* UI */
+  --oxy-border-radius: 4px;
+}

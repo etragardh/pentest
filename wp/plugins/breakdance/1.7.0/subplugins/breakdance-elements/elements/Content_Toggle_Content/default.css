@@ -1,0 +1,11 @@
+.breakdance .bde-content-toggle-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: left;
+  align-items: flex-start;
+}
+
+.breakdance .essential-elements-content-toggle-content:empty {
+  min-height: 80px;
+}

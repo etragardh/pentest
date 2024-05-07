@@ -1,0 +1,323 @@
+{% macro atomV1TabsCss(selector, styles, breakpoint, globalSettings) %}
+  {{ selector }} .bde-tabs__tabslist {
+    --transitionTime: {{ styles.transition_effect.style }};
+    justify-content: {{ styles.position }};
+    gap: {{ styles.space_between.style }};
+  }
+
+  {{ selector }} {
+    --bde-tabs-space-after: {{ styles.space_after.style }};
+  }
+
+  {% if styles.position == 'inherit' %}
+    {{ selector }} .bde-tabs__tab {
+      width: 100%;
+      justify-content: center;
+      flex-shrink: unset;
+    }
+
+    {{ selector }} .bde-tabs__tabslist {
+      gap: 0;
+    }
+  {% endif %}
+
+  {{ selector }} .bde-tabs__tab-icon {
+    {{ _self.typography(design.typography.tab, globalSettings) }}
+    font-size: {{ styles.icon.size.style }};
+    {% if styles.icon.nudge.nudge_x and styles.icon.nudge.nudge_y %}
+      transform: translate({{ styles.icon.nudge.nudge_x.style }},{{ styles.icon.nudge.nudge_y.style }});
+    {% endif %}
+    {% if styles.icon.nudge.nudge_x and styles.icon.nudge.nudge_y is empty %}
+      transform: translateX({{ styles.icon.nudge.nudge_x.style }});
+    {% endif %}
+     {% if styles.icon.nudge.nudge_y and styles.icon.nudge.nudge_x is empty %}
+      transform: translateY({{ styles.icon.nudge.nudge_y.style }});
+    {% endif %}
+    margin-right: {{ styles.icon.after_icon.style }};
+  }
+
+  {{ selector }} .bde-tabs__tab-title {
+     {{ _self.typography(styles.text.typography, globalSettings) }}
+  }
+
+  {{ selector }} .bde-tabs__tab {
+    padding-left: {{ styles.padding.horizontal.style }};
+    padding-right:  {{ styles.padding.horizontal.style }};
+    padding-top: {{ styles.padding.vertical.style }};
+    padding-bottom: {{ styles.padding.vertical.style }};
+  }
+
+  {{ selector }} .bde-tabs__tab:not(.is-active) .bde-tabs__tab-title,
+  {{ selector }} .bde-tabs__tab:not(.is-active) .bde-tabs__tab-icon > svg {
+    color: var(--inactiveColor);
+  }
+
+  {{ selector }} .bde-tabs__tab.is-active .bde-tabs__tab-title,
+  {{ selector }} .bde-tabs__tab.is-active:hover .bde-tabs__tab-title,
+  {{ selector }} .bde-tabs__tab.is-active .bde-tabs__tab-icon > svg,
+  {{ selector }} .bde-tabs__tab.is-active:hover .bde-tabs__tab-icon > svg{
+    color: var(--activeColor);
+  }
+
+  {{ selector }} .bde-tabs__tab:hover .bde-tabs__tab-title,
+  {{ selector }} .bde-tabs__tab:hover .bde-tabs__tab-icon > svg {
+    color: var(--hoverColor);
+  }
+
+  {{ selector }} .bde-tabs__tab:not(.is-active) {
+    background-color: var(--inactiveBgColor);
+  }
+
+  {{ selector }} .bde-tabs__tab.is-active,
+  {{ selector }} .bde-tabs__tab.is-active:hover{
+    background-color: var(--activeBgColor);
+  }
+
+  {{ selector }} .bde-tabs__tab:hover{
+    background-color: var(--hoverBgColor);
+  }
+
+  {# Tabs/Default Style #}
+  {{ selector }} .bde-tabs__tabslist--tabs,
+  {{ selector }} .bde-tabs__tabslist--default {
+    --activeColor: {{ styles.text.active }};
+    --hoverColor: {{ styles.text.hover }};
+    --inactiveColor: {{ styles.text.typography.color }};
+
+    --activeBgColor: {{ styles.background.active }};
+    --hoverBgColor: {{ styles.background.hover }};
+    --inactiveBgColor: {{ styles.background.inactive }};
+
+    --activeUnderlineColor: {{ styles.underline.active|default(styles.text.active) }};
+    --hoverUnderlineColor: {{ styles.underline.hover }};
+
+    --separatorColor: {{ styles.separator.color }};
+    --separatorWidth: {{ styles.separator.width.style }};
+
+    --activeUnderlineSize: {{ styles.underline.width.style }};
+    --activeUnderlineRadius: {{ styles.underline.radius.style }};
+
+
+  }
+
+  {{ selector }} .bde-tabs__tabslist--tabs .bde-tabs__tab.is-active::after,
+  {{ selector }} .bde-tabs__tabslist--tabs .bde-tabs__tab.is-active:hover::after,
+  {{ selector }} .bde-tabs__tabslist--default .bde-tabs__tab.is-active::after,
+  {{ selector }} .bde-tabs__tabslist--default .bde-tabs__tab.is-active:hover::after,
+  {{ selector }} .bde-tabs__tabslist--bar .bde-tabs__tab.is-active::after,
+  {{ selector }} .bde-tabs__tabslist--bar .bde-tabs__tab.is-active:hover::after{
+      background-color: var(--activeUnderlineColor, --activeColor);
+  }
+
+  {{ selector }} .bde-tabs__tabslist--tabs .bde-tabs__tab:hover::after {
+    background-color: var(--hoverUnderlineColor);
+  }
+
+  {# Pills Style #}
+  {{ selector }} .bde-tabs__tabslist--pills {
+    --activeColor: {{ styles.text.active }};
+    --hoverColor: {{ styles.text.hover  }};
+    --inactiveColor: {{ styles.text.typography.color }};
+
+    --activeBgColor: {{ styles.background.active }};
+    --hoverBgColor: {{ styles.background.hover }};
+    --inactiveBgColor: {{ styles.background.inactive }};
+  }
+
+  {{ selector }} .bde-tabs__tabslist--pills .bde-tabs__tab {
+    border-radius: {{ styles.pill_radius.style }};
+  }
+
+  {{ selector }} .bde-tabs__tabslist--pills {
+    gap: {{styles.space_between.style }};
+  }
+
+  {# Bar Style #}
+  {{ selector }} .bde-tabs__tabslist--bar {
+    --activeColor: {{ styles.text.active }};
+    --hoverColor: {{ styles.text.hover }};
+    --inactiveColor: {{ styles.text.typography.color }};
+
+    --activeBgColor: {{ styles.background.active }};
+    --hoverBgColor: {{ styles.background.hover }};
+    --inactiveBgColor: {{ styles.background.inactive }};
+
+    --activeUnderlineColor: {{ styles.underline.active }};
+    --hoverUnderlineColor: {{ styles.underline.hover }};
+
+    --separatorColor: {{ styles.bar.separator }};
+
+    --activeUnderlineSize: {{ styles.underline.width.style }};
+    --activeUnderlineRadius: {{ styles.underline.radius.style }};
+  }
+
+  {{ selector }} .bde-tabs__tabslist--bar {
+    border-radius: {{ styles.bar.radius.style }};
+    box-shadow: {{ styles.bar.shadow.style }};
+    align-self: {{ styles.position }};
+
+    {% if styles.position == 'inherit' %}
+      width: 100%;
+      justify-content: center;
+    {% endif %}
+  }
+
+  {{ selector }} .bde-tabs__tabslist-container {
+    --bde-tabs-space-after: {{ styles.space_after.style }};
+    justify-content: {{ styles.position }};
+  }
+
+  {# Mobile Dropdown #}
+  {{ selector }} .bde-tabs__select {
+    background-color: {{ styles.responsive.dropdown_styles.background }};
+    {{ _self.borders(styles.responsive.dropdown_styles.borders) }}
+    {{ _self.spacing_padding_all(styles.responsive.dropdown_styles.padding) }}
+    {{ _self.typography(styles.responsive.dropdown_styles.typography, globalSettings) }}
+    margin-bottom: {{ styles.space_after.style }};
+  }
+
+  {% if breakpoint == styles.responsive.visible_at|default('breakpoint_phone_landscape') %}
+
+    {{ selector }} .bde-tabs__select {
+      display: block !important;
+    }
+
+    {{ selector }} .bde-tabs__tabslist-container--dropdown {
+      display: none !important;
+    }
+  {% endif %}
+
+  {# Support inner sliders #}
+  {{ selector }} .breakdance-swiper-wrapper {
+    overflow: hidden;
+  }
+
+  {# Default Responsive - Scrollable #}
+  {% if breakpoint == 'breakpoint_phone_landscape' %}
+    .bde-tabs__tabslist-container--scrollable,
+    .bde-tabs__tabslist-container--scrollable .bde-tabs__tabslist {
+      justify-content: flex-start !important;
+    }
+
+    .bde-tabs__tabslist-container--scrollable {
+      position: relative;
+    }
+
+    .bde-tabs__tabslist-container--scrollable .bde-tabs__tabslist {
+      overflow: auto;
+      position: relative;
+    }
+  {% endif %}
+
+  {# Affordance #}
+  {% if styles.responsive.show_affordance %}
+    {{ selector }} .bde-tabs__tabslist-container--scrollable::after {
+      display: block;
+      {% if styles.responsive.affordance_color %}
+        background-image: linear-gradient(
+          90deg,
+          rgba(255, 255, 255, 0) 0%,
+          {{ styles.responsive.affordance_color }} 100%
+        );
+      {% endif %}
+    }
+  {% endif %}
+
+  {# Mobile Dropdown #}
+  {% if breakpoint == styles.responsive.visible_at|default('breakpoint_phone_landscape') %}
+    {{ selector }} {
+      flex-direction: column;
+    }
+  {% endif %}
+
+  {# Vertical Tabs #}
+  {% if styles.vertical %}
+
+    {{ selector }} .bde-tabs__tabslist-container,
+    {{ selector }} .bde-tabs__select {
+      margin-bottom: 0;
+    }
+
+    {{ selector }} {
+      display: flex;
+      flex-direction: row;
+      gap: var(--bde-tabs-space-after, 24px);
+      align-items: flex-start;
+    
+
+      {% if styles.position_vertical == 'right' %}
+        flex-direction: row-reverse;
+      {% endif %}
+    }
+
+    {{ selector }} .bde-tabs__tabslist-container.is-vertical {
+      overflow: visible;
+    }
+
+    {{ selector }} .bde-tabs__tab-title {
+      text-align: left;
+    }
+
+  {% endif %}
+
+  {% if breakpoint == styles.horizontal_at|default('breakpoint_phone_landscape') %}
+    {{ selector }} {
+      flex-direction: column;
+      align-items: unset;
+    }  
+
+    {{ selector }} .bde-tabs__tabslist-container.is-vertical {
+      overflow: hidden;
+    }
+  {% endif %}
+
+
+{% endmacro %}
+
+{% macro atomV1TabsHtml(id, tabs, design, all = false) %}
+
+  {% set style = design.style %}
+  {% set hasDropdown = design.responsive.show_as_dropdown %}
+  {% set orientation = design.vertical ? 'vertical' : 'horizontal' %}
+  {% set dropdown = hasDropdown ? 'dropdown' : 'scrollable' %}
+
+  {% if hasDropdown %}
+    <select aria-label="{{ esc_html__('Content tabs', 'breakdance') }}" class="bde-tabs__select js-tab-select">
+      {% if all.enabled %}
+        <option value="all" data-value="all">{{ all.label|default('All') }}</option>
+      {% endif %}
+
+      {% for item in tabs %}
+        <option value="tab-{{ id }}-{{ loop.index }}" data-value="{{ item.id ?? loop.index }}">
+          {{ item.title }}
+        </option>
+      {% endfor %}
+    </select>
+  {% endif %}
+
+  {% set cssClasses = [
+    'bde-tabs__tabslist-container',
+    'bde-tabs__tabslist-container--' ~ dropdown,
+    'is-' ~ orientation,
+    'js-tabs-container'
+  ]|join(' ') %}
+
+  <div class="{{ cssClasses }}">
+    <div class="bde-tabs__tabslist bde-tabs__tabslist--{{ style|default('default') }} js-tablist" role="tablist" aria-label="{{ esc_html__('Content tabs', 'breakdance') }}" aria-orientation="{{ orientation }}" data-tabs-id="{{ id }}">
+      {% if all.enabled %}
+        <button role="tab" aria-selected="false" class="bde-tabs__tab js-tab" aria-controls="tab-panel-{{ id }}-all" id="tab-{{ id }}-all" data-value="all">
+          <span class="bde-tabs__tab-title">{{ all.label|default('All') }}</span>
+        </button>
+      {% endif %}
+
+      {% for item in tabs %}
+        <button role="tab" aria-selected="false" class="bde-tabs__tab js-tab" aria-controls="tab-panel-{{ id }}-{{ loop.index }}" id="tab-{{ id }}-{{ loop.index }}" data-value="{{ item.id ?? loop.index }}">
+          {% if item.icon.svgCode %}
+            <span class="bde-tabs__tab-icon">{{ item.icon.svgCode }}</span>
+          {% endif %}
+          <span class="bde-tabs__tab-title">{{ item.title ?? 'New Tab' }}</span>
+        </button>
+      {% endfor %}
+    </div>
+  </div>
+{% endmacro %}

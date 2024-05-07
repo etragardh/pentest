@@ -1,0 +1,211 @@
+{% macro effects(effects, selector) %}
+    {% if selector %}
+        {{ selector }} {
+    {% endif %}
+        opacity: {{ effects.opacity }};
+        box-shadow: {{ effects.box_shadow.style }};
+        mix-blend-mode: {{ effects.mix_blend_mode }};
+        transition:
+        {% for transition in effects.transition %}
+            {{ transition.duration.style | default('var(--bde-transition-duration)') }} {{ transition.timing_function }} {% if transition.property == 'all' %}all{% elseif transition.property == 'custom' %}{{ transition.custom_property }}{% endif %} {{ transition.delay.style }} {% if not loop.last %}, {% endif %}
+        {% endfor %};
+
+        transform:
+        {% for transform in effects.transform.transforms %}
+
+            {% if transform.type == 'skew' %}
+
+                {% set skewx = transform.skew_x.style %}
+                {% set skewy = transform.skew_y.style %}
+                {% if (skewx and skewy) or (skewx == '0' and skewy == '0') or ( skewx and skewy == '0' ) or ( skewx == '0' and skewy )%}
+                    skew({{ transform.skew_x.style }} , {{ transform.skew_y.style }})
+                {% elseif skewx or skewx == '0' %}
+                    skewX({{ transform.skew_x.style }})
+                {% elseif skewy or skewy == '0' %}
+                    skewY({{ transform.skew_y.style }})
+                {% endif %}
+
+            {% elseif transform.type == 'translate' %}
+
+                {% set tx = transform.translate_x.style %}
+                {% set ty = transform.translate_y.style %}
+                {% set tz = transform.translate_z.style %}
+                {% if tz or tz == '0' %}
+                    translate3d( {{tx |default('0') }}, {{ty |default('0')}}, {{tz}} )
+                {% elseif (tx and ty) or (tx == '0' and ty == '0') or (tx and ty == '0') or (tx == '0' and ty ) %}
+                    translate( {{tx}}, {{ty}} )
+                {% elseif tx or tx == '0' %}
+                    translateX( {{tx}} )
+                {% elseif ty or ty == '0' %}
+                    translateY( {{ty}} )
+                {% endif %}
+
+            {% elseif transform.type == 'rotate' %}
+
+                {% set rx = transform.rotate_x.style %}
+                {% set ry = transform.rotate_y.style %}
+                {% set rz = transform.rotate_z.style %}
+                {% if rx or rx == '0' %}rotateX( {{rx}} ) {% endif %}
+                {% if ry or ry == '0' %}rotateY( {{ry}} ) {% endif %}
+                {% if rz or rz == '0' %}rotateZ( {{rz}} ) {% endif %}
+
+            {% elseif transform.type == 'perspective' %}
+
+            {% if transform.perspective.style %}
+                perspective({{ transform.perspective.style }})
+            {% endif %}
+
+            {% elseif transform.type == 'rotate3d' %}
+
+                rotate3d( {{ transform.x | default('0') }} , {{ transform.y | default('0') }} , {{ transform.z | default('0') }} , {{ transform.angle.style | default('0') }} )
+
+            {% elseif transform.type == 'scale' %}
+
+                {% set scale = transform.scale %}
+                {% if scale or scale == '0' %}
+                    scale( {{ scale }} )
+                {% endif %}
+
+            {% elseif transform.type == 'scale3d' %}
+
+                {% set sx = transform.scale_x %}
+                {% set sy = transform.scale_y %}
+                {% set sz = transform.scale_z %}
+                {% if sz or sz == '0' %}
+                    scale3d( {{sx |default('1') }}, {{sy |default('1')}}, {{sz}} )
+                {% elseif (sx and sy) or (sx == '0' and sy == '0') or (sx and sy == '0') or (sx == '0' and sy ) %}
+                    scale( {{sx}}, {{sy}} )
+                {% elseif sx or sx == '0' %}
+                    scaleX( {{sx}} )
+                {% elseif sy or sy == '0' %}
+                    scaleY( {{sy}} )
+                {% endif %}
+
+            {% endif %}
+
+        {% endfor %};
+
+        {% if effects.transform.origin == 'custom' %}
+            transform-origin: {{ effects.transform.origin_position.x }}% {{ effects.transform.origin_position.y }}%;
+        {% else %}
+            transform-origin: {{ effects.transform.origin }};
+        {% endif %}
+        perspective: {{ effects.transform.perspective.style }};
+        {% if effects.transform.perspective_origin %}
+            perspective-origin: {{ effects.transform.perspective_origin.x }}% {{ effects.transform.perspective_origin.y }}%;
+        {% endif %}
+
+        transform-style: {{ effects.transform.transform_style }};
+
+        {{ _self.filtersInternal(effects.filter) }}
+    {% if selector %}
+        }
+    {% endif %}
+{% endmacro %}
+
+
+{% macro effectsHover(effects, selector) %}
+    {% if selector %}
+        {{ selector }} {
+    {% endif %}
+    opacity:{{ effects.opacity_hover }};
+    box-shadow: {{ effects.box_shadow_hover.style }};
+    mix-blend-mode: {{ effects.mix_blend_mode_hover }};
+    transition:
+    {% for transition in effects.transition_hover %}
+        {{ transition.duration.style | default('var(--bde-transition-duration)') }} {{ transition.timing_function }} {% if transition.property == 'all' %}all{% elseif transition.property == 'custom' %}{{ transition.custom_property }}{% endif %} {{ transition.delay.style }} {% if not loop.last %}, {% endif %}
+    {% endfor %};
+
+    transform:
+    {% for transform in effects.transform.transforms_hover %}
+        {% if transform.type == 'skew' %}
+
+            {% set skewx = transform.skew_x.style %}
+            {% set skewy = transform.skew_y.style %}
+            {% if (skewx and skewy) or (skewx == '0' and skewy == '0') or ( skewx and skewy == '0' ) or ( skewx == '0' and skewy )%}
+                skew({{ transform.skew_x.style }} , {{ transform.skew_y.style }})
+            {% elseif skewx or skewx == '0' %}
+                skewX({{ transform.skew_x.style }})
+            {% elseif skewy or skewy == '0' %}
+                skewY({{ transform.skew_y.style }})
+            {% endif %}
+
+        {% elseif transform.type == 'translate' %}
+
+            {% set tx = transform.translate_x.style %}
+            {% set ty = transform.translate_y.style %}
+            {% set tz = transform.translate_z.style %}
+            {% if tz or tz == '0' %}
+                translate3d( {{tx |default('0') }}, {{ty |default('0')}}, {{tz}} )
+            {% elseif (tx and ty) or (tx == '0' and ty == '0') or (tx and ty == '0') or (tx == '0' and ty ) %}
+                translate( {{tx}}, {{ty}} )
+            {% elseif tx or tx == '0' %}
+                translateX( {{tx}} )
+            {% elseif ty or ty == '0' %}
+                translateY( {{ty}} )
+            {% endif %}
+
+        {% elseif transform.type == 'rotate' %}
+
+            {% set rx = transform.rotate_x.style %}
+            {% set ry = transform.rotate_y.style %}
+            {% set rz = transform.rotate_z.style %}
+            {% if rx or rx == '0' %}rotateX( {{rx}} ) {% endif %}
+            {% if ry or ry == '0' %}rotateY( {{ry}} ) {% endif %}
+            {% if rz or rz == '0' %}rotateZ( {{rz}} ) {% endif %}
+
+        {% elseif transform.type == 'perspective' %}
+
+            {% if transform.perspective.style %}
+            perspective({{ transform.perspective.style }})
+            {% endif %}
+
+        {% elseif transform.type == 'rotate3d' %}
+
+            rotate3d( {{ transform.x | default('0') }} , {{ transform.y | default('0') }} , {{ transform.z | default('0') }} , {{ transform.angle.style | default('0') }} )
+
+        {% elseif transform.type == 'scale' %}
+
+            {% set scale = transform.scale %}
+            {% if scale or scale == '0' %}
+                scale( {{ scale }} )
+            {% endif %}
+
+        {% elseif transform.type == 'scale3d' %}
+
+            {% set sx = transform.scale_x %}
+            {% set sy = transform.scale_y %}
+            {% set sz = transform.scale_z %}
+            {% if sz or sz == '0' %}
+                scale3d( {{sx |default('1') }}, {{sy |default('1')}}, {{sz}} )
+            {% elseif (sx and sy) or (sx == '0' and sy == '0') or (sx and sy == '0') or (sx == '0' and sy ) %}
+                scale( {{sx}}, {{sy}} )
+            {% elseif sx or sx == '0' %}
+                scaleX( {{sx}} )
+            {% elseif sy or sy == '0' %}
+                scaleY( {{sy}} )
+            {% endif %}
+
+        {% endif %}
+
+    {% endfor %};
+
+    {% if effects.transform.origin == 'custom' %}
+        transform-origin: {{ effects.transform.origin_position_hover.x }}% {{ effects.transform.origin_position_hover.y }}%;
+    {% else %}
+        transform-origin: {{ effects.transform.origin_hover }};
+    {% endif %}
+
+    perspective: {{ effects.transform.perspective_hover.style }};
+    {% if effects.transform.perspective_origin_hover %}
+        perspective-origin: {{ effects.transform.perspective_origin_hover.x }}% {{ effects.transform.perspective_origin_hover.y }}%;
+    {% endif %}
+
+    transform-style: {{ effects.transform.transform_style_hover }};
+
+    {{ _self.filtersInternal(effects.filter_hover) }}
+
+    {% if selector %}
+        }
+    {% endif %}
+{% endmacro %}

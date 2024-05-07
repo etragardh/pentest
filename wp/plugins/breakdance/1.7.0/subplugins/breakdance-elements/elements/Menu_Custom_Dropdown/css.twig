@@ -1,0 +1,15 @@
+{% set disableAt = design.advanced.disable_desktop_styles_at|default('breakpoint_tablet_landscape') %}
+{% set breakpointWidth = get_breakpoint_max_width(disableAt) %}
+{% set needsBreakpoint = disableAt != 'breakpoint_base' and disableAt != 'never' %}
+
+{% if needsBreakpoint %}
+  @media (min-width: {{ breakpointWidth + 1 }}px) {
+{% endif %}
+    {{ macros.atomV1MenuDropdownCss('%%SELECTOR%%', design) }}
+
+    %%SELECTOR%% .breakdance-dropdown-custom-content {
+      {{ macros.simpleLayout(design.layout, breakpoint) }}
+    }
+{% if needsBreakpoint %}
+  }
+{% endif %}

@@ -1,0 +1,32 @@
+%%SELECTOR%% .nf-field-label {
+  {{ macros.typography(design.labels, globalSettings)  }}
+}
+
+%%SELECTOR%% .nf-form-content .list-select-wrap .nf-field-element > div,
+%%SELECTOR%% .nf-form-content input:not([type=button]),
+%%SELECTOR%% .nf-form-content textarea {
+  {{ macros.typography(design.fields.typography, globalSettings)  }}
+  {{ macros.background(design.fields.background) }}
+  {{ macros.borders(design.fields.borders) }}
+  {{ macros.spacing_padding_all(design.fields.spacing) }}
+}
+
+%%SELECTOR%% .submit-wrap input[type=submit],
+%%SELECTOR%% .submit-wrap input[type=button] {
+  {{ macros.typography(design.button.typography, globalSettings)  }}
+  {{ macros.background(design.button.background) }}
+  {{ macros.borders(design.button.borders) }}
+  {{ macros.spacing_padding_all(design.button.spacing) }}
+}
+
+{% if content.form.hide_title %}
+  %%SELECTOR%% .nf-form-title {
+    display: none!important;
+  }
+{% endif %}
+
+{% if content.form.hide_required_message %}
+  %%SELECTOR%% .nf-form-fields-required {
+    display: none!important;
+  }
+{% endif %}

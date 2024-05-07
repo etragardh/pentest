@@ -1,0 +1,15 @@
+%%SELECTOR%% {
+  {{ macros.spacing_margin_y(design.spacing.wrapper) }}
+  width: {{ design.size.width.style }};
+}
+
+%%SELECTOR%% .bde-tabs__panel-content {
+  {{ macros.typography(design.content, globalSettings)  }}
+}
+
+{# Tabs: spacing backwards compatibility #}
+%%SELECTOR%% .bde-tabs__tabslist-container {
+  margin-bottom: {{ design.spacing.below_tabs.style }};
+}
+
+{{ macros.atomV1TabsCss('%%SELECTOR%%', design.tabs, breakpoint, globalSettings) }}

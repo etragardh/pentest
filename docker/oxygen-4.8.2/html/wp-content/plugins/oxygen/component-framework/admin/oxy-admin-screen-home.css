@@ -1,0 +1,142 @@
+.oxygen-admin-screen-home-flex {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding-top: 20px;
+}
+
+.oxygen-admin-screen-home-left,
+.oxygen-admin-screen-home-right {
+  width: 50%;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+  justify-content: flex-start;
+	padding-top: 20px;
+}
+
+.oxygen-admin-screen-home-version {
+  font-size: var(--oxy-medium-text-size);
+}
+
+.oxygen-admin-screen-home > div > a > .dingdong {
+  border: 1px solid;
+  padding: 7px 14px;
+  text-decoration: none;
+  border-radius: 3px;
+  font-weight: var(--oxy-bold-font-weight);
+  display: inline-block;
+}
+
+.oxygen-admin-screen-home-section {
+  box-sizing: border-box;
+  padding: 20px;
+  margin-bottom: 20px;
+  background: #fff;
+  width: 100%;
+  border-radius: 8px;
+  -webkit-box-shadow: 10px 10px 20px 0px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 10px 10px 20px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 10px 10px 20px 0px rgb(0, 0, 0, 0.2);
+}
+
+.oxygen-admin-screen-home-right {
+  margin-left: 20px;
+}
+
+.oxygen-admin-screen-home-right {
+	margin-left: 20px;
+}
+
+.oxygen-admin-screen-home-section-design-set-chooser-text {
+  font-style: italic;
+  margin-bottom: 8px;
+}
+
+.oxygen-admin-screen-home-section-design-set-chooser h3 {
+  margin-top: 0;
+  margin-bottom: 26px;
+}
+
+@media (max-width: 800px) {
+  .oxygen-admin-screen-home-flex {
+    flex-direction: column;
+  }
+  .oxygen-admin-screen-home-section-design-set-chooser {
+    margin-left: 0;
+    order: -1;
+    max-width: 100%;
+    margin: 20px;
+  }
+  .oxygen-admin-screen-home-left,
+  .oxygen-admin-screen-home-right {
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0;
+  }
+}
+
+h1.oxygen-admin-screen-home-title {
+  padding: 40px;
+  background: url(https://oxygenbuilder.com/wp-content/uploads/2019/09/competitions-back2x.png),
+    linear-gradient(-45deg, #5137c3, #221969);
+  background-size: 100%, cover;
+  background-position: 50% 20%;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  color: #fff;
+  margin-top: 20px;
+}
+
+a.oxygen-admin-screen-home-link,
+a.oxygen-admin-screen-home-link:hover,
+a.oxygen-admin-screen-home-link:focus {
+  text-decoration: none;
+  padding: 8px 16px;
+  background: #241a6c;
+  border-radius: 8px;
+  color: #fff;
+  box-shadow: none;
+  border: 0;
+  outline: none;
+  display: inline-block;
+  font-size: var(--oxy-small-text-size);
+  line-height: 2.15384615;
+  min-height: 30px;
+  margin: 0;
+  cursor: pointer;
+  white-space: nowrap;
+  box-sizing: border-box;
+  transition: none;
+}
+
+.oxygen-admin-screen-home-section li {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.oxygen-admin-screen-home-section p,
+.oxygen-admin-screen-home-section-design-set-chooser p,
+.oxygen-admin-screen-home-section-design-set-chooser-text {
+  margin-bottom: 32px;
+}
+
+.oxygen-admin-screen-home {
+  margin-left: 20px;
+  margin-top: 30px;
+}
+
+.oxygen-admin-screen-home-section h2 {
+  margin-top: 0;
+}
+
+a.oxygen-admin-screen-home-link:last-child,
+.oxygen-admin-screen-home-section li:last-child {
+  margin-bottom: 0;
+}
+
+.oxygen-admin-screen-home-section ul {
+  margin-bottom: 0;
+}

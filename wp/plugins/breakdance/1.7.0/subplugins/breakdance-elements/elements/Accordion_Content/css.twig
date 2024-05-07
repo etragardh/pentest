@@ -1,0 +1,38 @@
+%%SELECTOR%% .bde-accordion__panel {
+  {{ macros.simpleLayout(design.layout, breakpoint) }}
+  {{ macros.backgroundColor(design.container.background) }}
+  {{ macros.spacing_padding_all(design.container.padding) }}
+}
+
+{# Text Colors #}
+%%SELECTOR%% .bde-accordion__panel {
+  {% if design.text_colors.text %}
+    color: {{ design.text_colors.text }};
+  {% endif %}
+  {% if design.text_colors.brand %}
+    --bde-brand-primary-color: {{ design.text_colors.brand }};
+  {% endif %}
+}
+
+{% if design.text_colors.headings %}
+  %%SELECTOR%% .bde-accordion__panel h1,
+  %%SELECTOR%% .bde-accordion__panel h2,
+  %%SELECTOR%% .bde-accordion__panel h3,
+  %%SELECTOR%% .bde-accordion__panel h4,
+  %%SELECTOR%% .bde-accordion__panel h5,
+  %%SELECTOR%% .bde-accordion__panel h6 {
+    color: {{ design.text_colors.headings }};
+  }
+{% endif %}
+
+{% if design.text_colors.link %}
+  %%SELECTOR%% .bde-accordion__panel a {
+    color: {{ design.text_colors.link }};
+  }
+{% endif %}
+
+{% if design.text_colors.link_hover %}
+  %%SELECTOR%% .bde-accordion__panel a:hover {
+    color: {{ design.text_colors.link_hover }};
+  }
+{% endif %}

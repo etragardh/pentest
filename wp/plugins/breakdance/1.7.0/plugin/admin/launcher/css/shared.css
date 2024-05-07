@@ -1,0 +1,129 @@
+:root {
+  --breakdance-launcher-primary-color: #ffc514;
+  --breakdance-launcher-secondary-color: #f6b800;
+}
+
+.breakdance-launcher {
+  font-family: system-ui;
+  -webkit-font-smoothing: antialiased;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border: 1px solid #e0e0e0;
+  padding: 70px;
+  border-radius: 4px;
+  background-color: #fff;
+  color: black;
+}
+
+.breakdance-launcher--classic {
+  margin: 8px 0;
+  background-color: #fff;
+  border-color: #c3c4c7;
+  border-radius: 0;
+}
+
+.breakdance-launcher .breakdance-logo {
+  fill: var(--breakdance-launcher-primary-color);
+  margin-bottom: 20px;
+  display: none;
+}
+
+.breakdance-launcher .breakdance-launcher__description {
+  font-size: 18px !important;
+  text-align: center;
+  margin-top: 0 !important;
+  margin-bottom: 20px !important;
+  color: black;
+}
+
+.breakdance-launcher-button {
+  color: black;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 0px;
+  padding: 15px 25px;
+}
+
+.breakdance-launcher .breakdance-launcher-link,
+.acf-input .breakdance-launcher-link {
+  appearance: none;
+  font-size: 16px;
+  text-decoration: underline;
+  color: #322f26 !important;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  margin-left: 15px !important;
+}
+
+.breakdance-launcher-small-button {
+  font-size: 13px;
+  font-weight: 500;
+  border-radius: 0px;
+  padding: 10px 20px;
+  margin-left: 8px;
+}
+
+.breakdance-launcher-button,
+.breakdance-launcher-small-button {
+  color: black !important;
+  line-height: 1;
+  border: none;
+  cursor: pointer;
+  background-color: var(--breakdance-launcher-primary-color);
+  transition: 0.3s background-color ease;
+  text-decoration: none !important;
+}
+
+.breakdance-launcher-secondary-button,
+.breakdance-launcher-secondary-small-button {
+    background-color: #fff;
+    border: 2px solid var(--breakdance-launcher-primary-color);
+    box-sizing: border-box;
+    padding: 8px;
+    margin-left:10px;
+}
+
+.breakdance-launcher-button:hover,
+.breakdance-launcher-small-button:hover {
+  background-color: var(--breakdance-launcher-secondary-color);
+}
+
+/* Gutenberg */
+
+.is-breakdance-launcher-active .block-editor-block-contextual-toolbar-wrapper,
+.is-breakdance-launcher-active .edit-post-header-toolbar__inserter-toggle,
+.is-breakdance-launcher-active .block-editor-block-toolbar,
+.is-breakdance-launcher-active .block-list-appender {
+  display: none!important;
+}
+
+/* Post Types */
+
+.post-type-breakdance_block .breakdance-launcher__description,
+.post-type-breakdance_template .breakdance-launcher__description {
+  display: none;
+}
+
+/* Template Settings */
+.breakdance-launcher__unsaved-changes {
+  display: none;
+  margin-top: 10px;
+  color: #3c434a;
+}
+
+.is-breakdance-template-settings-dirty .breakdance-launcher-button {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.is-breakdance-template-settings-dirty .breakdance-launcher__unsaved-changes {
+  display: block;
+}
+
+/* Customizer */
+
+.breakdance-customize-browse-mode-wrapper {
+  text-align: center;
+}

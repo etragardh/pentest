@@ -1,0 +1,73 @@
+.breakdance .bde-video lite-youtube{
+  max-width: 100%;
+}
+
+.breakdance .bde-video lite-vimeo {
+  text-align: left;
+}
+
+.breakdance .bde-video {
+  width: 100%;
+  max-width: 100%;
+  position: relative;
+  line-height: 0;
+  background: black;
+  overflow: hidden;
+}
+.breakdance .bde-video .ee-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.breakdance .bde-video .ee-video-container {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+}
+.breakdance .bde-video .ee-vimeo-poster {
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+}
+
+.ee-vimeo-poster:hover .ee-vimeo-play-button {
+  background-color: rgb(98, 175, 237);
+  opacity: 1;
+}
+
+.ee-vimeo-play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  width: 70px;
+  height: 46px;
+  background-color: #212121;
+  z-index: 1;
+  opacity: 0.8;
+  border-radius: 10%;
+  transition: all 0.2s cubic-bezier(0, 0, 0.2, 1);
+  border: 0;
+  cursor: pointer;
+}
+
+.ee-vimeo-play-button:before {
+  content: "";
+  border-style: solid;
+  border-width: 11px 0 11px 19px;
+  border-color: transparent transparent transparent #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+}

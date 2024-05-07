@@ -1,0 +1,69 @@
+%%SELECTOR%% {
+  width: {{ design.layout.width.style }};
+  {{ macros.spacing_margin_y(design.spacing) }}
+}
+
+%%SELECTOR%% ul {
+  gap: {{ design.layout.space_between_items.style }};
+{% if design.layout.alignment_when_vertical == 'center' %}
+  align-items: center;
+{% elseif design.layout.alignment_when_vertical == 'right' %}
+  align-items: flex-end;
+{% endif %}
+}
+
+%%SELECTOR%% .horizontal-layout {
+{% if breakpoint == design.layout.force_vertical_stacking %}
+  flex-direction: column;
+{% endif %}
+  justify-content: {{ design.layout.alignment }};
+}
+
+/* icons */
+%%SELECTOR%% li .bde-checkmark-list__icon {
+  font-size: {{ design.icon.size.style }};
+}
+
+%%SELECTOR%% li .bde-checkmark-list__icon_yes > svg {
+  {% if design.icon.advanced.positive_nudge.style %}
+    transform: translate(0px, {{ design.icon.advanced.positive_nudge.style }});
+  {% endif %}
+}
+
+%%SELECTOR%% li .bde-checkmark-list__icon_no > svg {
+  {% if design.icon.advanced.negative_nudge.style %}
+  	transform: translate(0px, {{ design.icon.advanced.negative_nudge.style }});
+  {% endif %}
+}
+
+{% if design.icon.background %}
+  %%SELECTOR%% li .bde-checkmark-list__icon.bg-yes {
+    padding: {{ design.icon.padding.style }};
+    border-radius: {{ design.icon.radius.style }};
+    color: {{ design.icon.icon_color }};
+  }
+
+  %%SELECTOR%% li .bde-checkmark-list__icon_yes.bg-yes {
+    background-color: {{ design.icon.positive_color }};
+  }
+
+  %%SELECTOR%% li .bde-checkmark-list__icon_no.bg-yes {
+    background-color: {{ design.icon.negative_color }};
+  }
+{% else %}
+  %%SELECTOR%% li .bde-checkmark-list__icon_yes {
+    color: {{ design.icon.positive_color }}
+  }
+
+  %%SELECTOR%% li .bde-checkmark-list__icon_no {
+    color: {{ design.icon.negative_color }}
+  }
+{% endif %}
+
+%%SELECTOR%% li div {
+  {{ macros.typography(design.typography, globalSettings)  }}
+}
+
+%%SELECTOR%% ul span {
+  margin-right: {{ design.layout.text_indent.style }};
+}

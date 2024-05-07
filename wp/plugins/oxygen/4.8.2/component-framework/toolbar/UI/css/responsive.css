@@ -1,0 +1,61 @@
+/* Wide Desktop */
+/* ---------------------------------------------- */
+
+@media (max-width: 1416px) {
+	.ct-toolbarsection-three {border-top: 1px solid #90a4ae; padding: 0 0 0 10px; width: 100%;}
+	.ct-toolbarsection-three .ct-toolitem {height: 53px; min-height: inherit;}
+	.ct-toolbarsection-three .ct-toolitem .ct-tab {top: 15px;}
+	.ct-toolbarsection-three .ct-toolitem .ct-noheader {margin-top: 15px; margin-bottom: 9px;}
+
+@media (max-width: 1321px) {
+	.ct-radius-details-panel .ct-size-box:nth-child(2) { margin-left: 44px; margin-top: 60px; float: inherit; clear:both;}
+}
+
+@media (max-width: 1249px) {
+	.ct-toolbarsection-two {border-top: 1px solid #90a4ae; padding: 0 0 0 10px; width: 100%;}
+}
+
+@media (max-width: 1101px) {
+	.ct-section-options { padding: 16px 0 10px 0; width: 100%;}
+	.ct-panel-options-wrap .ct-section-options .ct-list-options {width: auto;}
+	.ct-panel-options-wrap .ct-button-list {min-width: inherit;}
+}
+
+/* Tablet */
+/* ---------------------------------------------- */
+
+@media (max-width: 1000px) {
+	.ct-panel-column {display: block; width: 100%;}
+}
+
+@media (max-width: 795px) {
+	.ct-color-details {margin: 20px 0 0 0; width: 100%;}
+	.ct-my-colors {padding-top: 0;}
+	.ct-list-options {margin: 10px 0 18px; width: 100%;}
+}
+
+@media (max-width: 700px) {
+	.ct-panel-options-wrap .ct-section-options .ct-list-options {margin-top: 15px; width: 100%;}
+}
+
+@media (max-width: 682px) {
+	.ct-panel-tabs-container, .ct-panels {display: block; width: 100%; max-width: 100%;}
+	.ct-panel-tabs-wrap {border-bottom: 1px solid #cfd8dc;}
+	
+	.ct-size-box {margin: 16px 35px 30px 35px;}
+	.ct-panel-tabs { width: 45%; }
+	.ct-child-panel-tabs {border-right: none; width: 55%;}
+}
+
+/* Mobile*/
+/* ---------------------------------------------- */
+@media (max-width: 437px) {
+	.ct-toolbar-topright {height: inherit; width: 100%;}
+	.ct-toolbar-topright .ct-toolitem {max-width: inherit; overflow: hidden; width: 60%;}
+	.ct-toolbar-topright .ct-toolitem:first-child {width: 20%}
+	.ct-toolbar-topright .ct-toolitem:last-child {float: right; width: 20%;}
+	.ct-toolbar-topright .ct-toolitem .ct-color-butt {min-width: inherit;}
+	.ct-toolbar-topright .ct-toolitem .ct-table-cell {text-align: center;}
+	.ct-device-icon {display: inline-block; float: inherit; margin: 0 auto;}
+	.ct-toolbarsection-one {border-top: 1px solid #90a4ae; margin-top:59px; padding: 0 0 0 10px; width: 100%;}
+}

@@ -1,0 +1,36 @@
+/* Stack Vertically */
+{% if breakpoint == design.layout.stack_vertically %}
+%%SELECTOR%% p.price--stackable {
+  flex-direction: column;
+  align-items: flex-start;
+}
+{% endif %}
+
+/* Space Between */
+%%SELECTOR%% p.price--stackable {
+  gap: {{ design.layout.space_between.style }};
+}
+
+/* Strikethrough Color */
+%%SELECTOR%% del {
+  text-decoration-color: {{ design.typography.strikethrough_color }};
+}
+
+/* Old Price */
+%%SELECTOR%% .price del .woocommerce-Price-amount.amount bdi,
+%%SELECTOR%% .price del .woocommerce-Price-amount.amount bdi *,
+%%SELECTOR%% .price del {
+  {{ macros.typography(design.typography.old_price, globalSettings)  }}
+}
+
+/* Current Price */
+%%SELECTOR%%.bde-wooproductprice p.price ins .woocommerce-Price-amount bdi,
+%%SELECTOR%%.bde-wooproductprice p.price > .woocommerce-Price-amount bdi,
+%%SELECTOR%%.bde-wooproductprice p.price {
+  {{ macros.typography(design.typography.current_price, globalSettings)  }}
+}
+
+/* Spacing */
+%%SELECTOR%% {
+  {{ macros.spacing_margin_y(design.spacing) }}
+}

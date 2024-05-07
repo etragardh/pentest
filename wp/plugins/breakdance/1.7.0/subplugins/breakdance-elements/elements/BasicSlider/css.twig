@@ -1,0 +1,51 @@
+%%SELECTOR%% {
+  {% if design.size.height == 'custom' %}
+    --bde-basic-slider-height: {{ design.size.custom_height.style }};
+  {% endif %}
+  {% if design.size.height == 'viewport' %}
+    --bde-basic-slider-height: 100vh;
+  {% endif %}
+
+  width: {{ design.size.width.style }};
+  {{ macros.spacing_margin_y(design.spacing.container) }}
+}
+
+%%SELECTOR%% .bde-basicslider__slide {
+  {{ macros.spacing_padding_all(design.slide.padding) }}
+
+  {% if design.slide.align_children == 'left' %}
+  	justify-content: flex-start;
+  	text-align: left;
+  {% elseif design.slide.align_children == 'center' %}
+  	justify-content: center;
+  	text-align: center;
+  {% elseif design.slide.align_children == 'right' %}
+  	justify-content: flex-end;
+   	text-align: right;
+  {% endif %}
+
+  {% if design.slide.vertical_align_children == 'top' %}
+    align-items: flex-start;
+  {% elseif design.slide.vertical_align_children == 'middle' %}
+ 	align-items: center;
+  {% elseif design.slide.vertical_align_children == 'bottom' %}
+  	align-items: flex-end;
+  {% endif %}
+}
+
+%%SELECTOR%% .bde-basicslider__content {
+  max-width: {{ design.slide.content_width.style }};
+}
+
+%%SELECTOR%% .bde-basicslider__title {
+  {{ macros.typography(design.typography.title, globalSettings)  }}
+  margin-bottom: {{ design.spacing.after_title.style }};
+}
+
+%%SELECTOR%% .bde-basicslider__text {
+  {{ macros.typography(design.typography.text, globalSettings)  }}
+  margin-bottom: {{ design.spacing.after_text.style }};
+}
+
+{{ macros.AtomV1SwiperCss(design.slider, '%%SELECTOR%%', globalSettings, isBaseBreakpoint) }}
+{{ macros.atomV1ButtonCss(design.button, 'bde-basicslider__button', '%%SELECTOR%%', breakpoint, globalSettings) }}

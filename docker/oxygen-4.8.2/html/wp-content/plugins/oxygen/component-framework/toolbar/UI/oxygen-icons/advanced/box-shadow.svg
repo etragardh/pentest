@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="26px" height="20px" viewBox="0 0 26 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49 (51002) - http://www.bohemiancoding.com/sketch -->
+    <title>box-shadow</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <filter x="0.0%" y="0.0%" width="100.0%" height="100.0%" filterUnits="objectBoundingBox" id="filter-1">
+            <feGaussianBlur stdDeviation="0" in="SourceGraphic"></feGaussianBlur>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Icons" transform="translate(-255.000000, -245.000000)">
+            <rect id="Rectangle-4" fill="#000000" opacity="0" x="255" y="245" width="26" height="20"></rect>
+            <path d="M269,250 L278,250 L278,262 L260,262 L260,250 L269,250 L278.5,250 C278.776142,250 279,250.223858 279,250.5 L279,262.5 C279,262.776142 278.776142,263 278.5,263 L260.5,263 C260.223858,263 260,262.776142 260,262.5 L260,250 L269,250 Z" id="Combined-Shape" fill="#777C81" filter="url(#filter-1)"></path>
+            <path d="M258,248 L258,259 L275,259 L275,248 L258,248 Z M257.5,247 L275.5,247 C275.776142,247 276,247.223858 276,247.5 L276,259.5 C276,259.776142 275.776142,260 275.5,260 L257.5,260 C257.223858,260 257,259.776142 257,259.5 L257,247.5 C257,247.223858 257.223858,247 257.5,247 Z" id="Rectangle-7" fill="#FFFFFF" fill-rule="nonzero"></path>
+        </g>
+    </g>
+</svg>

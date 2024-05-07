@@ -1,0 +1,113 @@
+{% set layout = design.layout %}
+{% set type = layout.type|default('grid') %}
+{% set isSlider = type == "slider" %}
+{% set customSliderRatio = layout.slider_images.aspect_ratio == "0" ? "custom" : "ratio" %}
+
+{% set multiple = content.content.type == 'multiple' %}
+
+{% set mode = 'isotope' %}
+{% if type == 'slider' %}
+  {% set mode = 'gallery-slider' %}
+{% elseif type == 'grid' and not multiple %}
+  {% set mode = 'default' %}
+{% endif %}
+
+{% set images = content.content.images %}
+{% set galleries = multiple ? content.content.galleries : [{ images: images }] %}
+
+{% set linkType = content.content.link %}
+{% set linkEnabled = linkType in ['lightbox', 'custom_url', 'media_file']  %}
+{% set tag = linkEnabled ? 'a' : 'div' %}
+
+{% set size = content.content.image_size %}
+{% set lazyLoad = content.content.lazy_load %}
+{% set showCaptions = design.captions.show_captions|default('never') %}
+
+{% set animation = 'none' %}
+{% if design.captions.show_captions == 'on_hover' %}
+  {% set animation = design.captions.animation|default('fade') %}
+{% endif %}
+
+{# Additional CSS Classes #}
+{% set cssClasses = [
+  'ee-gallery--' ~ mode,
+  'ee-gallery--' ~ type,
+  'ee-gallery--' ~ content.content.type,
+  'ee-gallery--' ~ content.content.link,
+  'ee-gallery--' ~ design.images.hover_animation,
+  'ee-gallery--caption-' ~ design.captions.position,
+  'ee-gallery--caption-' ~ animation,
+  'ee-gallery--' ~ customSliderRatio
+]|join(" ") %}
+
+{% set isEmpty = (not images|length and not multiple) or (multiple and not galleries|length) %}
+
+{% if isEmpty %}
+  {% set cssClasses = cssClasses ~ " " ~ "ee-gallery--empty" %}
+{% endif %}
+
+{% if isSlider %}
+  {% set cssClasses = cssClasses ~ " " ~ "swiper-wrapper" %}
+{% endif %}
+
+{% if multiple and not isEmpty %}
+  {% set allEnabled = content.content.filter_bar.all_filter %}
+  {% set allLabel = content.content.filter_bar.all_label %}
+  {% set filters = content.content.galleries %}
+
+  <div class="ee-gallery-filter">
+    <div class="bde-tabs">
+      {{ macros.atomV1TabsHtml('%%ID%%', galleries, design.filter_bar, { 'enabled': allEnabled, 'label': allLabel }) }}
+    </div>
+  </div>
+{% endif %}
+
+{% if isSlider %}
+  <div class="ee-gallery-swiper breakdance-swiper-wrapper" data-swiper-id="%%ID%%">
+    <div class="swiper">
+{% endif %}
+
+<div class="ee-gallery {{ cssClasses }}">
+  {% for gallery in galleries %}
+    {% for item in gallery.images %}
+      {% set url = linkType == 'custom_url' ? item.custom_url : item.type == 'video' ? item.video.url : item.image.url %}
+      {% set type = item.type == "video" or item.image.type == "video" ? "video" : "image" %}
+
+      <{{tag}} class="ee-gallery-item ee-gallery-item--{{ type }} ee-gallery-item--single{{ isSlider ? ' swiper-slide' }}" href="{{ url|default('#') }}" {{ linkEnabled and url and content.content.new_tab ? 'target="_blank"' }} data-sub-html="{{ item.caption }}" data-category="{{ loop.parent.loop.index }}" {{ macros.lightboxAttrs(item) }}>
+        <figure class="ee-gallery-item-figure">
+          {% if item.type == "video" %}
+            {{ macros.video(item.video) }}
+          {% else %}
+            {{ macros.getMedia(item.image, size, lazyLoad, content.content.advanced.disable_srcset_sizes) }}
+          {% endif %}
+
+          {% if showCaptions != 'never' and (item.caption or item.image.caption) %}
+            <figcaption class="ee-gallery-item-caption">
+              {{ item.caption|default(item.image.caption) }}
+            </figcaption>
+          {% endif %}
+        </figure>
+      </{{tag}}>
+
+    {% endfor %}
+  {% endfor %}
+  
+  {% if mode == 'isotope' %}
+    <div class="ee-gallery-gutter"></div>
+  {% endif %}
+</div>
+
+{% if isSlider %}
+    </div>
+    {{ macros.AtomV1SwiperPaginationAndArrowsHtml(design.layout.slider) }}
+  </div>
+{% endif %}
+
+{% if isEmpty and isBuilder %}
+  <div class="breakdance-canvas-empty-element">
+    <svg class="breakdance-canvas-empty-element__icon" width="40" viewBox="0 0 640 512">
+      <path fill="currentColor" d="M608 0H160a32 32 0 0 0-32 32v96h160V64h192v320h128a32 32 0 0 0 32-32V32a32 32 0 0 0-32-32zM232 103a9 9 0 0 1-9 9h-30a9 9 0 0 1-9-9V73a9 9 0 0 1 9-9h30a9 9 0 0 1 9 9zm352 208a9 9 0 0 1-9 9h-30a9 9 0 0 1-9-9v-30a9 9 0 0 1 9-9h30a9 9 0 0 1 9 9zm0-104a9 9 0 0 1-9 9h-30a9 9 0 0 1-9-9v-30a9 9 0 0 1 9-9h30a9 9 0 0 1 9 9zm0-104a9 9 0 0 1-9 9h-30a9 9 0 0 1-9-9V73a9 9 0 0 1 9-9h30a9 9 0 0 1 9 9zm-168 57H32a32 32 0 0 0-32 32v288a32 32 0 0 0 32 32h384a32 32 0 0 0 32-32V192a32 32 0 0 0-32-32zM96 224a32 32 0 1 1-32 32 32 32 0 0 1 32-32zm288 224H64v-32l64-64 32 32 128-128 96 96z"></path>
+    </svg>
+    <h3 class="breakdance-canvas-empty-element__title">No media selected.</h3>
+  </div>
+{% endif %}

@@ -1,0 +1,58 @@
+{# IMPORTANT #}
+{# WooCommerce selectors need to be in sync in following files: #}
+{# woo-plugin-css-temp/css/a-root.css #}
+{# breakdance/global-styles/buttons/global-buttons.css.twig #}
+{# breakdance-elements/elements/WooGlobalStyler/css.twig #}
+
+{# Primary Buttons #}
+{% set primaryButtons = [
+  '.breakdance .button-atom--primary',
+  '.bde-mini-cart-offcanvas .button',
+  '.bde-woo-product-quicklook-button',
+  '.woocommerce-page.woocommerce-lost-password .breakdance-woocommerce button[type="submit"]',
+  '.breakdance-woocommerce .woocommerce-form-track-order button[type="submit"]',
+  '.breakdance-woocommerce #place_order',
+  '.breakdance-woocommerce .woocommerce-button.pay',
+  '.breakdance-woocommerce button.single_add_to_cart_button',
+  '.breakdance-woocommerce a.single_add_to_cart_button',
+  '.breakdance-woocommerce a.button.wc-backward',
+  '.breakdance-woocommerce a.checkout-button',
+  '.breakdance-woocommerce p.order-again a.button',
+  '.breakdance-woocommerce button[name="add-to-cart"]',
+  '.breakdance-woocommerce button[name="login"]',
+  '.breakdance-woocommerce button[name="save_address"]',
+  '.breakdance-woocommerce button[name="save_account_details"]',
+  '.breakdance-woocommerce button[name="woocommerce_checkout_place_order"]',
+  '.breakdance-woocommerce .woocommerce-MyAccount-content a.button[href*="add-payment-method"]'
+  ]
+%}
+
+
+{# Secondary Buttons #}
+{% set secondaryButtons = [
+  '.breakdance .button-atom--secondary',
+  '.breakdance-woocommerce .woocommerce-MyAccount-downloads-file',
+  '.breakdance-woocommerce .woocommerce-Address a.edit',
+  '.breakdance-woocommerce .woocommerce-button.view',
+  '.breakdance-woocommerce .woocommerce-Button--previous',
+  '.breakdance-woocommerce .woocommerce-Button--next',
+  '.breakdance-woocommerce .widget_price_filter .button',
+  '.breakdance-woocommerce a.button.add_to_cart_button',
+  '.breakdance-woocommerce a.button.product_type_grouped',
+  '.breakdance-woocommerce .added_to_cart',
+  '.breakdance-woocommerce .woocommerce-widget-layered-nav-dropdown__submit',
+  '.breakdance-woocommerce .woocommerce-product-search button[type="submit"]',
+  '.breakdance-woocommerce a.product_type_simple',
+  '.breakdance-woocommerce a.product_type_variable',
+  '.breakdance-woocommerce .form-submit input[type="submit"]',
+  '.breakdance-woocommerce button[name="update_cart"]',
+  '.breakdance-woocommerce button[name="calc_shipping"]',
+  '.breakdance-woocommerce button[name="apply_coupon"]',
+  '.breakdance-woocommerce a.product_type_external'
+  ]
+%}
+
+
+{{ macros.atomV1ButtonButton(settings.buttons.primary, primaryButtons, 'primary', breakpoint, settings) }}
+{{ macros.atomV1ButtonButton(settings.buttons.secondary, secondaryButtons, 'secondary', breakpoint, settings) }}
+

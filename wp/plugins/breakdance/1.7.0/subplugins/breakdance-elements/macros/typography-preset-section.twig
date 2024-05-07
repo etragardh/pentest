@@ -1,0 +1,228 @@
+{% macro typographyPropertiesWithVariables(preset, globalSettings) %}
+    {% for globalPreset in globalSettings.typography.global_typography.typography_presets %}
+        {% if globalPreset.preset.id == preset %}
+
+        {% set presetTypographyValues =  globalPreset.custom.customTypography %}
+
+            {% if presetTypographyValues.fontSize.style %}
+                font-size: var(--{{ preset }}-font-size);
+            {% endif %}
+
+            {% if presetTypographyValues.fontFamily %}
+                font-family: var(--{{ preset }}-font-family);
+            {% endif %}
+
+            {% if presetTypographyValues.fontWeight %}
+                font-weight: var(--{{ preset }}-font-weight);
+            {% endif %}
+
+            {% if presetTypographyValues.advanced.fontStyle %}
+                font-style: var(--{{ preset }}-font-style);
+            {% endif %}
+
+            {% if presetTypographyValues.advanced.lineHeight.style %}
+                line-height: var(--{{ preset }}-line-height);
+            {% endif %}
+
+            {% if presetTypographyValues.advanced.letterSpacing.style %}
+                letter-spacing: var(--{{ preset }}-letter-spacing);
+            {% endif %}
+
+            {% if presetTypographyValues.advanced.wordSpacing.style %}
+                word-spacing: var(--{{ preset }}-word-spacing);
+            {% endif %}
+
+            {% if presetTypographyValues.advanced.decoration.line %}
+                text-decoration-line: var(--{{ preset }}-text-decoration-line);
+            {% endif %}
+
+            {% if presetTypographyValues.advanced.decoration.underline_offset %}
+                text-underline-offset: var(--{{ preset }}-text-underline-offset);
+            {% endif %}
+
+            {% if presetTypographyValues.advanced.decoration.color %}
+                text-decoration-color: var(--{{ preset }}-text-decoration-color);
+            {% endif %}
+
+            {% if presetTypographyValues.advanced.decoration.style %}
+                text-decoration-style: var(--{{ preset }}-text-decoration-style);
+            {% endif %}
+
+            {% if presetTypographyValues.advanced.decoration.thickness %}
+                text-decoration-thickness: var(--{{ preset }}-text-decoration-thickness);
+            {% endif %}
+
+            {% if presetTypographyValues.advanced.textTransform %}
+                text-transform: var(--{{ preset }}-text-transform);
+            {% endif %}
+
+            {% if presetTypographyValues.advanced.textDirection %}
+                direction: var(--{{ preset }}-direction);
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+{% endmacro %}
+
+{% macro customTypographyValuesAsCssVariables(presetId, values) %}
+
+  --{{ presetId }}-font-family: {{ process_font(values.fontFamily) }};
+  --{{ presetId }}-font-size: {{ values.fontSize.style }};
+  --{{ presetId }}-font-weight: {{ values.fontWeight }};
+  --{{ presetId }}-font-style: {{ values.advanced.fontStyle }};
+  --{{ presetId }}-line-height: {{ values.advanced.lineHeight.style }};
+  --{{ presetId }}-letter-spacing: {{ values.advanced.letterSpacing.style }};
+  --{{ presetId }}-word-spacing: {{ values.advanced.wordSpacing.style }};
+  --{{ presetId }}-text-decoration-color: {{ values.advanced.decoration.color }};
+  --{{ presetId }}-text-decoration-style: {{ values.advanced.decoration.style }};
+  --{{ presetId }}-text-decoration-line: {{ values.advanced.decoration.line | join(' ')  }};
+  --{{ presetId }}-text-underline-offset: {{ values.advanced.decoration.underline_offset.style  }};
+  --{{ presetId }}-text-decoration-thickness: {{ values.advanced.decoration.thickness.style }};
+  --{{ presetId }}-text-transform: {{ values.advanced.textTransform }};
+  --{{ presetId }}-direction: {{ values.advanced.textDirection }};
+
+{% endmacro %}
+
+
+{% macro typographyProperties(custom) %}
+  font-family: {{ process_font(custom.fontFamily) }};
+  font-size: {{ custom.fontSize.style }};
+  font-weight: {{ custom.fontWeight }};
+  line-height: {{ custom.advanced.lineHeight.style }};
+  font-style: {{ custom.advanced.fontStyle }};
+  letter-spacing: {{ custom.advanced.letterSpacing.style }};
+  word-spacing: {{ custom.advanced.wordSpacing.style }};
+  text-decoration-color: {{ custom.advanced.decoration.color }};
+  text-decoration-style: {{ custom.advanced.decoration.style }};
+  text-decoration-line: {{ custom.advanced.decoration.line | join(' ') }};
+  text-underline-offset: {{ custom.advanced.decoration.underline_offset.style }};
+  text-decoration-thickness: {{ custom.advanced.decoration.thickness.style }};
+  text-transform: {{ custom.advanced.textTransform }};
+  direction: {{ custom.advanced.textDirection }};
+{% endmacro %}
+
+
+{% macro typographyPropertiesFromHover(custom) %}
+  font-family: {{ process_font(custom.fontFamily_hover) }};
+  font-size: {{ custom.fontSize_hover.style }};
+  font-weight: {{ custom.fontWeight_hover }};
+  line-height: {{ custom.advanced.lineHeight_hover.style }};
+  font-style: {{ custom.advanced.fontStyle_hover }};
+  letter-spacing: {{ custom.advanced.letterSpacing_hover.style }};
+  word-spacing: {{ custom.advanced.wordSpacing_hover.style }};
+  text-decoration-color: {{ custom.advanced.decoration.color_hover }};
+  text-decoration-style: {{ custom.advanced.decoration.style_hover }};
+  text-decoration-line: {{ custom.advanced.decoration.line_hover | join(' ') }};
+  text-underline-offset: {{ custom.advanced.decoration.underline_offset_hover.style }};
+  text-decoration-thickness: {{ custom.advanced.decoration.thickness_hover }};
+  text-transform: {{ custom.advanced.textTransform_hover }};
+  direction: {{ custom.advanced.textDirection_hover }};
+{% endmacro %}
+
+{% macro typographyEffects(effects) %}
+
+  text-shadow: {{ effects.text_shadow.style }};
+
+  {% if effects.fill %}
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  {% endif %}
+
+  {% if effects.fill == 'image' %}
+    background-image: url({{ effects.image.url }});
+    {% if effects.image_size == 'custom' %}
+      background-size: {{ effects.image_width.style }} {{ effects.image_height.style }};
+    {% else %}
+      background-size: {{ effects.image_size }};
+    {% endif %}
+    {% if effects.image_repeat %}
+      background-repeat: {{ effects.image_repeat }};
+    {% endif %}
+    {% if effects.image_position %}
+      {% if effects.image_position == 'custom' %}
+        background-position: {{ effects.image_left.style }} {{ effects.image_top.style }};
+      {% else %}
+        background-position: {{ effects.image_position }};
+      {% endif %}
+    {% endif %}
+    {% if effects.image_attachment %}
+      background-attachment: {{ effects.image_attachment }};
+    {% endif %}
+  {% endif %}
+
+  {% if effects.fill == 'gradient' %}
+    background-image: {{ effects.gradient.value ?? effects.gradient }};
+  {% endif %}
+
+  {% if effects.stroke_color %}
+    -webkit-text-stroke-color: {{ effects.stroke_color }};
+  {% endif %}
+
+  {% if effects.stroke_width %}
+    -webkit-text-stroke-width: {{ effects.stroke_width.style }};
+  {% endif %}
+{% endmacro %}
+
+
+{% macro typographyEffectsHover(effects) %}
+
+  text-shadow: {{ effects.text_shadow_hover.style }};
+
+  {% if effects.stroke_color_hover %}
+    -webkit-text-stroke-color: {{ effects.stroke_color_hover }};
+  {% endif %}
+
+  {% if effects.stroke_width_hover %}
+    -webkit-text-stroke-width: {{ effects.stroke_width_hover.style }};
+  {% endif %}
+
+  {% if effects.fill == 'image' and effects.image_hover %}
+    background-image: url({{ effects.image_hover.url }});
+  {% endif %}
+
+  {% if effects.fill == 'gradient' and effects.gradient_hover %}
+    background-image: {{ effects.gradient_hover.value }};
+  {% endif %}
+
+{% endmacro %}
+
+{% macro typography(typography, globalSettings) %}
+  text-align: {{ typography.text_align }};
+  color: {{ typography.color }};
+
+  {% if typography.typography.preset %}
+    {{ _self.typographyPropertiesWithVariables(typography.typography.preset, globalSettings) }}
+  {% elseif typography.typography.custom.customTypography %}
+    {{ _self.typographyProperties(typography.typography.custom.customTypography) }}
+  {% endif %}
+  {% if typography.effects %}
+    {{  _self.typographyEffects(typography.effects) }}
+  {% endif %}
+{% endmacro %}
+
+{% macro typographyWithHoverableColorAndEffects(typography) %}
+  color: {{ typography.color_hover }};
+
+  {% if typography.effects %}
+    {{  _self.typographyEffectsHover(typography.effects) }}
+  {% endif %}
+
+{% endmacro %}
+
+{% macro typographyWithHoverableEverything(typography) %}
+  text-align: {{ typography.text_align_hover }};
+  color: {{ typography.color_hover }};
+
+  {% if typography.effects %}
+    {{  _self.typographyEffectsHover(typography.effects) }}
+  {% endif %}
+
+  {% if typography.typography.preset %}
+  {# do nothing, presets can't be hoverable #}
+  {% else %}
+    {{ _self.typographyPropertiesFromHover(typography.typography.custom.customTypography) }}
+  {% endif %}
+{% endmacro %}
+
+
+

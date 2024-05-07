@@ -1,0 +1,73 @@
+{% macro atomV1IconCss(iconDesign, className, selectorPrefix, hoverStylesOnContainerHover) %}
+
+    {% set selector = selectorPrefix ~ ' .' ~ className ~ '.breakdance-icon-atom' %}
+
+    {% if hoverStylesOnContainerHover %}
+        {% set hoverSelector = selectorPrefix ~ ':hover' ~ ' .' ~ className ~ '.breakdance-icon-atom' %}
+    {% endif %}
+
+    {{ selector }} {
+        font-size: {{ iconDesign.size.style }};
+
+        {% if iconDesign.style == "solid" or iconDesign.style == "outline"  %}
+
+	        padding: {{ iconDesign.padding.style }};
+
+			{% if not iconDesign.padding.style %}
+                padding: 1em;
+            {% endif %}
+
+            {% if iconDesign.corners == "round" %}
+                border-radius: 999px;
+            {% elseif iconDesign.corners == "custom" %}
+                border-radius: {{ iconDesign.radius.style|default('4px') }};
+            {% endif %}
+
+                {{ _self.backgroundColor(iconDesign.background) }};
+
+            {% if not iconDesign.background and iconDesign.style == "solid" %}
+                background: black;
+            {% endif %}
+
+            {% if not iconDesign.background and iconDesign.style == "outline" %}
+            background: white;
+            {% endif %}
+
+            {% if iconDesign.style == "outline" %}
+            border:{{ iconDesign.outline_width.style | default('4px') }} solid {{ iconDesign.border | default('var(--bde-brand-primary-color)') }};
+            {% endif %}
+
+        {% endif %}
+    }
+
+    {% if iconDesign.nudge.x.style or iconDesign.nudge.y.style %}
+        {{ selector }} svg {
+            transform: translate({{ iconDesign.nudge.x.style|default('0px') }}, {{ iconDesign.nudge.y.style|default('0px') }});
+        }
+    {% endif %}
+
+    {% if iconDesign.color %}
+        {{ selector }} svg:first-child {
+            {{ _self.svgColor(iconDesign.color, 'grad-%%ID%%') }}
+        }
+    {% endif %}
+
+    {% if hoverSelector %}
+        {{ hoverSelector }} {
+            {{ _self.backgroundColor(iconDesign.background_hover) }};
+
+            {% if iconDesign.style == "outline" %}
+                border-color: {{ iconDesign.border_hover }};
+            {% endif %}
+        }
+
+        {% if iconDesign.color_hover %}
+            {{ hoverSelector }} svg:first-child {
+                {{ _self.svgColor(iconDesign.color_hover, 'grad-hover-%%ID%%') }}
+            }
+        {% endif %}
+    {% endif %}
+
+{% endmacro %}
+
+

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="59px" height="33px" viewBox="0 0 59 33" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49 (51002) - http://www.bohemiancoding.com/sketch -->
+    <title>image-box-blue</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Icons" transform="translate(-482.000000, -321.000000)">
+            <rect id="Rectangle" fill="#577E9C" x="510" y="329" width="25" height="2" rx="1"></rect>
+            <rect id="Rectangle" fill="#577E9C" x="510" y="334" width="25" height="2" rx="1"></rect>
+            <rect id="Rectangle" fill="#577E9C" x="510" y="339" width="25" height="2" rx="1"></rect>
+            <rect id="Rectangle" fill="#577E9C" x="510" y="344" width="16" height="2" rx="1"></rect>
+            <path d="M498.459887,340.226007 L499.714835,339.004946 C499.912751,338.812374 500.229304,338.816706 500.421876,339.014622 C500.43774,339.030927 500.452473,339.048295 500.465972,339.066605 L502.895048,342.361503 C503.058911,342.583772 503.011562,342.896794 502.789293,343.060656 C502.703346,343.124018 502.599372,343.158202 502.492594,343.158202 L492.505684,343.158202 C492.229542,343.158202 492.005684,342.934344 492.005684,342.658202 C492.005684,342.564673 492.031917,342.473019 492.081403,342.393654 L495.336267,337.173504 C495.482373,336.939179 495.790772,336.867664 496.025096,337.01377 C496.102607,337.0621 496.165398,337.13074 496.206652,337.212238 L497.665101,340.093462 C497.789815,340.339838 498.090642,340.438466 498.337018,340.313752 C498.38218,340.290892 498.423608,340.261306 498.459887,340.226007 Z" id="Path" fill="#577E9C"></path>
+            <circle id="Oval-4" fill="#577E9C" cx="500.5" cy="334.5" r="1.5"></circle>
+            <rect id="Rectangle-16" stroke="#386689" stroke-width="2" x="489" y="329" width="17" height="17" rx="2"></rect>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,9 @@
+.breakdance .bde-globalblock {
+   max-width: 100%;
+   width: 100%;
+}
+
+.bde-globalblock .breakdance{
+   background-color: initial;
+   color: initial;
+}

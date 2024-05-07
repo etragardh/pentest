@@ -1,0 +1,9 @@
+.bde-wooproducttabs {
+  width: 100%;
+}
+
+.breakdance-woocommerce .woocommerce-Tabs-panel--additional_information,
+.breakdance-woocommerce .woocommerce-Tabs-panel--description,
+.breakdance-woocommerce .woocommerce-Reviews {
+  max-width: 100%;
+}

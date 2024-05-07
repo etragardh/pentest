@@ -1,0 +1,9 @@
+{% set content = content.content %}
+
+{% if content.tabs %}
+{{ macros.atomV1TabsHtml('%%UNIQUESLUG%%', content.tabs, design.tabs) }}
+<div class="bde-tabs-content-container">
+  %%CHILDREN%%
+</div>
+{% endif %}
+

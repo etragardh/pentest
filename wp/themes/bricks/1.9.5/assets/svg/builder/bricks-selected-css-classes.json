@@ -1,0 +1,55 @@
+[
+  {
+    "id": "jeyrbg",
+    "name": "a",
+    "settings": {
+      "_display": "grid",
+      "_typography:mobile_portrait": {
+        "color": {
+          "hex": "#ff5722",
+          "id": "7b00ec",
+          "name": "Color #10"
+        }
+      },
+      "_typography:mobile_landscape": {
+        "color": {
+          "hex": "#2196f3",
+          "id": "dff4ba",
+          "name": "Color #13"
+        }
+      },
+      "_typography:tablet_portrait": {
+        "color": {
+          "hex": "#4caf50",
+          "id": "991596",
+          "name": "Color #16"
+        }
+      },
+      "_typography": {
+        "color": {
+          "hex": "#ffd64f",
+          "id": "zlgnpf",
+          "name": "Color #19"
+        }
+      },
+      "_cssCustom": ".a2x {text-transform: uppercase}",
+      "_background": {
+        "color": {
+          "hex": "#9c27b0",
+          "id": "1fd151",
+          "name": "Color #12"
+        }
+      },
+      "_height": "222"
+    },
+    "category": "stzynl"
+  },
+  {
+    "id": "htcscz",
+    "name": "b",
+    "settings": {
+      "_cssCustom": ".b {color: blue}"
+    },
+    "category": "pwgihj"
+  }
+]

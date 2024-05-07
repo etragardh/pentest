@@ -1,0 +1,17 @@
+{% for icon_box in content.content.icon_boxes %}
+<div class="bde-icon-box">
+  <div class="bde-icon-box-icon-wrapper">
+    <div class="bde-icon-box-icon">
+      {{ icon_box.icon.svgCode }}
+    </div>
+  </div>
+  <div class="bde-icon-box-content-wrapper">
+    <div class="bde-icon-box-title" {{ dataContentEditablePropertyPath('content.content.icon_boxes['~ loop.index0 ~ '].title') }}>
+      {{ icon_box.title }}
+    </div>
+    <div class="bde-icon-box-text" {{ dataContentEditablePropertyPath('content.content.icon_boxes['~ loop.index0 ~ '].text') }}>
+      {{ icon_box.text }}
+    </div>
+  </div>
+</div>
+{% endfor %}

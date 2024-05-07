@@ -1,0 +1,47 @@
+%%SELECTOR%% .advanced-slider__slide {
+  {{ macros.spacing_padding_all(design.spacing) }}
+  {{ macros.background(design.background) }}
+  {% if design.layout.advanced.flex_direction %}
+  	flex-direction: {{ design.layout.advanced.flex_direction }};
+  {% else %}
+    {% if design.layout.align_children == 'left' %}
+      align-items: flex-start;
+      text-align:left;
+    {% elseif design.layout.align_children == 'center' %}
+      align-items: center;
+      text-align: center;
+    {% elseif design.layout.align_children == 'right' %}
+      align-items: flex-end;
+      text-align: right;
+    {% endif %}
+
+    {% if design.layout.vertical_align_children == 'top' %}
+   	  justify-content: flex-start;
+    {% elseif design.layout.vertical_align_children == 'middle' %}
+      justify-content: center;
+    {% elseif design.layout.vertical_align_children == 'bottom' %}
+      justify-content: flex-end;
+    {% endif %}
+  {% endif %}
+
+  {% if design.layout.advanced.align_items %}
+    align-items: {{ design.layout.advanced.align_items }};
+  {% endif %}
+
+  {% if design.layout.advanced.justify_content %}
+    justify-content: {{ design.layout.advanced.justify_content }};
+  {% endif %}
+
+  {% if design.layout.advanced.flex_wrap %}
+    flex-wrap: {{ design.layout.advanced.flex_wrap }};
+  {% endif %}
+
+  {% if design.layout.advanced.align_content %}
+    align-content: {{ design.layout.advanced.align_content }};
+  {% endif %}
+
+  {% if design.layout.advanced.gap %}
+    gap: {{ design.layout.advanced.gap.style }};
+  {% endif %}
+  
+}

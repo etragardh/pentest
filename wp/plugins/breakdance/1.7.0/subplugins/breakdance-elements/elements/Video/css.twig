@@ -1,0 +1,76 @@
+%%SELECTOR%% {
+  {{ macros.spacing_margin_y(design.spacing) }}
+  width: {{ design.container.width.style }};
+  {{ macros.borders(design.container.borders) }}
+}
+{% if design.container.overlay %}
+  %%SELECTOR%% .ee-video-overlay {
+  position:absolute;
+  top:0;
+  left:0;
+  bottom:0;
+  right:0;
+  background-color: {{ design.container.overlay }};
+  pointer-events:none;
+}
+{% endif %}
+%%SELECTOR%% .ee-video-container {
+  {% if content.video.ratio == 'custom' %}
+    {% set ratiow = content.video.custom_width %}
+    {% set ratioh = content.video.custom_height %}
+
+    {# if ratiow is not set, we can end up dividing by 0 and blowing up #}
+    {% if ratiow and ratioh %}
+      {% set customratio = ratioh / ratiow * 100 %}
+      padding-top: {{ customratio }}%;
+    {% endif %}
+  {% elseif content.video.ratio %}
+    padding-top: {{ content.video.ratio }};
+  {% endif %}
+}
+
+{% if content.lazy_load.lazy_load %}
+  /* lazy-load */
+
+  %%SELECTOR%% .ee-video img {
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  }
+
+  %%SELECTOR%% .ee-video-container iframe {
+  object-fit:cover;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  cursor: pointer;
+  }
+
+  /* button */
+
+  %%SELECTOR%% .ee-video .ee-play-button {
+  display: flex;
+  color: {{ design.lazy_load.icon_color | default('#222') }};
+  font-size: {{ design.lazy_load.icon_size.style | default('80px') }};
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 68px;
+  height: 48px;
+  margin-left: -34px;
+  margin-top: -24px;
+  transition:0.3s ease color;
+  }
+  %%SELECTOR%% .ee-video .ee-play-button:hover {
+  color: {{ design.lazy_load.icon_color_hover }}
+  }
+
+  %%SELECTOR%% .ee-play-button > svg {
+  font-size: inherit;
+  width: 1em;
+  height: 1em;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+  }
+{% endif %}

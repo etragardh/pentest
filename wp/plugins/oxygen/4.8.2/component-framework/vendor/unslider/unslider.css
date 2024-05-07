@@ -1,0 +1,64 @@
+.unslider{overflow:auto;margin:0;padding:0}.unslider-wrap{position:relative}.unslider-wrap.unslider-carousel>li{float:left}.unslider-vertical>ul{height:100%}.unslider-vertical li{float:none;width:100%}.unslider-fade{position:relative}.unslider-fade .unslider-wrap li{position:absolute;left:0;top:0;right:0;z-index:8}.unslider-fade .unslider-wrap li.unslider-active{z-index:10}.unslider li,.unslider ol,.unslider ul{list-style:none;margin:0;padding:0;border:none}.unslider-arrow{position:absolute;left:20px;z-index:2;cursor:pointer}.unslider-arrow.next{left:auto;right:20px}
+/*original from unslider-dots.css*/
+.unslider-nav ol {
+  list-style: none;
+  text-align: center;
+}
+.unslider-nav ol li {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin: 0 4px;
+  background: transparent;
+  border-radius: 5px;
+  overflow: hidden;
+  text-indent: -999em;
+  border: 2px solid #fff;
+  cursor: pointer;
+}
+.unslider-nav ol li.unslider-active {
+  background: #fff;
+  cursor: default;
+}
+/*Arrow styles not included with original script*/
+.unslider-arrow {
+    background: rgba(0, 0, 0, 0.2) url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAQCAQAAABuQZ3IAAAAi0lEQVR4AU3OISBEQQBAwS0AACS9NxqQgCZpkiYBVddFvWhAAUABAPQCAGC4g/0vTnrBqCfDIZl70J+kMUBPpEwT4FNXxBxz4F1HxHyr4EVTxBLb4EFNxEon4CJSlVNw9AcV9sC16h8osgke1P1ArgXwouVvdQq86ww/GQefusNf7kBviBlxpT8k+gL/Wox4r1d4MwAAAABJRU5ErkJggg==") no-repeat scroll 50% 50% / 7px 11px;
+    border-radius: 32px;
+    display: block;
+    height: 32px;
+    margin-top: -16px;
+    opacity: 0.6;
+    overflow: hidden;
+    text-indent: -999em;
+    top: 50%;
+    transition: opacity 0.2s ease 0s;
+    width: 32px;
+}
+.unslider-arrow:hover {
+    opacity: 1;
+}
+.unslider-arrow.prev {
+    left: 0;
+    right: auto;
+    transform: rotate(-180deg);
+}
+.unslider-arrow.next {
+    left: auto;
+    right: 0;
+}
+/*Oxygen styles*/
+.unslider {
+  position: relative;
+  overflow: visible;
+  padding: 0 40px;
+}
+.unslider-nav ol li {
+  box-sizing: content-box;
+  box-shadow: 0px 0px 4px rgba(0,0,0,0.2), 0px 0px 1px rgba(0,0,0,0.2) inset;
+}
+.unslider-nav ol li.unslider-active {
+  box-shadow: 0px 0px 4px rgba(0,0,0,0.2);
+}
+.unslider-wrap.unslider-carousel>li {
+  padding: 5px;
+}

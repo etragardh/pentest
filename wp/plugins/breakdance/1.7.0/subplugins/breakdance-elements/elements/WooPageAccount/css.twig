@@ -1,0 +1,204 @@
+/* Layout Vertical */
+{% if design.tabs.layout == 'vertical' %}
+  %%SELECTOR%%.breakdance-woocommerce .woocommerce {
+    flex-direction: row;
+}
+/* Vertical Tabs Position */
+{% if design.tabs.vertical_tabs_position == 'left' %}
+  %%SELECTOR%% .woocommerce-MyAccount-navigation {
+    order: 1;
+	}
+  %%SELECTOR%% .woocommerce-MyAccount-content {
+    order: 2;
+	}
+{% elseif design.tabs.vertical_tabs_position == 'right' %}
+  %%SELECTOR%% .woocommerce-MyAccount-navigation {
+    order: 2;
+	}
+  %%SELECTOR%% .woocommerce-MyAccount-content {
+    order: 1;
+	}
+%%SELECTOR%% .woocommerce-MyAccount-navigation ul li a {
+        border-right: none;
+        border-left: 2px solid transparent;
+      }
+  /* Sticky Tabs */
+  {% if design.tabs.sticky_tabs %}
+     %%SELECTOR%% .woocommerce-MyAccount-navigation ul {
+          position: sticky;
+          position: -webkit-sticky;
+          top: {{ design.tabs.sticky_offset.style | default('40px') }};
+      }
+  {% endif %}
+{% endif %}
+
+/* Layout Horizontal */
+{% elseif design.tabs.layout == 'horizontal' %}
+  %%SELECTOR%% .woocommerce-MyAccount-navigation,
+  %%SELECTOR%% .woocommerce-MyAccount-content {
+    width: 100%;
+  }
+%%SELECTOR%%.breakdance-woocommerce nav.woocommerce-MyAccount-navigation ul {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+%%SELECTOR%% .woocommerce-MyAccount-navigation ul li a {
+  border-right: none;
+  border-bottom: 2px solid transparent;
+}
+/* Horizontal Tabs Position */
+  {% if design.tabs.horizontal_tabs_position == 'left' %}
+  %%SELECTOR%%.breakdance-woocommerce nav.woocommerce-MyAccount-navigation ul {
+    justify-content: flex-start;
+  }
+  {% elseif design.tabs.horizontal_tabs_position == 'center' %}
+   %%SELECTOR%%.breakdance-woocommerce nav.woocommerce-MyAccount-navigation ul {
+    justify-content: center;
+  }
+  {% elseif design.tabs.horizontal_tabs_position == 'right' %}
+   %%SELECTOR%%.breakdance-woocommerce nav.woocommerce-MyAccount-navigation ul {
+    justify-content: flex-end;
+  }
+  {% elseif design.tabs.horizontal_tabs_position == 'space-between' %}
+    %%SELECTOR%%.breakdance-woocommerce nav.woocommerce-MyAccount-navigation ul {
+    justify-content: space-between;
+  }
+  {% endif %}
+{% endif %}
+
+/* Vertical At */
+    {% if breakpoint == design.tabs.vertical_at %}
+      %%SELECTOR%%.breakdance-woocommerce nav.woocommerce-MyAccount-navigation ul {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+      }
+      %%SELECTOR%% .woocommerce-MyAccount-navigation ul li a {
+        border-right: 2px solid transparent;
+        border-bottom: none;
+      }
+    {% endif %}
+
+/* Tabs / Space Between */
+%%SELECTOR%% .woocommerce-MyAccount-navigation ul {
+gap: {{ design.tabs.space_between.style }};
+}
+/* Tabs Global Styles */
+{{ macros.wooGlobalStyler(design.tabs.override_global_styles, '%%SELECTOR%% .woocommerce-MyAccount-navigation', breakpoint, globalSettings) }}
+
+/* Tab */
+%%SELECTOR%%.breakdance-woocommerce .woocommerce-MyAccount-navigation ul li a {
+  {{ macros.spacing_padding_all(design.tabs.tab.padding) }}
+  {{ macros.borders(design.tabs.tab.borders) }}
+  {{ macros.typography(design.tabs.tab.typography, globalSettings)  }}
+  background-color: {{ design.tabs.tab.background }};
+  box-shadow: {{ design.tabs.tab.shadow.style }};
+}
+%%SELECTOR%%.breakdance-woocommerce .woocommerce-MyAccount-navigation ul li:hover a {
+  background-color: {{ design.tabs.tab.hover.background }};
+  border-color: {{ design.tabs.tab.hover.border }};
+  color: {{ design.tabs.tab.hover.text }};
+  box-shadow: {{ design.tabs.tab.hover.shadow.style }};
+  z-index: 5;
+}
+%%SELECTOR%%.breakdance-woocommerce .woocommerce-MyAccount-navigation ul li.is-active a {
+  background-color: {{ design.tabs.tab.active.background }};
+  border-color: {{ design.tabs.tab.active .border }};
+  color: {{ design.tabs.tab.active.text }};
+  box-shadow: {{ design.tabs.tab.active.shadow.style }};
+  z-index: 5;
+}
+
+/* Content */
+%%SELECTOR%% .woocommerce-MyAccount-content {
+  background-color: {{ design.content.background }};
+  {{ macros.spacing_padding_all(design.content.padding) }}
+  {{ macros.borders(design.content.borders) }}
+}
+{{ macros.wooGlobalStyler(design.content.override_global_styles, '%%SELECTOR%% .woocommerce-MyAccount-content', breakpoint, globalSettings) }}
+
+/* Spacing */
+%%SELECTOR%% {
+  {{ macros.spacing_margin_y(design.spacing.container) }}
+}
+%%SELECTOR%%.bde-woopageaccount .woocommerce {
+  gap: {{ design.spacing.gap.style }};
+}
+
+/* Advanced Override Gloabal Styles */
+{{ macros.wooGlobalStyler(design.advanced.override_global_styles, '%%SELECTOR%%', breakpoint, globalSettings) }}
+
+/* Typography */
+/* Headings */
+%%SELECTOR%%.breakdance-woocommerce .woocommerce-order-downloads__title,
+%%SELECTOR%%.breakdance-woocommerce .woocommerce-MyAccount-content form h3,
+%%SELECTOR%%.breakdance-woocommerce .woocommerce-customer-details h2,
+%%SELECTOR%%.breakdance-woocommerce h2.woocommerce-order-details__title,
+%%SELECTOR%%.breakdance-woocommerce .woocommerce-Address-title h3,
+%%SELECTOR%%.breakdance-woocommerce .woocommerce-EditAccountForm fieldset legend {
+  {{ macros.typography(design.typography.headings, globalSettings) }}
+}
+/* Text */
+%%SELECTOR%%.breakdance-woocommerce .woocommerce-EditAccountForm em,
+%%SELECTOR%%.breakdance-woocommerce .woocommerce-Addresses address,
+%%SELECTOR%%.breakdance-woocommerce p.woocommerce-customer-details--email,
+%%SELECTOR%%.breakdance-woocommerce p.woocommerce-customer-details--phone,
+%%SELECTOR%%.breakdance-woocommerce .woocommerce-customer-details address,
+%%SELECTOR%%.breakdance-woocommerce .woocommerce-MyAccount-content > p:not([class]):last-child {
+  {{ macros.typography(design.typography.text, globalSettings) }}
+}
+/* Links */
+%%SELECTOR%%.breakdance-woocommerce .woocommerce-MyAccount-content p:not([class]):last-child a {
+  {{ macros.typography(design.typography.links, globalSettings) }}
+}
+/* Links Hover */
+%%SELECTOR%%.breakdance-woocommerce .woocommerce-MyAccount-content p:not([class]):last-child a:hover {
+  {{ macros.typographyWithHoverableEverything(design.typography.links) }}
+}
+/* Tables / Titles */
+%%SELECTOR%%.breakdance-woocommerce table.woocommerce-table--order-details.shop_table thead tr th,
+%%SELECTOR%%.breakdance-woocommerce table.woocommerce-table--order-downloads thead tr th,
+%%SELECTOR%%.breakdance-woocommerce table.woocommerce-orders-table thead tr th {
+    {{ macros.typography(design.typography.tables.titles, globalSettings) }}
+}
+/* Tables / Links */
+%%SELECTOR%%.breakdance-woocommerce .woocommerce-MyAccount-content table a:not([class]),
+%%SELECTOR%%.breakdance-woocommerce td.product-name a,
+%%SELECTOR%%.breakdance-woocommerce .woocommerce-orders-table__cell-order-number a {
+   {{ macros.typography(design.typography.tables.links, globalSettings) }}
+}
+/* Tables / Links Hover */
+%%SELECTOR%%.breakdance-woocommerce .woocommerce-MyAccount-content table a:not([class]):hover,
+%%SELECTOR%%.breakdance-woocommerce td.product-name a:hover,
+%%SELECTOR%%.breakdance-woocommerce .woocommerce-orders-table__cell-order-number a:hover {
+   {{ macros.typographyWithHoverableEverything(design.typography.tables.links) }}
+}
+/* Tables / Text */
+%%SELECTOR%%.breakdance-woocommerce table tfoot td,
+%%SELECTOR%%.breakdance-woocommerce table small,
+%%SELECTOR%%.breakdance-woocommerce ul.wc-item-meta li p,
+%%SELECTOR%%.breakdance-woocommerce ul.wc-item-meta li strong,
+%%SELECTOR%%.breakdance-woocommerce tbody td,
+%%SELECTOR%%.breakdance-woocommerce tbody td strong {
+   {{ macros.typography(design.typography.tables.text, globalSettings) }}
+}
+/* Tables / Labels */
+%%SELECTOR%%.breakdance-woocommerce table tfoot tr:not(:last-child) th {
+  {{ macros.typography(design.typography.tables.labels, globalSettings) }}
+}
+/* Tables / Values */
+%%SELECTOR%%.breakdance-woocommerce tbody .woocommerce-Price-amount bdi,
+%%SELECTOR%%.breakdance-woocommerce tfoot tr:not(:last-child) .woocommerce-Price-amount bdi,
+%%SELECTOR%%.breakdance-woocommerce tbody .woocommerce-Price-amount,
+%%SELECTOR%%.breakdance-woocommerce tfoot tr:not(:last-child) .woocommerce-Price-amount {
+  {{ macros.typography(design.typography.tables.values, globalSettings) }}
+}
+/* Tables / Total Label */
+%%SELECTOR%%.breakdance-woocommerce table tfoot tr:last-child th {
+  {{ macros.typography(design.typography.tables.total_label, globalSettings) }}
+}
+/* Tables / Total Value */
+%%SELECTOR%%.breakdance-woocommerce table tfoot tr:last-child td .woocommerce-Price-amount{
+  {{ macros.typography(design.typography.tables.total_value, globalSettings) }}
+}

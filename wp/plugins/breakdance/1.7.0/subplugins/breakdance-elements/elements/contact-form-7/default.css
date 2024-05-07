@@ -1,0 +1,24 @@
+.breakdance .bde-contact-form7 {
+    width: 100%;
+}
+
+.breakdance-form .wpcf7-form p,
+.breakdance-form .wpcf7 form>div, .wpcf7 form>p {
+    margin: 0;
+    font-size: inherit;
+}
+
+.breakdance-form .wpcf7-not-valid-tip {
+    margin-top: -12px;
+    margin-bottom: 6px;
+}
+
+.breakdance-form .wpcf7 form .wpcf7-response-output {
+    padding: 1em;
+    margin: 0;
+}
+
+.breakdance-form .wpcf7 .ajax-loader {
+    transform: translate(10px, 7px);
+    margin: 0;
+}

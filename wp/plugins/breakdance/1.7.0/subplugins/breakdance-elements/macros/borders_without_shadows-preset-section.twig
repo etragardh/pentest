@@ -1,0 +1,4 @@
+{% macro borders_without_shadows(properties) %}
+    {{ _self.border_complex(properties.border) }}
+    {{ _self.border_radius(properties.radius) }}
+{% endmacro %}

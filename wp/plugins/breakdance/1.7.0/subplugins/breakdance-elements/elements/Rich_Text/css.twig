@@ -1,0 +1,59 @@
+%%SELECTOR%% {
+  {{ macros.spacing_margin_y(design.spacing.wrapper) }}
+  {{ macros.typography(design.typography.default, globalSettings)  }}
+  width: {{ design.size.width.style }};
+}
+
+%%SELECTOR%% a {
+  {{ macros.typography(design.typography.link, globalSettings)  }}
+}
+
+%%SELECTOR%% a:hover {
+  {{ macros.typographyWithHoverableEverything(design.typography.link) }}
+}
+
+
+%%SELECTOR%% h1 {
+  {{ macros.typography(design.typography.h1, globalSettings)  }}
+  margin-block-start: {{ design.spacing.h1.margin_block_start.style }};
+  margin-block-end: {{ design.spacing.h1.margin_block_end.style }};
+}
+
+%%SELECTOR%% h2 {
+  {{ macros.typography(design.typography.h2, globalSettings)  }}
+  margin-block-start: {{ design.spacing.h2.margin_block_start.style }};
+  margin-block-end: {{ design.spacing.h2.margin_block_end.style }};
+}
+
+%%SELECTOR%% h3 {
+  {{ macros.typography(design.typography.h3, globalSettings)  }}
+  margin-block-start: {{ design.spacing.h3.margin_block_start.style }};
+  margin-block-end: {{ design.spacing.h3.margin_block_end.style }};
+}
+
+%%SELECTOR%% h4 {
+  {{ macros.typography(design.typography.h4, globalSettings)  }}
+  margin-block-start: {{ design.spacing.h4.margin_block_start.style }};
+  margin-block-end: {{ design.spacing.h4.margin_block_end.style }};
+}
+
+%%SELECTOR%% p {
+  {{ macros.typography(design.typography.paragraph, globalSettings)  }}
+  margin-block-start: {{ design.spacing.paragraph.margin_block_start.style }};
+  margin-block-end: {{ design.spacing.paragraph.margin_block_end.style }};
+}
+
+%%SELECTOR%% ul, %%SELECTOR%% ol{
+  margin-block-start: {{ design.spacing.list.margin_block_start.style }};
+  margin-block-end: {{ design.spacing.list.margin_block_end.style }};
+  padding-inline-start: {{ design.spacing.list.padding_inline_start.style }};
+}
+
+%%SELECTOR%% ul, %%SELECTOR%% ul *, %%SELECTOR%% ol,  %%SELECTOR%% ol * {
+  {{ macros.typography(design.typography.list, globalSettings)  }}
+}
+
+%%SELECTOR%% ul p, %%SELECTOR%% ol p {
+  margin-block-start: {{ design.spacing.list.list_item_p.margin_block_start.style }};
+  margin-block-end: {{ design.spacing.list.list_item_p.margin_block_end.style }};
+}

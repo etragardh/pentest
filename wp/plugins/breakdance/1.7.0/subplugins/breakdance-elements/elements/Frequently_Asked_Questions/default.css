@@ -1,0 +1,103 @@
+.breakdance .bde-frequently-asked-questions {
+  display: flex;
+  text-align: left;
+  flex-direction: column;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: 100%;
+  --faqBorderColor: #000;
+  --faqBorderWidth: 2px;
+  --faqItemHorizontalPadding: 16px;
+  --faqItemVerticalPadding: 16px;
+}
+
+.breakdance .bde-frequently-asked-questions .bde-faq__item {
+  border-style: solid;
+  border-color: var(--faqBorderColor);
+  border-width: var(--faqBorderWidth);
+}
+
+.breakdance .bde-frequently-asked-questions .bde-faq__item:not(:first-child) {
+  margin-top: calc(var(--faqBorderWidth) * -1);
+}
+
+.breakdance .bde-faq__answer {
+  padding: var(--faqItemVerticalPadding) var(--faqItemHorizontalPadding);
+  padding-top: 0px;
+}
+
+.breakdance .bde-faq__title-tag {
+  font-size: 1.25em;
+  font-weight: 500;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+
+.breakdance .bde-faq__title {
+  text-align: left;
+}
+
+.breakdance .bde-faq__icon > svg {
+  font-size: inherit;
+  width: 1em;
+  height: 1em;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+
+.breakdance .bde-faq__icon {
+  display: flex;
+  align-items: center;
+  font-size: 1em;
+  transition: transform 0.3s ease;
+}
+
+.breakdance .bde-faq__question {
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow: visible;
+  background: transparent;
+  line-height: normal;
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
+  -webkit-appearance: none;
+  padding: var(--faqItemVerticalPadding) var(--faqItemHorizontalPadding);
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  color: inherit;
+}
+
+.breakdance .bde-faq__btn {
+  margin-top: 16px;
+}
+
+.breakdance .bde-faq__answer {
+  display: none;
+}
+
+.breakdance .bde-faq__item.is-active .bde-faq__answer {
+  display: block;
+}
+
+.breakdance .bde-faq__item.is-active .bde-faq__icon--rotate {
+  transform: rotateZ(90deg);
+}
+
+.breakdance .bde-faq__icon--inactive,
+.breakdance .bde-faq__item.is-active .bde-faq__icon--active {
+  display: flex;
+}
+
+.breakdance .bde-faq__icon--active,
+.breakdance .bde-faq__item.is-active .bde-faq__icon--inactive {
+  display: none;
+}

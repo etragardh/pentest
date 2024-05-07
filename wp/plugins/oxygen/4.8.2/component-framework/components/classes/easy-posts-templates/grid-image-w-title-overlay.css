@@ -1,0 +1,65 @@
+%%EPID%% .oxy-posts {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+%%EPID%% .oxy-post {
+  width: 50%;
+}
+
+%%EPID%% .oxy-post-padding {
+  margin: 1em;
+  overflow: hidden;
+  position: relative;
+}
+
+%%EPID%% .oxy-post-image {
+  transition: 0.5s ease-in-out all;
+  position: relative;
+  background-color: grey;
+  background-image: repeating-linear-gradient(
+    45deg,
+    #eee,
+    #eee 10px,
+    #ddd 10px,
+    #ddd 20px
+  );
+  width: 100%;
+}
+
+%%EPID%% .oxy-post-image-fixed-ratio {
+  padding-bottom: 52%;
+  background-size: cover;
+  background-position: center center;
+}
+
+%%EPID%% .oxy-post-title {
+  line-height: var(--oxy-small-line-height);
+  font-weight: normal;
+}
+
+%%EPID%% .oxy-post:hover .oxy-post-image {
+  transform: scale(1.2);
+}
+
+%%EPID%% .oxy-post-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  padding: 2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.5);
+  text-align: center;
+  transition: 0.5s ease-in-out all;
+  -webkit-font-smoothing: antialiased;
+}
+
+%%EPID%% .oxy-post:hover .oxy-post-overlay {
+  background-color: rgba(0, 0, 0, 0.25);
+}

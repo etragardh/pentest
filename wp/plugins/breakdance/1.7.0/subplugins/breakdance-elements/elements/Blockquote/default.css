@@ -1,0 +1,52 @@
+.breakdance .bde-blockquote {
+  max-width: 100%;
+  background-color: #FFF2D3;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 45px 55px;
+  font-style: italic;
+  font-size: 24px;
+}
+
+.breakdance .bde-blockquote p {
+  margin: 0;
+}
+
+.breakdance .bde-blockquote cite {
+  display: inline-block;
+  width: 100%;
+  margin-top: 25px;
+  font-size: 1.2em;
+  font-style: normal;
+}
+
+.blockquote-icon {
+  display: inline-flex;
+  font-size: 1.2em;
+}
+
+.above-text_blockquote-icon {
+  line-height: 0;
+  text-align: inherit;
+}
+
+.inline-text_blockquote-icon .blockquote-icon {
+  margin-right: 14px;
+}
+
+.above-text_blockquote-icon .blockquote-icon {
+  margin-right: 0;
+  margin-bottom: 10px;
+}
+
+.blockquote-icon > svg {
+  font-size: inherit;
+  width: 1em;
+  height: 1em;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+

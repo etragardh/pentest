@@ -1,0 +1,20 @@
+{% macro filtersInternal(filter) %}
+  filter:
+  {% for f in filter %}
+    {% if f.type == 'blur' %}
+      blur({{ f.blur_amount.style }})
+    {% elseif f.type == 'hue-rotate' %}
+      hue-rotate({{ f.rotate.style }})
+    {% elseif f.type %}
+      {{ f.type }}({{ f.amount.style }})
+    {% endif %}
+  {% endfor %};
+{% endmacro %}
+
+{% macro filters(preset) %}
+  {{ _self.filtersInternal(preset.filters) }}
+{% endmacro %}
+
+{% macro filtersHover(preset) %}
+  {{ _self.filtersInternal(preset.filters_hover) }}
+{% endmacro %}

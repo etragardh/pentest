@@ -1,0 +1,11 @@
+.breakdance .bde-productbuilder {
+  width: 100%;
+}
+
+.breakdance-woocommerce.bde-productbuilder
+  .woocommerce-notices-wrapper
+  + .product {
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}

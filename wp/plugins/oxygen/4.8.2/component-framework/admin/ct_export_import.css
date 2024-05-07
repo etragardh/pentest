@@ -1,0 +1,51 @@
+.wrap h2.import-export-title {
+	padding: 40px;
+    background: url(https://oxygenbuilder.com/wp-content/uploads/2019/09/competitions-back2x.png), linear-gradient(-45deg,#5137C3,#221969);
+    background-size: 100%, cover;
+    background-position: 50% 20%;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    color: #fff;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+.import-export-section {
+    margin-bottom: 40px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    -webkit-box-shadow: 10px 10px 20px 0px rgba(0,0,0,0.2);
+    -moz-box-shadow: 10px 10px 20px 0px rgba(0,0,0,0.2);
+    box-shadow: 10px 10px 20px 0px rgb(0,0,0,0.2);
+}
+
+.import-export-section h3 {
+    margin-top: 0;
+}
+
+.import-export-section p {
+    margin-bottom: 16px;
+}
+
+.import-export-section textarea {
+    width: 100%;
+}
+
+.import-export-section .import-export-checkbox {
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+.import-export-button, .import-export-button:hover, .import-export-button:focus {
+    text-decoration: none;
+    padding: 8px 16px;
+    background: #241A6C;
+    border-radius: 8px;
+    color: #fff;
+    box-shadow: none;
+    border: 0;
+    outline: none;
+}

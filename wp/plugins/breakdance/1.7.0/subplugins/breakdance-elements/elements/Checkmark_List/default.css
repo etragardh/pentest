@@ -1,0 +1,67 @@
+.breakdance .bde-checkmark-list {
+  max-width: 100%;
+  display: flex;
+  text-align: left;
+}
+
+.breakdance .bde-checkmark-list ul {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 30px;
+}
+
+.breakdance .bde-checkmark-list .horizontal-layout {
+  flex-direction: row;
+}
+
+.breakdance .bde-checkmark-list li {
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  font-size: 0.875em;
+}
+
+.breakdance .bde-checkmark-list ul span {
+  display: flex;
+  font-size: 20px;
+  margin-right: 8px;
+}
+
+.breakdance .bde-checkmark-list .bde-checkmark-list__icon.bg-yes {
+  color: white;
+  padding: 6px;
+  border-radius: 2px;
+}
+
+.breakdance .bde-checkmark-list ul span > svg {
+  font-size: inherit;
+  width: 1em;
+  height: 1em;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+
+.breakdance .bde-checkmark-list .bde-checkmark-list__icon_yes {
+  color: #0DA532FF;
+}
+
+.breakdance .bde-checkmark-list .bde-checkmark-list__icon_yes.bg-yes {
+  background-color: #0DA532FF;
+}
+
+.breakdance .bde-checkmark-list .bde-checkmark-list__icon_no {
+  color: #D4351EFF;
+}
+
+.breakdance .bde-checkmark-list .bde-checkmark-list__icon_no.bg-yes {
+  background-color: #D4351EFF;
+}
+

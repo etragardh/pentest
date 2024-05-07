@@ -1,0 +1,549 @@
+/* Submenu reveal animations */
+@keyframes oxel-sitenav-slideup {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+@keyframes oxel-sitenav-dropdown {
+    from {
+        transform-origin: top center;
+        transform: scaleY(0);
+    }
+
+    to {
+        transform-origin: top center;
+        transform: scaleY(1);
+    }
+}
+
+@keyframes oxel-sitenav-scale {
+    from {
+        transform-origin: center center;
+        transform: scale(0);
+    }
+    to {
+        transform-origin: center center;
+        transform: scale(1);
+    }
+}
+
+.open {
+    animation-name: var(--oxynav-animation-name);
+    animation-duration: var(--oxynav-transition-duration);
+    animation-play-state: playing;
+    animation-iteration-count: 1;
+    animation-timing-function: var(--oxynav-transition-timing-function);
+}
+
+/* Default Styles */
+.oxy-site-navigation {
+    /* Colors */
+    --oxynav-brand-color: #4831B0;
+    --oxynav-neutral-color: #FFFFFF;
+    --oxynav-activehover-color: #EFEDF4;
+    --oxynav-background-color: #4831B0;
+
+    /* Typography */
+    --oxynav-font-weight: 300;
+
+    /* Spacing */
+    --oxynav-other-spacing: 8px;
+    --oxynav-other-spacing-x2: calc(var(--oxynav-other-spacing) * 2);
+    --oxynav-link-spacing: var(--oxynav-other-spacing) calc(var(--oxynav-other-spacing) * 2);
+
+    /* Borders */
+    --oxynav-border-radius: 0px;
+
+    /* Animations */
+    --oxynav-animation-name: oxel-sitenav-dropdown;
+    --oxynav-transition-duration: 0.3s;
+    --oxynav-transition-timing-function: cubic-bezier(.84, .05, .31, .93);
+
+    position: relative;
+}
+
+.oxy-site-navigation__mobile-open-button {
+    color: var(--oxynav-brand-color);
+    margin-left: var(--oxynav-other-spacing);
+    margin-right: var(--oxynav-other-spacing);
+    border-style: none;
+    background-color: transparent;
+    padding: 8px 8px;
+    cursor: pointer;
+}
+
+/* CSS Open Icon */
+
+.oxy-site-navigation__css-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    aspect-ratio: 1;
+}
+
+.oxy-site-navigation__css-icon-inner {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.oxy-site-navigation__css-icon-inner,
+.oxy-site-navigation__css-icon-inner::before,
+.oxy-site-navigation__css-icon-inner::after {
+    width: 100%;
+    height: 2px;
+    background: currentColor;
+    transform-origin: center;
+    transition: var(--oxynav-transition-duration) all var(--oxynav-transition-timing-function);
+}
+
+.oxy-site-navigation__css-icon-inner::before,
+.oxy-site-navigation__css-icon-inner::after {
+    content: "";
+    position: absolute;
+}
+
+/* Sticks animation */
+.oxy-site-navigation__css-icon--animation-sticks .oxy-site-navigation__css-icon-inner::before {
+    transition-delay: 0.2s;
+    top: -8px;
+}
+
+.oxy-site-navigation__css-icon--animation-sticks .oxy-site-navigation__css-icon-inner::after {
+    bottom: -8px;
+}
+
+[aria-expanded="true"] .oxy-site-navigation__css-icon--animation-sticks .oxy-site-navigation__css-icon-inner {
+    background: transparent;
+}
+
+[aria-expanded="true"] .oxy-site-navigation__css-icon--animation-sticks .oxy-site-navigation__css-icon-inner::before {
+    rotate: 225deg;
+    translate: 0px 8px;
+}
+
+[aria-expanded="true"] .oxy-site-navigation__css-icon--animation-sticks .oxy-site-navigation__css-icon-inner::after {
+    rotate: -225deg;
+    translate: 0px -8px;
+}
+
+/* Basic animation */
+.oxy-site-navigation__css-icon--animation-basic .oxy-site-navigation__css-icon-inner::before {
+    top: -8px;
+}
+
+.oxy-site-navigation__css-icon--animation-basic .oxy-site-navigation__css-icon-inner::after {
+    bottom: -8px;
+}
+
+[aria-expanded="true"] .oxy-site-navigation__css-icon--animation-basic .oxy-site-navigation__css-icon-inner {
+    background: transparent;
+}
+
+[aria-expanded="true"] .oxy-site-navigation__css-icon--animation-basic .oxy-site-navigation__css-icon-inner::before {
+    rotate: -45deg;
+    translate: 0px 8px;
+}
+
+[aria-expanded="true"] .oxy-site-navigation__css-icon--animation-basic .oxy-site-navigation__css-icon-inner::after {
+    rotate: 45deg;
+    translate: 0px -8px;
+}
+
+/* Collapse animation */
+
+.oxy-site-navigation__css-icon--animation-collapse .oxy-site-navigation__css-icon-inner {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    box-shadow: 0px 8px 0px 0px currentColor,
+                0px -8px 0px 0px currentColor;
+}
+
+.oxy-site-navigation__css-icon--animation-collapse .oxy-site-navigation__css-icon-inner::before {
+    rotate: 45deg;
+    top: 0px;
+    transform: scaleX(0);
+}
+
+.oxy-site-navigation__css-icon--animation-collapse .oxy-site-navigation__css-icon-inner::after {
+    rotate: -45deg;
+    bottom: 0px;
+    transform: scaleX(0);
+}
+
+[aria-expanded="true"] .oxy-site-navigation__css-icon--animation-collapse .oxy-site-navigation__css-icon-inner {
+    box-shadow: 0px 0px 0px 0px transparent,
+                0px 0px 0px 0px transparent;
+    background: transparent;
+}
+
+[aria-expanded="true"] .oxy-site-navigation__css-icon--animation-collapse .oxy-site-navigation__css-icon-inner::before,
+[aria-expanded="true"] .oxy-site-navigation__css-icon--animation-collapse .oxy-site-navigation__css-icon-inner::after {
+    transition-delay: 0.3s;
+    transform: scaleX(1);
+}
+
+/* Drop-in animation */
+.oxy-site-navigation__css-icon--animation-dropin .oxy-site-navigation__css-icon-inner {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    box-shadow: 0px 8px 0px 0px currentColor,
+                0px -8px 0px 0px currentColor;
+}
+
+.oxy-site-navigation__css-icon--animation-dropin .oxy-site-navigation__css-icon-inner::before {
+    rotate: 45deg;
+    top: 0px;
+    opacity: 0;
+    translate: -32px -32px;
+}
+
+.oxy-site-navigation__css-icon--animation-dropin .oxy-site-navigation__css-icon-inner::after {
+    rotate: -45deg;
+    bottom: 0px;
+    opacity: 0;
+    translate: 32px -32px;
+}
+
+[aria-expanded="true"] .oxy-site-navigation__css-icon--animation-dropin .oxy-site-navigation__css-icon-inner {
+    box-shadow: 0px 32px 0px 0px transparent,
+                0px -32px 0px 0px transparent;
+    background: transparent;
+}
+
+[aria-expanded="true"] .oxy-site-navigation__css-icon--animation-dropin .oxy-site-navigation__css-icon-inner::before {
+    transition-delay: 0.1s;
+    translate: 0px 0px;
+    opacity: 1;
+}
+
+[aria-expanded="true"] .oxy-site-navigation__css-icon--animation-dropin .oxy-site-navigation__css-icon-inner::after {
+    transition-delay: 0.2s;
+    translate: 0px 0px;
+    opacity: 1;
+}
+
+/* No animation */
+
+.oxy-site-navigation__css-icon--animation-none .oxy-site-navigation__css-icon-inner, 
+.oxy-site-navigation__css-icon--animation-none .oxy-site-navigation__css-icon-inner::before, 
+.oxy-site-navigation__css-icon--animation-none .oxy-site-navigation__css-icon-inner::after {
+    transition: none;
+}
+
+.oxy-site-navigation__css-icon--animation-none .oxy-site-navigation__css-icon-inner::before {
+    top: -8px;
+}
+
+.oxy-site-navigation__css-icon--animation-none .oxy-site-navigation__css-icon-inner::after {
+    bottom: -8px;
+}
+
+[aria-expanded="true"] .oxy-site-navigation__css-icon--animation-none .oxy-site-navigation__css-icon-inner {
+    background: transparent;
+}
+
+[aria-expanded="true"] .oxy-site-navigation__css-icon--animation-none .oxy-site-navigation__css-icon-inner::before {
+    translate: 0px 8px;
+    rotate: 45deg;
+}
+
+[aria-expanded="true"] .oxy-site-navigation__css-icon--animation-none .oxy-site-navigation__css-icon-inner::after {
+    translate: 0px -8px;
+    rotate: -45deg;
+}
+
+/* End CSS Open Icon */
+
+/* CSS Close Icon */
+.oxy-site-navigation__mobile-close-button .oxy-site-navigation__css-icon-inner {
+    background: transparent;
+}
+
+.oxy-site-navigation__mobile-close-button .oxy-site-navigation__css-icon-inner::before {
+    top: 0;
+    rotate: 45deg;
+}
+
+.oxy-site-navigation__mobile-close-button .oxy-site-navigation__css-icon-inner::after {
+    bottom: 0;
+    rotate: -45deg;
+}
+
+.oxy-site-navigation li > button.oxy-site-navigation__mobile-close-button {
+    padding: 0;
+    margin: 0;
+}
+/* End CSS Close Icon*/
+
+.oxy-site-navigation__mobile-open-button > svg {
+    width: 16px;
+    fill: currentColor;
+}
+
+.oxy-site-navigation > ul {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+}
+
+.oxy-site-navigation ul {
+    list-style-type: none;
+    padding-inline-start: 0px;
+}
+
+.oxy-site-navigation li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    color: var(--oxynav-brand-color);
+    background-color: var(--oxynav-neutral-color);
+    white-space: nowrap;
+    text-align: left;
+}
+
+.oxy-site-navigation > li + li {
+    margin-left: var(--oxynav-link-spacing);
+}
+
+.oxy-site-navigation>ul>li {
+    border-radius: var(--oxynav-border-radius);
+}
+
+.oxy-site-navigation li:hover {
+    background-color: var(--oxynav-activehover-color);
+}
+
+.oxy-site-navigation li a,
+.oxy-site-navigation > a {
+    color: var(--oxynav-brand-color);
+    padding: var(--oxynav-link-spacing);
+    flex-grow: 1;
+    outline-offset: -4px;
+}
+
+.oxy-site-navigation button svg {
+    pointer-events: none;
+}
+
+.oxy-site-navigation li > button {
+    color: currentColor;
+    margin-right: var(--oxynav-other-spacing);
+    border-style: none;
+    background-color: transparent;
+    padding: 8px 8px 8px 0px;
+    cursor: pointer;
+}
+
+.oxy-site-navigation li > button > svg {
+    width: 16px;
+    fill: currentColor;
+}
+
+.oxy-site-navigation li > button:not(.oxy-site-navigation__mobile-open-button):not(.oxy-site-navigation__mobile-close-button) > svg {
+    max-width: 25px;
+}
+
+/* Sub-menu styles */
+/* Hide all non-active submenus */
+.oxy-site-navigation li > ul:not(.open) {
+    display: none;
+}
+
+/* Optional top spacing for first nested UL */
+.oxy-site-navigation > ul > li > ul {
+    padding-top: var(--oxynav-other-spacing);
+    z-index: 999;
+}
+
+/* Border radius for submenus */
+.oxy-site-navigation > ul > li > ul > li:first-of-type {
+    border-top-left-radius: var(--oxynav-border-radius);
+    border-top-right-radius: var(--oxynav-border-radius);
+}
+
+.oxy-site-navigation > ul > li > ul > li:last-of-type {
+    border-bottom-left-radius: var(--oxynav-border-radius);
+    border-bottom-right-radius: var(--oxynav-border-radius);
+}
+
+.oxy-site-navigation > ul > li > ul > li > ul > li:first-of-type {
+    border-top-left-radius: var(--oxynav-border-radius);
+    border-top-right-radius: var(--oxynav-border-radius);
+}
+
+.oxy-site-navigation > ul > li > ul > li > ul > li:last-of-type {
+    border-bottom-left-radius: var(--oxynav-border-radius);
+    border-bottom-right-radius: var(--oxynav-border-radius);
+}
+
+.oxy-site-navigation li ul {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    min-width: 100%;
+    left: 0;
+    top: 100%;
+}
+
+.oxy-site-navigation li li {
+    background-color: var(--oxynav-background-color);
+}
+
+
+.oxy-site-navigation li li:hover > a,
+.oxy-site-navigation li li:hover > a[data-description]::after {
+    color: var(--oxynav-brand-color);
+}
+
+.oxy-site-navigation li li a,
+.oxy-site-navigation li li a[data-description]::after,
+.oxy-site-navigation li li > button {
+    color: var(--oxynav-neutral-color);
+}
+
+.oxy-site-navigation li li:hover > button > svg {
+    color: var(--oxynav-brand-color);
+}
+
+/* Sub-menu styles, level 2 */
+.oxy-site-navigation li > ul ul {
+    top: 0;
+    left: 100%;
+}
+
+.oxy-site-navigation > ul > li > ul.oxy-site-navigation-submenu--off-r {
+    left: auto;
+    right: 0;
+}
+
+.oxy-site-navigation > ul > li > ul > li > ul.oxy-site-navigation-submenu--off-r {
+    left: auto;
+    right: 100%;
+}
+
+/* Current item styles */
+/* .oxy-site-navigation > ul > li > [aria-current] {
+    display: flex;
+    justify-content: center;
+} */
+
+.oxy-site-navigation > ul > .current-menu-ancestor > a::before,
+.oxy-site-navigation > ul > .current-menu-item > a::before {
+    content: "";
+    position: absolute;
+    bottom: 8px;
+    height: 1px;
+    left: 16px;
+    right: 16px;
+    background-color: var(--oxynav-brand-color);
+}
+
+/* .oxy-site-navigation > ul > li > ul > .current-menu-item > a,
+.oxy-site-navigation > ul > li > ul > li > ul > .current-menu-item > a {
+    font-weight: calc(var(--oxynav-font-weight) * 2);
+} */
+
+/* End Defaults */
+
+/* Descriptions */
+.oxy-site-navigation [data-description] {
+    justify-content: center;
+}
+
+.oxy-site-navigation [data-description]::after {
+    content: attr(data-description);
+    display: flex;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.90);
+}
+
+.oxy-site-navigation > ul > li > [data-description]::after {
+    color: var(--oxynav-brand-color);
+}
+
+/* End Descriptions */
+
+/* Images */
+
+.oxy-site-navigation li > img {
+    width: 64px;
+    aspect-ratio: 1;
+    object-fit: contain;
+    padding: var(--oxynav-link-spacing);
+    padding-right: 0px;
+}
+
+.oxy-site-navigation li:hover > img {
+    filter: brightness(0.5);
+}
+
+/* End images */
+
+/* Mobile Styles - Buttons */
+.oxy-site-navigation .oxy-site-navigation__mobile-open-button {
+    display: none;
+}
+
+.oxy-site-navigation .oxy-site-navigation__mobile-close-wrapper {
+    display: none;
+    padding: var(--oxynav-link-spacing);
+}
+ /* Noscript Styles */
+ noscript :is(ul, li, a, #incspec) {
+    display: block;
+    position: static;
+    color: initial;
+    background-color: initial;
+}
+
+.oxy-site-navigation__noscript {
+    padding: 8px;
+    background: #ff4444;
+    color: white;
+    max-width: 300px;
+}
+/* End Noscript Styles */
+
+/* Reduced Motion */
+@media (prefers-reduced-motion) {
+    @keyframes oxel-sitenav-slideup {
+        from {
+            opacity: 01;
+            transform: translateY(0px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0px);
+        }
+    }
+
+    @keyframes oxel-sitenav-dropdown {
+        from {
+            transform-origin: top center;
+            transform: scaleY(1);
+        }
+
+        to {
+            transform-origin: top center;
+            transform: scaleY(1);
+        }
+    }
+}
+/* End Reduced Motion */

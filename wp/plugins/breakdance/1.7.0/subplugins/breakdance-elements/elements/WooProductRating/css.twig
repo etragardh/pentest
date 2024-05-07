@@ -1,0 +1,28 @@
+%%SELECTOR%% .woocommerce-product-rating {
+  gap: {{ design.spacing.after_stars.style }};
+  {% if design.layout.stacking == 'horizontal' %}
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+  {% elseif design.layout.stacking == 'vertical' %}
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+  {% endif %}
+}
+
+%%SELECTOR%% {
+  --bde-woo-ratings__star-color: {{ design.stars.color }};
+  --bde-woo-ratings__star-size: {{ design.stars.size.style }};
+
+  {{ macros.spacing_margin_y(design.spacing.container) }}
+}
+
+%%SELECTOR%% .woocommerce-product-rating a span,
+%%SELECTOR%% .woocommerce-product-rating a {
+	{{ macros.typography(design.typography.link, globalSettings)  }}
+}
+%%SELECTOR%% .woocommerce-product-rating a:hover span,
+%%SELECTOR%% .woocommerce-product-rating a:hover {
+	{{ macros.typographyWithHoverableEverything(design.typography.link) }}
+}

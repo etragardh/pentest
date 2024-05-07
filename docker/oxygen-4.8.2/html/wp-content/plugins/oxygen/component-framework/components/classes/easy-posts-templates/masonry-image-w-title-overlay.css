@@ -1,0 +1,62 @@
+%%EPID%% .oxy-posts {
+  display: block;
+  column-count: 3;
+  column-gap: 2em;
+  margin-bottom: 4em;
+}
+
+%%EPID%% .oxy-post {
+  margin-bottom: 2em;
+  break-inside: avoid;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  background-color: #000;
+}
+
+%%EPID%% .oxy-post-background {
+  transition: 0.5s ease-in-out all;
+  line-height: 0;
+  min-height: 150px;
+}
+
+%%EPID%% .oxy-post:hover .oxy-post-background {
+  transform: scale(1.2);
+}
+
+%%EPID%% .oxy-post-image {
+  width: 100%;
+}
+
+%%EPID%% .oxy-post-title {
+  line-height: var(--oxy-small-line-height);
+  font-weight: normal;
+}
+
+%%EPID%% .oxy-post-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  padding: 2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.5);
+  text-align: center;
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (max-width: 1120px) {
+  %%EPID%% .oxy-posts {
+    column-count: 2;
+  }
+}
+
+@media (max-width: 767px) {
+  %%EPID%% .oxy-posts {
+    column-count: 1;
+  }
+}

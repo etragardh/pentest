@@ -1,0 +1,58 @@
+%%SELECTOR%% {
+  width: {{ design.container.width.style }};
+  min-height: {{ design.container.min_height.style }};
+  {{ macros.borders(design.container.borders) }}
+  {{ macros.spacing_margin_y(design.spacing) }}
+  {{ macros.spacing_padding_all(design.container.padding) }}
+
+  {{ macros.simpleLayout(design.layout, breakpoint) }}
+
+  transition-duration: {{ design.container.hover.transition_duration.style }};
+
+  {# backwards compat - we removed the height field and replaced it with min height during the beta, but we dont want to break designs that already set height #}
+  height: {{ design.container.height.style }};
+  {# if we ever want to delete this entirely we can add a builder only warning in the html for this element that will only appear if the user has height set #}
+
+}
+
+{{ macros.fancyBackgroundCss('%%SELECTOR%%', design.background, breakpoint, false, true) }}
+
+%%SELECTOR%%:hover {
+  border-color: {{ design.container.hover.border_color }};
+  box-shadow: {{ design.container.hover.shadow.style }};
+}
+
+
+%%SELECTOR%% {
+  {% if design.text_colors.text %}
+    color: {{ design.text_colors.text }};
+  {% endif %}
+  {% if design.text_colors.brand %}
+    --bde-brand-primary-color: {{ design.text_colors.brand }};
+  {% endif %}
+}
+
+%%SELECTOR%%:hover {
+  {% if design.text_colors.text_hover %}
+    color: {{ design.text_colors.text_hover }};
+  {% endif %}
+  {% if design.text_colors.brand_hover %}
+    --bde-brand-primary-color: {{ design.text_colors.brand_hover }};
+  {% endif %}
+}
+
+{% if design.text_colors.headings %}
+  %%SELECTOR%% h1, %%SELECTOR%% h2, %%SELECTOR%% h3, %%SELECTOR%% h4, %%SELECTOR%% h5, %%SELECTOR%% h6 {
+    color: {{ design.text_colors.headings }};
+    transition-duration: {{ design.container.transition_duration.style }};
+  }
+{% endif %}
+
+{% if design.text_colors.headings %}
+  %%SELECTOR%%:hover h1, %%SELECTOR%%:hover h2, %%SELECTOR%%:hover h3, %%SELECTOR%%:hover h4, %%SELECTOR%%:hover h5, %%SELECTOR%%:hover h6 {
+    color: {{ design.text_colors.headings_hover }};
+  }
+{% endif %}
+
+
+

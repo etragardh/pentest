@@ -1,0 +1,32 @@
+<{{ content.content.tag | default('h2') }} class="bde-animated-heading__text">
+{% if content.content.before_text  %}
+	<span>{{ content.content.before_text }}</span>
+{% endif %}
+
+{# anime.js #}
+{% if design.effect.type == 'rotating' or design.effect.type is empty %}
+	<span class="bde-animated-heading__wrapper"></span>
+{% endif %}
+
+{# typed.js #}
+{% if design.effect.type == 'typing' %}
+	<span class="bde-animated-heading__typed js-eeah-typed"></span>
+{% endif %}
+
+
+{% if content.content.after_text  %}
+	<span>{{ content.content.after_text }}</span>
+{% endif %}
+
+</{{ content.content.tag | default('h2') }}>
+
+{# for SEO #}
+<noscript>
+  {% for item in content.content.changing_text %}
+    <{{ content.content.tag | default('h2') }} class="bde-animated-heading__noscript">
+      <span>{{ content.content.before_text }}</span>
+      {{ item.text }}
+      <span>{{ content.content.after_text }}</span>
+    </{{ content.content.tag | default('h2') }}>
+  {% endfor %}
+</noscript>

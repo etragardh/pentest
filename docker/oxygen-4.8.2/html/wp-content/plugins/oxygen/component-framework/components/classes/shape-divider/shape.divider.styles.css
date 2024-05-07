@@ -1,0 +1,26 @@
+.oxy_shape_divider {
+    position: absolute; /* Default, non-configurable. */
+    left: 0; /* Default, non-configurable. */
+    right: 0; /* Default, non-configurable. */
+    bottom: -1px; /* Default, set by position control being set to "bottom" which is the default */
+    pointer-events: none; /* Default, non-configurable. */
+}
+   
+.oxy_shape_divider > svg {
+    min-width: 100%;
+    position: absolute; /* Default, non-configurable. */
+    bottom: 0; /* Default, non-configurable. */
+    left: 0; /* Default, non-configurable */
+    z-index: 0; /* Target of "z-index" control, default 0, number input */
+    transform-origin: bottom center; /* Default, non-configurable. */
+}
+   
+.oxy_shape_divider_top {
+    /*transform: scaleY(-1);*/
+    top: -1px;
+    bottom: initial;
+}
+
+.oxy_shape_divider_flipped {
+    transform: scaleX(-1);
+}

@@ -1,0 +1,27 @@
+#oxygen_vsb_3rdp_designsets_container,
+#oxygen_vsb_connection_panel {
+	margin: 0 0 24px 24px;
+}
+
+div#oxygen_vsb_connection_panel textarea {
+	width: 350px;
+}
+
+#site_key_tooltip {
+	position: absolute;
+    background: #fff;
+    padding: 10px;
+    bottom: 0;
+    left: 70px;
+    width: 400px;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+
+}
+#site_key_tooltip.hidden {
+	display: none;
+}
+
+#site-key-tooltip-container {
+	position: relative;
+}

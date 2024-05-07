@@ -1,0 +1,33 @@
+{% set disableAt = design.advanced.disable_desktop_styles_at|default('breakpoint_tablet_landscape') %}
+{% set breakpointWidth = get_breakpoint_max_width(disableAt) %}
+{% set needsBreakpoint = disableAt != 'breakpoint_base' and disableAt != 'never' %}
+
+{% if needsBreakpoint %}
+  @media (min-width: {{ breakpointWidth + 1 }}px) {
+{% endif %}
+    {{ macros.atomV1MenuDropdownCss('%%SELECTOR%%', design) }}
+
+    {# start - graphics per-link basis #}
+    {% set sections = [content.content.columns, content.content.columns_2]%}
+
+    {% for section in sections %}
+      {% set sectionIndex = loop.index %}
+
+      {% for columns in section %}
+        {% set columnIndex = loop.index %}
+
+        {% for link in columns.links %}
+          %%SELECTOR%% .breakdance-dropdown-section:nth-child({{ sectionIndex }}) .breakdance-dropdown-column:nth-child({{ columnIndex }}) .breakdance-dropdown-item:nth-child({{ loop.index }}) {
+            {{ macros.atomV1MenuDropdownLinkGraphicCss(link.advanced.graphic) }}
+          }
+        {% endfor %}
+      {% endfor %}
+    {% endfor %}
+    {# /end #}
+
+    {{ macros.atomV1MenuColumnCss('%%SELECTOR%% .breakdance-dropdown', design.columns, globalSettings) }}
+    {{ macros.atomV1MenuDropdownLinkCss('%%SELECTOR%% .breakdance-dropdown', design.links, globalSettings) }}
+    {{ macros.atomV1MenuAdditionalSectionCss('%%SELECTOR%% .breakdance-dropdown', design.additional_section, globalSettings) }}
+{% if needsBreakpoint %}
+  }
+{% endif %}

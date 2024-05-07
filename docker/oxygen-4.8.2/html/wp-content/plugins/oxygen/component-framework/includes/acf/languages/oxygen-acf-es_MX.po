@@ -1,0 +1,237 @@
+msgid ""
+msgstr ""
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Project-Id-Version: Advanced Custom Fields integration for Oxygen\n"
+"POT-Creation-Date: 2018-04-19 16:54-0700\n"
+"PO-Revision-Date: 2018-04-19 17:09-0700\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.13\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-WPHeader: oxygen-acf-integration.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"Last-Translator: \n"
+"Language: es_MX\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: oxygen-acf-integration.php:46
+msgid "Only logged in users are allowed to download this file"
+msgstr "Sólo usuarios conectados tienen permitido descargar este archivo"
+
+#: oxygen-acf-integration.php:103 oxygen-acf-integration.php:308
+msgid "Please select what you want to insert"
+msgstr "Por favor elige el campo que desees insertar"
+
+#: oxygen-acf-integration.php:106
+msgid "Image element"
+msgstr "Elemento IMG"
+
+#: oxygen-acf-integration.php:106
+msgid "Image URL"
+msgstr "URL de la imagen"
+
+#: oxygen-acf-integration.php:106
+msgid "Image Title"
+msgstr "Título de la imagen"
+
+#: oxygen-acf-integration.php:106
+msgid "Image Caption"
+msgstr "Pie de foto"
+
+#: oxygen-acf-integration.php:110
+msgid "Size"
+msgstr "Tamaño"
+
+#: oxygen-acf-integration.php:114
+msgid "Thumbnail"
+msgstr "Miniatura"
+
+#: oxygen-acf-integration.php:115
+msgid "Medium"
+msgstr "Mediana"
+
+#: oxygen-acf-integration.php:116
+msgid "Medium Large"
+msgstr "Medio Grande"
+
+#: oxygen-acf-integration.php:117
+msgid "Large"
+msgstr "Grande"
+
+#: oxygen-acf-integration.php:124
+msgid "or"
+msgstr "o"
+
+#: oxygen-acf-integration.php:129
+msgid "Width"
+msgstr "Ancho"
+
+#: oxygen-acf-integration.php:137
+msgid "Height"
+msgstr "Alto"
+
+#: oxygen-acf-integration.php:151
+msgid "Include prepend and append text (if configured)"
+msgstr "Incluir textos prepend y append (si se configuraron)"
+
+#: oxygen-acf-integration.php:160
+msgid "Separator (for multiple options fields)"
+msgstr "Separador (para campos de selección múltiple)"
+
+#: oxygen-acf-integration.php:168
+msgid "Display (for fields configured as Return Format = Both)"
+msgstr "Mostrar (para campos configurados como \"Formato Retorno\" = \"Ambos\""
+
+#: oxygen-acf-integration.php:172
+msgid "Label"
+msgstr "Etiqueta"
+
+#: oxygen-acf-integration.php:173
+msgid "Value"
+msgstr "Valor"
+
+#: oxygen-acf-integration.php:180
+msgid "If set, output custom on/off text instead of true/false"
+msgstr "Mostrar texto de encendido/apagado personalizado, si se configuró"
+
+#: oxygen-acf-integration.php:188 oxygen-acf-integration.php:275
+msgid "Output type"
+msgstr "Tipo de salida"
+
+#: oxygen-acf-integration.php:192
+msgid "Url"
+msgstr "Url"
+
+#: oxygen-acf-integration.php:193
+msgid "Attachment ID"
+msgstr "ID de Adjunto"
+
+#: oxygen-acf-integration.php:198 oxygen-acf-integration.php:226
+#: oxygen-acf-integration.php:247 oxygen-acf-integration.php:316
+msgid "Link"
+msgstr "Enlace"
+
+#: oxygen-acf-integration.php:205
+msgid "Link text (file name will be used if left empty)"
+msgstr ""
+"Texto del enlace (se  utilizará el nombre del archivo si se deja vacío)"
+
+#: oxygen-acf-integration.php:211
+msgid "Prevent file downloads from logged-out users"
+msgstr "Prevenir descargas de usuarios no conectados"
+
+#: oxygen-acf-integration.php:220
+msgid "Separator (if multiple links are provided)"
+msgstr "Separador (para campos de selección múltiple)"
+
+#: oxygen-acf-integration.php:232 oxygen-acf-integration.php:253
+#: oxygen-acf-integration.php:323
+msgid "Link text (URL will be used if left empty)"
+msgstr "Enlace de texto (URL se utilizará si se deja vacío)"
+
+#: oxygen-acf-integration.php:238 oxygen-acf-integration.php:259
+#: oxygen-acf-integration.php:329
+msgid "Open in new Tab"
+msgstr "Abrir en una pestaña nueva"
+
+#: oxygen-acf-integration.php:266
+msgid "Force link text and target values if already set in the Edit Post page"
+msgstr ""
+"Forzar texto del enlace y valor de TARGET por lo establecido aquí, si ya se "
+"habían definido en la página de Editar Post"
+
+#: oxygen-acf-integration.php:279
+msgid "Images ID list"
+msgstr "Lista de ID de imagen"
+
+#: oxygen-acf-integration.php:280
+msgid "WordPress Gallery"
+msgstr "Galería de WordPress"
+
+#: oxygen-acf-integration.php:285
+msgid "Separator"
+msgstr "Separador"
+
+#: oxygen-acf-integration.php:292
+msgid "PHP Date Format. Defaults to Y-m-d H:i:s"
+msgstr "Formato de Fecha de PHP. Por defecto: Y-m-d H:i:s"
+
+#: oxygen-acf-integration.php:294
+msgid "PHP Date Format. Defaults to Y-m-d"
+msgstr "Formato de Fecha de PHP. Por defecto: Y-m-d"
+
+#: oxygen-acf-integration.php:303
+msgid "Separator (if multiple post objects are provided)"
+msgstr "Separador (en caso de tratarse de varios objetos Post)"
+
+#: oxygen-acf-integration.php:311
+msgid "Post Object ID"
+msgstr "ID de objeto Post"
+
+#: oxygen-acf-integration.php:311
+msgid "Post URL"
+msgstr "URL del Post"
+
+#: oxygen-acf-integration.php:349
+msgid "Select the ACF field"
+msgstr "Selecciona el campo ACF"
+
+#: oxygen-acf-integration.php:351 oxygen-acf-integration.php:371
+msgid "Advanced Custom Field"
+msgstr "Campo ACF"
+
+#: oxygen-acf-integration.php:381
+msgid "Field"
+msgstr "Campo"
+
+#: oxygen-acf-integration.php:481
+msgid "No Google Maps Key set"
+msgstr "No se estableció una llave de Google Maps"
+
+#: oxygen-acf-integration.php:628
+msgid ""
+"Advanced Custom Fields version 5 is not present or activated. Advanced "
+"Custom Fields integration for Oxygen will not be initialized. If you are "
+"using Advanced Custom Fields 4, please <a href=\"https://www."
+"advancedcustomfields.com/blog/acf-5-early-access/\" target=\"_blank\">update "
+"it to version 5, it's free</a>."
+msgstr ""
+"No se encontró Advanced Custom Fields versión 5. La integración de Advanced "
+"Custom Fields para Oxygen no será inicializada. Si estás utilizando Advanced "
+"Custom Fields 4, por favor <a href=\"https://www.advancedcustomfields.com/"
+"blog/acf-5-early-access/\" target=\"_blank\">actualiza a la versión 5, es "
+"gratis</a>."
+
+#: settings.php:23 settings.php:35
+msgid "Advanced Custom Fields Integration Settings"
+msgstr "Configuración de la integración de Advanced Custom Fields"
+
+#: settings.php:23
+msgid "ACF Settings"
+msgstr "Configuraciónes de ACF"
+
+#: settings.php:67
+msgid "Google Maps API Key"
+msgstr "Llave del API de Google Maps"
+
+#: settings.php:89
+msgid "Enter your settings below:"
+msgstr "Establece tus configuraciones a continuación:"
+
+#. Plugin Name of the plugin/theme
+msgid "Advanced Custom Fields integration for Oxygen"
+msgstr "Integración de Advanced Custom Fields para Oxygen"
+
+#. Author of the plugin/theme
+msgid "Soflyy"
+msgstr "Soflyy"
+
+#. Author URI of the plugin/theme
+msgid "http://soflyy.com"
+msgstr "http://soflyy.com"

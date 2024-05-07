@@ -1,0 +1,4 @@
+{% set layout = design.style.layout is empty ? 'icon_link' : design.style.layout %}
+{% set size = design.size.size is empty ? 'small' : design.size.size %}
+
+<div class="fb-share-button" data-href="%%SSR%%" data-layout="{{ layout }}" data-size="{{ size }}"></div>

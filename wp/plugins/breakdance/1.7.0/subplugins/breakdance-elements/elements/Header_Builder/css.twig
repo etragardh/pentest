@@ -1,0 +1,143 @@
+{% if isBuilder and not design.advanced.disable_builder_preview_mode %}
+body.single-breakdance_header,
+body.single-breakdance_template,
+body.single-breakdance_block {
+    background-image: linear-gradient(135deg, #d2d2d2 25%, transparent 25%), linear-gradient(225deg, #d2d2d2 25%, transparent 25%), linear-gradient(45deg, #d2d2d2 25%, transparent 25%), linear-gradient(315deg, #d2d2d2 25%, #e5e5e5 25%);
+    background-position: 50px 0, 50px 0, 0 0, 0 0;
+    background-size: 100px 100px;
+    background-repeat: repeat;
+    min-height: 5000px;
+}
+
+.bde-header-builder-marker {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: inline-block;
+  color: #fff;
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 6px;
+  background-color: #f44336;
+}
+
+.bde-header-builder-marker:before {
+  content: '';
+  position: absolute;
+  top: calc(50% + 1px);
+  left: 50%;
+  z-index: -1;
+  width: 100vw;
+  height: 2px;
+  transform: translateX(-50%) translateY(-50%);
+  border-top: 2px dashed #f44336;
+}
+{% endif %}
+
+{% if isBuilder and design.advanced.disable_builder_preview_mode %}
+.bde-header-builder-marker {
+  display: none;
+}
+{% endif %}
+
+%%SELECTOR%% {
+  {{ macros.backgroundColor(design.background.color) }}
+  --bde-header-sticky-duration: {{ design.sticky.scroll_behavior.duration.style }};
+  --bde-z-index-header-sticky: {{ design.sticky.z_index }};
+  --bde-z-index-header-overlay: {{ design.overlay.z_index }};
+  
+  {% if design.size.width == 'full' %}
+    --bde-header-width: 100%;
+  {% elseif design.size.width == 'custom' %}
+    --bde-header-width: {{ design.size.custom_width.style }};
+  {% endif %}
+  
+  box-shadow: {{ design.borders.shadow.style }};
+}
+
+%%SELECTOR%% .bde-header-builder__header-builder-border-top {
+  height: {{ design.borders.top.width.style }};
+  {{ macros.backgroundColor(design.borders.top.fill) }}
+}
+
+%%SELECTOR%% .bde-header-builder__header-builder-border-bottom {
+  height: {{ design.borders.bottom.width.style }};
+  {{ macros.backgroundColor(design.borders.bottom.fill) }}
+}
+
+%%SELECTOR%% .bde-header-builder__container {
+  gap: {{ design.layout.gap.style }};
+  {% if breakpoint == design.layout.stack_vertically_at|default(firstResponsiveBreakpointId) %}
+    flex-direction: column;
+  {% endif %}
+  min-height: {{ design.size.min_height.style }};
+  {{ macros.spacing_complex(design.spacing.padding, 'padding') }}
+}
+
+
+{% if design.overlay.enable and not design.overlay.keep_style %}
+  %%SELECTOR%%.bde-header-builder--overlay {
+    background-color: transparent;
+    box-shadow: none;
+  }
+
+  %%SELECTOR%%.bde-header-builder--overlay .bde-header-builder__header-builder-border-top {
+    background-color: transparent;
+  }
+
+  %%SELECTOR%%.bde-header-builder--overlay .bde-header-builder__header-builder-border-bottom {
+    background-color: transparent;
+  }
+
+{% endif %}
+
+
+
+/* for css priority, sticky styles should come after overlay */
+
+%%SELECTOR%%.bde-header-builder--sticky-styles {
+  {{ macros.backgroundColor(design.sticky.style.background) }}
+  {% if breakpoint == design.sticky.disable_at %}
+    display: none;
+  {% endif %}
+  box-shadow: {{ design.sticky.style.borders.shadow.style }};
+}
+
+%%SELECTOR%%.bde-header-builder--sticky-styles .bde-header-builder__container {
+  min-height: {{ design.sticky.style.min_height.style }};
+}
+
+%%SELECTOR%%.bde-header-builder--sticky-styles .bde-header-builder__header-builder-border-top {
+  height: {{ design.sticky.style.borders.top.width.style }};
+  {{ macros.backgroundColor(design.sticky.style.borders.top.fill) }}
+}
+
+%%SELECTOR%%.bde-header-builder--sticky-styles .bde-header-builder__header-builder-border-bottom {
+  height: {{ design.sticky.style.borders.bottom.width.style }};
+  {{ macros.backgroundColor(design.sticky.style.borders.bottom.fill) }}
+}
+
+
+
+{# wp admin bar behavior #}
+{% if design.sticky.enable %}
+  {#
+  the wp admin bar stops being sticky below 600px, which would result in
+  a white gap on the page after scrolling
+  if we didn't zero out --wp-admin--admin-bar--height.
+
+  however, if we do zero out the height, if the header is visible when the page
+  isn't scrolled, the admin bar will overlap the header
+
+  so to avoid this problem, we simply hide admin bar entirely
+  below 600px if sticky header is enabled
+  #}
+  @media screen and (max-width: 600px) {
+    #wpadminbar {
+      display: none;
+    }
+    .breakdance .bde-header-builder {
+      --wp-admin--admin-bar--height: 0px;
+    }
+  }
+{% endif %}

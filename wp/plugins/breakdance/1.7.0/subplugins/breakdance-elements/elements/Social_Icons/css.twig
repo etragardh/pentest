@@ -1,0 +1,74 @@
+/* Element Wrapper */
+%%SELECTOR%% {
+  {{ macros.spacing_margin_y(design.spacing) }}
+  flex-direction:{{ design.layout.direction }};
+  gap: {{ design.layout.space_between.style }};
+}
+
+/* Icon Wrapper */
+%%SELECTOR%% .bde-social-icons__icon-wrapper {
+  {% if design.icons.shape == '100%' %}
+    border-radius: {{ design.icons.shape }};
+    background-color: {{ design.icons.background }};
+  {% elseif design.icons.shape == '0' %}
+    border-radius: {{ design.icons.shape }};
+    background-color: {{ design.icons.background }};
+  {% elseif design.icons.shape == 'custom' %}
+    border-radius: {{ design.icons.radius.style | default('8px') }};
+    background-color: {{ design.icons.background }};
+  {% elseif design.icons.shape == 'icon' %}
+    background-color: transparent;
+    border-radius: 0;
+  {% endif %}
+  padding: {{ design.icons.padding.style }};
+  transition-duration: {{ design.effect.transition_duration.style }};
+  opacity: {{ design.effect.opacity }};
+}
+
+/* Icon Wrapper Hover*/
+%%SELECTOR%% .bde-social-icons__icon-wrapper:hover {
+  background-color:  {{ design.icons.background_hover }};
+  {% if design.effect.scale_on_hover %}
+    transform: scale({{ design.effect.scale_on_hover }});
+  {% endif %}
+  opacity: {{ design.effect.opacity_hover }};
+}
+
+/* Icon Image */
+%%SELECTOR%% .bde-social-icons__icon-wrapper svg {
+  width: {{ design.icons.size.style }};
+  height: {{ design.icons.size.style }};
+  fill: {{ design.icons.icon_color }};
+  transition-duration: {{ design.effect.transition_duration.style }};
+}
+
+/* Icon Image Hover */
+%%SELECTOR%% .bde-social-icons__icon-wrapper:hover svg {
+  fill: {{ design.icons.icon_color_hover }};
+}
+
+{% if content.content.social_networks %}
+  {% for item in content.content.social_networks %}
+    {% if item.background %}
+      %%SELECTOR%% .bde-social-icons__icon-wrapper:nth-child({{ loop.index }}) {
+          background-color: {{ item.background }};
+      }
+    {% endif %}
+    {% if item.icon_color %}
+      %%SELECTOR%% .bde-social-icons__icon-wrapper:nth-child({{ loop.index }}) svg {
+          fill: {{ item.icon_color }};
+      }
+    {% endif %}
+    {% if item.background_hover %}
+      %%SELECTOR%% .bde-social-icons__icon-wrapper:nth-child({{ loop.index }}):hover {
+          background-color: {{ item.background_hover }};
+      }
+    {% endif %}
+    {% if item.icon_color_hover %}
+      %%SELECTOR%% .bde-social-icons__icon-wrapper:nth-child({{ loop.index }}):hover svg {
+          fill: {{ item.icon_color_hover }};
+      }
+    {% endif %}
+  {% endfor %}
+{% endif %}
+

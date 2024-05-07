@@ -1,0 +1,14 @@
+.breakdance .bde-image-hover-card {
+  max-width: 100%;
+  display: flex;
+}
+.breakdance .bde-image-hover-card .c4-izmir {
+  --transition-duration: var(--bde-transition-duration);
+}
+.breakdance .bde-image-hover-card figure {
+  width:100%;
+}
+.breakdance .bde-image-hover-card img {
+  max-width: 100%;
+  height: auto;
+}

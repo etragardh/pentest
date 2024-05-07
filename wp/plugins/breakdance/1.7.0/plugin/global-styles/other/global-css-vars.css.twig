@@ -1,0 +1,516 @@
+{% if isBaseBreakpoint %}
+:root {
+    {# ------------------------ #}
+    {#         Palette          #}
+    {# ------------------------ #}
+
+    --white: #ffffff;
+
+    --grey-50: #f9fafb;
+    --grey-100: #f3f4f6;
+    --grey-200: #e5e7eb;
+    --grey-300: #d1d5db;
+    --grey-400: #9ca3af;
+    --grey-450: #787e8b;
+    --grey-500: #6b7280;
+    --grey-600: #4b5563;
+    --grey-700: #374151;
+    --grey-800: #1f2937;
+    --grey-900: #111827;
+
+    --blue-500: #3b82f6;
+    --blue-600: #2563eb;
+
+    --pink-600: #db2777;
+
+    --emerald-100: #d1fae5;
+    --emerald-700: #047857;
+
+    --sky-100: #e0f2fe;
+    --sky-500: #0ea5e9;
+
+    --red-50: #fef2f2;
+    --red-500: #ef4444;
+    --red-700: #b91c1c;
+
+    --indigo-50: #eef2ff;
+    --indigo-600: #4f46e5;
+    --indigo-700: #4338ca;
+
+    --yellow-500: #fbbf24;
+
+    {# Brand #}
+    --bde-brand-primary-color: {{ settings.colors.brand|default('var(--blue-500)') }};
+    --bde-brand-primary-color-hover: {{ settings.colors.brand_hover|default(settings.colors.brand)|default('var(--blue-600)') }};
+
+    {# ------------------------ #}
+    {#       Typography         #}
+    {# ------------------------ #}
+
+    {# Typography: Font Families #}
+    {% set defaultFont = 'system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji"' %}
+
+    {% if settings.typography.body_font is empty %}
+    --bde-body-font-family: {{ defaultFont }};
+    {% else %}
+    --bde-body-font-family: {{ process_font(settings.typography.body_font) }};
+    {% endif %}
+
+    {% if settings.typography.heading_font is empty %}
+    --bde-heading-font-family: {{ defaultFont }};
+    {% else %}
+    --bde-heading-font-family: {{ process_font(settings.typography.heading_font) }};
+    {% endif %}
+
+    {# Typography: Sizing #}
+    --bde-base-font-size: 16px;
+    --bde-body-font-size: {{ settings.typography.advanced.body.typography.custom.customTypography.fontSize.style|default('var(--bde-base-font-size)') }};
+
+    {# See https://type-scale.com/) #}
+    --bde-font-size-ratio: 1.250;
+    --bde-h6-font-size: {{ settings.typography.advanced.headings.h6.typography.custom.customTypography.fontSize.style|default('var(--bde-base-font-size)') }};
+    --bde-h5-font-size: {{ settings.typography.advanced.headings.h5.typography.custom.customTypography.fontSize.style|default('calc(var(--bde-h6-font-size) * var(--bde-font-size-ratio))') }};
+    --bde-h4-font-size: {{ settings.typography.advanced.headings.h4.typography.custom.customTypography.fontSize.style|default('calc(var(--bde-h5-font-size) * var(--bde-font-size-ratio))') }};
+    --bde-h3-font-size: {{ settings.typography.advanced.headings.h3.typography.custom.customTypography.fontSize.style|default('calc(var(--bde-h4-font-size) * var(--bde-font-size-ratio))') }};
+    --bde-h2-font-size: {{ settings.typography.advanced.headings.h2.typography.custom.customTypography.fontSize.style|default('calc(var(--bde-h3-font-size) * var(--bde-font-size-ratio))') }};
+    --bde-h1-font-size: {{ settings.typography.advanced.headings.h1.typography.custom.customTypography.fontSize.style|default('calc(var(--bde-h2-font-size) * var(--bde-font-size-ratio))') }};
+
+    {# Typography: Colors #}
+    --bde-body-text-color: {{ settings.colors.text|default(settings.typography.advanced.body.color)|default('var(--grey-700)') }};
+    --bde-headings-color: {{ settings.colors.headings|default('var(--grey-900)') }};
+
+    --bde-background-color:{{ settings.colors.background|default('var(--grey-50)') }};
+
+    {# Global Colors Palette #}
+    {% set colors = settings.colors.palette.colors ?? [] %}
+    {% set gradients = settings.colors.palette.gradients ?? [] %}
+    {% set globalColors = colors|merge(gradients) %}
+    {% for color in globalColors %}
+        {% if color %}
+            {% set value = color.value.value|default(color.value) %}
+            --{{ color.cssVariableName }}: {{ value }};
+        {% endif %}
+    {% endfor %}
+
+    {# Transition #}
+    --bde-transition-duration: {{ settings.other.transition_duration.style|default('300ms') }};
+
+    {# ------------------------ #}
+    {#        Containers        #}
+    {# ------------------------ #}
+
+    --bde-column-gap: 32px;
+    --bde-section-width: 1120px;
+    --bde-section-vertical-padding: 100px;
+    --bde-section-horizontal-padding: 20px;
+
+    {# ------------------------ #}
+    {#         Buttons          #}
+    {# ------------------------ #}
+
+    {# Buttons: Primary #}
+    --bde-button-primary-border-color: transparent;
+    --bde-button-primary-border-color-hover: transparent;
+    --bde-button-primary-text-color: white;
+    --bde-button-primary-text-color-hover: white;
+
+    {# Buttons: Secondary #}
+    --bde-button-secondary-text-color-hover: white;
+    --bde-button-secondary-background-color: transparent;
+
+    {# Buttons: Custom #}
+    --bde-button-custom-border-color: var(--grey-900);
+    --bde-button-custom-border-color-hover: var(--grey-700);
+    --bde-button-custom-text-color: var(--white);
+    --bde-button-custom-text-color-hover: var(--white);
+    --bde-button-custom-background-color: var(--grey-900);
+    --bde-button-custom-background-color-hover: var(--grey-700);
+
+    {# Buttons Typography #}
+    --bde-button-font-weight: 500;
+    --bde-button-border-radius: 3px;
+    --bde-button-border-width: 1px;
+
+    {# Button: Sizing #}
+    --bde-button-padding-base: 14px 24px;
+    --bde-button-padding-sm: 8px 16px;
+    --bde-button-padding-lg: 28px 54px;
+
+    --bde-button-line-height: 1;
+
+    {# ------------------------ #}
+    {#          Forms           #}
+    {# ------------------------ #}
+
+    --bde-form-gap: 16px;
+    --bde-form-after-label: 8px;
+    --bde-form-after-sublabel: 8px;
+    --bde-form-input-border-radius: 3px;
+    --bde-form-input-background-color: var(--white);
+    --bde-form-input-padding-top: 12px;
+    --bde-form-input-padding-right: 16px;
+    --bde-form-input-padding-bottom: 12px;
+    --bde-form-input-padding-left: 16px;
+    --bde-form-input-placeholder-color: var(--grey-450);
+    --bde-form-input-border-width: 1px;
+    --bde-form-input-border-color: var(--grey-300);
+    --bde-form-label-font-weight: 500;
+    --bde-form-label-required-color: var(--red-700);
+    --bde-form-label-required-nudge-x: 0;
+    --bde-form-label-required-nudge-y: 0;
+    --bde-form-label-required-size: inherit;
+    --bde-form-text-color: var(--grey-700);
+    --bde-form-input-focused-background-color: var(--white);
+    --bde-form-input-input-shadow: none;
+    --bde-form-checkbox-size: 1em;
+
+    {# ------------------------ #}
+    {#       WooCommerce        #}
+    {# ------------------------ #}
+    --bde-woo-products-list-gap: var(--bde-woo-base-large-gaps);
+
+    --bde-woo-base-paragraph-line-height: 1.4;
+    --bde-woo-base-heading-line-height: 1.2;
+
+    --bde-woo-base-border-color: var(--grey-300);
+    --bde-woo-base-text-on-primary-color: var(--white);
+
+    {# Woo: Spacing #}
+    --bde-woo-base-space: 8px;
+    --bde-woo-base-ratio: 1.618;
+
+    {# Woo: Typography weights #}
+    --bde-woo-typography-font-weight-normal: {{ settings.typography.advanced.body.typography.custom.customTypography.fontWeight|default('400') }};
+    --bde-woo-typography-font-weight-medium: 500;
+    --bde-woo-typography-font-weight-heavy: 600;
+
+    {# Woo: Buttons #}
+    --bde-woo-buttons-and-links-line-height: 1;
+
+    {# Woo: Disabled Buttons #}
+    --bde-woo-buttons-and-links__disabled-button-color: var(--grey-300);
+    --bde-woo-buttons-and-links__disabled-button-text-color: var(--white);
+
+    {# Woo: My Account Nav #}
+    --bde-woo-buttons-and-links__nav-link-background-active: var(--grey-50);
+    --bde-woo-buttons-and-links__nav-border-radius: 4px;
+
+
+    --bde-woo-forms__inputs-select2-selected-item: var(--grey-300);
+
+    {# Woo: Form Labels #}
+    --bde-woo-forms__wrappers-small: 360px;
+
+    {# Woo: Icons #}
+    --error-svg-icon: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm5.5 16.084l-1.403 1.416-4.09-4.096-4.102 4.096-1.405-1.405 4.093-4.092-4.093-4.098 1.405-1.405 4.088 4.089 4.091-4.089 1.416 1.403-4.092 4.087 4.092 4.094z"/></svg>');
+    --success-svg-icon: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-1 17l-5-5.299 1.399-1.43 3.574 3.736 6.572-7.007 1.455 1.403-8 8.597z"/></svg>');
+    --info-svg-icon: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm1 18h-2v-6h-2v-2h4v8zm-1-9.75c-.69 0-1.25-.56-1.25-1.25s.56-1.25 1.25-1.25 1.25.56 1.25 1.25-.56 1.25-1.25 1.25z"/></svg>');
+    --chevron-svg-icon: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 7.33l2.829-2.83 9.175 9.339 9.167-9.339 2.829 2.83-11.996 12.17z"/></svg>');
+    --checkbox-svg-icon: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M9 21.035l-9-8.638 2.791-2.87 6.156 5.874 12.21-12.436 2.843 2.817z"/></svg>');
+    --radiobutton-svg-icon: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12"/></svg>');
+    --show-password-svg-icon: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12.015 7c4.751 0 8.063 3.012 9.504 4.636-1.401 1.837-4.713 5.364-9.504 5.364-4.42 0-7.93-3.536-9.478-5.407 1.493-1.647 4.817-4.593 9.478-4.593zm0-2c-7.569 0-12.015 6.551-12.015 6.551s4.835 7.449 12.015 7.449c7.733 0 11.985-7.449 11.985-7.449s-4.291-6.551-11.985-6.551zm-.015 5c1.103 0 2 .897 2 2s-.897 2-2 2-2-.897-2-2 .897-2 2-2zm0-2c-2.209 0-4 1.792-4 4 0 2.209 1.791 4 4 4s4-1.791 4-4c0-2.208-1.791-4-4-4z"/></svg>');
+    --hide-password-svg-icon: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19.604 2.562l-3.346 3.137c-1.27-.428-2.686-.699-4.243-.699-7.569 0-12.015 6.551-12.015 6.551s1.928 2.951 5.146 5.138l-2.911 2.909 1.414 1.414 17.37-17.035-1.415-1.415zm-6.016 5.779c-3.288-1.453-6.681 1.908-5.265 5.206l-1.726 1.707c-1.814-1.16-3.225-2.65-4.06-3.66 1.493-1.648 4.817-4.594 9.478-4.594.927 0 1.796.119 2.61.315l-1.037 1.026zm-2.883 7.431l5.09-4.993c1.017 3.111-2.003 6.067-5.09 4.993zm13.295-4.221s-4.252 7.449-11.985 7.449c-1.379 0-2.662-.291-3.851-.737l1.614-1.583c.715.193 1.458.32 2.237.32 4.791 0 8.104-3.527 9.504-5.364-.729-.822-1.956-1.99-3.587-2.952l1.489-1.46c2.982 1.9 4.579 4.327 4.579 4.327z"/></svg>');
+    --error-svg-icon-color: var(--red-500);
+    --success-svg-icon-color: var(--emerald-700);
+    --info-svg-icon-color: var(--sky-500);
+    --chevron-svg-icon-color: var(--grey-900);
+    --checkbox-svg-icon-color: var(--grey-900);
+    --radiobutton-svg-icon-color: var(--grey-900);
+    --show-password-svg-icon-color: var(--grey-900);
+    --hide-password-svg-icon-color: var(--grey-900);
+
+    {# Woo: Notices #}
+    --bde-woo-notices__icon-size: 16px;
+    --bde-woo-notices__padding: 24px;
+
+    --bde-woo-notices__border-radius: 4px;
+    --bde-woo-notices__error-background: var(--red-50);
+    --bde-woo-notices__error-text: var(--red-500);
+    --bde-woo-notices__error-link-text: var(--red-500);
+    --bde-woo-notices__error-link-text-hover: var(--red-500);
+    --bde-woo-notices__info-background: var(--sky-100);
+    --bde-woo-notices__info-text: var(--sky-500);
+    --bde-woo-notices__info-link-text: var(--sky-500);
+    --bde-woo-notices__info-link-text-hover: var(--sky-500);
+    --bde-woo-notices__success-background: var(--emerald-100);
+    --bde-woo-notices__success-text: var(--emerald-700);
+    --bde-woo-notices__success-link-text: var(--emerald-700);
+    --bde-woo-notices__success-link-text-hover: var(--emerald-700);
+
+    {# Woo: Badge #}
+    --bde-woo-sale-badge__border-radius: 2px;
+    --bde-woo-sale-badge__padding: 4px 8px;
+
+    {# Woo: Ratings #}
+    --bde-woo-ratings__star-color: var(--yellow-500);
+    --bde-woo-ratings__star-size: 18px;
+    --bde-woo-ratings__filled-star-svg: url('data:image/svg+xml;utf8,<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><polygon id="Path" points="12 0.587 15.668 8.155 24 9.306 17.936 15.134 19.416 23.413 12 19.446 4.583 23.413 6.064 15.134 0 9.306 8.332 8.155"></polygon></svg>');
+    --bde-woo-ratings__empty-star-svg: url('data:image/svg+xml;utf8,<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M12,5.173 L14.335,9.99 L19.64,10.722 L15.779,14.432 L16.721,19.702 L12,17.178 L7.279,19.703 L8.221,14.433 L4.36,10.723 L9.665,9.99 L12,5.173 L12,5.173 Z M12,0.587 L8.332,8.155 L0,9.306 L6.064,15.134 L4.584,23.413 L12,19.446 L19.416,23.412 L17.936,15.133 L24,9.306 L15.668,8.156 L12,0.587 Z" id="Shape"></path></svg>');
+
+    {# Woo: Product Images #}
+    --bde-woo-product-images__border-radius: 4px;
+    --bde-woo-product-images__border-width: 0px;
+    --bde-woo-product-images__border-color: var(--grey-300);
+
+    {# Woo: Wrappers #}
+    --bde-woo-wrappers__background-color: var(--white);
+    --bde-woo-wrappers__border-radius: 4px;
+    --bde-woo-wrappers__border-color: var(--grey-300);
+    --bde-woo-wrappers__border-width: 1px;
+    --bde-woo-wrappers__shadow: rgba(0, 0, 0, 0.05) 0 1px 3px, rgba(0, 0, 0, 0.05) 0 1px 2px;
+
+    {# Woo: Tables #}
+    --bde-woo-tables__header-color: var(--grey-100);
+    --bde-woo-tables__background-color: var(--white);
+    --bde-woo-tables__border-radius: 4px;
+    --bde-woo-tables__border-width: 1px;
+
+    {# Woo: Widgets Variables */ #}
+    --bde-woo-widgets__chip-background-color: transparent;
+    --bde-woo-widgets__chip-background-color-hover: var(--indigo-50);
+    --bde-woo-widgets__chip-text-color: inherit;
+
+    --bde-woo-widgets__handle-border-color: var(--grey-300);
+    --bde-woo-widgets__handle-background-color: var(--white);
+    --bde-woo-widgets__handle-background-color-hover: var(--white);
+    --bde-woo-widgets__handle-shadow: rgba(0, 0, 0, 0.05) 0 1px 3px, rgba(0, 0, 0, 0.05) 0 1px 2px;
+    --bde-woo-widgets__handle-shadow-hover: var(--grey-300) 0 0 4px;
+
+    {# Woo: Misc #}
+    --bde-woo-widgets__remove-item-from-cart-color: var(--grey-450);
+    --bde-woo-select2__active-item-background-color: var(--indigo-50);
+    --bde-woo-gallery__zoom-icon-shadow: rgba(0, 0, 0, 0.05) 0 1px 3px, rgba(0, 0, 0, 0.05) 0 1px 2px;
+
+    {# Woo: Payment Box #}
+    --bde-woo-payment-box-background-color: var(--grey-100);
+    --bde-woo-payment-box-border-color: var(--grey-200);
+    --bde-woo-payment-box-border-width: 1px;
+
+    {# Woo: Quicklook #}
+    --bde-woo-quicklook-button-icon: url(icons/eye.svg);
+    --bde-woo-quicklook-button-background-color: none;
+    --bde-woo-quicklook-button-icon-size: 20px;
+    --bde-woo-quicklook-button-backdrop-color: rgba(0, 0, 0, 0.15);
+    --bde-woo-quicklook-button-backdrop-opacity: 0.7;
+    --bde-woo-quicklook-modal-background-color: var(--white);
+    --bde-woo-quicklook-overlay-color: rgba(0, 0, 0, 0.7);
+    --bde-woo-quicklook-close-button-size: 2em;
+    --bde-woo-quicklook-arrow-size: 1em;
+    --bde-woo-quicklook-arrow-color: var(--white);
+
+    {# Woo Variation Swatches #}
+    --bde-woo-swatch-space-between-options: 10px;
+    --bde-woo-swatch-padding: 7px 7px;
+    --bde-woo-swatch-color-width: 30px;
+    --bde-woo-swatch-color-height: 30px;
+    --bde-woo-swatch-border: 1px solid var(--grey-200);
+    --bde-woo-swatch-border-color-hover: var(--grey-400);
+    --bde-woo-swatch-shadow: none;
+    --bde-woo-swatch-shadow-hover: none;
+    --bde-woo-swatch-background: var(--white);
+    --bde-woo-swatch-background-hover: var(--grey-50);
+    --bde-woo-swatch-color-padding: 2px;
+    --bde-woo-swatch-tooltip-color: var(--white);
+    --bde-woo-swatch-tooltip-background: var(--grey-900);
+    --bde-woo-swatch-tooltip-padding: 7px;
+    --bde-woo-swatch-space-after-label: 8px;
+
+    {# Woo: Responsive #}
+    --bde-woo-responsive__stack: row;
+}
+
+:root,
+.bde-global-css-vars {
+    {# Typography: Colors #}
+    --bde-links-color: {{ settings.colors.links|default(settings.typography.advanced.links.color)|default('var(--bde-brand-primary-color)') }};
+    --bde-links-color-hover: {{ settings.colors.links_hover|default(settings.colors.links)|default(settings.typography.advanced.links.color)|default(settings.typography.advanced.links.color_hover)|default('var(--bde-brand-primary-color-hover)') }};
+
+    {# ------------------------ #}
+    {#         Buttons          #}
+    {# ------------------------ #}
+
+    {# Buttons: Primary #}
+    --bde-button-primary-background-color: var(--bde-brand-primary-color);
+    --bde-button-primary-background-color-hover: var(--bde-brand-primary-color-hover);
+
+    {# Buttons: Secondary #}
+    --bde-button-secondary-border-color: var(--bde-brand-primary-color);
+    --bde-button-secondary-border-color-hover: var(--bde-brand-primary-color);
+    --bde-button-secondary-text-color: var(--bde-brand-primary-color);
+    --bde-button-secondary-background-color-hover: var(--bde-brand-primary-color);
+
+    {# Buttons: Text #}
+    --bde-button-text-text-color: var(--bde-links-color);
+    --bde-button-text-text-color-hover: var(--bde-links-color-hover);
+
+    {# Buttons Typography #}
+    --bde-button-font-size: var(--bde-body-font-size);
+
+    {# ------------------------ #}
+    {#          Forms           #}
+    {# ------------------------ #}
+
+    --bde-form-font-size: var(--bde-body-font-size);
+    --bde-form-input-border-top-left-radius: var(--bde-form-input-border-radius);
+    --bde-form-input-border-top-right-radius: var(--bde-form-input-border-radius);
+    --bde-form-input-border-bottom-left-radius: var(--bde-form-input-border-radius);
+    --bde-form-input-border-bottom-right-radius: var(--bde-form-input-border-radius);
+    --bde-form-input-border-top: var(--bde-form-input-border-width) solid var(--bde-form-input-border-color);
+    --bde-form-input-border-right: var(--bde-form-input-border-width) solid var(--bde-form-input-border-color);
+    --bde-form-input-border-bottom: var(--bde-form-input-border-width) solid var(--bde-form-input-border-color);
+    --bde-form-input-border-left: var(--bde-form-input-border-width) solid var(--bde-form-input-border-color);
+    --bde-form-label-color: var(--bde-headings-color);
+    --bde-form-input-focused-border-color: var(--bde-brand-primary-color);
+    --bde-form-input-focused-shadow: var(--bde-brand-primary-color) 0 0 2px;
+    --bde-form-checkbox-selected-color: var(--bde-brand-primary-color);
+
+    {# ------------------------ #}
+    {#         Stacking         #}
+    {# ------------------------ #}
+    --bde-z-index-lightbox: 1100; /* Always in front of everything */
+    --bde-z-index-popup: 1050;
+    --bde-z-index-modal: 1000;
+    --bde-z-index-modal-backdrop: calc(var(--bde-z-index-modal) - 1);
+    --bde-z-index-high: 300;
+    --bde-z-index-medium: 200;
+    --bde-z-index-low: 100;
+    --bde-z-index-sticky: 10;
+
+    --bde-z-index-minicart: var(--bde-z-index-modal);
+    --bde-z-index-minicart-backdrop: var(--bde-z-index-modal-backdrop);
+    --bde-z-index-menu-dropdown: var(--bde-z-index-modal);
+    --bde-z-index-menu-mobile: var(--bde-z-index-modal);
+    --bde-z-index-menu-backdrop: var(--bde-z-index-modal-backdrop);
+    --bde-z-index-search-fullscreen: var(--bde-z-index-modal);
+    --bde-z-index-back-to-top: var(--bde-z-index-high);
+    --bde-z-index-scroll-progress: var(--bde-z-index-high);
+    --bde-z-index-header-sticky: var(--bde-z-index-medium);
+    --bde-z-index-header-overlay: calc(var(--bde-z-index-header-sticky) - 1);
+    --bde-z-index-social-share-buttons: var(--bde-z-index-low);
+
+    {# ------------------------ #}
+    {#       WooCommerce        #}
+    {# ------------------------ #}
+
+    --bde-woo-base-transition: all ease var(--bde-transition-duration);
+
+    --bde-woo-base-text-color: var(--bde-body-text-color);
+    --bde-woo-base-headings-color: var(--bde-headings-color);
+
+    --bde-woo-base-primary-color: var(--bde-brand-primary-color);
+    --bde-woo-base-primary-color-hover: var(--bde-brand-primary-color-hover);
+
+    {# Woo: Spacing #}
+
+    --bde-woo-base-extra-small-gaps: calc(var(--bde-woo-base-small-gaps) / var(--bde-woo-base-ratio));
+    --bde-woo-base-small-gaps: calc(var(--bde-woo-base-space) / var(--bde-woo-base-ratio));
+    --bde-woo-base-standard-gaps: var(--bde-woo-base-space); {# 8px #}
+    --bde-woo-base-medium-gaps: calc(var(--bde-woo-base-space) * var(--bde-woo-base-ratio));
+    --bde-woo-base-big-gaps: calc(var(--bde-woo-base-medium-gaps) *  var(--bde-woo-base-ratio));
+    --bde-woo-base-large-gaps: calc(var(--bde-woo-base-big-gaps) *  var(--bde-woo-base-ratio));
+    --bde-woo-base-extra-large-gaps: calc(var(--bde-woo-base-large-gaps) * var(--bde-woo-base-ratio));
+
+    {# Woo: Typography Ratio #}
+    --bde-woo-typography-ratio: var(--bde-font-size-ratio);
+
+    {# Woo: Typography Sizes #}
+    --bde-woo-typography__size-small: calc(var(--bde-woo-typography__size-standard) / var(--bde-woo-typography-ratio));
+    --bde-woo-typography__size-small-font-family: var(--bde-body-font-family);
+
+    --bde-woo-typography__size-standard: var(--bde-body-font-size);
+    --bde-woo-typography__size-standard-font-family: var(--bde-body-font-family);
+
+    --bde-woo-typography__size-medium: calc(var(--bde-woo-typography__size-standard) * var(--bde-woo-typography-ratio));
+    --bde-woo-typography__size-medium-font-family: var(--bde-heading-font-family);
+
+    --bde-woo-typography__size-large: calc(var(--bde-woo-typography__size-medium) * var(--bde-woo-typography-ratio));
+    --bde-woo-typography__size-large-font-family: var(--bde-heading-font-family);
+
+    --bde-woo-typography__size-extra-large: calc(var(--bde-woo-typography__size-large) * var(--bde-woo-typography-ratio));
+    --bde-woo-typography__size-extra-large-font-family: var(--bde-heading-font-family);
+
+    {# Woo: Text Links #}
+    --bde-woo-buttons-and-links__text-link-color: {{ settings.colors.links|default('var(--bde-woo-base-primary-color)') }};
+    --bde-woo-buttons-and-links__text-link-color-hover: {{ settings.colors.links_hover|default(settings.colors.links)|default('var(--bde-woo-base-primary-color-hover)') }};
+
+    {# Woo: My Account Nav #}
+    --bde-woo-buttons-and-links__nav-link-color: var(--bde-woo-base-text-color);
+    --bde-woo-buttons-and-links__nav-link-color-hover: var(--bde-woo-base-text-on-primary-color);
+    --bde-woo-buttons-and-links__nav-link-color-active: var(--bde-woo-base-primary-color);
+
+    {# Woo: Forms #}
+    --bde-woo-forms__spacing-after-label: var(--bde-form-after-label);
+    --bde-woo-forms__spacing-between-fields: var(--bde-form-gap);
+    --bde-woo-forms__spacing-between-columns: var(--bde-woo-base-extra-large-gaps);
+
+    --bde-woo-forms__labels-color: var(--bde-form-label-color);
+
+    --bde-woo-forms__inputs-background-color: var(--bde-form-input-background-color);
+    --bde-woo-forms__inputs-text-color: var(--bde-form-text-color);
+    --bde-woo-forms__inputs-placeholder-color: var(--bde-form-input-placeholder-color);
+    --bde-woo-forms__inputs-border-color: var(--bde-form-input-border-color);
+    --bde-woo-forms__inputs-border-width: var(--bde-form-input-border-width);
+    --bde-woo-forms__inputs-border-radius: var(--bde-form-input-border-top-left-radius) var(--bde-form-input-border-top-right-radius) var(--bde-form-input-border-bottom-right-radius) var(--bde-form-input-border-bottom-left-radius);
+    --bde-woo-forms__inputs-background-color-focused: var(--bde-form-input-focused-background-color);
+    --bde-woo-forms__inputs-border-color-focused: var(--bde-form-input-focused-border-color);
+    --bde-woo-forms__inputs-shadow-focused: var(--bde-form-input-focused-shadow);
+    --bde-woo-forms__inputs-shadow: var(--bde-form-input-input-shadow);
+
+    --bde-woo-forms__inputs-select2-hover-item: var(--bde-woo-base-primary-color);
+
+    {# Woo: Form Labels #}
+    --bde-woo-forms__labels-required-color: var(--bde-form-label-required-color);
+    --bde-woo-forms__labels-required-size:  var(--bde-form-label-required-size);
+
+    --bde-woo-forms__labels-required-nudge-x: var(--bde-form-label-required-nudge-x);
+    --bde-woo-forms__labels-required-nudge-y: var(--bde-form-label-required-nudge-y);
+
+    {# Woo: Tables #}
+    --bde-woo-tables__border-color: var(--bde-woo-base-border-color);
+
+    {# Woo: Sale Badge #}
+    --bde-woo-sale-badge__background-color: var(--bde-woo-base-primary-color);
+    --bde-woo-sale-badge__text-color: var(--bde-woo-base-text-on-primary-color);
+    --bde-woo-sale-badge__font-weight: var(--bde-woo-typography-font-weight-heavy);
+    --bde-woo-sale-badge__font-size: var(--bde-woo-typography__size-standard);
+
+    {# Woo: Widgets Variables */ #}
+    --bde-woo-widgets__chip-text-color-hover: var(--bde-woo-buttons-and-links__text-link-color);
+    --bde-woo-widgets__handle-border-color-hover: var(--bde-woo-base-primary-color);
+
+    {# Woo: Notices #}
+    --bde-woo-notices__padding-left: calc(var(--bde-woo-notices__padding) + var(--bde-woo-notices__icon-size) + (var(--bde-woo-notices__icon-size) / 2));
+
+    {# Woo: Quicklook #}
+    --bde-woo-quicklook-button-text-color: var(--bde-button-primary-text-color);
+    --bde-woo-quicklook-button-background-color-hover: var(--bde-woo-quicklook-button-background-color);
+    --bde-woo-quicklook-button-icon-spacing: var(--bde-woo-base-standard-gaps);
+
+    --bde-woo-quicklook-close-button-color: var(--bde-woo-base-headings-color);
+    --bde-woo-quicklook-arrow-color-hover: var(--bde-woo-quicklook-arrow-color);
+    --bde-woo-quicklook-arrow-background-color: var(--bde-brand-primary-color);
+    --bde-woo-quicklook-arrow-background-color-hover: var(--bde-woo-quicklook-arrow-background-color);
+
+    {# Woo Variation Swatches #}
+    --bde-woo-swatch-space-between-items: var(--bde-woo-base-medium-gaps);
+    --bde-woo-swatch-background-selected: var(--bde-woo-swatch-background-hover);
+    --bde-woo-swatch-border-color-selected: var(--bde-woo-swatch-border-color-hover);
+    --bde-woo-swatch-shadow-selected: var(--bde-woo-swatch-shadow-hover);
+    --bde-woo-swatch-color-background: var(--bde-woo-swatch-background);
+}
+
+{% endif %}
+
+{# ------------------------ #}
+{#  Responsive Typography   #}
+{# ------------------------ #}
+
+:root {
+    {% if settings.typography.ratio %}
+        --bde-font-size-ratio: {{ settings.typography.ratio }};
+    {% endif %}
+
+    {% if settings.typography.base_size.style %}
+        --bde-base-font-size: {{ settings.typography.base_size.style }};
+    {% endif %}
+}

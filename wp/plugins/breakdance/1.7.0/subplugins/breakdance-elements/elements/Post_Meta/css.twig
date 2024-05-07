@@ -1,0 +1,50 @@
+%%SELECTOR%% {
+  width: {{ design.layout.width.style }};
+  {{ macros.spacing_margin_y(design.spacing.container) }}
+  justify-content: {{ design.layout.alignment }};
+  gap:{{ design.spacing.between_items.style }};
+  {{ macros.typography(design.typography.text, globalSettings)  }}
+  align-items: {{ design.layout.alignment_when_vertical }};
+}
+
+{% if breakpoint == design.layout.stack_vertically_at %}
+%%SELECTOR%% {
+  flex-direction:column;
+}
+{% endif %}
+    
+
+%%SELECTOR%% li {
+  {% if design.container.alignment %}
+  justify-content: {{ design.container.alignment }};
+  {% endif %}
+}
+%%SELECTOR%% li a {
+  {{ macros.typography(design.typography.links, globalSettings)  }}
+}
+%%SELECTOR%% li a:hover {
+  {{ macros.typographyWithHoverableEverything(design.typography.links) }}
+}
+
+%%SELECTOR%% .ee-postmeta-before {
+  {{ macros.typography(design.typography.before_text, globalSettings)  }}
+}
+
+%%SELECTOR%% .ee-postmeta-icon {
+  margin-right: {{ design.spacing.after_graphics.style }};
+}
+
+%%SELECTOR%% .ee-postmeta-avatar {
+  {% if design.graphics.author_avatar.size.style %}
+  width: {{ design.graphics.author_avatar.size.style }};
+  {% elseif design.graphics.icons.size.style %}
+  width: {{ design.graphics.icons.size.style }};
+  {% endif %}
+  margin-right: {{ design.spacing.after_graphics.style }};
+}
+
+%%SELECTOR%% .ee-postmeta-avatar img {
+  border-radius: {{ design.graphics.author_avatar.border_radius.style }};
+}
+
+{{ macros.atomV1IconCss(design.graphics.icons, 'ee-postmeta-icon', '%%SELECTOR%%') }}

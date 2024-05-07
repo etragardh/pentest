@@ -1,0 +1,112 @@
+{% macro background(background) %}
+    background-color: {{ background.color }};
+    background-clip: {{ background.clip }};
+
+    {% set image = '' %}
+    {% set size = '' %}
+    {% set position = '' %}
+    {% set repeat = '' %}
+    {% set attachment = '' %}
+    {% set blendmode = '' %}
+
+    {% for layer in background.layers|reverse %}
+
+        {% set tempImage = 'linear-gradient(transparent, transparent)' %}
+        {% set tempSize = 'auto' %}
+        {% set tempPosition = '0% 0%' %}
+        {% set tempRepeat = 'repeat' %}
+        {% set tempAttachment = 'scroll' %}
+        {% set tempBlendmode = 'normal' %}
+
+        {% if layer.type == 'image' and layer.image.url %}
+            {% set tempImage = 'url(' ~ layer.image.url ~ ')'%}
+
+            {% if layer.size == 'custom' %}
+                {% set tempSize = layer.size_manual_width.style|default('auto') ~ ' ' ~ layer.size_manual_height.style|default('auto') %}
+            {% elseif layer.size %}
+                {% set tempSize = layer.size %}
+            {% endif %}
+
+            {% if layer.position == 'custom' %}
+                {% set tempPosition = layer.position_manual_left.style|default('0%') ~ ' ' ~ layer.position_manual_top.style|default('0%') %}
+            {% elseif layer.position %}
+                {% set tempPosition = layer.position %}
+            {% endif %}
+
+            {% if layer.repeat %}
+                {% set tempRepeat = layer.repeat %}
+            {% endif %}
+
+            {% if layer.attachment %}
+                {% set tempAttachment = layer.attachment %}
+            {% endif %}
+        {% elseif layer.type == 'gradient' and layer.gradient %}
+            {#
+              gradient.style = old gradient input removed in 1.3
+              gradient.value = new gradient input
+              gradient = fallback for global css variable
+            #}
+            {% set tempImage = layer.gradient.style ?? layer.gradient.value ?? layer.gradient %}
+        {% elseif layer.type == 'overlay_color' and layer.overlay_color %}
+            {% set tempImage = 'linear-gradient(' ~ layer.overlay_color ~  ', '  ~ layer.overlay_color ~ ')' %}
+        {% endif %}
+
+        {% if layer.blend %}
+            {% set tempBlendmode = layer.blend %}
+        {% endif %}
+
+        {% if tempImage %}
+            {% set addComma = image ? ', ' : '' %}
+            {% set image = image ~ addComma ~ tempImage %}
+        {% endif %}
+
+        {% if tempSize %}
+            {% set addComma = size ? ', ' : '' %}
+            {% set size = size ~ addComma ~ tempSize %}
+        {% endif %}
+
+        {% if tempPosition %}
+            {% set addComma = position ? ', ' : '' %}
+            {% set position = position ~ addComma ~ tempPosition %}
+        {% endif %}
+
+        {% if tempRepeat %}
+            {% set addComma = repeat ? ', ' : '' %}
+            {% set repeat = repeat ~ addComma ~ tempRepeat %}
+        {% endif %}
+
+        {% if tempAttachment %}
+            {% set addComma = attachment ? ', ' : '' %}
+            {% set attachment = attachment ~ addComma ~ tempAttachment %}
+        {% endif %}
+
+        {% if tempBlendmode %}
+            {% set addComma = blendmode ? ', ' : '' %}
+            {% set blendmode = blendmode ~ addComma ~ tempBlendmode %}
+        {% endif %}
+    {% endfor %}
+
+    {% if image %}
+        background-image: {{ image }};
+    {% endif %}
+
+    {% if size %}
+        background-size: {{ size }};
+    {% endif %}
+
+    {% if position %}
+        background-position: {{ position }};
+    {% endif %}
+
+    {% if repeat %}
+        background-repeat: {{ repeat }};
+    {% endif %}
+
+    {% if attachment %}
+        background-attachment: {{ attachment }};
+    {% endif %}
+
+    {% if blendmode %}
+        background-blend-mode: {{ blendmode }};
+    {% endif %}
+{% endmacro %}

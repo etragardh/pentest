@@ -1,0 +1,261 @@
+/* Element Selector Full Width */
+.bde-woopageaccount {
+  width: 100%;
+}
+
+/* Big Gaps */
+.breakdance-woocommerce {
+  #payment .form-row,
+  td.download-file,
+  .woocommerce-EditAccountForm fieldset legend,
+  .woocommerce-form-track-order,
+  .woocommerce-customer-details,
+  .woocommerce-order-details,
+  .woocommerce-order-downloads,
+  .woocommerce-MyAccount-content
+    form
+    .woocommerce-address-fields__field-wrapper,
+  .woocommerce-MyAccount-content form,
+  .woocommerce-Address-title,
+  .woocommerce-Address,
+  .woocommerce-EditAccountForm,
+  .woocommerce-EditAccountForm fieldset,
+  .woocommerce-form-login,
+  .woocommerce-form-register {
+    display: flex;
+    flex-direction: column;
+    gap: var(--bde-woo-base-big-gaps);
+  }
+}
+
+/* Large Gaps */
+.breakdance-woocommerce .woocommerce-MyAccount-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--bde-woo-base-large-gaps);
+}
+
+/* Extra Large Gaps */
+.bde-woopageaccount .woocommerce,
+.breakdance-woocommerce .woocommerce-Addresses,
+.breakdance-woocommerce .woocommerce-columns--addresses,
+.breakdance-woocommerce
+  .woocommerce-MyAccount-content
+  form
+  .woocommerce-address-fields {
+  display: flex;
+  flex-direction: column;
+  gap: var(--bde-woo-base-large-gaps);
+}
+
+/* Main Blocks Layout */
+.bde-woopageaccount .woocommerce {
+  flex-direction: var(--bde-woo-responsive__stack);
+  flex-wrap: wrap;
+}
+
+/* Nav Bar Wrapper */
+.breakdance-woocommerce .woocommerce-MyAccount-navigation {
+  width: column(25%);
+  min-width: 160px;
+}
+
+/* Content Wrapper */
+.breakdance-woocommerce .woocommerce-MyAccount-content {
+  width: var(--bde-woo-responsive__width);
+  flex: 1 1 480px;
+}
+
+/* Login Form Width */
+.breakdance-woocommerce .woocommerce-notices-wrapper + h2 {
+  display: none;
+}
+.breakdance-woocommerce .woocommerce-form-login,
+.breakdance-woocommerce .woocommerce-form-register {
+  width: 100%;
+  max-width: var(--bde-woo-forms__wrappers-small);
+  margin: 0 auto;
+}
+
+/* Remember Me Row Layout */
+.woocommerce-page.woocommerce-account .woocommerce-form-login__rememberme {
+  margin-bottom: var(--bde-woo-base-large-gaps);
+}
+
+/* Grow Login Button */
+.breakdance-woocommerce .woocommerce-form-login .woocommerce-form-login__submit,
+.breakdance-woocommerce
+  .woocommerce-form-register
+  .woocommerce-form-register__submit {
+  flex-grow: 1;
+  width: 100%;
+}
+
+/* Next/Prev Buttons */
+.breakdance-woocommerce .woocommerce-Button--previous {
+  align-self: flex-start;
+}
+.breakdance-woocommerce .woocommerce-Button--previous::before {
+  content: "←";
+}
+.breakdance-woocommerce .woocommerce-Button--next {
+  align-self: flex-end;
+}
+.breakdance-woocommerce .woocommerce-Button--next::after {
+  content: "";
+  display: inline-block;
+  background-color: currentColor;
+  margin-left: 0.2em;
+  width: 0.8em;
+  height: 0.8em;
+  mask-image: url(icons/arrow.svg);
+  mask-position: 0 0;
+  mask-size: 100% 100%;
+  mask-repeat: no-repeat;
+  -webkit-mask-image: url(icons/arrow.svg);
+  -webkit-mask-position: 0 0;
+  -webkit-mask-size: 100% 100%;
+}
+
+/* Order Actions Buttons */
+.breakdance-woocommerce .woocommerce-orders-table__cell-order-actions {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: var(--bde-woo-base-big-gaps);
+}
+/* Order Actions Buttons */
+.breakdance-woocommerce
+  .woocommerce-orders-table__cell-order-actions
+  a.woocommerce-button {
+  width: 100%;
+}
+/* Pay Button */
+.breakdance-woocommerce .woocommerce-button.button.pay {
+  padding: 8px 12px;
+}
+
+/* Addresses Columns */
+.breakdance-woocommerce .woocommerce-columns--addresses,
+.breakdance-woocommerce .woocommerce-Addresses {
+  flex-direction: var(--bde-woo-responsive__stack);
+  margin-top: (--bde-woo-base-medium-gaps);
+}
+
+/* Address Column */
+.breakdance-woocommerce .woocommerce-column,
+.breakdance-woocommerce .woocommerce-Address {
+  width: column(50%);
+}
+
+.breakdance-woocommerce .woocommerce-Address-title {
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+/* Weak Password Title Spacing */
+.breakdance-woocommerce .woocommerce-password-strength {
+  margin-top: var(--bde-woo-base-medium-gaps);
+}
+
+/* Change Password Spacing */
+.breakdance-woocommerce .woocommerce-EditAccountForm fieldset {
+  margin-top: var(--bde-woo-base-big-gaps);
+}
+
+/* Password Change Title */
+.breakdance-woocommerce .woocommerce-EditAccountForm fieldset legend {
+  float: left;
+}
+
+/* ----- Reset Password Page ----- */
+.woocommerce-page.woocommerce-lost-password
+  .breakdance-woocommerce
+  form.woocommerce-ResetPassword {
+  display: flex;
+  flex-direction: column;
+  gap: var(--bde-woo-base-large-gaps);
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+/* ----- Order Details ----- */
+.breakdance-woocommerce {
+  .woocommerce-customer-details {
+    background-color: var(--bde-woo-wrappers__background-color);
+  }
+
+  .woocommerce-customer-details address {
+    display: flex;
+  }
+
+  .woocommerce-columns--addresses {
+    .woocommerce-column {
+      display: flex;
+      flex-direction: column;
+      gap: var(--bde-woo-base-big-gaps);
+    }
+  }
+
+  ul.wc-item-meta {
+    margin-top: 8px;
+  }
+
+  ul.wc-item-meta li {
+    margin: 2px 0 2px 0;
+  }
+}
+
+/* ----- Login/Register Columns ----- */
+
+.woocommerce-page.woocommerce-account .breakdance-woocommerce .col2-set {
+  display: flex;
+  flex-direction: var(--bde-woo-responsive__stack);
+  gap: var(--bde-woo-base-large-gaps);
+  width: 100%;
+  max-width: 768px;
+  margin: 0 auto;
+}
+
+.woocommerce-page.woocommerce-account .breakdance-woocommerce .col2-set .col-1,
+.woocommerce-page.woocommerce-account .breakdance-woocommerce .col2-set .col-2 {
+  width: 100%;
+}
+
+.woocommerce-page.woocommerce-account
+  .breakdance-woocommerce
+  #customer_login
+  h2 {
+  width: 100%;
+  max-width: var(--bde-woo-forms__wrappers-small);
+  margin: 0 auto;
+  margin-bottom: var(--bde-woo-base-medium-gaps);
+}
+
+@media (max-width: 767px) {
+  .woocommerce-page.woocommerce-account .breakdance-woocommerce .col2-set {
+    width: column(50%);
+  }
+}
+
+// Payments
+
+.woocommerce-page.woocommerce-account {
+  .woocommerce-PaymentMethods {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+
+  .woocommerce-PaymentBox {
+    margin-bottom: var(--bde-woo-base-large-gaps);
+    margin-top: var(--bde-woo-base-medium-gaps);
+
+    fieldset {
+      border: 0;
+      padding: 0;
+      margin: 0;
+    }
+  }
+}

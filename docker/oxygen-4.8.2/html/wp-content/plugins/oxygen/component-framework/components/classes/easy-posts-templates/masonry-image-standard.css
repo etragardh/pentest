@@ -1,0 +1,64 @@
+%%EPID%% .oxy-posts {
+  display: block;
+  column-count: 3;
+  column-gap: 2em;
+  margin-bottom: 4em;
+}
+
+%%EPID%% .oxy-post {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  align-items: flex-start;
+  margin-bottom: 3em;
+  break-inside: avoid;
+}
+
+%%EPID%% .oxy-post-image {
+  margin-bottom: 1em;
+  width: 100%;
+}
+
+%%EPID%% .oxy-post-title {
+  font-size: 1.5em;
+  line-height: var(--oxy-small-line-height);
+}
+
+%%EPID%% .oxy-post-meta {
+  margin-top: 0.5em;
+  font-size: 0.8em;
+  display: flex;
+  flex-direction: row;
+}
+
+%%EPID%% .oxy-post-meta-item::after {
+  content: "\00b7";
+  margin-right: 0.5em;
+  margin-left: 0.5em;
+}
+
+%%EPID%% .oxy-post-meta-item:last-child::after {
+  content: "";
+  display: none;
+}
+
+%%EPID%% .oxy-post-content {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+%%EPID%% .oxy-post-content p {
+  margin: 0;
+}
+
+@media (max-width: 1120px) {
+  %%EPID%% .oxy-posts {
+    column-count: 2;
+  }
+}
+
+@media (max-width: 767px) {
+  %%EPID%% .oxy-posts {
+    column-count: 1;
+  }
+}

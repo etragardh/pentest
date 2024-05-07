@@ -1,0 +1,170 @@
+%%SELECTOR%% {
+    {{ macros.spacing_margin_y(design.spacing.wrapper) }}
+    --testimonialWidth: {{ design.layout.width.style }};
+    --imageSize: {{ design.image.size.style }};
+  
+    {% if design.quotes.style %}
+      --quotemarkIconSize: {{ design.quotes.size.style|default('40px') }};
+    {% endif %}
+  
+    --quotemarkIconColor: {{design.quotes.color }};
+
+  {% if design.image.style == "outlined-circle" %}
+    --outlinedCircleImageOutlineWidth: {{ design.image.outline.width.style }};
+    --outlinedCircleImageOutlineOffset: {{ design.image.outline.offset_width.style }};
+    --outlinedCircleImageOutlineOffsetColor:  {{ design.image.outline.offset_color }};
+  {% else %}
+    --standardImageBorderWidth: {{ design.image.shape_outline.border_width.style }};
+    --standardImageBorderFill: {{ design.image.shape_outline.border_color }};
+  {% endif %}
+
+  {% if design.image.shape_outline.shape == 'rounded' %}
+    --standardImageBorderRadius: {{ design.image.shape_outline.border_radius.style|default('8px') }};
+  {% elseif design.image.shape_outline.shape == 'square' %}
+    --standardImageBorderRadius: 0px;
+  {% elseif design.image.shape_outline.shape == 'circle' %}
+    --standardImageBorderRadius: 50%;  
+  {% endif %}
+
+  {% if design.layout.alignment == 'left' %}
+    align-items: flex-start;
+    text-align: left;
+  {% elseif design.layout.alignment == 'right' %}
+    align-items: flex-end;
+    text-align: right;
+  {% elseif design.layout.alignment == 'center'%}
+    align-items: center;
+    text-align: center;
+  {% endif %}
+}
+
+{% if design.image.style == "outlined-circle" %}
+%%SELECTOR%% .simple-testimonial__image-outer-wrapper.simple-testimonial__outlined-circle-image {
+  {% if not design.image.outline.color %}
+    background-image: linear-gradient(-45deg, rgba(74, 43, 198, 1) 0%, rgba(185, 25, 229, 1) 100%);
+  {% endif %}
+  {{ macros.backgroundColor(design.image.outline.color) }}
+}
+{% endif %}
+
+%%SELECTOR%% .simple-testimonial__image-outer-wrapper {
+  margin-bottom: {{ design.spacing.below_image.style }};
+{% if design.image.style != 'masked' %}
+  box-shadow: {{ design.image.shadow.style }};
+{% endif %}
+}
+
+
+{% if design.layout.image_position == 'bottom' %}
+  %%SELECTOR%% .simple-testimonial__image-outer-wrapper {
+    {% if not design.spacing.below_author_info.style %}
+      margin-top:  12px;
+    {% endif %}
+  }
+
+{% elseif design.layout.image_position == 'top' %}
+  %%SELECTOR%% .simple-testimonial__quote-mark.left-icon {
+    {% if design.quotes.vertical_offset.style %}
+    margin-top: -{{ design.quotes.vertical_offset.style }};
+    {% endif %}
+  }
+
+  {% if content.content.author is empty and content.content.author_info is empty %}
+    %%SELECTOR%%  blockquote {
+      margin-bottom: {{ design.quotes.vertical_offset.style }};
+    }
+  {% else %}
+    %%SELECTOR%% .simple-testimonial__quote-mark.right-icon {
+      {% if design.quotes.vertical_offset.style %}
+      margin-bottom: -{{ design.quotes.vertical_offset.style }};
+      {% endif %}
+    }
+  {% endif %}
+{% endif %}
+
+{% if design.layout.image_position == 'author' or design.layout.image_position == 'bottom' %}
+  %%SELECTOR%% blockquote {
+    margin-top: {{ design.quotes.vertical_offset.style }};
+  }
+  %%SELECTOR%% .simple-testimonial__quote-mark.right-icon {
+    {% if design.quotes.vertical_offset.style %}
+    margin-bottom: -{{ design.quotes.vertical_offset.style }};
+    {% endif %}
+  }
+{% endif %}
+
+{% if not design.layout.image_position %}
+  {% if content.content.author is empty and content.content.author_info is empty %}
+    %%SELECTOR%% .simple-testimonial__quote-mark.left-icon  {
+      {% if design.quotes.vertical_offset.style %}
+      margin-top: -{{ design.quotes.vertical_offset.style }};
+      {% endif %}
+    }
+    %%SELECTOR%% blockquote {
+      margin-bottom: {{ design.quotes.vertical_offset.style }};
+    }
+  {% else %}
+    %%SELECTOR%% .simple-testimonial__quote-mark.left-icon  {
+      {% if design.quotes.vertical_offset.style %}
+      margin-top: -{{ design.quotes.vertical_offset.style }};
+      {% endif %}
+    }
+    %%SELECTOR%% .simple-testimonial__quote-mark.right-icon {
+      {% if design.quotes.vertical_offset.style %}
+      margin-bottom: -{{ design.quotes.vertical_offset.style }};
+      {% endif %}
+    }
+  {% endif %}
+{% endif %}
+
+{% if design.image.black_white %}
+%%SELECTOR%%  .simple-testimonial__image-outer-wrapper > .simple-testimonial__image-inner-wrapper > img {
+  filter: grayscale(100%);
+}
+{% endif %}
+
+%%SELECTOR%% .simple-testimonial__quote {
+  margin-bottom: {{ design.spacing.below_testimonial.style }};
+}
+
+%%SELECTOR%% .simple-testimonial__quote > blockquote {
+  {{ macros.typography(design.typography.testimonial, globalSettings)  }}
+}
+
+%%SELECTOR%% .simple-testimonial__author {
+  {{ macros.typography(design.typography.author, globalSettings)  }}
+  margin-bottom: {{ design.spacing.below_author.style }};
+}
+
+%%SELECTOR%% .simple-testimonial__author-info {
+  {{ macros.typography(design.typography.author_info, globalSettings)  }}
+  margin-bottom: {{ design.spacing.below_author_info.style }};
+}
+
+%%SELECTOR%% .simple-testimonial__quote-mark.left-icon {
+  /*left:  {{ design.quotes.horizontal_offset.style }};
+  top: {{ design.quotes.vertical_offset.style }};*/
+  
+  margin-right:  {{ design.quotes.horizontal_offset.style }};
+}
+
+%%SELECTOR%% .simple-testimonial__quote-mark path {
+  fill: {{ design.quotes.color }};
+}
+
+%%SELECTOR%% .simple-testimonial__quote-mark.right-icon {
+ /*left: auto;
+ top: auto;
+ right:  {{ design.quotes.horizontal_offset.style }};
+ bottom: {{ design.quotes.vertical_offset.style }};*/
+  
+  margin-left:  {{ design.quotes.horizontal_offset.style }};
+}
+
+
+{% if breakpoint == design.quotes.hide_below %}
+  %%SELECTOR%% .simple-testimonial__quote {
+    display: none;
+  }
+{% endif %}
+    

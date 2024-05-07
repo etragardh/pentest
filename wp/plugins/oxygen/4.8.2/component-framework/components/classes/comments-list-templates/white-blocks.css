@@ -1,0 +1,36 @@
+.oxy-comments li.comment {
+  padding: 40px;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.04) 0px 0px 10px 0px;
+  border: 1px solid #eee;
+}
+
+.oxy-comments .comment-meta .comment-metadata a {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.oxy-comments .comment-meta .comment-author {
+  border-bottom: 1px solid #eee;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+
+.oxy-comments li.comment.even {
+  background-color: #fafafa;
+}
+
+.oxy-comments ol.comments-list > li.comment {
+  margin-bottom: 40px;
+}
+
+.comment-reply-link {
+  border: 1px solid;
+  padding: 0.75em 1.5em;
+  border-radius: 2px;
+  line-height: var(--oxy-small-line-height);
+}
+
+.oxy-comments .comment-meta .comment-author .avatar {
+  border-radius: 50%;
+}

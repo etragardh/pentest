@@ -1,0 +1,1 @@
+.bu-reading-progress-bar{background-color:var(--bricks-color-primary);height:5px;position:fixed;left:0;width:100%;z-index:99}.bu-reading-progress-bar-top{top:0}.bu-reading-progress-bar-bottom{top:auto;bottom:0}.bu-reading-progress-bar-fill{background-color:#fc5611;height:5px;position:absolute;width:0%;-webkit-transition:width 50ms;-o-transition:width 50ms;transition:width 50ms}

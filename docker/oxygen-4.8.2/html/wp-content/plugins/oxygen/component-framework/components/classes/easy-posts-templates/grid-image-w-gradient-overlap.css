@@ -1,0 +1,98 @@
+%%EPID%% .oxy-posts {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+%%EPID%% .oxy-post {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  padding: 1em;
+}
+
+%%EPID%% .oxy-post-image {
+  position: relative;
+  background-color: grey;
+  background-image: repeating-linear-gradient(
+    45deg,
+    #eee,
+    #eee 10px,
+    #ddd 10px,
+    #ddd 20px
+  );
+  width: 100%;
+}
+
+%%EPID%% .oxy-post-image-fixed-ratio {
+  padding-bottom: 70%;
+  background-size: cover;
+  background-position: center center;
+}
+
+%%EPID%% .oxy-post-image-date-overlay {
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  font-size: 0.7em;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 0.7em 1em;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+%%EPID%% .oxy-post-wrap {
+  background-image: linear-gradient(
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 1) 150px
+  );
+  padding: 2em;
+  padding-top: 100px;
+  align-self: stretch;
+  margin-top: -150px;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  text-align: left;
+}
+
+%%EPID%% .oxy-post-title {
+  font-size: 1.5em;
+  line-height: var(--oxy-small-line-height);
+}
+
+%%EPID%% .oxy-post-meta {
+  margin-top: 0.5em;
+  font-size: 0.8em;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+%%EPID%% .oxy-post-meta-item::after {
+  content: "\00b7";
+  margin-right: 0.5em;
+  margin-left: 0.5em;
+}
+
+%%EPID%% .oxy-post-meta-item:last-child::after {
+  content: "";
+  display: none;
+}
+
+%%EPID%% .oxy-post-content {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+%%EPID%% .oxy-post-content p {
+  margin: 0;
+}
+
+@media (max-width: 1120px) {
+  %%EPID%% .oxy-post-meta {
+    display: none;
+  }
+}

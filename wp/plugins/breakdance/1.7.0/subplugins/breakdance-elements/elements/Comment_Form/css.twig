@@ -1,0 +1,25 @@
+%%SELECTOR%% {
+  {{ macros.formContainer(design.container) }}
+  {{ macros.spacing_padding_all(design.container.padding) }}
+  {{ macros.spacing_margin_y(design.spacing) }}
+}
+
+%%SELECTOR%% .comment-reply-title {
+  {{ macros.typography(design.typography.title, globalSettings) }}
+}
+
+%%SELECTOR%% .required-field-message, %%SELECTOR%% .comment-notes {
+  {{ macros.typography(design.typography.text, globalSettings) }}
+}
+
+%%SELECTOR%% .comment-respond a  {
+  {{ macros.typography(design.typography.links, globalSettings) }}
+}
+
+%%SELECTOR%% .comment-respond a:hover  {
+  {{ macros.typographyWithHoverableEverything(design.typography.links) }}
+}
+
+{{ macros.atomV1ButtonButton(design.form.submit_button.styles, '%%SELECTOR%% .comment-form__submit', 'primary', breakpoint, globalSettings) }}
+
+{{ macros.atomV1FormCss(design.form, '%%SELECTOR%%', breakpoint, globalSettings) }}

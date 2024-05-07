@@ -1,0 +1,120 @@
+{% set layout = design.layout %}
+{% set type = layout.type|default('grid') %}
+
+{% set columns = layout.columns %}
+{% set gap = layout.gap %}
+
+{% set ratio = layout.aspect_ratio %}
+{% set ratioSlider = layout.slider_images.aspect_ratio %}
+{% set rowHeight = layout.row_height.style %}
+{% set customHeight = layout.custom_height.style %}
+{% set showCaptions = design.captions.show_captions and design.captions.show_captions != 'never' %}
+
+%%SELECTOR%% {
+  --width: {{ design.layout.width.style }};
+
+  /* Columns */
+  --columns: {{ columns > 0 ? columns }};
+  --column-gap: {{ gap.style }};
+
+  --ratio: {{ ratio }};
+  --ratioSlider: {{ ratioSlider }};
+  --ratio-custom-height: {{ customHeight }};
+  --justified-row-height: {{ rowHeight }};
+
+  /* Hover & Caption Effect */
+  --hover-duration: {{ design.images.duration.style }};
+  --caption-duration: {{ design.captions.duration.style }};
+  --opacity: {{ design.images.opacity }};
+
+  {# @deprecated `design.spacing.container` is deprecated since 1.3 and will be removed in 1.5. #}
+  {% if design.spacing.margin_top or design.spacing.margin_bottom %}
+    {{ macros.spacing_margin_y(design.spacing) }}
+  {% else %}
+   {{ macros.spacing_margin_y(design.spacing.container) }}
+  {% endif %}
+}
+
+%%SELECTOR%% .ee-gallery-item {
+  box-shadow: {{ design.images.shadow.style }};
+  
+  {% if breakpoint == layout.vertical_at %}
+    width: 100%!important;
+  {% endif %}
+
+  {% if type == 'grid' and ratio == 'custom' %}
+    height: var(--ratio-custom-height);
+  {% endif %}
+
+  {{ macros.borders(design.images.borders) }}
+  {{ macros.backgroundColor(design.images.background) }}
+}
+
+%%SELECTOR%% .ee-gallery-item:hover {
+  --opacity: {{ design.images.opacity_hover }};
+  box-shadow: {{ design.images.shadow_hover.style }};
+  {{ macros.borders(design.images.borders_hover) }}
+  {{ macros.backgroundColor(design.images.background_hover) }}
+}
+
+%%SELECTOR%% .ee-gallery-item-figure img,
+%%SELECTOR%% .ee-gallery-item-figure video,
+%%SELECTOR%% .ee-gallery-item-figure iframe {
+  {{ macros.filters(design.images.filters) }}
+}
+
+%%SELECTOR%% .ee-gallery-item:hover .ee-gallery-item-figure img,
+%%SELECTOR%% .ee-gallery-item:hover .ee-gallery-item-figure video,
+%%SELECTOR%% .ee-gallery-item:hover .ee-gallery-item-figure iframe {
+  {{ macros.filtersHover(design.images.filters) }}
+}
+
+/* Gallery Caption */
+%%SELECTOR%% .ee-gallery-item-caption {
+  {{ macros.backgroundColor(design.captions.background) }}
+  {{ macros.typography(design.captions.typography, globalSettings)  }}
+  {{ macros.spacing_padding_all(design.captions.padding) }}
+
+  {% if breakpoint == design.captions.hide_below %}
+  opacity: 0!important;
+  pointer-events: none;
+  {% endif %}
+}
+
+/* Slider Images */
+
+%%SELECTOR%% .ee-gallery--slider .swiper-wrapper {
+  align-items: {{ design.layout.slider_images.vertical_align }};
+}
+
+%%SELECTOR%% .ee-gallery--slider.ee-gallery--custom .ee-gallery-item-figure img,
+%%SELECTOR%% .ee-gallery--slider.ee-gallery--custom .ee-gallery-item-figure video,
+%%SELECTOR%% .ee-gallery--slider.ee-gallery--custom .ee-gallery-item-figure iframe {
+    height: {{ design.layout.slider_images.height.style }};
+}
+
+%%SELECTOR%% .ee-gallery--slider.ee-gallery--custom .swiper-slide,
+%%SELECTOR%% .ee-gallery--slider.ee-gallery--custom .ee-gallery-swiper {
+  	height: {{ design.layout.slider_images.height.style }};
+}
+
+%%SELECTOR%% .ee-gallery--slider .ee-gallery-swiper {
+  {% if design.layout.slider_images.width %}
+    width: {{ design.layout.slider_images.width.style }};
+  	margin-left: auto;
+  	margin-right: auto;
+  	position: initial;
+    {% if design.layout.slider.arrows.overlay %}
+      position: relative;
+    {% endif %}
+  {% endif %}
+}
+
+{# Tabs: spacing backwards compatibility #}
+%%SELECTOR%% .bde-tabs__tabslist-container {
+  margin-bottom: {{ design.spacing.after_filter_bar.style }};
+}
+
+{{ macros.atomV1TabsCss('%%SELECTOR%%', design.filter_bar, breakpoint, globalSettings) }}
+{{ macros.atomV1LightboxCss(design.lightbox) }}
+{{ macros.AtomV1SwiperCss(design.layout.slider, '%%SELECTOR%%', globalSettings) }}

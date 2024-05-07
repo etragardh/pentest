@@ -1,0 +1,10 @@
+.breakdance .bde-twitter-embed-tweet {
+  display: flex;
+  width: 550px;
+  max-width: 100%;
+  min-height: 271px;
+}
+
+.breakdance .bde-twitter-embed-tweet > div {
+  margin: 0!important;
+}

@@ -1,0 +1,75 @@
+body {
+  font-family: "system-ui";
+}
+
+.lqa-stage {
+  margin-top: 3em;
+  margin-bottom: 1.5em;
+}
+
+.lqa-shortcode, .lqa-generic-error, .lqa-class-count {
+  margin-bottom: 1.5em;
+}
+
+.lqa-generic-error {
+  color: darkred;
+}
+
+.lqa-element-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.lqa-element-info span {
+  margin-right: 0.5em;
+}
+
+.lqa-element-name {
+  font-weight: bold;
+}
+
+.lqa-element-type {
+  font-size: 0.8em;
+}
+
+.lqa-element-id {
+  font-size: 0.8em;
+}
+
+.lqa-error {
+  color: red;
+  font-style: italic;
+}
+
+.lqa-class-error {
+  font-weight: bold;
+  border: 1px solid dotted;
+  padding: 8px;
+  color: darkred;
+}
+
+.lqa-class-error::before {
+  content: "class: ";
+}
+
+
+.lqa-shortcode-errors {
+  color: darkred;
+}
+
+.lqa-shortcode-noerrors {
+  color: green;
+}
+
+
+/*
+.lqa-shortcode-noerrors {
+  display: none;
+}
+*/
+
+
+.lqa-class-count {
+  
+}

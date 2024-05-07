@@ -1,0 +1,14 @@
+.breakdance .bde-wooproductinfo {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.breakdance .bde-wooproductinfo h2 {
+  margin: 0;
+}
+
+.breakdance .bde-wooproductinfo .woocommerce-product-attributes tr td p {
+  margin: 0;
+}

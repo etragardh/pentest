@@ -1,0 +1,214 @@
+.breakdance .bde-pricing-table {
+  --defaultFontWeight: 500;
+  --textColor: var(--bde-body-text-color);
+  --textGreyColor: var(--bde-body-text-color);
+  --textGreyLightColor: var(--bde-body-text-color);
+  --headingColor: var(--bde-headings-color);
+  --featuredColor: var(--bde-brand-primary-color);
+  --textAlign: center;
+  --alignItems: center;
+  position: relative;
+  display: flex;
+  text-align: left;
+  flex-direction: column;
+  text-align: var(--textAlign);
+  align-items: var(--alignItems);
+  border-radius: 16px;
+  background-color: #fff;
+  max-width: 100%;
+  padding: 40px;
+  height: 100%;
+}
+
+.breakdance .bde-pricing-table--featured {
+  border: 4px solid var(--featuredColor);
+}
+
+.breakdance .bde-pricing-table__accent-label {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--featuredColor);
+  color: #fff;
+  padding: 0.5em;
+  line-height: 1;
+  border-radius: 4px;
+  font-size: 0.875em;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.breakdance .bde-pricing-table__icon {
+  margin-bottom: 24px;
+  order: 0;
+}
+
+.breakdance .bde-pricing-table__icon svg {
+  font-size: inherit;
+  width: 3em;
+  height: 3em;
+  stroke-width: 0;
+  stroke: var(--bde-brand-primary-color);
+  fill: var(--bde-brand-primary-color);
+}
+
+.breakdance .bde-pricing-table__title {
+  color: var(--headingColor);
+  line-height: 1;
+  font-weight: var(--defaultFontWeight);
+  font-size: 22px;
+  order: 10;
+  margin-bottom: 36px;
+  margin-top: 0px;
+}
+
+.breakdance .bde-pricing-table__price-area {
+  display: flex;
+  flex-direction: column;
+  align-items: var(--alignItems);
+  order: 20;
+  margin-bottom: 36px;
+}
+
+.breakdance .bde-pricing-table__price-area--before-price-text {
+  font-size: 1em;
+  font-weight: var(--defaultFontWeight);
+  color: var(--textGreyColor);
+  margin-bottom: 12px;
+}
+
+.breakdance .bde-pricing-table__price-area--amount-and-period-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: 8px;
+}
+
+.breakdance .bde-pricing-table__price-area--amount {
+  flex-wrap: nowrap;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  line-height: 1;
+  gap: 4px;
+}
+
+.breakdance .bde-pricing-table__price-area--amount-currency {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--headingColor);
+}
+
+.breakdance .bde-pricing-table__price-area--amount-number {
+  color: var(--headingColor);
+  font-weight: 800;
+  font-size: 64px;
+  white-space: nowrap;
+  display: inline-flex;
+}
+
+.breakdance .bde-pricing-table__price-area--amount-number
+  .bde-pricing-table__price-area--amount-number-fractional {
+  display: inline-block;
+  font-size: 60%;
+  margin-top: 0.15em;
+}
+
+.breakdance .bde-pricing-table__price-area--billing-period {
+  color: var(--textGreyColor);
+  font-weight: var(--defaultFontWeight);
+  font-size: 1em;
+}
+
+.breakdance .bde-pricing-table__price-area--badge {
+  padding: 0.55em;
+  line-height: 1;
+  background-color: rgba(255, 165, 0, 0.2);
+  color: var(--textColor);
+  border-radius: 4px;
+  font-size: 0.875em;
+  font-weight: 800;
+  text-transform: uppercase;
+  display: inline-block;
+  margin-top: 12px;
+  letter-spacing: 0.15em;
+}
+
+.breakdance .bde-pricing-table__description {
+  color: var(--textColor);
+  line-height: 1.2;
+  font-weight: var(--defaultFontWeight);
+  font-size: 1em;
+  overflow-wrap: break-word;
+  order: 30;
+  margin-bottom: 24px;
+}
+
+.breakdance .bde-pricing-table__features {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  order: 40;
+  margin-bottom: 36px;
+}
+
+.breakdance .bde-pricing-table__features-item {
+  font-size: 1em;
+  color: var(--textColor);
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 16px;
+  align-items: center;
+  text-align: left;
+}
+
+.breakdance .bde-pricing-table
+  .bde-pricing-table__features-item:last-child {
+  margin-bottom: 0 !important;
+}
+
+.breakdance .bde-pricing-table__features-text {
+  margin-left: 12px;
+  font-weight: var(--defaultFontWeight);
+  line-height: 1.3;
+}
+
+.breakdance .bde-pricing-table__features-item--included
+  .bde-pricing-table__features-text {
+  color: var(--textColor);
+}
+
+.breakdance .bde-pricing-table__features-icon {
+  display: flex;
+  font-size: 1.125em;
+}
+
+.breakdance .bde-pricing-table__features-icon svg {
+  font-size: inherit;
+  width: 1em;
+  height: 1em;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+
+.breakdance .bde-pricing-table__features-item--included .bde-pricing-table__features-icon {
+  color: #0DA532FF;
+}
+
+.breakdance .bde-pricing-table__features-item--not-included .bde-pricing-table__features-icon {
+  color: #D4351EFF;
+}
+
+.breakdance .button-atom.bde-pricing-table__cta-button {
+  order: 50;
+  margin-top: auto;
+  width: 100%;
+}
+
+

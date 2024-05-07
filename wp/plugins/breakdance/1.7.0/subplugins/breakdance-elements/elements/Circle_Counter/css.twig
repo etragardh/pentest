@@ -1,0 +1,36 @@
+%%SELECTOR%% {
+  {{ macros.spacing_margin_y(design.spacing) }}
+}
+
+{% if design.size.size %}
+  %%SELECTOR%% .bde-circle-counter__wrap {
+    max-width: {{design.size.size}}px;
+    max-height: {{design.size.size}}px;
+  }
+{% endif %}
+
+%%SELECTOR%% .bde-circle-counter__value {
+  {{ macros.typography(design.typography.value, globalSettings)  }}
+  {{ macros.spacing_padding_all(design.spacing.value) }}
+}
+
+%%SELECTOR%% .bde-circle-counter__suffix {
+  {{ macros.typography(design.typography.value, globalSettings)  }}
+  {{ macros.typography(design.typography.suffix, globalSettings)  }}
+}
+
+%%SELECTOR%% .bde-circle-counter__prefix {
+  {{ macros.typography(design.typography.value, globalSettings)  }}
+  {{ macros.typography(design.typography.prefix, globalSettings)  }}
+}
+
+{% if design.style.value_position == 'outside' %}
+  %%SELECTOR%% .bde-circle-counter__label {
+    position: relative;
+    margin-top: {{ design.style.space_above.style|default('0') }};
+    transform: initial;
+    left: initial;
+    top: initial;
+  }
+{% endif %}
+

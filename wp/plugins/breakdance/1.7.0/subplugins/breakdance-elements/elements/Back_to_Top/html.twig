@@ -1,0 +1,42 @@
+{% set type = content.button.type|default('progress') %}
+{% set show = design.container.show|default('always') %}
+{% set animation = design.container.animation|default('fade') %}
+{% set sticky = design.container.sticky ? 'is-sticky' : '' %}
+{% set autohide = design.container.hide_at_the_top ? 'bde-back-to-top__button--autohide' : '' %}
+
+{% set cssClasses = [
+  'bde-back-to-top__button',
+  'bde-back-to-top__button--' ~ type,
+  'bde-back-to-top__button--show-' ~ show,
+  'bde-back-to-top__button--animation-' ~ animation,
+  sticky,
+  autohide,
+  'js-ee-back-to-top'
+]|join(" ") %}
+
+<button aria-label="{{ esc_html__('Back to top', 'breakdance') }}" tabindex="0" class="{{ cssClasses }}">
+  {% if type == 'progress' %}
+  	<svg class="bde-back-to-top__progress-svg js-progress-svg" width="100%" height="100%" viewBox="-1 -1 102 102">
+	  <path class="background" d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"/>
+      <path class="tracker" d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"/>
+  	</svg>
+  {% endif %}
+   {% if type == 'icon' or type == 'progress' %}
+    <div class="bde-back-to-top__icon-wrap">
+      {% if content.button.icon.svgCode %}
+          {{ content.button.icon.svgCode }}
+      {% else %}
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M214.6 57.4L192 34.7 169.4 57.4l-144 144L2.7 224 48 269.2l22.6-22.6L160 157.2V448v32h64V448 157.2l89.4 89.4L336 269.2 381.3 224l-22.6-22.6-144-144z"/></svg>
+      {% endif %}
+    </div>
+  {% endif %}
+  {% if type == 'text' %}
+    {% if content.button.icon.svgCode %}
+      <div class="bde-back-to-top__icon-wrap">
+        {{ content.button.icon.svgCode }}
+      </div>
+    {% endif %}
+  	<span class="bde-back-to-top__text">{{ content.button.text|default('Top') }}</span>
+  {% endif %}
+</button>
+

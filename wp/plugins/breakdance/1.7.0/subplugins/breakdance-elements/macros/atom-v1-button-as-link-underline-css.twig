@@ -1,0 +1,308 @@
+{% macro atomV1ButtonAsLinkFancyUnderlineCss(selector, styles) %}
+
+    {% if styles.underline_color %}
+        {{ selector }} .button-atom__text {
+            text-decoration-color: {{ styles.underline_color }};
+        }
+    {% endif %}
+
+    {% set underlineType = styles.fancy_underline %}
+
+    {% if underlineType %}
+        {{ selector }} {
+            text-decoration: none;
+            --fancyUnderlineColor: {{ styles.underline_color|default('currentColor') }};
+        }
+
+        {{ selector }}:hover {
+            text-decoration: none;
+            {% if styles.underline_color_hover %}
+                --fancyUnderlineColor: {{ styles.underline_color_hover }};
+            {% endif %}
+        }
+
+        {{ selector }}::before {
+            content: "";
+        }
+
+         {{ selector }}::before,
+         {{ selector }}::after {
+            position: absolute;
+            width: 100%;
+            height: 0.075em;
+            background: currentColor;
+            top: 110%;
+            left: 0;
+            pointer-events: none;
+            {% if styles.underline_color %}
+                background-color: {{ styles.underline_color }};
+            {% endif %}
+        }
+
+         {% if styles.underline_color_hover %}
+            {{ selector }}:hover::before,
+            {{ selector }}:hover::after {
+                background-color: {{ styles.underline_color_hover }};
+            }
+        {% endif %}
+
+
+    {% endif %}
+
+
+
+    {% if underlineType == 'style-1' %} {# line 1 #}
+
+        {{ selector }}::before {
+            content: "";
+            transform-origin: 100% 50%;
+            transform: scale3d(0, 1, 1);
+            transition-duration: 0.3s;
+            transition-property: background-color, transform;
+        }
+
+        {{ selector }}::before,
+        {{ selector }}::after {
+            position: absolute;
+            width: 100%;
+            height: 0.075em;
+            background-color: var(--fancyUnderlineColor);
+            top: 110%;
+            left: 0;
+            pointer-events: none;
+        }
+
+        {{ selector }}:hover::before {
+            transform-origin: 0% 50%;
+            transform: scale3d(1, 1, 1);
+        }
+
+    {% elseif underlineType == 'style-2' %} {# line 2 #}
+
+        {{ selector }}::before {
+            transform-origin: 100% 50%;
+            transform: scale3d(0, 1, 1);
+            transition: transform 0.3s cubic-bezier(0.7, 0, 0.2, 1);
+        }
+
+        {{ selector }}::after {
+            content: "";
+            top: calc(110% + 0.25em);
+            transform-origin: 0% 50%;
+            transform: scale3d(0, 1, 1);
+            transition: transform 0.3s cubic-bezier(0.7, 0, 0.2, 1);
+        }
+
+        {{ selector }}:hover::before {
+            transform-origin: 0% 50%;
+            transform: scale3d(1, 1, 1);
+            transition-timing-function: cubic-bezier(0.4, 1, 0.8, 1);
+        }
+
+        {{ selector }}:hover::after {
+            transform-origin: 100% 50%;
+            transform: scale3d(1, 1, 1);
+            transition-timing-function: cubic-bezier(0.4, 1, 0.8, 1);
+        }
+
+    {% elseif underlineType == 'style-3' %} {# line 4 #}
+
+        {{ selector }} .button-atom__text {
+            display: inline-block;
+            transition: transform 0.3s cubic-bezier(0.2, 1, 0.8, 1);
+        }
+
+        {{ selector }}::before {
+            transform-origin: 50% 100%;
+            transition: clip-path 0.3s, transform 0.3s cubic-bezier(0.2, 1, 0.8, 1);
+            clip-path: polygon(
+                0% 0%,
+                0% 100%,
+                0 100%,
+                0 0,
+                100% 0,
+                100% 100%,
+                0 100%,
+                0 100%,
+                100% 100%,
+                100% 0%
+            );
+        }
+
+        {{ selector }}:hover .button-atom__text {
+            transform: translate3d(0, -2px, 0);
+        }
+
+        {{ selector }}:hover::before {
+            transform: translate3d(0, 2px, 0) scale3d(1.08, 3, 1);
+            clip-path: polygon(
+                0% 0%,
+                0% 100%,
+                50% 100%,
+                50% 0,
+                50% 0,
+                50% 100%,
+                50% 100%,
+                0 100%,
+                100% 100%,
+                100% 0%
+            );
+        }
+
+    {% elseif underlineType == 'style-4' %} {# line 8 #}
+
+        {{ selector }}::before,
+        {{ selector }}::after {
+            opacity: 0;
+            transform-origin: 50% 0%;
+            transform: translate3d(0, 3px, 0);
+            transition-property: transform, opacity;
+            transition-duration: 0.3s;
+            transition-timing-function: cubic-bezier(0.2, 1, 0.8, 1);
+        }
+
+        {{ selector }}::before,
+        {{ selector }}:hover::after {
+            transition-delay: 0.1s;
+        }
+
+        {{ selector }}::after {
+            content: "";
+            top: calc(110% + 0.3em);
+            width: 70%;
+            left: 15%;
+        }
+
+        {{ selector }}:hover::before {
+            transition-delay: 0s;
+        }
+
+        {{ selector }}:hover::before,
+        {{ selector }}:hover::after {
+            opacity: 1;
+            transform: translate3d(0, 0, 0);
+            transition-timing-function: cubic-bezier(0.2, 0, 0.3, 1);
+        }
+
+    {% elseif underlineType == 'style-5' %} {# line 20 #}
+
+        {{ selector }}:before,
+        {{ selector }}:after {
+            opacity: 0;
+            top: -50%;
+            left: 0;
+            transition: all 0.3s ease 0s;
+        }
+
+        {{ selector }}:after {
+            content: "";
+            top: auto;
+            bottom: -50%;
+        }
+
+        {{ selector }}:hover:before {
+            opacity: 1;
+            top: 0;
+        }
+
+        {{ selector }}:hover:after {
+            opacity: 1;
+            bottom: 0;
+        }
+
+    {% elseif underlineType == 'style-6' %}
+
+        {{ selector }}::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 0.075em;
+            background-color: {{ styles.underline_color|default('currentColor') }};
+            top: 110%;
+            left: 0;
+            pointer-events: none;
+        }
+
+
+        {{ selector }}::after {
+            position: absolute;
+            width: 100%;
+            height: 0.075em;
+            background-color: {{ styles.underline_color_hover|default('currentColor') }};
+            top: 110%;
+            left: 0;
+            pointer-events: none;
+            content: "";
+            transform-origin: 0% 50%;
+            transform: scale3d(0, 1, 1);
+            transition-duration: 0.3s;
+            transition-property: background-color, transform;
+        }
+
+        {{ selector }}:hover::after {
+            transform: scale3d(1, 1, 1);
+        }
+
+    {% elseif underlineType == 'style-7' %} {# like line 8, but only one line #}
+
+        {{ selector }}::before {
+            opacity: 0;
+            transform-origin: 50% 0%;
+            transform: translate3d(0, 3px, 0);
+            transition-property: transform, opacity;
+            transition-duration: 0.3s;
+            transition-timing-function: cubic-bezier(0.2, 1, 0.8, 1);
+        }
+
+        {{ selector }}::before {
+            transition-delay: 0.1s;
+        }
+
+        {{ selector }}:hover::before {
+            transition-delay: 0s;
+        }
+
+        {{ selector }}:hover::before {
+            opacity: 1;
+            transform: translate3d(0, 0, 0);
+            transition-timing-function: cubic-bezier(0.2, 0, 0.3, 1);
+        }
+
+    {% elseif underlineType == 'style-8' %} {# CL effect 7: https://tympanus.net/Development/CreativeLinkEffects/ #}
+
+        {{ selector }}::before,
+        {{ selector }}::after {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            content: '';
+            transition: transform 0.3s;
+            transform: scale(0.85);
+        }
+
+        {{ selector }}::after {
+            opacity: 0;
+            -webkit-transition: top 0.3s, opacity 0.3s, -webkit-transform 0.3s;
+            -moz-transition: top 0.3s, opacity 0.3s, -moz-transform 0.3s;
+            transition: top 0.3s, opacity 0.3s, transform 0.3s;
+        }
+
+        {{ selector }}:hover::before,
+        {{ selector }}:hover::after {
+            transform: scale(1);
+        }
+
+        {{ selector }}:hover::after {
+            top: 0%;
+            opacity: 1;
+        }
+
+    {% endif %}
+
+
+
+
+
+{% endmacro %}

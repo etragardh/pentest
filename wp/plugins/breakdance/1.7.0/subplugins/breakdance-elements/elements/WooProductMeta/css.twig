@@ -1,0 +1,91 @@
+{% if design.container.layout == 'stacked' %}
+  %%SELECTOR%% div.product_meta {
+      margin-top:calc(-{{ design.spacing.between_items.style }} / 2);
+      margin-bottom:calc(-{{ design.spacing.between_items.style }} / 2);
+    }
+    %%SELECTOR%% div.product_meta > span {
+      padding-top:calc({{ design.spacing.between_items.style }} / 2);
+      padding-bottom:calc({{ design.spacing.between_items.style }} / 2);
+    }
+  %%SELECTOR%% div.product_meta {
+    display: flex;
+    flex-direction: column;
+  }
+    {% if design.container.divider %}
+        %%SELECTOR%%.breakdance-woocommerce .product_meta {
+          gap: 0px;
+        }
+
+        %%SELECTOR%% div.product_meta span:not(:first-child) {
+          border-top-color: {{ design.container.divider_color | default('#ccc') }};
+          border-top-width: {{ design.container.divider_width.style | default('1px') }};
+          border-top-style: {{ design.container.divider_style | default('solid') }};        
+        }
+    {% endif %}
+
+      
+{% elseif design.container.layout == 'inline' %}
+  %%SELECTOR%% div.product_meta {
+      margin-left:calc(-{{ design.spacing.between_items.style }} / 2);
+      margin-right:calc(-{{ design.spacing.between_items.style }} / 2);
+    }
+    %%SELECTOR%% div.product_meta > span {
+      padding-left:calc({{ design.spacing.between_items.style }} / 2);
+      padding-right:calc({{ design.spacing.between_items.style }} / 2);
+    }
+  %%SELECTOR%% div.product_meta {
+    display: flex;
+    flex-direction: row;
+  }
+	{% if design.container.divider %}
+
+        %%SELECTOR%%.breakdance-woocommerce .product_meta {
+          gap: 0px;
+        }
+
+        %%SELECTOR%% div.product_meta span:not(:first-child) {
+          border-left-color: {{ design.container.divider_color | default('#ccc') }};
+          border-left-width: {{ design.container.divider_width.style | default('1px') }};
+          border-left-style: {{ design.container.divider_style | default('solid') }};
+        }
+    {% endif %}
+
+{% else %}
+    %%SELECTOR%% div.product_meta {
+      margin-top:calc(-{{ design.spacing.between_items.style }} / 2);
+      margin-bottom:calc(-{{ design.spacing.between_items.style }} / 2);
+	}
+    %%SELECTOR%% div.product_meta span {
+      padding-top:calc({{ design.spacing.between_items.style }} / 2);
+      padding-bottom:calc({{ design.spacing.between_items.style }} / 2);
+	}
+    %%SELECTOR%% div.product_meta {
+    display: flex;
+    flex-direction: column;
+    }
+  	{% if design.container.divider %}
+        %%SELECTOR%% div.product_meta span:not(:first-child) {
+          border-top-color: {{ design.container.divider_color | default('#ccc') }};
+          border-top-width: {{ design.container.divider_width.style | default('1px') }};
+          border-top-style: {{ design.container.divider_style | default('solid') }};  
+        }
+    {% endif %}
+{% endif %}
+      
+%%SELECTOR%% div.product_meta > span:first-child {
+    {{ macros.typography(design.typography.labels, globalSettings)  }}
+}
+%%SELECTOR%% div.product_meta > span span {
+	{{ macros.typography(design.typography.values, globalSettings)  }}
+}
+%%SELECTOR%% div.product_meta > span a {
+   {{ macros.typography(design.typography.links, globalSettings)  }}
+}
+%%SELECTOR%% div.product_meta > span a:hover {
+   {{ macros.typographyWithHoverableEverything(design.typography.links) }}
+}
+
+%%SELECTOR%% {
+  width: {{ design.container.width.style }};
+  {{ macros.spacing_margin_y(design.spacing.wrapper) }}
+}

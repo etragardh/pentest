@@ -1,0 +1,53 @@
+%%SELECTOR%% {
+  {{ macros.spacing_margin_y(design.spacing) }}
+  list-style-position: {{ design.list.marker_position }};
+  
+  {% if design.list.marker_type is defined %}
+
+  {% if design.list.marker_type == 'square' %}
+    list-style-type: square;  
+  {% endif %}
+
+  {% if design.list.marker_type == 'none' %}
+    list-style-type: none;  
+  {% endif %}
+  
+  {% if design.list.marker_type == 'emoji' and design.list.emoji %}
+    list-style-type: '{{ design.list.emoji }}';  
+  {% endif %}
+
+  {% if design.list.marker_type == 'custom' and design.list.custom %}
+    list-style-type: {{ design.list.custom }};
+  {% endif %}
+  
+  {% endif %}
+
+  width: {{ design.list.width.style }};
+  padding-inline-start: {{ design.list.padding_inline_start.list.style }};
+}
+
+%%SELECTOR%% li::marker {
+  color: {{ design.list.marker_color }};
+}
+
+%%SELECTOR%% li.bde-basic-list-item-with-link:hover::marker {
+  color: {{ design.list.marker_color_hover }};
+}
+
+%%SELECTOR%% li {
+  padding-inline-start: {{ design.list.padding_inline_start.item.style }};
+  {{ macros.typography(design.typography, globalSettings)  }}
+}
+
+%%SELECTOR%% li.bde-basic-list-item-with-link, %%SELECTOR%% li > a {
+  {{ macros.typography(design.typography, globalSettings)  }}
+}
+
+%%SELECTOR%% li.bde-basic-list-item-with-link:hover, %%SELECTOR%% li > a:hover {
+   {{ macros.typographyWithHoverableColorAndEffects(design.typography) }}
+}
+
+%%SELECTOR%% li:not(:last-child) {
+  margin-bottom: {{ design.list.below_item.style }};
+}
+

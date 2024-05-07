@@ -1,0 +1,91 @@
+/* Pagination */
+
+{% macro pagination(design, selector, listSelector, activeSelector, dotsSelector = '.dots') %}
+
+{{ selector }} {{ listSelector }} {
+	gap: {{ design.space_between.style }};
+}
+
+{{ selector }} {{ listSelector }} li,
+{{ selector }} {{ listSelector }} li a {
+	{{ _self.typography(design.typography)  }}
+}
+
+{{ selector }} {{ listSelector }} li a:hover,
+{{ selector }} {{ listSelector }} li:hover{
+    {{ _self.typographyWithHoverableEverything(design.typography) }}
+}
+
+{{ selector }} {{ listSelector }} {{ activeSelector }},
+{{ selector }} {{ listSelector }} li:hover{
+  color: {{ design.active_color }};
+}
+
+{{ selector }} {{ listSelector }} {{ dotsSelector}} {
+    color: {{ design.dots.color|default(design.dots_color) }};
+}
+
+{% if design.display_as_buttons %}
+
+    /* Pagination Buttons */
+
+    {{ selector }} {{ listSelector }} li {{ activeSelector }},
+    {{ selector }} {{ listSelector }} li a,
+    {{ selector }} {{ listSelector }} {{ dotsSelector}}  {
+        border-radius:  {{ design.buttons.radius.style|default('4px') }};
+        width: {{ design.buttons.size.style|default('40px') }};
+        height: {{ design.buttons.size.style|default('40px') }};
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid;
+    }
+
+    {{ selector }} {{ listSelector }} li a,
+    {{ selector }} {{ listSelector }} {{ dotsSelector }} {
+        border-color: {{ design.buttons.border|default('#d1d5db') }};
+        background-color:  {{ design.buttons.background|default('#f9fafb') }};
+    }
+
+    {{ selector }} {{ listSelector }} li a:hover {
+        border-color: {{ design.buttons.border_hover|default(design.buttons.border)|default('#d1d5db') }};
+        background-color:  {{ design.buttons.background_hover|default('#f3f4f6') }};
+    }
+
+    {{ selector }} {{ listSelector }} li {{ activeSelector }} {
+        background-color:  {{ design.buttons.active.background|default(design.active_color)|default('var(--bde-brand-primary-color)') }};
+        border-color:  {{ design.buttons.active.border|default(design.buttons.active.background)|default(design.active_color)|default('var(--bde-brand-primary-color)') }};
+        color: {{ design.buttons.active.text|default('#fff') }};
+    }
+
+    {% if design.space_between and design.space_between.number == 0 %}
+        {{ selector }} {{ listSelector }} li {{ activeSelector }},
+        {{ selector }} {{ listSelector }} li a,
+        {{ selector }} {{ listSelector }} {{ dotsSelector}} {
+            border-radius: 0;
+        }
+        {{ selector }} {{ listSelector }} li a,
+        {{ selector }} {{ listSelector }} {{ dotsSelector}} {
+            border-left: 0;
+        }
+        {{ selector }} {{ listSelector }} li:first-child {{ activeSelector }},
+        {{ selector }} {{ listSelector }} li:first-child a {
+            border-top-left-radius:  {{ design.buttons.radius.style|default('4px') }};
+            border-bottom-left-radius:  {{ design.buttons.radius.style|default('4px') }};
+        }
+        {{ selector }} {{ listSelector }} li:last-child {{ activeSelector }},
+        {{ selector }} {{ listSelector }} li:last-child a {
+            border-top-right-radius:  {{ design.buttons.radius.style|default('4px') }};
+            border-bottom-right-radius: {{ design.buttons.radius.style|default('4px') }};
+        }
+    {% endif %}
+
+    {% if design.dots.nudge_y %}
+        {{ selector }} {{ listSelector }} {{ dotsSelector}} * {
+            transform: translateY({{ design.dots.nudge_y.style }});
+        }
+    {% endif %}
+
+{% endif %}
+
+{% endmacro %}

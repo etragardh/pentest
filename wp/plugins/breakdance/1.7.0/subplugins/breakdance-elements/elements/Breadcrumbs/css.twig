@@ -1,0 +1,28 @@
+%%SELECTOR%% {
+   --bde-breadcrumbs-space: {{ design.breadcrumbs.space_between.style }};
+  {{ macros.spacing_margin_y(design.spacing) }}
+  width: {{ design.container.width.style }};
+  background-color: {{ design.container.background }};
+  {{ macros.spacing_padding_all(design.container.padding) }}
+  {{ macros.borders(design.container.borders) }}
+  justify-content: {{ design.container.content_alignment }};
+}
+
+
+%%SELECTOR%% {
+  {{ macros.typography(design.typography.text, globalSettings) }}
+}
+
+%%SELECTOR%% a {
+  {{ macros.typography(design.typography.text, globalSettings) }}
+  {{ macros.typography(design.typography.links, globalSettings) }}
+}
+
+%%SELECTOR%% a:hover {
+  {{ macros.typographyWithHoverableColorAndEffects(design.typography.links) }}
+}
+
+%%SELECTOR%% .separator {
+  {{ macros.typography(design.typography.separator, globalSettings) }}
+}
+

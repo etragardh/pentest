@@ -1,0 +1,6 @@
+{{ macros.fancyBackgroundHtml(design.background) }}
+{% set prevent_whitespace_output %}
+{{ macros.linkMaybeEnqueueLightboxStyles(content.content.link) }}
+{{ macros.linkMaybeEnqueueLinkActions(content.content.link) }}
+{% endset %}
+%%CHILDREN%%

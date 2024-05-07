@@ -1,0 +1,14 @@
+<div class="breakdance-form-field breakdance-form-field--{{ field.type }}{% if step >= 1 %} hidden-step{% endif %}" {% if step >= 1 %} data-form-step="{{ step }}" {% endif %}>
+    {{ do_action('breakdance_form_before_field', field, form) }}
+    
+    {% if field.type not in ['hidden', 'html', 'step', 'radio', 'checkbox'] and field.label %}
+        <label class="breakdance-form-field__label" for="{{ field.advanced.id }}">
+            {{ field.label }}{{ field.advanced.required ? '<span class="breakdance-form-field__required">*</span>' : '' }}
+        </label>
+    {% endif %}
+
+    %%INPUT%%
+
+    {{ field.advanced.append }}
+    {{ do_action('breakdance_form_after_field', field, form) }}
+</div>

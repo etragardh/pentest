@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="26px" height="20px" viewBox="0 0 26 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.1 (67048) - http://www.bohemiancoding.com/sketch -->
+    <title>animation</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Icons" transform="translate(-255.000000, -341.000000)">
+            <rect id="Rectangle" stroke="#FFFFFF" x="262.5" y="342.5" width="11" height="17" rx="5.5"></rect>
+            <path d="M267.492893,353.054214 L267.492893,349.5 C267.492893,349.223858 267.716751,349 267.992893,349 C268.269036,349 268.492893,349.223858 268.492893,349.5 L268.492893,353.111068 L269.789087,351.814874 C269.984349,351.619612 270.300932,351.619612 270.496194,351.814874 C270.691456,352.010136 270.691456,352.326718 270.496194,352.521981 L268.374874,354.643301 C268.179612,354.838563 267.863029,354.838563 267.667767,354.643301 L265.546447,352.521981 C265.351184,352.326718 265.351184,352.010136 265.546447,351.814874 C265.741709,351.619612 266.058291,351.619612 266.253553,351.814874 L267.492893,353.054214 Z" id="Combined-Shape" fill="#777C81"></path>
+            <circle id="Oval" fill="#FFFFFF" cx="268" cy="346" r="1"></circle>
+        </g>
+    </g>
+</svg>

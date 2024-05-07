@@ -1,0 +1,56 @@
+%%SELECTOR%% {
+  width: {{ design.container.width.style }};
+  gap: {{ design.spacing.after_image.style }};
+  flex-direction:{{ design.layout.image_position }};
+  {% if design.layout.image_position != 'row' and design.layout.image_position != 'row-reverse' %}
+  align-items: {{ design.layout.alignment }};
+  {% endif  %}
+  {{ macros.backgroundColor(design.container.background) }}
+  {{ macros.borders(design.container.borders) }}
+  {{ macros.spacing_padding_all(design.container.padding) }}
+  {{ macros.spacing_margin_y(design.spacing.container) }}
+}
+
+{% if breakpoint == design.layout.top_at %}
+%%SELECTOR%% {
+  flex-direction:column;
+  align-items:center;
+}
+%%SELECTOR%% .ee-author-links {
+  flex-wrap:wrap
+}
+{% endif %}
+
+%%SELECTOR%% .ee-author-avatar img {
+  border-radius: {{ design.image.border_radius.style }};
+  width: {{ design.image.size.style }};
+  height: {{ design.image.size.style }};
+}
+%%SELECTOR%% .ee-author-description {
+  {% if design.layout.alignment %}
+  align-items:{{ design.layout.alignment }}
+  {% endif %}
+}
+%%SELECTOR%% .ee-author-name {
+  {{ macros.typography(design.typography.name, globalSettings)  }}
+  margin-bottom: {{ design.spacing.after_name.style }};
+}
+
+%%SELECTOR%% .ee-author-bio {
+  {{ macros.typography(design.typography.biography, globalSettings)  }}
+  margin-bottom: {{ design.spacing.after_biography.style }};
+  {% if design.layout.alignment == 'flex-start' %}
+  text-align:left;
+  {% elseif design.layout.alignment == 'center' %}
+  text-align:center;
+  {% elseif design.layout.alignment == 'flex-end' %}
+  text-align:right;
+  {% endif %}
+}
+
+%%SELECTOR%% .ee-author-links {
+	gap: {{ design.spacing.between_links.style }};
+}
+
+{{ macros.atomV1ButtonCss(design.links.all_posts, 'ee_author-button-posts', '%%SELECTOR%%', breakpoint, globalSettings) }}
+{{ macros.atomV1ButtonCss(design.links.website, 'ee_author-button-website', '%%SELECTOR%%', breakpoint, globalSettings) }}

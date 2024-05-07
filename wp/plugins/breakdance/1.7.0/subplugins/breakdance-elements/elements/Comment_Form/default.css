@@ -1,0 +1,53 @@
+.breakdance .bde-comment-form {
+  max-width: 100%;
+  width: 600px;
+  text-align: left;
+}
+
+.breakdance .bde-comment-form .comment-notes,
+.bde-comment-form .logged-in-as {
+  grid-column-start: span 12;
+}
+
+@media (max-width: 768px) {
+  .breakdance .bde-comment-form .comment-notes,
+  .bde-comment-form .logged-in-as {
+    grid-column-start: unset !important;
+  }
+}
+
+.breakdance .bde-comment-form .comment-respond .breakdance-form-field {
+  padding-left: 0;
+}
+
+.breakdance .bde-comment-form .form-submit {
+  margin: 0;
+}
+
+.breakdance .bde-comment-form .comment-respond a {
+  color: var(--bde-brand-primary-color);
+}
+
+.breakdance .bde-comment-form .comment-reply-title small {
+  font-size: 100%;
+}
+
+.breakdance .bde-comment-form .required-field-message {
+  display: block;
+  margin-top: 12px;
+}
+
+.comments-form__closed {
+  margin-top: 24px;
+}
+
+.breakdance-form--comments {
+  margin: 0;
+  width: 100%;
+}
+
+.breakdance .bde-comment-form .comment-reply-title {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 500;
+}

@@ -1,0 +1,9 @@
+{% macro conditionalFormFieldAttributes(condition) %}
+    data-conditional-field-id="{{ condition.field.advanced.id }}"
+    {% if condition.value is iterable %}
+        data-conditional-value="{{ condition.value | join(',') }}"
+    {% else %}
+        data-conditional-value="{{ condition.value }}"
+    {% endif %}
+    data-conditional-operand="{{ condition.operand ?? 'equals' }}"
+{% endmacro %}
