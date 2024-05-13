@@ -1,7 +1,0 @@
-.breakdance .bde-twitter-button {
-  display: flex;
-  min-height: 20px;
-}
-.breakdance .bde-twitter-button[data-size="large"] {
-  min-height: 28px;
-}
