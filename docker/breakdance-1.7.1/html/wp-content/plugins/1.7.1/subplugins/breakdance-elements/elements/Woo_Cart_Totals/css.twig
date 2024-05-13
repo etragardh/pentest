@@ -1,0 +1,11 @@
+%%SELECTOR%% {
+  {{ macros.spacing_margin_y(design.spacing) }}
+}
+
+{% if design.totals.hide_title %}
+  %%SELECTOR%% .cart-collaterals h2 {
+    display: none;
+  }
+{% endif %}
+
+{{ macros.wooCartTotalsDesign('%%SELECTOR%%', design.totals, breakpoint, isBaseBreakpoint, globalSettings) }}

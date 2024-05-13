@@ -1,0 +1,75 @@
+%%SELECTOR%% {
+  {% if not content.popup.disable_overlay %}
+    {{ macros.background(design.overlay) }}
+  {% endif %}
+
+  {% if design.popup.position.align == 'left' %}
+    align-items: flex-start;
+    text-align: left;
+  {% elseif design.popup.position.align  == 'center' %}
+    align-items: center;
+    text-align: center;
+  {% elseif design.popup.position.align == 'right' %}
+    align-items: flex-end;
+    text-align: right;
+  {% endif %}
+
+  justify-content: {{ design.popup.position.vertical_align }};
+}
+
+%%SELECTOR%% .breakdance-popup {
+  {% if design.popup.position.translate.x %}
+    left: {{ design.popup.position.translate.x.style }};
+  {% endif %}
+  {% if design.popup.position.translate.y %}
+    top: {{ design.popup.position.translate.y.style }};
+  {% endif %}
+   width: {{ design.popup.size.width.style }};
+   height: {{ design.popup.size.height.style }};
+   max-height: {{ design.popup.size.max_height.style }};
+}
+
+%%SELECTOR%% .breakdance-popup-content {
+
+  {{ macros.simpleLayout(design.popup.layout, breakpoint) }}
+  {{ macros.backgroundColor(design.popup.background) }}
+  {{ macros.borders(design.popup.borders) }}
+  {{ macros.spacing_complex(design.popup.padding.padding, 'padding') }}
+
+}
+
+
+
+{% if not content.popup.disable_close_button %}
+
+  %%SELECTOR%% .breakdance-popup .breakdance-popup-close-button {
+    color: {{ design.close_button.color }};
+
+    --closeButtonSize: {{ design.close_button.size.style }};
+
+    {% if design.close_button.outside %}
+      --closeButtonOutsideOffset: calc(var(--closeButtonSize) + var(--closeButtonOutsidePadding, 0px) + var(--closeButtonOutsidePadding, 0px));
+    {% endif %}
+
+    {% if design.close_button.wrapped %}
+      --closeButtonOutsidePadding: {{ design.close_button.padding.style }};
+      border-radius: {{ design.close_button.radius.style }};
+      padding-left: {{ design.close_button.padding.style }};
+      padding-right: {{ design.close_button.padding.style }};
+      padding-bottom: {{ design.close_button.padding.style }};
+      padding-top: {{ design.close_button.padding.style }};
+      background-color: {{ design.close_button.background }};
+    {% endif %}
+
+    {% if design.close_button.translate.x.style or design.close_button.translate.y.style %}
+      transform: translate({{ design.close_button.translate.x.style ?? 0 }},{{ design.close_button.translate.y.style ?? 0 }});
+    {% endif %}
+
+  }
+
+  %%SELECTOR%% .breakdance-popup .breakdance-popup-close-button:hover {
+     background-color: {{ design.close_button.background_hover }};    
+     color: {{ design.close_button.color_hover }};
+  }
+
+{% endif %}

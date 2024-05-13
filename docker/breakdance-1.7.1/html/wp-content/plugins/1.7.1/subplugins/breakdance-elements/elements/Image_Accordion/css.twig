@@ -1,0 +1,86 @@
+%%SELECTOR%% {
+  width: {{ design.layout.width.style }};
+  height: {{ design.layout.height.style }};
+  gap: {{ design.spacing.between_images.style }};
+  {{ macros.spacing_margin_y(design.spacing.wrapper) }}
+  --eeiaTransitionDuration: {{ design.image.transition_duration.style }};
+  {% if design.layout.orientation == 'vertical' or breakpoint == design.layout.vertical_at|default(firstResponsiveBreakpointId) %}
+  	flex-direction: column;
+    overflow-x: hidden;
+  {% endif %}
+}
+
+%%SELECTOR%% .ee-image-accordion-item {
+  box-shadow: {{ design.image.shadow.style }};
+  border-radius: {{ design.image.border_radius.style }};
+}
+
+%%SELECTOR%% .ee-image-accordion-item:hover {
+  flex-basis: {{ design.image.expand_on_hover.style }};
+
+  {% if design.image.scale_on_hover %}	
+    transform: scale({{ design.image.scale_on_hover }});
+  {% endif %}
+
+  box-shadow: {{ design.image.shadow_hover.style }};
+
+}
+
+%%SELECTOR%% .ee-image-accordion-item::after {
+  {{ macros.backgroundColor(design.image.overlay) }}
+  opacity: {{ design.image.overlay_opacity }};
+}
+
+%%SELECTOR%% .ee-image-accordion-item:hover::after {
+  {{ macros.backgroundColor(design.image.overlay_hover) }}
+  opacity: {{ design.image.overlay_opacity_hover }};
+}
+
+{% if design.content.hide_until_hover %}
+  %%SELECTOR%% .ee-image-accordion-item .ee-image-accordion-content-item {
+    opacity: 0;
+    transition: var(--eeiaTransitionDuration) ease opacity;
+  }
+  %%SELECTOR%% .ee-image-accordion-item:hover .ee-image-accordion-content-item {
+    opacity: 1;
+  }
+{% endif %}
+
+%%SELECTOR%% .ee-image-accordion-item .ee-image-accordion-icon {
+  color: {{ design.content.icon_color }};
+  font-size: {{ design.content.icon_size.style }};
+  margin-bottom: {{ design.spacing.below_icon.style }};
+}
+
+%%SELECTOR%% .ee-image-accordion-item .ee-image-accordion-title {
+  {{ macros.typography(design.content.title_typography, globalSettings) }}
+  margin-bottom: {{ design.spacing.below_title.style }};
+}
+
+%%SELECTOR%% .ee-image-accordion-item .ee-image-accordion-desc {
+  {{ macros.typography(design.content.text_typography, globalSettings) }}
+}
+
+{% if design.content.hide_until_hover %}
+  {% if design.content.hover_effect == 'slide-up' %}
+    %%SELECTOR%% .ee-image-accordion-item .ee-image-accordion-content-item {
+        opacity: 0;
+        transform: translatey(100px);
+        transition: var(--eeiaTransitionDuration) ease all;
+    }
+
+    %%SELECTOR%% .ee-image-accordion-item:hover .ee-image-accordion-content-item {
+        opacity: 1;
+        transform: translatey(0px);
+    }
+  {% endif %}
+{% endif %}
+
+{% if design.layout.orientation == 'vertical' or breakpoint == design.layout.vertical_at|default(firstResponsiveBreakpointId) %}
+%%SELECTOR%% .ee-image-accordion-item:first-child {
+  transform-origin: center top;
+}
+%%SELECTOR%% .ee-image-accordion-item:last-child {
+  transform-origin: center bottom;
+}
+{% endif %}

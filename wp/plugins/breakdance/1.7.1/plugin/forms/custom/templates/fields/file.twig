@@ -1,0 +1,46 @@
+<label for="{{ field.advanced.id }}" class="breakdance-form-file-upload{{ field.drag_and_drop ? ' breakdance-form-file-upload--draggable' }}">
+
+    {% if field.drag_and_drop %}
+        <span class="breakdance-form-dropzone" tabindex="0">
+            <svg class="breakdance-form-dropzone__icon" width="48" stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="true">
+                <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+
+            <span class="breakdance-form-dropzone__title">
+                <span>{{ esc_html__('Upload a file', 'breakdance') }}</span> {{ esc_html__('or drag and drop.', 'breakdance') }}
+            </span>
+            <span class="breakdance-form-dropzone__accepts">
+              {% if field.allowed_file_types is not empty %}
+                {{ field.allowed_file_types|map(mimeType => mime_to_extension(mimeType))|join(', ') }}
+              {% endif %}
+                up to {{ field.max_file_size|default(10) }}MB
+            </span>
+        </span>
+    {% else %}
+        {{ macros.atomV1ButtonHtmlManual('Choose File', false, 'breakdance-form-file-upload__button', [], 'secondary', false) }}
+        <span class="breakdance-form-file-upload__text">
+            {{ esc_html__('No file chosen', 'breakdance') }}
+        </span>
+    {% endif %}
+
+    <input
+        id="{{ field.advanced.id }}"
+        name="{{ field.name }}[]"
+        type="file"
+        class="breakdance-form-file-upload__input"
+        accept="{{ field.allowed_file_types | join(',') }}"
+        {{ field.max_number_of_files > 1 ? 'multiple' }}
+        {{ field.advanced.required ? 'required' }}
+        {% if field.advanced.conditional %}
+            {{ macros.conditionalFormFieldAttributes(field.advanced.condition) }}
+        {% endif %}
+        data-max-files="{{ field.max_number_of_files }}"
+        data-i18n-empty-text="{{ esc_html__('No file chosen', 'breakdance') }}"
+        data-i18n-filled-text="{{ esc_html__('%n files', 'breakdance') }}"
+        data-i18n-error-text="{{ esc_html__('Only %n file(s) allowed.', 'breakdance') }}"
+    >
+</label>
+
+{% if field.drag_and_drop %}
+    <ul class="breakdance-form-files-list"></ul>
+{% endif %}

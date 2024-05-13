@@ -1,0 +1,33 @@
+%%SELECTOR%%  {
+  text-align: {{ design.wrapper.content_alignment }};
+  width: {{ design.wrapper.width.style }};
+  {{ macros.spacing_padding_all(design.wrapper.padding) }}
+  {{ macros.borders(design.wrapper.borders) }}
+  {{ macros.backgroundColor(design.wrapper.background) }}
+  {{ macros.spacing_margin_y(design.spacing.wrapper) }}
+}
+
+%%SELECTOR%% .bde-simple-counter__number {
+  margin-bottom: {{ design.spacing.below_number.style }};
+  gap: {{ design.spacing.around_number.style }};
+}
+
+%%SELECTOR%% .bde-simple-counter__number,
+%%SELECTOR%% .bde-simple-counter__prefix,
+%%SELECTOR%% .bde-simple-counter__digit,
+%%SELECTOR%% .bde-simple-counter__suffix
+{
+  {{ macros.typography(design.typography.number, globalSettings)  }}
+}
+
+%%SELECTOR%% .bde-simple-counter__prefix {
+  {{ macros.typography(design.typography.prefix, globalSettings)  }}
+}
+
+%%SELECTOR%% .bde-simple-counter__suffix {
+  {{ macros.typography(design.typography.suffix, globalSettings)  }}
+}
+
+%%SELECTOR%% .bde-simple-counter__title {
+  {{ macros.typography(design.typography.title, globalSettings)  }}
+}

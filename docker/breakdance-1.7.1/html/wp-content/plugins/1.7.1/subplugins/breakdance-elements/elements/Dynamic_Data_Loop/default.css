@@ -1,0 +1,38 @@
+.breakdance .bde-repeater-element {
+    max-width: 100%;
+    width: 100%;
+    text-align: left;
+}
+
+/* Grid Layout */
+.breakdance .bde-dynamic-repeater {
+    --bde-posts-per-row: 1;
+    --bde-posts-gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(var(--bde-posts-per-row), minmax(0, 1fr));
+    gap: var(--bde-posts-gap);
+    grid-auto-rows: auto;
+}
+
+/* List Layout */
+.breakdance .bde-dynamic-repeater-list {
+    --bde-posts-per-row: 1;
+}
+
+/* Slider Layout */
+.breakdance .bde-dynamic-repeater-slider {
+    --bde-posts-gap: 0px;
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.breakdance .bde-dynamic-repeater .bde-dynamic-repeater-item {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+}
+
+.breakdance .bde-dynamic-repeater .bde-dynamic-repeater-item .breakdance {
+    display: contents;
+}

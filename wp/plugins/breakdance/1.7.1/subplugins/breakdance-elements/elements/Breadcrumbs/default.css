@@ -1,0 +1,30 @@
+.bde-breadcrumbs {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  max-width: 100%;
+  list-style-type: none;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: left;
+  flex-wrap: wrap;
+  color: var(--bde-body-text-color);
+}
+
+.bde-breadcrumbs p {
+  margin: 0;
+}
+
+.breakdance .bde-breadcrumbs a {
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--bde-links-color);
+}
+
+.breakdance .bde-breadcrumbs a:hover {
+  color: var(--bde-links-color-hover);
+}
+
+.bde-breadcrumbs .separator {
+  color: var(--bde-body-text-color);
+}

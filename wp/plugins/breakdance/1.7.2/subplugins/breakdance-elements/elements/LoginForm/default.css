@@ -1,0 +1,13 @@
+.breakdance .bde-login-form {
+    width: 100%;
+    max-width: 100%;
+}
+
+
+.breakdance .bde-login-form .breakdance-form-field--checkbox {
+  flex-direction: row;
+}
+
+.breakdance .bde-login-form .breakdance-form-field--password .breakdance-form-link--password {
+  margin-top: var(--bde-form-after-sublabel);
+}

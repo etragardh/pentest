@@ -1,0 +1,133 @@
+.breakdance .bde-social-share-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  --shbtn-icon-size: 1.125em;
+  --shbtn-padding: 0.9375em;
+  --shbtn-padding-calc: calc(var(--shbtn-icon-size) / 3);
+}
+
+.bde-social-share-button {
+  font-size: 0.875em;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all ease .2s;
+}
+
+.bde-social-share-button:hover {
+  filter: brightness(120%);
+}
+
+.bde-social-share-button-icon {
+  display: flex;
+  box-sizing: content-box;
+  width: var(--shbtn-icon-size);
+  height: var(--shbtn-icon-size);
+  color: #fff;
+  transition: all ease .2s;
+  justify-content: center;
+  padding: var(--shbtn-padding);
+  padding-inline-end: var(--shbtn-padding-calc);
+}
+
+.bde-social-share-button-text {
+  border: 0px solid #eee;
+  border-color: inherit;
+  color: #fff;
+  flex: 1;
+  display: flex;
+  height: 100%;
+  align-items: center;
+  padding: var(--shbtn-padding);
+  padding-inline-start: 0;
+}
+
+.bde-socials-share-button-mobile svg {
+  width: 16px;
+}
+
+/* Social Networks Colors */
+.bde-social-share-button-facebook {
+  background:#4267B2;
+  border-color:#4267B2;
+}
+.bde-social-share-button-twitter {
+  background:#1DA1F2;
+  border-color:#1DA1F2;
+}
+.bde-social-share-button-pinterest {
+  background:#e60023;
+  border-color:#e60023;
+}
+.bde-social-share-button-linkedin {
+  background:#0077b5;
+  border-color:#0077b5;
+}
+.bde-social-share-button-vk {
+  background:#45668e;
+  border-color:#45668e;
+}
+.bde-social-share-button-tumblr {
+  background:#35465c;
+  border-color:#35465c;
+}
+.bde-social-share-button-reddit {
+  background:#ff4500;
+  border-color:#ff4500;
+}
+.bde-social-share-button-digg {
+  background:#005be2;
+  border-color:#005be2;
+}
+.bde-social-share-button-stumbleupon {
+  background:#eb4924;
+  border-color:#eb4924;
+}
+.bde-social-share-button-pocket {
+  background:#ef4056;
+  border-color:#ef4056;
+}
+.bde-social-share-button-whatsapp {
+  background:#075e54;
+  border-color:#075e54;
+}
+.bde-social-share-button-xing {
+  background:#026466;
+  border-color:#026466;
+}
+.bde-social-share-button-telegram {
+  background:#0088cc;
+  border-color:#0088cc;
+}
+.bde-social-share-button-skype {
+  background:#00aff0;
+  border-color:#00aff0;
+}
+.bde-social-share-button-print {
+  background:#555;
+  border-color:#555;
+}
+.bde-social-share-button-email {
+  background:#f26522;
+  border-color:#f26522;
+}
+
+.bde-social-share-button-mobile {
+  background:#333;
+  border-color:#333;
+  display: none;
+}
+
+@media (max-width: 479px) {
+  .bde-social-share-button {
+  	display: none;
+  }
+
+  .bde-social-share-button-mobile,
+  .bde-social-share-button.is-visible{
+    display: flex;
+  }
+}

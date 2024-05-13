@@ -1,0 +1,97 @@
+.breakdance .bde-notification-bar {
+  width: 100%;
+  max-width: 100%;
+  text-align: left;
+}
+
+.breakdance .bde-notification-bar > div {
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 20px;
+}
+
+.breakdance .bde-notification-bar .ee-alertbox-icon {
+  color: inherit;
+  font-size: 50px;
+  margin-right: 20px;
+  display: flex;
+}
+
+.breakdance .bde-notification-bar .ee-alertbox-icon > svg {
+  font-size: inherit;
+  width: 1em;
+  height: 1em;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+
+.breakdance .bde-notification-bar .ee-alertbox-title {
+  font-size: 1.125em;
+  font-weight: 700;
+}
+
+.breakdance .bde-notification-bar .ee-alertbox-desc {
+  margin-top: 6px;
+  font-size: 1em;
+}
+
+.breakdance .bde-notification-bar .ee-alertbox-link {
+  margin-top: 6px;
+  font-size: 1em;
+}
+
+.breakdance .bde-notification-bar .ee-alertbox-link > a {
+  color: inherit;
+}
+
+.breakdance .bde-notification-bar .ee-alertbox-close {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  font-size: 24px;
+  line-height: 1;
+  background-color: transparent;
+  color: inherit;
+  border: none;
+  cursor: pointer;
+}
+
+.ee-alertbox-is-hidden {
+  display: none;
+}
+
+.breakdance .bde-notification-bar .notification-bar-type-tip {
+  --eenbBgColor: #ebebeb;
+  --eenbAccentColor: grey;
+}
+.breakdance .bde-notification-bar .notification-bar-type-info {
+  --eenbBgColor: #d3ebf8;
+  --eenbAccentColor: #1c76a6;
+}
+.breakdance .bde-notification-bar .notification-bar-type-success {
+  --eenbBgColor: #dff8d3;
+  --eenbAccentColor: #41871e;
+}
+.breakdance .bde-notification-bar .notification-bar-type-warning {
+  --eenbBgColor: #ffe7cc;
+  --eenbAccentColor: #c26801;
+}
+.breakdance .bde-notification-bar .notification-bar-type-alert {
+  --eenbBgColor: #f8d5d3;
+  --eenbAccentColor: #a9211a;
+}
+
+.breakdance .bde-notification-bar .notification-bar-style-style1 {
+  background-color: var(--eenbBgColor);
+  color: var(--eenbAccentColor);
+  border-left: 6px solid var(--eenbAccentColor);
+}
+
+.breakdance .bde-notification-bar .notification-bar-style-style2 {
+  background-color: var(--eenbBgColor);
+  color: var(--eenbAccentColor);
+  border: 2px solid var(--eenbAccentColor);
+  border-radius: 6px;
+}

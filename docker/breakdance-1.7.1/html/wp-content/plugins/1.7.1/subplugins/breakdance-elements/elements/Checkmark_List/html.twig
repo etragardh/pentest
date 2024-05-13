@@ -1,0 +1,31 @@
+<ul{% if design.layout.horizontal %} class="horizontal-layout"{% endif %}>
+  {% for item in content.content.list %}
+
+    {% if content.content.positive_icon.svgCode is empty %}
+      {% set yesicon = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.71,7.21a1,1,0,0,0-1.42,0L9.84,14.67,6.71,11.53A1,1,0,1,0,5.29,13l3.84,3.84a1,1,0,0,0,1.42,0l8.16-8.16A1,1,0,0,0,18.71,7.21Z"/></svg>' %}
+    {% else %}
+      {% set yesicon = content.content.positive_icon.svgCode %}
+    {% endif %}
+
+    {% if content.content.negative_icon.svgCode is empty %}
+      {% set noicon = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.41,12l4.3-4.29a1,1,0,1,0-1.42-1.42L12,10.59,7.71,6.29A1,1,0,0,0,6.29,7.71L10.59,12l-4.3,4.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0L12,13.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42Z"/></svg>' %}
+    {% else %}
+      {% set noicon = content.content.negative_icon.svgCode  %}
+    {% endif %}
+
+    <li>
+      <span class='bde-checkmark-list__icon bde-checkmark-list__icon_{{ item.icon|default("yes") }} {% if design.icon.background %} bg-yes{% endif %}'>
+        {% if item.icon == 'no' %}
+          {{ noicon }}
+        {% else %}
+          {{ yesicon }}
+        {% endif %}
+      </span>
+      <div {{ dataContentEditablePropertyPath('content.content.list[' ~ loop.index0 ~ '].text') }}>
+        {{ item.text | default('Lorem Ipsum') }}
+      </div>
+
+    </li>
+
+  {% endfor %}
+</ul>

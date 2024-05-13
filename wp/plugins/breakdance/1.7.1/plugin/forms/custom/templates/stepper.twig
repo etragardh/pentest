@@ -1,0 +1,21 @@
+{% if stepCount >= 1 %}
+<div class="breakdance-form-stepper">
+    <div class="breakdance-form-stepper__list">
+        {% for step in steps %}
+            <div class="breakdance-form-stepper__step" data-stepper-step="{{ loop.index }}">
+                <div class="breakdance-form-stepper__step-icon">
+                    {% if step.step_icon.svgCode %}
+                        {{ step.step_icon.svgCode }}
+                    {% else %}
+                        <span>{{ loop.index }}</span>
+                    {% endif %}
+                </div>
+                {% if step.label %}
+                    <div class="breakdance-form-stepper__label">{{ step.label }}</div>
+                {% endif %}
+            </div>
+            <div class="breakdance-form-stepper__separator"></div>
+        {% endfor %}
+    </div>
+</div>
+{% endif %}

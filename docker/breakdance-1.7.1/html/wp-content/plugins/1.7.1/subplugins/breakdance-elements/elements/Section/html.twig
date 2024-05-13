@@ -1,0 +1,21 @@
+{{ macros.fancyBackgroundHtml(design.background) }}
+{% if design.dividers.shape_dividers_section.dividers %}
+  {% for divider in design.dividers.shape_dividers_section.dividers %}
+      <div class="section-shape-divider-wrapper section-shape-divider-wrapper--{{ loop.index }}">
+          <span class="section-shape-divider">
+          {% if divider.custom_shape != '' and divider.shape == 'custom' %}
+            {{ divider.custom_shape }}
+          {% else %}
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 1440 320"
+                preserveAspectRatio="none"
+            >
+              {{ divider.shape }}
+            </svg>
+          {% endif %}
+          </span>
+      </div>
+  {% endfor %}
+{% endif %}
+<div class="section-container">%%CHILDREN%%</div>

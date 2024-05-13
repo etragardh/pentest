@@ -1,0 +1,26 @@
+%%SELECTOR%% {
+  width: {{ design.container.width.style }};
+  min-height: {{ design.container.min_height.style }};
+  {{ macros.spacing_padding_all(design.container.padding) }}
+  {{ macros.borders(design.container.borders) }}
+  --bde-grid-items-per-row: {{ design.grid.items_per_row }};
+  --bde-grid-align-items: {{ design.grid.advanced.item_vertical_alignment }};
+  --bde-grid-justify-items: {{ design.grid.advanced.item_horizontal_alignment }};
+  --bde-grid-gap: {{ design.grid.space_between_items.style }};
+  {{ macros.spacing_margin_y(design.spacing) }}
+}
+
+{{ macros.fancyBackgroundCss('%%SELECTOR%%', design.background, breakpoint, false, true) }}
+
+{% if isBaseBreakpoint and not design.grid.advanced.use_original_item_dimensions %}
+  .breakdance .bde-grid > * {
+    width: auto !important;
+    height: auto !important;
+  }
+{% endif %}
+
+{% if isBuilder %}
+  .breakdance .bde-grid.breakdance--empty-container {
+    --bde-grid-items-per-row: 1 !important;
+  }
+{% endif %}

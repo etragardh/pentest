@@ -1,0 +1,128 @@
+{# Layout #}
+%%SELECTOR%% .section-container {
+  {{ macros.simpleLayout(design.layout, breakpoint) }}
+}
+
+{{ macros.fancyBackgroundCss('%%SELECTOR%%', design.background, breakpoint, design.size.viewport, false, false) }}
+
+{# Text Colors #}
+%%SELECTOR%% * {
+  {% if design.text_colors.text %}
+    color: {{ design.text_colors.text }};
+  {% endif %}
+  {% if design.text_colors.brand %}
+    --bde-brand-primary-color: {{ design.text_colors.brand }};
+  {% endif %}
+}
+
+{% if design.text_colors.headings %}
+  %%SELECTOR%% h1, %%SELECTOR%% h2, %%SELECTOR%% h3, %%SELECTOR%% h4, %%SELECTOR%% h5, %%SELECTOR%% h6 {
+    color: {{ design.text_colors.headings }};
+  }
+{% endif %}
+
+{% if design.text_colors.link %}
+  %%SELECTOR%% a {
+    color: {{ design.text_colors.link }};
+  }
+{% endif %}
+
+{% if design.text_colors.link_hover %}
+  %%SELECTOR%% a:hover {
+    color: {{ design.text_colors.link_hover }};
+  }
+{% endif %}
+
+{# Size #}
+%%SELECTOR%% .section-container {
+  {% if design.size.height == 'viewport' %}
+    height: 100vh;
+  {% elseif design.size.height == 'custom' %}
+    height: {{ design.size.custom_height.style }};
+    min-height: {{ design.size.min_height.style }};
+  {% endif %}
+}
+
+%%SELECTOR%% .section-container {
+  {% if design.size.width == 'full' %}
+    --bde-section-width: 100%;
+  {% elseif design.size.width == 'custom' %}
+    --bde-section-width: {{ design.size.container_width.style }};
+  {% endif %}
+}
+
+{# Spacing #}
+{% if design.spacing.padding %}
+  %%SELECTOR%% .section-container {
+    {{ macros.spacing_complex(design.spacing.padding, 'padding') }}
+  }
+{% endif %}
+
+%%SELECTOR%% {
+  margin-top: {{ design.spacing.margin_top.style }};
+  margin-bottom: {{ design.spacing.margin_bottom.style }};
+}
+
+{# Borders #}
+{% if design.borders is not empty %}
+  %%SELECTOR%% {
+    {{ macros.borders(design.borders) }}
+  }
+{% endif %}
+
+{# Shape Dividers #}
+{% for divider in design.dividers.shape_dividers_section.dividers %}
+  {% set transforms = '' %}
+  %%SELECTOR%% .section-shape-divider-wrapper--{{ loop.index }} .section-shape-divider svg {
+    color: {{ divider.color }};
+    width:  {{ divider.width.style }};
+    height: {{ divider.height.style }};
+    {% if divider.position == 'bottom' %}
+      bottom: 0;
+      top: auto;
+    {% endif %}
+    {% if divider.position == 'bottom' %}
+      {% set transforms = 'scaleY(1)' %}
+    {% else %}
+      {% set transforms = 'scaleY(-1)' %}
+    {% endif %}
+    {% if divider.flip_horizontally == 'yes' %}
+      {% set transforms = transforms ~ ' scaleX(-1)' %}
+    {% endif %}
+    {% if transforms %}
+      transform: {{ transforms }};
+    {% endif %}
+    {% if divider.bring_to_front %}
+      z-index: 1;
+    {% endif %}
+  }
+
+  {# remove this once https://github.com/soflyy/breakdance/issues/4373 (Section > Text Colors overrides colors of buttons, shape dividers, etc.) is fixed #}
+  %%SELECTOR%% .section-shape-divider-wrapper--{{ loop.index }} .section-shape-divider path,
+  %%SELECTOR%% .section-shape-divider-wrapper--{{ loop.index }} .section-shape-divider rect, 
+  %%SELECTOR%% .section-shape-divider-wrapper--{{ loop.index }} .section-shape-divider ellipse, 
+  %%SELECTOR%% .section-shape-divider-wrapper--{{ loop.index }} .section-shape-divider polyline, 
+  %%SELECTOR%% .section-shape-divider-wrapper--{{ loop.index }} .section-shape-divider polygon {
+    color: {{ divider.color }};
+  }
+{% endfor %}
+
+{% if design.background.slideshow_settings.ken_burns is not empty %}
+  %%SELECTOR%% .swiper-slide .swiper-slide-item {
+    {% if design.background.slideshow_settings.ken_burns == 'out' %}
+      transform: scale({{ design.background.slideshow_settings.zoom ?? 1.5 }});
+    {% else %}
+      transform: scale(1);
+    {% endif %}
+    transition: 5s ease-in;
+    transform-origin: 0% {{ design.background.slideshow_settings.origin ?? '100%' }};
+  }
+
+  %%SELECTOR%% .swiper-slide.swiper-slide-active .swiper-slide-item {
+    {% if design.background.slideshow_settings.ken_burns == 'out' %}
+      transform: scale(1);
+    {% else %}
+      transform: scale({{ design.background.slideshow_settings.zoom ?? 1.5 }});
+    {% endif %}
+  }
+{% endif %}

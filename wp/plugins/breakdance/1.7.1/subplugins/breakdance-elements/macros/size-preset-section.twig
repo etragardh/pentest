@@ -1,0 +1,8 @@
+{% macro size(size) %}
+    width: {{ size.width.style }};
+    min-width: {{ size.min_width.style }};
+    max-width: {{ size.max_width.style }};
+    height: {{ size.height.style }};
+    min-height: {{ size.min_height.style }};
+    max-height: {{ size.max_height.style }};
+{% endmacro %}

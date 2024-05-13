@@ -1,0 +1,43 @@
+.breakdance .bde-image-box {
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  gap: 20px;
+  overflow: hidden;
+}
+
+.breakdance .bde-image-box-content-padding-only {
+  padding: 0px;
+}
+
+.breakdance .bde-image-box .ee-imagebox-image {
+  max-width: 100%;
+  width: 100%;
+  display: flex;
+}
+.breakdance .bde-image-box .ee-imagebox-image img {
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+}
+.breakdance .bde-image-box .ee-imagebox-title {
+  margin: 0;
+  margin-bottom: 12px;
+}
+.breakdance .bde-image-box .ee-imagebox-text {
+}
+
+.breakdance .bde-image-box .ee-imagebox-button {
+  margin-top: 20px;
+}
+
+.breakdance .bde-image-box .ee-imagebox-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}

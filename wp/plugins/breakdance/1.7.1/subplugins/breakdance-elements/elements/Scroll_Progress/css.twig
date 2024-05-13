@@ -1,0 +1,114 @@
+%%SELECTOR%% {
+  --bde-scroll-progress-circle-size: {{ design.tracker.circle.size.style }};
+  --bde-scroll-progress-offset-x: {{ design.container.offset_x.style }};
+  --bde-scroll-progress-offset-y: {{ design.container.offset_y.style }};
+  
+  {% if content.tracker.type == 'circle' %}
+   	width: auto;
+  {% else %}
+    width: {{ design.container.width.style }};
+  {% endif %}
+  
+  {% if design.container.sticky %}
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    z-index: var(--bde-z-index-scroll-progress);
+      {% if design.container.vertical_align == 'top' %}
+        top: 0;
+        bottom: auto;
+      {% elseif design.container.vertical_align == 'center' %}
+        top: 50%;
+        transform: translateY(-50%);
+      {% elseif design.container.vertical_align == 'bottom' %}
+        bottom: 0;
+        top: auto;
+      {% endif %}
+
+      {% if design.container.horizontal_align == 'left' %}
+        left: 0;
+        right: auto;
+      {% elseif design.container.horizontal_align == 'center' %}
+        left: 50%;
+        transform: translateX(-50%);
+      {% elseif design.container.horizontal_align == 'right' %}
+        right: 0;
+        left: auto;
+      {% endif %}
+
+      {% if design.container.horizontal_align == 'center' and design.container.vertical_align == 'center' %}
+          transform: translateX(-50%) translateY(-50%);
+      {% endif %}
+  
+      {% if content.tracker.type == 'circle' %}
+   		margin-left: var(--bde-scroll-progress-offset-x);
+  		margin-right: var(--bde-scroll-progress-offset-x);
+  		margin-top: var(--bde-scroll-progress-offset-y);
+  		margin-bottom: var(--bde-scroll-progress-offset-y);
+  		width: var(--bde-scroll-progress-circle-size);
+  	  {% endif %}
+  
+  	  {% if content.tracker.type == 'line' %}
+  		margin-top: var(--bde-scroll-progress-offset-y);
+  		margin-bottom: var(--bde-scroll-progress-offset-y);
+  	  {% endif %}
+
+   {% endif %}
+  
+  {% if not design.container.sticky %}		
+   {{ macros.spacing_margin_y(design.spacing) }}
+  {% endif %}
+
+}
+
+
+
+%%SELECTOR%% .bde-scroll-progress__wrapper {
+  flex-direction:  {{ design.tracker.percentage.align }};
+  gap: {{ design.tracker.percentage.space_after.style }};
+}
+
+/* Line */
+%%SELECTOR%% .bde-scroll-progress__bar {
+  {{ macros.spacing_padding_all(design.tracker.line.background.padding) }}
+  {{ macros.backgroundColor(design.tracker.line.background.color) }}
+  {{ macros.borders(design.tracker.line.background.borders) }}
+
+  {% if design.tracker.direction == 'right' %}
+    flex-direction: row-reverse;
+  {% endif %}
+  
+  {% if design.tracker.direction == 'both' %}
+    justify-content: center;
+  {% endif %}
+}
+
+%%SELECTOR%% .bde-scroll-progress__current {
+  height: {{ design.tracker.line.progress.height.style }};
+  {{ macros.backgroundColor(design.tracker.line.progress.color) }}
+  {{ macros.borders(design.tracker.line.progress.borders) }}
+}
+
+%%SELECTOR%% .bde-scroll-progress__percentage {
+  {{ macros.typography(design.tracker.percentage.typography, globalSettings) }}
+}
+
+%%SELECTOR%% .bde-scroll-progress__circle-svg {
+  padding: {{ design.tracker.circle.padding.style }};
+}
+
+
+%%SELECTOR%% .bde-scroll-progress__circle-svg path.progress {
+  stroke: {{ design.tracker.circle.progress.border_color }};
+  stroke-width: {{ design.tracker.circle.progress.border_width }};
+}
+
+%%SELECTOR%% .bde-scroll-progress__circle-svg path.background {
+  stroke: {{ design.tracker.circle.background.border_color }};
+  stroke-width: {{ design.tracker.circle.background.border_width }};
+  fill: {{ design.tracker.circle.background.color }}
+}
+
+      
+
+

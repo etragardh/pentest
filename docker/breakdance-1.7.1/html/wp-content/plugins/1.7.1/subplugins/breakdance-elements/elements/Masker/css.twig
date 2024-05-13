@@ -1,0 +1,39 @@
+
+%%SELECTOR%% {
+  {% set mask = design.mask %}
+
+  -webkit-mask-repeat: {{ mask.repeat }};
+  mask-repeat: {{ mask.repeat }};
+
+  {% if mask.position %}
+    -webkit-mask-position: {{ mask.position.x }}% {{ mask.position.y }}%;
+    mask-position: {{ mask.position.x }}% {{ mask.position.y }}%;
+  {% endif %}
+
+  {% if mask.size == 'custom' %}
+    -webkit-mask-size: {{ mask.custom_size.style }};
+    mask-size: {{ mask.custom_size.style }};
+  {% else %}
+    -webkit-mask-size: {{ mask.size }};
+    mask-size: {{ mask.size }};
+  {% endif %}
+
+  {% if design.mask.shape == 'custom' %}
+    -webkit-mask-image: url({{ design.mask.custom_shape.url }}) !important;
+    mask-image: url({{ design.mask.custom_shape.url }}) !important;
+  {% elseif design.mask.shape %}
+    {% set shape = getBreakdanceElementsPluginUrl() ~ 'elements/image/masks/' ~ design.mask.shape ~ '.svg' %}
+    -webkit-mask-image: url('{{ shape }}');
+    mask-image: url('{{ shape }}');
+  {% endif %}
+  
+  
+  width: {{ design.container.width.style }};
+  height: {{ design.container.height.style }};
+  {{ macros.backgroundColor(design.container.background) }}
+  {{ macros.spacing_padding_all(design.container.padding) }}
+  {{ macros.borders(design.container.borders) }}
+  {{ macros.spacing_margin_y(design.spacing) }}
+  {{ macros.simpleLayout(design.layout, breakpoint) }}
+
+}

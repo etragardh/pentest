@@ -1,0 +1,14 @@
+{{ macros.atomV1FormCss(design.form, '%%SELECTOR%%', breakpoint, globalSettings) }}
+{{ macros.atomV1ButtonButton(design.form.submit_button, '%%SELECTOR%% .gform_footer .gform_button', breakpoint, globalSettings) }}
+
+%%SELECTOR%% {
+    {{ macros.spacing_margin_y(design.spacing) }}
+}
+
+{% if content.form.hide_title %}
+  %%SELECTOR%% .gform_title {
+  display: none!important;
+  }
+{% endif %}
+
+

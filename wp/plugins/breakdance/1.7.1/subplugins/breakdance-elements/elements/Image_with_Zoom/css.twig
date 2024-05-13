@@ -1,0 +1,22 @@
+%%SELECTOR%% {
+  width: {{ design.container.width.style }};
+  {{ macros.borders(design.container.borders) }}
+  {{ macros.spacing_margin_y(design.spacing) }}
+{% if design.effect.cursor == 'zoom-in' %}
+  cursor: zoom-in !important;
+{% elseif design.effect.cursor == 'move' %}
+  cursor: move !important;
+{% elseif design.effect.cursor == 'crosshair' %}
+  cursor: crosshair !important;
+{% endif %}
+}
+
+%%SELECTOR%% img {
+  transition-duration: {{ design.effect.transition_duration.style }};
+}
+
+%%SELECTOR%%:hover {
+{% if content.controls.zoom_scale %}
+  background-size: calc({{ design.effect.zoom_scale }} * 100%);
+{% endif %}
+}

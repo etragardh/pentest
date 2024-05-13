@@ -1,0 +1,176 @@
+%%SELECTOR%% {
+    --searchFormSize: {{ design.form.height.style }};
+  {% if design.form.style != "full-screen" %}
+  width: {{ design.form.width.style }};
+  {% endif %}
+}
+
+/* CLASSIC */
+
+%%SELECTOR%% .search-form--classic .search-form__container {
+  {{ macros.borders(design.form.classic_styles.borders) }}
+  {{ macros.backgroundColor(design.form.classic_styles.background) }}
+  {% if design.form.classic_styles.icon_button.position == 'right' %}
+    flex-direction: row-reverse;
+  {% endif %}
+}
+
+%%SELECTOR%% .search-form--classic .search-form__field {
+  padding-left: {{ design.form.classic_styles.padding.style }};
+  padding-right: {{ design.form.classic_styles.padding.style }};
+  {{ macros.typography(design.form.classic_styles.typography, globalSettings)  }}
+}
+
+%%SELECTOR%% .search-form--classic .search-form__field::placeholder {  
+  color: {{ design.form.classic_styles.placeholder }}
+}
+
+%%SELECTOR%% .search-form--classic .search-form__button {
+  font-size: {{ design.form.classic_styles.icon_button.size.style }};
+  background-color: {{ design.form.classic_styles.icon_button.background }};
+  color: {{ design.form.classic_styles.icon_button.color }};
+}
+
+%%SELECTOR%% .search-form--classic .search-form__button:hover {
+  background-color: {{ design.form.classic_styles.icon_button.background_hover}};
+}
+
+%%SELECTOR%% .search-form--classic .search-form__button.has-text {
+  padding-left: {{ design.form.classic_styles.icon_button.padding.style }};
+  padding-right: {{ design.form.classic_styles.icon_button.padding.style }};
+  {{ macros.typography(design.form.classic_styles.typography, globalSettings)  }}
+}
+
+%%SELECTOR%% .search-form--classic .search-form__container:focus-within {
+  background-color: {{ design.form.classic_styles.focused.background }};
+  border-color: {{ design.form.classic_styles.focused.border }};
+  box-shadow: {{ design.form.classic_styles.focused.shadow.style }};
+}
+
+/* EXPAND */
+
+%%SELECTOR%% .search-form--expand .search-form__button {
+  width: var(--searchFormSize);
+  height: var(--searchFormSize);
+  font-size: {{ design.form.expand_styles.open_button.size.style }};
+  background-color: {{ design.form.expand_styles.open_button.background }};
+  color: {{ design.form.expand_styles.open_button.color }};
+  {{ macros.borders(design.form.expand_styles.open_button.borders) }}
+}
+
+%%SELECTOR%% .search-form--expand .search-form__button:hover {
+  background-color: {{ design.form.expand_styles.open_button.hover }};
+}
+
+%%SELECTOR%% .search-form--expand .search-form__container {
+ gap: {{ design.form.expand_styles.space_between.style }};
+   {% if design.form.expand_styles.open_button.position == 'right' %}
+    flex-direction: row-reverse;
+  {% endif %}
+}
+
+%%SELECTOR%% .search-form--expand .search-form__field {
+  padding-left: {{ design.form.expand_styles.padding.style }};
+  padding-right: {{ design.form.expand_styles.padding.style }};
+  {{ macros.typography(design.form.expand_styles.typography, globalSettings)  }}
+  {{ macros.borders(design.form.expand_styles.borders) }}
+  {{ macros.backgroundColor(design.form.expand_styles.background) }}
+
+  {% if design.form.expand_styles.open_button.position == 'right' %}
+    right: 0;
+  	left: auto;
+  {% endif %}
+
+}
+
+%%SELECTOR%% .search-form--expand .search-form__field::placeholder {  
+  color: {{ design.form.expand_styles.placeholder }}
+}
+
+%%SELECTOR%% .search-form--expand .search-form__field:focus {
+  background-color: {{ design.form.expand_styles.focused.background }};
+  border-color: {{ design.form.expand_styles.focused.border }};
+  box-shadow: {{ design.form.expand_styles.focused.shadow.style }};
+}
+
+%%SELECTOR%% .search-form--expand .search-form__button:hover {
+  background-color: {{ design.form.expand_styles.open_button.hover }};
+}
+
+%%SELECTOR%% .search-form--expand .search-form__button:hover {
+  background-color: {{ design.form.expand_styles.open_button.hover }};
+}
+
+%%SELECTOR%% .search-form--expand .search-form__field,
+%%SELECTOR%% .search-form--expand.is-active .search-form__field {
+  width: {{ design.form.expand_styles.width.style }};
+}
+
+/* FULL SCREEN */
+
+%%SELECTOR%% .search-form__lightbox-container {
+  --searchFormSize: {{ design.form.full_screen_styles.search_box.height.style }};
+}
+
+%%SELECTOR%% .search-form--full-screen .search-form__lightbox-container {
+  {{ macros.borders(design.form.full_screen_styles.search_box.borders) }}
+  {{ macros.backgroundColor(design.form.full_screen_styles.search_box.background) }}
+  {% if design.form.full_screen_styles.search_box.icon.position == 'right' %}
+    flex-direction: row-reverse;
+  {% endif %}
+}
+
+%%SELECTOR%% .search-form--full-screen .search-form__lightbox {
+  {{ macros.backgroundColor(design.form.full_screen_styles.background) }}
+}
+
+%%SELECTOR%% .search-form--full-screen .search-form__field::placeholder {  
+  color: {{ design.form.full_screen_styles.search_box.placeholder }}
+  
+}
+
+%%SELECTOR%% .search-form--full-screen .search-form__field {
+{{ macros.spacing_complex(design.form.full_screen_styles.search_box.padding, 'padding') }}
+{{ macros.typography(design.form.full_screen_styles.search_box.typography, globalSettings) }}
+}
+
+%%SELECTOR%% .search-form--full-screen .search-form__lightbox-container:focus-within {
+  background-color: {{ design.form.full_screen_styles.search_box.focused.background }};
+  border-color: {{ design.form.full_screen_styles.search_box.focused.border }};
+  box-shadow: {{ design.form.full_screen_styles.search_box.focused.shadow.style }};
+}
+
+%%SELECTOR%% .search-form__button--full-screen {
+  font-size: {{ design.form.full_screen_styles.open_button.size.style }};
+  background-color: {{ design.form.full_screen_styles.open_button.background }};
+  color: {{ design.form.full_screen_styles.open_button.color }};
+  {{ macros.borders(design.form.full_screen_styles.open_button.borders) }}
+}
+
+%%SELECTOR%% .search-form__button--full-screen:hover {
+  background-color: {{ design.form.full_screen_styles.open_button.background_hover }};
+}
+
+%%SELECTOR%% .search-form--full-screen .search-form__lightbox-close {
+  font-size: {{ design.form.full_screen_styles.close_icon.size.style }};
+  color: {{ design.form.full_screen_styles.close_icon.color }};
+}
+
+%%SELECTOR%% .search-form--full-screen .search-form__lightbox-button {
+  font-size: {{ design.form.full_screen_styles.search_box.icon.size.style }};
+  color: {{ design.form.full_screen_styles.search_box.icon.color }};
+  {% if design.form.full_screen_styles.search_box.icon.hide %}
+  	display: none;
+  {% endif %}
+}
+
+{% if design.form.full_screen_styles.search_box.width.style %}
+  %%SELECTOR%% .search-form--full-screen .search-form__lightbox-container {
+    width: {{ design.form.full_screen_styles.search_box.width.style }};
+    margin-left: auto;
+    margin-right: auto;
+  }
+{% endif %} 
+
+
+

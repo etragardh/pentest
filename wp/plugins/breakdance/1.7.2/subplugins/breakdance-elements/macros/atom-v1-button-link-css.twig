@@ -1,0 +1,168 @@
+{% macro atomV1ButtonLinkIconCssHelper(arrow, selector) %}
+
+    {{ selector }} .button-atom__icon-wrapper {
+        --spaceBeforeArrow: {{ arrow.space_before.style|default('4px') }};
+        --hoverTranslate: {{ arrow.hover_transform.style|default('3px') }};
+        margin-left: var(--spaceBeforeArrow);
+        font-size:  {{ arrow.arrow_size.style }};
+        color: {{ arrow.color }};
+    }
+
+    {% if arrow.arrow == 'arrow-1' %}
+
+        {{ selector }} .un-arrow-icon {
+            position: relative;
+            top: -1px;
+            transition: transform 0.3s ease;
+            vertical-align: middle;
+            margin-left: -0.08em;
+        }
+
+        {{ selector }} .un-arrow-icon {
+            margin-left: 0.2em;
+        }
+
+        {{ selector }} .un-arrow-icon_circle {
+            transition: stroke-dashoffset 0.3s ease;
+            stroke-dasharray: 95;
+            stroke-dashoffset: 95;
+        }
+
+        {{ selector }} svg {
+            font-size: inherit;
+            width: 1.25em;
+            height: 1.25em;
+            stroke-width: 0;
+            stroke: currentColor;
+            fill: currentColor;
+        }
+
+        {{ selector }} svg g {
+            stroke: inherit;
+        }
+
+        {{ selector }}:hover .un-arrow-icon_circle {
+            stroke-dashoffset: 0;
+        }
+
+        {{ selector }}:hover .un-arrow-icon {
+            transform: translate3d(var(--hoverTranslate), 0, 0);
+        }
+
+    {% elseif arrow.arrow == 'arrow-2' %}
+
+        {{ selector }} .un-arrow-icon {
+            position: relative;
+            top: 0.06em;
+            width: 0.7em;
+            height: 0.7em;
+            stroke-width: 2px;
+            stroke: currentColor;
+            fill: none;
+            font-size: inherit;
+            margin-left: 0.2em;
+        }
+
+        {{ selector }} .un-arrow-icon_arrow {
+            transition: transform 0.3s ease;
+        }
+
+        {{ selector }}:hover .un-arrow-icon_arrow {
+            transform: translateX(var(--hoverTranslate));
+        }
+
+
+    {% elseif arrow.arrow == 'arrow-3' %}
+
+        {{ selector }} .un-arrow-icon {
+            position: relative;
+            top: 0.06em;
+            width: 0.7em;
+            height: 0.7em;
+            stroke-width: 2px;
+            stroke: currentColor;
+            fill: none;
+            font-size: inherit;
+
+        }
+
+        {{ selector }} .un-arrow-icon_arrow {
+            transition: transform 0.3s ease;
+        }
+
+        {{ selector }} .un-arrow-icon_line {
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        {{ selector }}:hover .un-arrow-icon_line {
+            opacity: 1;
+        }
+
+        {{ selector }}:hover .un-arrow-icon_arrow {
+            transform: translateX(3px);
+        }
+
+    {% elseif arrow.arrow == 'custom' %}
+
+        {{ selector }} svg {
+            transition: transform 0.3s ease;
+            position: relative;
+            font-size: inherit;
+            margin-left: 0.2em;
+            fill: currentColor;
+            stroke: currentColor;
+            stroke-width: 0;
+        }
+
+        {{ selector }}:hover svg {
+            transform: translate3d(var(--hoverTranslate), 0, 0);
+        }
+
+    {% endif %}
+
+{% endmacro %}
+
+
+{% macro atomV1ButtonLinkIconHtml(arrow) %}
+
+    <span class="button-atom__icon-wrapper">
+
+        {% if arrow.arrow == 'arrow-1' %}
+
+            <svg class="un-arrow-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+                <g fill="none" stroke-width="1.9" stroke-linejoin="round" stroke-miterlimit="10">
+                    <circle class="un-arrow-icon_circle" cx="16" cy="16" r="15.12"></circle>
+                    <path class="un-arrow-icon_arrow" d="M16.14 9.93L22.21 16l-6.07 6.07M8.23 16h13.98"></path>
+                </g>
+            </svg>
+
+        {% elseif arrow.arrow == 'arrow-2' %}
+
+            <svg class="un-arrow-icon" width="10" height="10" viewBox="0 0 10 10" aria-hidden="true">
+                <g fill-rule="evenodd">
+                    <path class="un-arrow-icon_arrow" d="M1 1l4 4-4 4"></path>
+                </g>
+            </svg>
+
+        {% elseif arrow.arrow == 'arrow-3' %}
+
+            <svg class="un-arrow-icon" width="10" height="10" viewBox="0 0 10 10" aria-hidden="true">
+                <g fill-rule="evenodd">
+                    <path class="un-arrow-icon_line" d="M0 5h7"></path>
+                    <path class="un-arrow-icon_arrow" d="M1 1l4 4-4 4"></path>
+                </g>
+            </svg>
+
+        {% elseif arrow.arrow == 'custom' %}
+
+            {{ arrow.custom_arrow.svgCode }}
+
+        {% endif %}
+
+    </span>
+
+{% endmacro %}
+
+
+

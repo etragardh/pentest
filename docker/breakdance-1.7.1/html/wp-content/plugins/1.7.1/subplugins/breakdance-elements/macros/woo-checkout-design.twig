@@ -1,0 +1,110 @@
+{% macro wooCheckoutCouponDesign(styles, selector, breakpoint, globalSettings) %}
+  /* Coupon / Disable */
+  {% if styles.disable %}
+    {{ selector }} .woocommerce-form-coupon-toggle {
+      display: none;
+    }
+  {% endif %}
+
+  /* Coupon Global Styles */
+  {{ _self.wooGlobalStyler(styles.override_global_styles, selector ~ ' .woocommerce-form-coupon-toggle .woocommerce-info', breakpoint, globalSettings) }}
+
+  /* Coupon / Dropdown Global Styles */
+  {{ _self.wooGlobalStyler(styles.override_global_styles, selector ~ ' .checkout_coupon.woocommerce-form-coupon', breakpoint, globalSettings) }}
+{% endmacro %}
+
+{% macro wooCheckoutBillingDesign(styles, selector, breakpoint, globalSettings) %}
+  /* Billing Address */
+    {{ selector }} .woocommerce-billing-fields {
+    background-color: {{ styles.background }};
+    {{ _self.spacing_padding_all(styles.padding) }}
+    {{ _self.borders(styles.borders) }}
+  }
+
+  /* Billing Details / Global Styles */
+  {{ _self.wooGlobalStyler(styles.override_global_styles, selector ~ ' .woocommerce-billing-fields', breakpoint, globalSettings) }}
+{% endmacro %}
+
+{% macro wooCheckoutShippingDesign(styles, selector, breakpoint, globalSettings) %}
+  /* Shipping Address */
+  {{ selector }} .woocommerce-shipping-fields {
+    background-color: {{ styles.background }};
+    {{ _self.spacing_padding_all(styles.padding) }}
+    {{ _self.borders(styles.borders) }}
+  }
+
+  /* Shipping Address */
+  {{ _self.wooGlobalStyler(styles.override_global_styles, selector ~ ' .woocommerce-shipping-fields', breakpoint, globalSettings) }}
+{% endmacro %}
+
+{% macro wooCheckoutAdditionalDesign(styles, selector, breakpoint, globalSettings) %}
+  /* Additional Info */
+  {{ selector }} .woocommerce-additional-fields {
+    background-color: {{ styles.background }};
+    {{ _self.spacing_padding_all(styles.padding) }}
+    {{ _self.borders(styles.borders) }}
+  }
+
+  /* Additional Info / Override Global Styles */
+  {{ _self.wooGlobalStyler(styles.override_global_styles, selector ~ ' .woocommerce-additional-fields', breakpoint, globalSettings) }}
+{% endmacro %}
+
+{% macro wooCheckoutOrderReviewDesign(styles, selector, breakpoint, globalSettings) %}
+  /* Your Order */
+  {{ selector }} .woocommerce-checkout-review-order {
+    background-color: {{ styles.background }};
+    {{ _self.spacing_padding_all(styles.padding) }}
+    {{ _self.borders(styles.borders) }}
+  }
+  
+  /* Your Order / Global Styles */
+  {{ _self.wooGlobalStyler(styles.override_global_styles, selector ~ ' .woocommerce-checkout-review-order', breakpoint, globalSettings) }}
+{% endmacro %}
+
+{% macro wooCheckoutTotalsDesign(styles, selector, breakpoint, globalSettings) %}
+  {{ selector }} .woocommerce-checkout-review-order-table tfoot th,
+  {{ selector }} .woocommerce-checkout-review-order-table tfoot td {
+    padding-top: {{ styles.rows.spacing.style }};
+    padding-bottom: {{ styles.rows.spacing.style }};
+  }
+
+  {% if styles.rows.separator %}
+    {{ selector }} .woocommerce-checkout-review-order-table tfoot tr {
+      border-color: {{ styles.rows.separator_color }};
+      border-width: {{ styles.rows.separator_height.style }};
+    }
+  {% else %}
+    {{ selector }} .woocommerce-checkout-review-order-table tfoot tr {
+      border: none;
+    }
+  {% endif %}
+
+  /* Totals */
+  {{ _self.wooGlobalStyler(styles.override_global_styles, selector ~ ' .woocommerce-checkout-review-order-table tfoot', breakpoint, globalSettings) }}
+{% endmacro %}
+
+{% macro wooCheckoutPaymentDesign(styles, selector, breakpoint, globalSettings) %}
+  /* Payment */
+  {{ selector }} #payment {
+    background-color: {{ styles.background }};
+    {{ _self.spacing_padding_all(styles.padding) }}
+    {{ _self.borders(styles.borders) }}
+  
+    {% if styles.sticky %}
+      position: sticky;
+      top: {{ styles.sticky_offset.style | default('40px') }};
+    {% endif %}
+  }
+
+  {{ selector }} .payment_box {
+    background-color: {{ styles.payment_info.background }};
+    {{ _self.spacing_padding_all(styles.payment_info.padding) }}
+    {{ _self.borders(styles.payment_info.borders) }}
+  }
+  
+  /* Payment / Button */
+  {{ _self.atomV1ButtonButton(styles.button, selector ~ ' button#place_order', 'primary', breakpoint, globalSettings) }}
+  
+  /* Payment / Global Styles */
+  {{ _self.wooGlobalStyler(styles.override_global_styles, selector ~ ' #payment', breakpoint, globalSettings) }}
+{% endmacro %}

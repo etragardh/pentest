@@ -1,0 +1,5 @@
+{% set url = content.post.post_url is empty ? 'https://www.facebook.com/20531316728/posts/10154009990506729/' : content.post.post_url %}
+{% set show_text = design.post.show_full_post ? 'true' : 'false' %}
+{% set width = design.size.width ? design.size.width.style : '350px' %}
+
+<div class="fb-post" data-width="{{ width }}" data-href="{{ url }}" data-show-text="{{ show_text }}"></div>

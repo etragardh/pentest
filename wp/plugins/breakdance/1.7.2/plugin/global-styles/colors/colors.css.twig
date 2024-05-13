@@ -1,0 +1,30 @@
+{% if isBaseBreakpoint %}
+
+{# Main Body Styles #}
+.breakdance {
+    background-color: var(--bde-background-color);
+    color: var(--bde-body-text-color);
+}
+
+.breakdance h1,
+.breakdance h2,
+.breakdance h3,
+.breakdance h4,
+.breakdance h5,
+.breakdance h6 {
+    color: var(--bde-headings-color);
+}
+
+.breakdance a,
+.button-atom--text {
+    color: var(--bde-links-color);
+}
+
+.breakdance a:hover,
+.button-atom--text:hover {
+    color: var(--bde-links-color-hover);
+}
+
+{% endif %}
+
+

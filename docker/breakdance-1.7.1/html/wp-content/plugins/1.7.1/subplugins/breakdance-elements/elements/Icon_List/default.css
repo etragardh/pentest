@@ -1,0 +1,42 @@
+.breakdance .bde-icon-list {
+  max-width: 100%;
+  display: flex;
+  text-align: left;
+}
+
+.breakdance .bde-icon-list ul {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 16px;
+}
+
+.breakdance .bde-icon-list li .bde-icon-list__item-wrapper {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  gap: 8px;
+}
+
+.breakdance .bde-icon-list ul .bde-icon-list__icon {
+  display: flex;
+  font-size: 20px;
+}
+
+.breakdance .bde-icon-list--background ul .bde-icon-list__icon {
+  padding: 14px;
+  border-radius: 0px;
+  background-color: #DBE5FFFF;
+}
+
+.breakdance .bde-icon-list ul .bde-icon-list__icon > svg {
+  font-size: inherit;
+  width: 1em;
+  height: 1em;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}

@@ -1,0 +1,278 @@
+.bde-cart {
+  text-align: left;
+  width: 100%;
+}
+
+.bde-cart .woocommerce {
+  display: flex;
+  flex-direction: var(--bde-woo-responsive__stack);
+  align-items: flex-start;
+  flex-wrap: wrap;
+  column-gap: var(--bde-woo-base-extra-large-gaps);
+}
+
+.breakdance-woocommerce .woocommerce-cart-form {
+  margin-bottom: var(--bde-woo-base-large-gaps);
+}
+
+.breakdance-woocommerce .woocommerce-notice,
+.breakdance-woocommerce .woocommerce-notices-wrapper {
+  margin-top: 0;
+  margin-bottom: var(--bde-woo-base-big-gaps);
+}
+
+/* Hide Coupon Label */
+.breakdance-woocommerce .coupon label {
+  display: none;
+}
+
+/* Actions Table Row */
+.breakdance-woocommerce .actions .coupon {
+  display: flex;
+  flex-direction: row;
+  gap: var(--bde-woo-base-medium-gaps);
+  float: left;
+}
+
+/* No Shrink Button */
+.breakdance-woocommerce .actions .coupon button {
+  flex-shrink: 0;
+}
+
+/* Update Cart Button */
+.breakdance-woocommerce .actions button[name="update_cart"] {
+  /*
+   * The cart page is ajaxified so we don't actually need the update button.
+   * But we keep its styles anyway in case hiding the button was a bad idea.
+   */
+  /*display: flex;*/
+  display: none;
+  line-height: var(--bde-woo-base-paragraph-line-height);
+  float: right;
+  flex-direction: row;
+  gap: var(--bde-woo-base-medium-gaps);
+}
+
+/* Update Cart Button Icon */
+.breakdance-woocommerce .actions button[name="update_cart"]::before {
+  background-color: var(--grey-700);
+  content: "";
+  width: 20px;
+  height: 20px;
+  mask: url(icons/refresh.svg);
+  -webkit-mask: url(icons/refresh.svg);
+  mask-size: cover;
+  -webkit-mask-size: cover;
+  background-color: var(
+    --bde-woo-buttons-and-links__secondary-button-text-color
+  );
+  transition: var(--bde-woo-base-transition);
+}
+/* Update Cart Button Icon */
+.breakdance-woocommerce .actions button[name="update_cart"]:disabled::before {
+  background-color: var(--bde-woo-buttons-and-links__disabled-button-text-color);
+}
+
+/* Product on Backorder Notice */
+.breakdance-woocommerce .woocommerce-cart-form p.backorder_notification {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* Full Width Cart Table */
+.breakdance-woocommerce .woocommerce-cart-form {
+  width: 100%;
+  flex: 1;
+}
+
+.breakdance-woocommerce
+  .woocommerce-cart-form__contents
+  tbody
+  tr
+  td.product-thumbnail
+  a {
+  display: flex;
+}
+
+/* Cart Totals Width */
+.breakdance-woocommerce .cart-collaterals {
+  order: var(--bde-woo-responsive__cart-totals-order);
+  align-self: stretch;
+  width: fluidWidthOnMobile(350px);
+  border-radius: var(--bde-woo-tables__border-radius);
+}
+
+.breakdance-woocommerce .cart-collaterals h2 {
+  margin-bottom: var(--bde-woo-base-big-gaps);
+}
+
+/* Proceed to Checkout Button Full Width */
+.breakdance-woocommerce a.checkout-button {
+  width: 100%;
+  height: 50px;
+  margin-top: var(--bde-woo-base-big-gaps);
+}
+
+/* Proceed to Checkout Button Arrow */
+.woocommerce-page.woocommerce-cart
+  .breakdance-woocommerce
+  a.checkout-button::after {
+  content: "";
+  display: inline-block;
+  background-color: currentColor;
+  margin-left: 0.2em;
+  width: 0.8em;
+  height: 0.8em;
+  mask-image: url(icons/arrow.svg);
+  mask-position: 0 0;
+  mask-size: 100% 100%;
+  mask-repeat: no-repeat;
+  -webkit-mask-image: url(icons/arrow.svg);
+  -webkit-mask-position: 0 0;
+  -webkit-mask-size: 100% 100%;
+}
+
+/* Big Gaps */
+.breakdance-woocommerce .woocommerce-notices-wrapper,
+.breakdance-woocommerce section.shipping-calculator-form,
+.breakdance-woocommerce form.woocommerce-shipping-calculator {
+  display: flex;
+  flex-direction: column;
+  gap: var(--bde-woo-base-big-gaps);
+}
+
+.breakdance-woocommerce p.woocommerce-shipping-destination {
+  display: block;
+  margin: var(--bde-woo-base-medium-gaps) 0;
+}
+
+/* Standard Gaps */
+.breakdance-woocommerce ul.woocommerce-shipping-methods {
+  display: flex;
+  flex-direction: column;
+  gap: var(--bde-woo-base-standard-gaps);
+}
+
+.breakdance-woocommerce ul.woocommerce-shipping-methods li {
+  display: flex;
+  align-items: center;
+}
+
+.breakdance-woocommerce ul.woocommerce-shipping-methods li label,
+.breakdance-woocommerce ul.payment_methods li label {
+  line-height: 1;
+}
+
+.breakdance-woocommerce ul.payment_methods input[type="checkbox"] + label {
+  line-height: 1;
+  margin-bottom: 0;
+}
+
+.breakdance-woocommerce .woocommerce-cart-form__contents tbody tr td {
+  padding-top: var(--bde-woo-cart-rows-spacing, 16px);
+  padding-bottom: var(--bde-woo-cart-rows-spacing, 16px);
+}
+
+/* Align Table Headings with Header */
+.breakdance-woocommerce .cart-collaterals table th {
+  padding-left: 0;
+}
+
+.breakdance-woocommerce .cart-collaterals table td {
+  width: 80%;
+}
+
+/* Cross-Sell */
+
+.breakdance-woocommerce .cross-sells {
+  display: flex;
+  flex-direction: column;
+  gap: var(--bde-woo-base-big-gaps);
+  width: fluidWidthOnMobile(100%);
+  margin-top: var(--bde-woo-base-large-gaps);
+  order: 99;
+}
+
+@media (max-width: 767px) {
+  .breakdance-woocommerce .woocommerce-cart-form__contents td.product-price {
+    /* Hide the product price and only show the subtotal on mobile */
+    display: none !important;
+  }
+}
+
+// Show a more compact layout on smaller screens
+@media (max-width: 767px) {
+  .breakdance-woocommerce .woocommerce-cart-form {
+    flex: 0 0 100%;
+  }
+
+  .breakdance-woocommerce .woocommerce-cart-form__contents {
+    tbody {
+      display: flex;
+      flex-direction: column;
+      gap: var(--bde-woo-cart-rows-spacing, 20px);
+      padding: var(--bde-woo-base-medium-gaps);
+    }
+
+    tbody tr td {
+      padding: 0;
+    }
+
+    tr.woocommerce-cart-form__cart-item {
+      display: grid;
+      column-gap: var(--bde-woo-base-medium-gaps);
+      grid-template-columns: var(--bde-woo-cart-thumbnail-size, 96px) 1fr 20px;
+      border-bottom: none;
+    }
+
+    tbody tr.woocommerce-cart-form__cart-item td {
+      padding: 0;
+    }
+
+    td.product-name {
+      padding-bottom: 5px;
+    }
+
+    td.product-thumbnail {
+      width: 100%;
+      grid-area: span 3;
+    }
+
+    td.product-thumbnail a {
+      width: 100%;
+    }
+
+    td.product-thumbnail img {
+      width: 100%;
+      height: auto;
+    }
+
+    td.product-quantity {
+      order: 2;
+      grid-column: span 2;
+      margin-top: var(--bde-woo-base-standard-gaps);
+    }
+
+    td.product-remove {
+      grid-column: 3;
+      grid-row: 1;
+      padding: 0;
+    }
+  }
+
+  // Actions
+
+  .breakdance-woocommerce .actions {
+    display: flex;
+
+    .button {
+      width: 100%;
+    }
+
+    .coupon {
+      width: 100%;
+      flex-direction: column;
+      align-items: stretch;
+    }
+  }
+}

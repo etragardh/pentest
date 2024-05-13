@@ -1,0 +1,13 @@
+{% if design.quotes.icon.svgCode %}
+  {% if design.quotes.icon_position == 'above' %}
+    <p class="above-text_blockquote-icon"><span class="blockquote-icon">{{ design.quotes.icon.svgCode }}</span></p>
+    <p {{ dataContentEditablePropertyPath('content.content.text') }}>{{ content.content.text|default('It is not the strongest of the species that survives, nor the most intelligent, but the one most responsive to change.') }}</p>
+  {% else %}
+    <p class="inline-text_blockquote-icon"><span class="blockquote-icon">{{ design.quotes.icon.svgCode }}</span>{{ content.content.text|default('It is not the strongest of the species that survives, nor the most intelligent, but the one most responsive to change.') }}</p>
+  {% endif %}
+{% else %}
+  <p>{{ content.content.text|default('It is not the strongest of the species that survives, nor the most intelligent, but the one most responsive to change.') }}</p>
+{% endif %}
+{% if content.content.author %}
+  <cite {{ dataContentEditablePropertyPath('content.content.author') }}>{{ content.content.author }}</cite>
+{% endif %}

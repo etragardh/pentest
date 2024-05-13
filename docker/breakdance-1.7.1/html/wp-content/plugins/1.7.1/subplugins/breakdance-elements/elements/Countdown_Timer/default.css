@@ -1,0 +1,370 @@
+.breakdance .bde-countdown-timer {
+  position: relative;
+  width: 100%;
+}
+
+.breakdance .bde-countdown-timer__wrap {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 16px;
+  font-weight: 900;
+  font-size: 64px;
+  line-height: 1.2;
+}
+
+.breakdance .bde-countdown-timer__number {
+  font-weight: 700;
+  text-align: center;
+  font-size: 100px;
+  line-height: 1;
+  color: #fff;
+  font-feature-settings: "tnum";
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.04em;
+  position: relative;
+  z-index: 10;
+}
+
+.breakdance .bde-countdown-timer__digit {
+  background-color: #333;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.breakdance .bde-countdown-timer__separator--colon svg {
+  width: 8px;
+  display: block;
+}
+
+.breakdance .bde-countdown-timer__separator--colon circle {
+  fill: #333;
+}
+
+.breakdance .bde-countdown-timer__separator--line {
+  height: 100%;
+}
+
+.breakdance .bde-countdown-timer__separator--line:after {
+  content: "";
+  display: block;
+  position: absolute;
+  background-color: #eeeeee;
+  height: 50%;
+  width: 2px;
+  margin-left: -1px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.breakdance .bde-countdown-timer__separator:last-child {
+  display: none;
+}
+
+.breakdance .bde-countdown-timer__digit-wrap.is-hidden {
+  display: none;
+}
+
+.breakdance .bde-countdown-timer__label {
+  font-weight: 500;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  margin-top: 8px;
+  margin-bottom: 0;
+  position: relative;
+  z-index: 10;
+}
+
+.breakdance .bde-countdown-timer__label--outside {
+  color: #000;
+}
+
+.breakdance .bde-countdown-timer__digit--round {
+  border-radius: 8px;
+}
+
+.breakdance .bde-countdown-timer__digit--circle {
+  padding: 0;
+  border-radius: 50%;
+  width: 3em;
+  height: 3em;
+}
+
+.breakdance .bde-countdown-timer__message.is-hidden,
+.breakdance .bde-countdown-timer__wrap.is-hidden {
+  display: none;
+}
+
+.breakdance .bde-countdown-timer__message {
+  padding: 16px;
+}
+
+.breakdance .bde-countdown-timer__digit-wrap.is-one .plural,
+.breakdance .bde-countdown-timer__digit-wrap .singular {
+  display: none;
+}
+
+.breakdance .bde-countdown-timer__digit-wrap.is-one .singular {
+  display: inline;
+}
+
+/* Donut */
+
+.breakdance .bde-countdown-timer__digit-svg {
+  width: 200px;
+  height: 200px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  position: relative;
+}
+
+.breakdance .bde-countdown-timer__donut {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  overflow: visible;
+}
+
+.breakdance .bde-countdown-timer__donut circle {
+  fill: #333;
+  stroke: #8b5cf6;
+  stroke-width: 5px;
+  stroke-dasharray: 295;
+  stroke-linecap: round;
+  will-change: transform;
+  transform: translateZ(0);
+  transform: translate3d(0, 0, 0);
+  transform: rotate(-90deg);
+  transform-origin: 50%;
+  transition: all 0.3s ease;
+}
+
+/* Flip */
+
+.breakdance .bde-countdown-timer__digit-flip {
+  display: flex;
+  flex-direction: row;
+}
+
+ul.flip {
+  position: relative;
+  margin: 5px;
+  width: 60px;
+  height: 90px;
+  font-size: 80px;
+  font-weight: 700;
+  line-height: 85px;
+  border-radius: 6px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
+  list-style-type: none;
+}
+
+ul.flip.is-hidden {
+  display: none;
+}
+
+ul.flip li {
+  z-index: 1;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+ul.flip li:first-child {
+  z-index: 2;
+}
+
+ul.flip li .flip-item {
+  display: block;
+  height: 100%;
+  perspective: 200px;
+}
+
+ul.flip li .flip-item div {
+  z-index: 1;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  overflow: hidden;
+}
+
+ul.flip li .flip-item div .shadow {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+ul.flip li .flip-item div.up {
+  transform-origin: 50% 100%;
+  top: 0;
+}
+
+ul.flip li .flip-item div.up:after {
+  content: "";
+  position: absolute;
+  top: 97.5%;
+  left: 0;
+  z-index: 5;
+  width: 100%;
+  height: 3px;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+ul.flip li .flip-item div.down {
+  transform-origin: 50% 0%;
+  bottom: 0;
+}
+
+ul.flip li .flip-item div div.inn {
+  position: absolute;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 200%;
+  color: #ccc;
+  text-shadow: 0 1px 2px #000;
+  text-align: center;
+  background-color: #333;
+  border-radius: 6px;
+}
+
+ul.flip li .flip-item .placeholder {
+  opacity: 0;
+}
+
+ul.flip li .flip-item div.up div.inn {
+  top: 0;
+}
+
+ul.flip li .flip-item div.down div.inn {
+  bottom: 0;
+}
+
+/* PLAY */
+
+.breakdance .bde-countdown-timer__time.play ul li.before {
+  z-index: 3;
+}
+
+.breakdance .bde-countdown-timer__time.play ul li.active {
+  animation: zIndex 0.5s 0.5s linear both;
+  z-index: 2;
+}
+
+@keyframes zIndex {
+  0% {
+    z-index: 2;
+  }
+  5% {
+    z-index: 4;
+  }
+  100% {
+    z-index: 4;
+  }
+}
+
+.breakdance .bde-countdown-timer__time.play ul li.active .down {
+  z-index: 2;
+  animation: turn 0.5s 0.5s linear both;
+}
+
+@keyframes turn {
+  0% {
+    transform: rotateX(90deg);
+  }
+  100% {
+    transform: rotateX(0deg);
+  }
+}
+
+.breakdance .bde-countdown-timer__time.play ul li.before .up {
+  z-index: 2;
+  animation: turn2 0.5s linear both;
+}
+
+@keyframes turn2 {
+  0% {
+    transform: rotateX(0deg);
+  }
+  100% {
+    transform: rotateX(-90deg);
+  }
+}
+
+/* SHADOW */
+
+.breakdance .bde-countdown-timer__time.play ul li.before .up .shadow {
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.1) 0%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  animation: show 0.5s linear both;
+}
+
+body.play ul li.active .up .shadow {
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.1) 0%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  animation: hide 0.5s 0.3s linear both;
+}
+
+/*DOWN*/
+
+.breakdance .bde-countdown-timer__time.play ul li.before .down .shadow {
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0.1) 100%
+  );
+  animation: show 0.5s linear both;
+}
+
+.breakdance .bde-countdown-timer__time.play ul li.active .down .shadow {
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0.1) 100%
+  );
+  animation: hide 0.5s 0.3s linear both;
+}
+
+@keyframes show {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes hide {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

@@ -1,0 +1,42 @@
+%%SELECTOR%% { 
+  width: {{ design.image.width.style }};
+  height: {{ design.image.height.style }};
+  {% if design.image.duration.style %}
+    --eesiTransitionDuration: {{ design.image.duration.style }};
+  {% endif %}
+  {{ macros.borders(design.image.borders) }}
+  {% if content.content.image %}
+    background-image:url({{ content.content.image.url }});
+  {% endif %}
+  {{ macros.spacing_margin_y(design.spacing) }}
+}
+
+{% if content.content.icon %}
+%%SELECTOR%% .ee-scrollimage-icon {
+  font-size: {{ design.icon.size.style }};
+  color: {{ design.icon.color }};  
+}
+%%SELECTOR%%:hover .ee-scrollimage-icon {
+  {% if design.icon.hover_offset.style %}
+  transform: translatey({{ design.icon.hover_offset.style }});
+  {% endif %}
+}
+{% endif %}
+
+{% if content.content.caption %}
+%%SELECTOR%% .ee-scrollimage-caption-wrap {
+  align-content:{{ design.caption.position }};
+}
+%%SELECTOR%% .ee-scrollimage-caption {
+  {{ macros.spacing_all(design.caption.spacing) }}
+  {{ macros.backgroundColor(design.caption.background) }}
+  {% if design.caption.full_width %}
+  width:100%;
+  {% endif %}
+}
+
+%%SELECTOR%% .ee-scrollimage-caption span {
+  {{ macros.typography(design.caption.typography, globalSettings)  }}
+}
+
+{% endif %}

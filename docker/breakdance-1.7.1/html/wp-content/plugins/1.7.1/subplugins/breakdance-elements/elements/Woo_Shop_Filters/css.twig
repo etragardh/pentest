@@ -1,0 +1,147 @@
+%%SELECTOR%% {
+  --bde-woo-widgets__chip-background-color: {{ design.chips.background }};
+  --bde-woo-widgets__chip-background-color-hover: {{ design.chips.background_hover|default(design.chips.background) }};
+  --bde-woo-widgets__chip-text-color: {{ design.chips.typography.color }};
+  --bde-woo-widgets__chip-text-color-hover: {{ design.chips.typography.color_hover|default(design.chips.typography.color) }};
+
+  --bde-woo-ratings__star-size: {{ design.rating_filter.star_size.style }};
+  {{ macros.spacing_margin_y(design.spacing.container) }}
+
+  --bde-woo-ratings__star-color: {{ design.rating_filter.star_color }};
+}
+
+%%SELECTOR%% h2.widgettitle {
+  {{ macros.typography(design.typography.titles, globalSettings) }}
+  margin-bottom: {{ design.spacing.after_titles.style }};
+}
+
+/* Between Filters */
+%%SELECTOR%% .widget:not(:last-child) {
+  margin-bottom: {{ design.spacing.between_filters.style }};
+}
+
+/* Chips */
+%%SELECTOR%% .widget_layered_nav_filters ul,
+%%SELECTOR%% .widget_rating_filter ul,
+%%SELECTOR%% .woocommerce-widget-layered-nav ul {
+  gap: {{ design.chips.space_between.style }};
+}
+
+%%SELECTOR%% .widget_layered_nav_filters a,
+%%SELECTOR%% .wc-layered-nav-rating a,
+%%SELECTOR%% .wc-layered-nav-term a {
+  {{ macros.spacing_padding_all(design.chips.padding) }}
+  {{ macros.typography(design.chips.typography, globalSettings) }}
+  {{ macros.borders(design.chips.borders) }}
+}
+
+%%SELECTOR%% .wc-layered-nav-term span,
+%%SELECTOR%% .widget_layered_nav_filters span,
+%%SELECTOR%% .widget_layered_nav_filters bdi {
+  {{ macros.typography(design.chips.typography, globalSettings) }}
+}
+
+%%SELECTOR%% .widget_layered_nav_filters .chosen a,
+%%SELECTOR%% .widget_layered_nav_filters a:hover,
+%%SELECTOR%% .wc-layered-nav-term.chosen,
+%%SELECTOR%% .wc-layered-nav-rating a:hover,
+%%SELECTOR%% .wc-layered-nav-term a:hover,
+%%SELECTOR%% .wc-layered-nav-term.chosen a,
+%%SELECTOR%% .wc-layered-nav-term.chosen span {
+  border-color: {{ design.chips.hover_border }};
+  box-shadow: {{ design.chips.hover_shadow.style }};
+  {{ macros.typographyWithHoverableColorAndEffects(design.chips.typography) }}
+}
+
+%%SELECTOR%% .widget_layered_nav_filters .chosen a,
+%%SELECTOR%% .widget_layered_nav_filters a:hover,
+%%SELECTOR%% .widget_layered_nav_filters .chosen a span,
+%%SELECTOR%% .widget_layered_nav_filters .chosen a bdi,
+%%SELECTOR%% .wc-layered-nav-term:hover span,
+%%SELECTOR%% .wc-layered-nav-term:hover a {
+  {{ macros.typographyWithHoverableColorAndEffects(design.chips.typography) }}
+}
+
+/* Active Filters */
+%%SELECTOR%% .breakdance-woocommerce .widget_layered_nav_filters ul {
+  gap: {{ design.active_filters.space_between.style }};
+}
+
+/*
+ * Price Filter
+ */
+
+/* Button */
+{{ macros.atomV1ButtonButton(design.price_filter.button, '%%SELECTOR%% .widget_price_filter .button', 'secondary', breakpoint) }}
+
+%%SELECTOR%% .breakdance-woocommerce .widget_price_filter .price_slider {
+  background-color: {{ design.price_filter.bar.background }};
+  height: {{ design.price_filter.bar.height.style }};
+  {% if design.price_filter.bar.handle.size.style %}
+    margin-left: calc({{ design.price_filter.bar.handle.size.style | default('24px')}} / 3);
+  	margin-right: calc({{ design.price_filter.bar.handle.size.style | default('24px')}} / 3);
+  {% endif %}
+}
+
+%%SELECTOR%% .breakdance-woocommerce .ui-slider-range {
+  background-color: {{ design.price_filter.bar.selection }};
+  height: {{ design.price_filter.bar.height.style }};
+}
+
+{% if design.price_filter.bar.height.style or design.price_filter.bar.handle.size.style %}
+%%SELECTOR%% .breakdance-woocommerce .ui-slider-handle {
+  margin-top: calc(({{ design.price_filter.bar.height.style | default('4px')}} - {{ design.price_filter.bar.handle.size.style | default('24px')}}) / 2 );
+}
+{% endif %}
+
+{% if design.price_filter.bar.handle.size.style %}
+%%SELECTOR%% .breakdance-woocommerce .ui-slider-handle {
+  margin-left: calc( -{{ design.price_filter.bar.handle.size.style | default('24px')}} / 2);
+}
+{% endif %}
+
+%%SELECTOR%% .breakdance-woocommerce .ui-slider-handle {
+  background-color: {{ design.price_filter.bar.handle.background }};
+  height: {{ design.price_filter.bar.handle.size.style }};
+  width: {{ design.price_filter.bar.handle.size.style }};
+  {{ macros.borders(design.price_filter.bar.handle.borders) }}
+}
+
+%%SELECTOR%% .breakdance-woocommerce .ui-slider-handle:hover {
+  border-color: {{ design.price_filter.bar.handle.hover_border }};
+  box-shadow: {{ design.price_filter.bar.handle.hover_shadow.style }};
+}
+
+%%SELECTOR%% .breakdance-woocommerce .widget_price_filter .price_label {
+  {{ macros.typography(design.price_filter.label, globalSettings) }}
+}
+
+%%SELECTOR%% .breakdance-woocommerce .widget_price_filter .price_label .from,
+%%SELECTOR%% .breakdance-woocommerce .widget_price_filter .price_label .to {
+  {{ macros.typography(design.price_filter.value, globalSettings) }}
+}
+
+/* Rating Filter */
+{% if design.rating_filter.between_stars.style %}
+%%SELECTOR%% .breakdance-woocommerce .star-rating {
+  width: calc(var(--bde-woo-ratings__star-size) * 5 + {{ design.rating_filter.between_stars.style }} * 4);
+}
+
+%%SELECTOR%% .breakdance-woocommerce .star-rating span,
+%%SELECTOR%% .breakdance-woocommerce .star-rating {
+  background-position: 0 center, calc(var(--bde-woo-ratings__star-size) + {{ design.rating_filter.between_stars.style }}) center, calc(var(--bde-woo-ratings__star-size) * 2 + {{ design.rating_filter.between_stars.style }} * 2) center, calc(var(--bde-woo-ratings__star-size) * 3 + {{ design.rating_filter.between_stars.style }} * 3) center, calc(var(--bde-woo-ratings__star-size) * 4 + {{ design.rating_filter.between_stars.style }} * 4) center;
+}
+{% endif %}
+
+%%SELECTOR%% .breakdance-woocommerce .widget_rating_filter ul {
+  gap: {{ design.rating_filter.space_between.style }};
+}
+
+/* Attribute Filters */
+%%SELECTOR%% .breakdance-woocommerce .woocommerce-widget-layered-nav ul {
+  gap: {{ design.attribute_filter.space_between.style }};
+}
+
+{{ macros.atomV1ButtonButton(design.attribute_filter.button, '%%SELECTOR%% .woocommerce-widget-layered-nav-dropdown__submit', 'secondary', breakpoint, globalSettings) }}
+
+{{ macros.wooGlobalStyler(design.advanced.override_global_styles, '%%SELECTOR%%', breakpoint, globalSettings) }}

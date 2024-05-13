@@ -1,0 +1,41 @@
+%%SELECTOR%% {
+  --space-between-items: {{ design.spacing.between_items.style }};
+  {{ macros.spacing_margin_y(design.spacing.wrapper) }}
+  width: {{ design.layout.width.style }};
+  {% if breakpoint == firstResponsiveBreakpointId %}
+    --num-columns: 1;
+  {% endif %}
+  --num-columns: {{ design.layout.items_per_row }};
+}
+
+%%SELECTOR%% .bde-stats-grid_item {
+  {% if design.items.content_alignment == 'left' %}
+    align-items: flex-start;
+    text-align: left;
+  {% elseif design.items.content_alignment == 'center' %}
+    align-items: center;
+    text-align: center;
+  {% elseif design.items.content_alignment == 'right' %}
+    align-items: flex-end;
+    text-align: right;
+  {% endif %}
+  background-color: {{ design.items.background }};
+  {{ macros.borders(design.items.borders) }}
+  {{ macros.spacing_padding_all(design.items.padding) }}
+  box-shadow: {{ design.items.shadow.style }};
+}
+
+{{ macros.atomV1IconCss(design.icon, 'bde-stats-grid_icon', '%%SELECTOR%%') }}
+
+%%SELECTOR%% .bde-stats-grid_icon {
+    margin-bottom: {{ design.spacing.after_icon.style }};
+}
+
+%%SELECTOR%% .bde-stats-grid_number {
+  {{ macros.typography(design.typography.number, globalSettings)  }}
+  margin-bottom: {{ design.spacing.after_number.style }};
+}
+
+%%SELECTOR%% .bde-stats-grid_text {
+  {{ macros.typography(design.typography.text, globalSettings)  }}
+}

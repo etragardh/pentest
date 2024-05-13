@@ -1,0 +1,46 @@
+name: Run Psalm
+on:
+  [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 16.13.2
+
+      - name: Setup PHP 7
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '7.4'
+
+      - name: Checkout soflyy/breakdance
+        uses: actions/checkout@v2
+        with:
+          repository: soflyy/breakdance
+          token: ${{ secrets.BUILD_BOT_PAT }}
+          path: breakdance
+          submodules: true
+
+      - name: Checkout the Git repo
+        uses: actions/checkout@v2
+        with:
+          path: breakdance/plugin/breakdance-elements
+
+      - name: Install Breakdance dependencies
+        working-directory: breakdance/plugin
+        run: composer install --no-dev
+
+      - name: Install Psalm dependencies
+        working-directory: breakdance/psalm
+        run: composer install --no-dev
+
+      - name: Prepare Psalm
+        working-directory: breakdance
+        run: php plugin/breakdance-elements/build-tools/ci-prepare-psalm.php
+
+      - name: Run Psalm
+        working-directory: breakdance/plugin
+        run: composer run psalm

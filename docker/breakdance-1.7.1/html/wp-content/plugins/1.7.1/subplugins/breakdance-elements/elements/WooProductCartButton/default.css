@@ -1,0 +1,10 @@
+.breakdance .bde-wooproductcartbutton {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 100%;
+}
+
+.breakdance .bde-wooproductcartbutton .woocommerce-variation-availability p {
+  margin: 0;
+}

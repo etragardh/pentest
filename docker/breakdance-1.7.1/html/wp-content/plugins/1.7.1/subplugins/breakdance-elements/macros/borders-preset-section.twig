@@ -1,0 +1,5 @@
+{% macro borders(properties) %}
+    {{ _self.border_complex(properties.border) }}
+    {{ _self.border_radius(properties.radius) }}
+    box-shadow: {{ properties.shadow.style }};
+{% endmacro %}

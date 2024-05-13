@@ -1,0 +1,54 @@
+.breakdance .bde-post-meta {
+  max-width:100%;
+  list-style-type:none;
+  padding:0;
+  margin:0;
+  display:flex;
+  flex-wrap:wrap;
+  gap:20px;
+  color:black;
+}
+.breakdance .bde-post-meta li {
+  position:relative;
+  display:flex;
+  align-items:center;
+  color:inherit;
+  margin:0;
+  padding:0;
+}
+.breakdance .bde-post-meta li a {
+  display:flex;
+  align-items:center;
+  text-decoration: none;
+  color:inherit;
+}
+.breakdance .bde-post-meta .ee-postmeta-icon {
+  font-size:18px;
+  margin-right:6px;
+}
+.breakdance .bde-post-meta .ee-postmeta-avatar {
+  width: 18px;
+  display: flex;
+  margin-right:6px;
+}
+.breakdance .bde-post-meta .ee-postmeta-avatar img {
+  max-width:100%;
+  height: auto;
+  border-radius: 50%
+}
+.breakdance .bde-post-meta .ee-postmeta-term {
+  display:flex;
+  flex-wrap:wrap;
+  white-space:pre-wrap;
+  position: relative;
+}
+
+.ee-postmeta-terms-wrap {
+  flex-wrap:wrap;
+}
+.breakdance .bde-post-meta .ee-postmeta-term:not(:last-child):after {
+  content:", "
+}
+.breakdance .bde-post-meta .ee-postmeta-before {
+    white-space:pre-wrap;
+}

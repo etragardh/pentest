@@ -1,0 +1,73 @@
+{% macro wooPresetStockDesign(design, selector) %}
+  /* Notices/Out of Stock */
+  {% if design.out_of_stock.disable_icon %}
+    %%SELECTOR%%.breakdance-woocommerce p.out-of-stock::before {
+      display: none;
+    }
+    %%SELECTOR%%.breakdance-woocommerce p.out-of-stock {
+      padding-left: 12px;
+    }
+  {% endif %}
+  %%SELECTOR%%.breakdance-woocommerce p.out-of-stock {
+    background-color: {{ design.out_of_stock.background }};
+    {{ _self.borders(design.out_of_stock.borders) }}
+    {{ _self.typography(design.out_of_stock.typography) }}
+    {{ _self.spacing_padding_all(design.out_of_stock.padding) }}
+  }
+  {% if design.out_of_stock.icon_color %}
+    %%SELECTOR%%.breakdance-woocommerce p.out-of-stock::before {
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23{{design.out_of_stock.icon_color | trim('#')}}" width="24" height="24" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm5.5 16.084l-1.403 1.416-4.09-4.096-4.102 4.096-1.405-1.405 4.093-4.092-4.093-4.098 1.405-1.405 4.088 4.089 4.091-4.089 1.416 1.403-4.092 4.087 4.092 4.094z"/></svg>');
+    }
+  {% endif %}
+  {% if design.out_of_stock.custom_icon %}
+    %%SELECTOR%%.breakdance-woocommerce p.out-of-stock::before {
+      background-color: {{ design.out_of_stock.icon_color | default('#ef4444') }};
+      content: "";
+      width: 16px;
+      height: 16px;
+      {% if design.out_of_stock.custom_icon %}
+        mask: url({{ data_uri(design.out_of_stock.custom_icon.svgCode, 'image/svg+xml') }});
+        -webkit-mask: url({{ data_uri(design.out_of_stock.custom_icon.svgCode, 'image/svg+xml') }});
+      {% endif %}
+      mask-size: cover;
+      -webkit-mask-size: cover;
+      background-image: none;
+    }}
+  {% endif %}
+
+  /* Notices/Backorder */
+  {% if design.backorder.disable_icon %}
+    %%SELECTOR%%.breakdance-woocommerce p.available-on-backorder::before {
+      display: none;
+    }
+    %%SELECTOR%%.breakdance-woocommerce p.available-on-backorder {
+      padding-left: 12px;
+    }
+  {% endif %}
+  %%SELECTOR%%.breakdance-woocommerce p.available-on-backorder {
+    background-color: {{ design.backorder.background }};
+    {{ _self.borders(design.backorder.borders) }}
+    {{ _self.typography(design.backorder.typography) }}
+    {{ _self.spacing_padding_all(design.backorder.padding) }}
+  }
+  {% if design.backorder.icon_color %}
+    %%SELECTOR%%.breakdance-woocommerce p.available-on-backorder::before {
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23{{design.backorder.icon_color | trim('#')}}" width="24" height="24" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm5.5 16.084l-1.403 1.416-4.09-4.096-4.102 4.096-1.405-1.405 4.093-4.092-4.093-4.098 1.405-1.405 4.088 4.089 4.091-4.089 1.416 1.403-4.092 4.087 4.092 4.094z"/></svg>');
+    }
+  {% endif %}
+  {% if design.backorder.custom_icon %}
+    %%SELECTOR%%.breakdance-woocommerce p.available-on-backorder::before {
+      background-color: {{ design.backorder.icon_color | default('#0ea5e9') }};
+      content: "";
+      width: 16px;
+      height: 16px;
+      {% if design.backorder.custom_icon %}
+        mask: url({{ data_uri(design.backorder.custom_icon.svgCode, 'image/svg+xml') }});
+        -webkit-mask: url({{ data_uri(design.backorder.custom_icon.svgCode, 'image/svg+xml') }});
+      {% endif %}
+      mask-size: cover;
+      -webkit-mask-size: cover;
+      background-image: none;
+    }
+  {% endif %}
+{% endmacro %}

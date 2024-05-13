@@ -1,0 +1,117 @@
+{% import _self as countdown %}
+
+{% macro flipCounter(unit, decimal = "") %}
+	<ul class="flip js-flip-{{unit}}{{decimal}}">
+		<li>
+			<div class="flip-item">
+				<div class="up">
+					<div class="shadow"></div>
+					<div class="inn">0</div>
+				</div>
+				<div class="down">
+					<div class="shadow"></div>
+					<div class="inn">0</div>
+				</div>
+			</div>
+		</li>
+		<li>
+			<div class="flip-item">
+				<div class="up">
+					<div class="shadow"></div>
+					<div class="inn">0</div>
+				</div>
+				<div class="down">
+					<div class="shadow"></div>
+					<div class="inn">0</div>
+				</div>
+
+			</div>
+		</li>
+	</ul>
+{% endmacro %}
+
+{% set units = ['days', 'hours', 'minutes', 'seconds'] %}
+{% set unitsSingular = {'days': 'day', 'hours' : 'hour', 'minutes' : 'minute', 'seconds': 'second'} %}
+
+
+<div class="bde-countdown-timer__time js-countdown-timer">
+	<div class="bde-countdown-timer__wrap js-wrap js-wrap-animation-{{design.digits.style is empty ? 'none' : design.digits.style}}">
+		{% for unit in units %}
+
+			<div class="bde-countdown-timer__digit-wrap js-{{unit}}-wrap {{ content.timer.time_units[unit].hide ? 'is-hidden' : 'is-visible' }}">
+				{% if design.digits.style == 'donut' %}
+
+					<div class="bde-countdown-timer__digit-svg bde-countdown-timer__{{unit}}">
+						<span class="bde-countdown-timer__number js-{{unit}}">00</span>
+						{% if design.timer.labels.label_position is empty or design.timer.labels.label_position == 'inside'%}
+							<p class="bde-countdown-timer__label js-singular">
+								<span class="plural">{{ content.timer.time_units[unit].plural is not empty ? content.timer.time_units[unit].plural : unit }}</span>
+								<span class="singular">{{ content.timer.time_units[unit].singular is not empty ? content.timer.time_units[unit].singular : unitsSingular[unit] }}</span>
+							</p>
+						{% endif %}
+						<svg class="bde-countdown-timer__donut js-donut-{{unit}}" viewbox="0 0 100 100">
+							<circle cx="50" cy="50" r="47"/>
+						</svg>
+					</div>
+
+				{% elseif design.digits.style == 'flip' %}
+
+					<div class="bde-countdown-timer__digit-flip">
+						{% if unit == 'days' %}
+							{{ countdown.flipCounter(unit, "-hundreds") }}
+						{% endif %}
+						{{ countdown.flipCounter(unit, "-tens") }}
+						{{ countdown.flipCounter(unit) }}
+					</div>
+
+					{% if design.timer.labels.label_position is empty or design.timer.labels.label_position == 'inside'%}
+						<p class="bde-countdown-timer__label bde-countdown-timer__label--outside">
+							<span class="plural">{{ content.timer.time_units[unit].plural is not empty ? content.timer.time_units[unit].plural : unit }}</span>
+							<span class="singular">{{ content.timer.time_units[unit].singular is not empty ? content.timer.time_units[unit].singular : unitsSingular[unit] }}</span>
+						</p>
+					{% endif %}
+
+				{% else %}
+					<div class="bde-countdown-timer__digit bde-countdown-timer__{{unit}} bde-countdown-timer__digit--{{ design.digits.default.border is not empty ? design.digits.default.border : 'round' }}">
+						<span class="bde-countdown-timer__number js-{{unit}}">00</span>
+						{% if design.timer.labels.label_position is empty or design.timer.labels.label_position == 'inside'%}
+							<p class="bde-countdown-timer__label js-singular">
+								<span class="plural">{{ content.timer.time_units[unit].plural is not empty ? content.timer.time_units[unit].plural : unit }}</span>
+								<span class="singular">{{ content.timer.time_units[unit].singular is not empty ? content.timer.time_units[unit].singular : unitsSingular[unit] }}</span>
+							</p>
+						{% endif %}
+					</div>
+				{% endif %}
+
+				{% if design.timer.labels.label_position == 'outside'%}
+					<p class="bde-countdown-timer__label bde-countdown-timer__label--outside">
+						<span class="plural">{{ content.timer.time_units[unit].plural is not empty ? content.timer.time_units[unit].plural : unit }}</span>
+						<span class="singular">{{ content.timer.time_units[unit].singular is not empty ? content.timer.time_units[unit].singular : unitsSingular[unit] }}</span>
+					</p>
+				{% endif %}
+			</div>
+			{% if design.timer.divider.type is not empty and design.timer.labels.label_position != 'outside' and design.digits.style != 'flip' %}
+				<div class="bde-countdown-timer__separator bde-countdown-timer__separator--{{design.timer.divider.type}}">
+					{% if design.timer.divider.type == "colon" %}
+						<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 34 88">
+							<circle cx="17" cy="17" r="17" fill="#000000"/>
+							<circle cx="17" cy="71" r="17" fill="#000000"/>
+						</svg>
+					{% endif %}
+				</div>
+			{% endif %}
+		{% endfor %}
+	</div>
+	{% if content.expire.expire_type == "message" %}
+		<div class="bde-countdown-timer__message js-message is-hidden">
+			{{ content.expire.message }}
+		</div>
+	{% endif %}
+	{% if content.expire.expire_type == "redirect" and content.expire.redirect is not empty %}
+		<div class="bde-countdown-timer__message js-redirect-message is-hidden">
+			<p>You will be redirected shortly. Please
+				<a href="{{content.expire.redirect }}">click here</a>
+				if your browser does not redirect you.</p>
+		</div>
+	{% endif %}
+</div>

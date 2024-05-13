@@ -1,0 +1,183 @@
+/*
+ * Plugin: variation-swatches-woo (by CartFlows)
+ */
+
+.cfvsw-product-page,
+.cfvsw_variations_form {
+  form.cart,
+  table.variations tbody {
+    gap: var(--bde-woo-swatch-space-between-items);
+  }
+
+  table.variations tbody,
+  table.variations tbody tr {
+    text-align: var(--bde-woo-swatch-alignment);
+  }
+
+  .cfvsw-swatches-container {
+    display: flex;
+    flex-flow: wrap;
+    padding: 0;
+    position: relative;
+    box-sizing: border-box;
+    grid-gap: 8px;
+    width: auto;
+    justify-content: var(--bde-woo-swatch-alignment);
+    gap: var(--bde-woo-swatch-space-between-options);
+  }
+
+  .cfvsw-swatches-option {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 200ms;
+    font-size: var(--cfvsw-swatches-font-size, 12px );
+    text-align: center;
+    line-height: 1.3;
+    cursor: pointer;
+    user-select: none;
+    white-space: normal;
+    padding: var(--bde-woo-swatch-padding);
+    border: var(--bde-woo-swatch-border);
+    box-shadow: var(--bde-woo-swatch-shadow);
+    background-color: var(--bde-woo-swatch-background);
+  }
+
+  .cfvsw-image-option,
+  .cfvsw-swatches-option:not(.cfvsw-label-option) {
+    min-width: auto!important;
+    min-height: auto!important;
+    width: var(--bde-woo-swatch-color-width);
+    height: var(--bde-woo-swatch-color-height);
+    padding: var(--bde-woo-swatch-color-padding);
+    box-shadow: var(--bde-woo-swatch-shadow);
+    background-color: var(--bde-woo-swatch-color-background);
+  }
+
+  .cfvsw-swatches-option:not(.cfvsw-swatches-disabled, .cfvsw-swatches-out-of-stock):hover {
+    border-color: var(--bde-woo-swatch-border-color-hover);
+    box-shadow: var(--bde-woo-swatch-shadow-hover);
+    background-color: var(--bde-woo-swatch-background-hover);
+  }
+
+  .cfvsw-selected-swatch,
+  .cfvsw-selected-swatch:not(.cfvsw-label-option) {
+    border-color: var(--bde-woo-swatch-border-color-selected);
+    box-shadow: var(--bde-woo-swatch-shadow-selected);
+    background-color: var(--bde-woo-swatch-background-selected);
+  }
+
+  .cfvsw-swatches-blur,
+  .cfvsw-swatches-blur-disable {
+    opacity: 0.4;
+
+    &:before {
+      background-color: transparent;
+    }
+  }
+
+  .cfvsw-swatch-inner {
+    display: flex;
+    border-radius: inherit;
+    transition: 200ms;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    word-break: break-all;
+  }
+
+  table.variations .label label {
+    margin-bottom: var(--bde-woo-swatch-space-after-label);
+  }
+
+  // Tooltips
+  .cfvsw-tooltip {
+    position: absolute;
+    min-width: 10px;
+    min-height: 10px;
+    width: max-content;
+    border-radius: 5px;
+    font-size: 0.8em;
+    left: 50%;
+    transform: translateX( -50% ) translateY( -50% );
+    display: none;
+    background-color: var(--bde-woo-swatch-tooltip-background);
+    color: var(--bde-woo-swatch-tooltip-color);
+    padding: var(--bde-woo-swatch-tooltip-padding);
+  }
+
+  .cfvsw-tooltip:before {
+    content: "";
+    position: absolute;
+    width: 9px;
+    height: 9px;
+    bottom: -5px;
+    left: calc( 50% - 4px );
+    transform: rotate( 45deg );
+    border-top-left-radius: 10px;
+    z-index: -1;
+    border-right: 1px solid;
+    border-bottom: 1px solid;
+    background-color: var(--bde-woo-swatch-tooltip-background);
+  }
+
+  .cfvsw-tooltip-preview {
+    min-width: 60px;
+    min-height: 60px;
+    display: block;
+    background-color: #fff;
+    background-position: center;
+  }
+
+  .cfvsw-tooltip-label {
+    padding: 0.1em;
+    display: flex;
+    justify-content: center;
+    font-size: inherit;
+  }
+}
+
+// Shop Page
+ul.products {
+  .cfvsw_variations_form {
+    margin-bottom: var(--bde-woo-base-medium-gaps);
+  }
+
+  .cfvsw_variations_form tbody {
+    display: table-row-group;
+  }
+
+  .cfvsw-shop-variations tr td {
+    justify-content: var(--bde-woo-swatch-alignment);
+  }
+
+  .cfvsw_variations_form tr:has(.value):not(:last-child) {
+    margin-bottom: var(--bde-woo-swatch-space-between-items);
+  }
+}
+
+//
+
+.cfvsw-hidden-select {
+  display: none !important;
+}
+
+.cfvsw-swatches-hide,
+.cfvsw-swatches-hide-disable {
+  display: none;
+}
+
+.cfvsw-original-price,
+.cfvsw-original-thumbnail {
+  display: none;
+}
+
+.cfvsw-selected-label {
+  font-weight: normal;
+
+  &::before {
+    content: ": ";
+  }
+}

@@ -1,0 +1,23 @@
+{% macro atomV1ButtonAsLinkCss(styles, selector, globalSettings) %}
+
+    {% if styles.arrow.arrow %}
+      {{ _self.atomV1ButtonLinkIconCssHelper(styles.arrow, selector) }}
+    {% endif %}
+
+    {{ selector }} {
+      {{ _self.typography(styles.typography, globalSettings) }}
+      {{ _self.spacing_padding_all(styles.padding) }}
+      text-decoration-color: {{ styles.underline_color }};
+    }
+
+    {{ selector }}:hover {
+      {{ _self.typographyWithHoverableEverything(styles.typography) }}
+    }
+
+    {% if styles.fancy_underline %}
+        {{ _self.atomV1ButtonAsLinkFancyUnderlineCss(selector, styles) }}
+    {% endif %}
+
+
+
+{% endmacro %}

@@ -1,0 +1,97 @@
+/* Spacing */
+%%SELECTOR%% {
+  width: {{ design.layout.width.style }};
+  {{ macros.spacing_margin_y(design.spacing.wrapper) }}
+  gap:{{ design.spacing.after_image.style }};
+  {% if design.wrapper.boxed %}
+  {{ macros.backgroundColor(design.wrapper.background) }}
+  {{ macros.spacing_padding_all(design.wrapper.padding) }}
+  {{ macros.borders(design.wrapper.borders) }}
+  {% endif %}
+  {% if design.image.position == 'left' %}
+  flex-direction:row;
+  {% elseif design.image.position == 'right' %}
+  flex-direction:row-reverse;
+  {% endif %}
+}
+
+%%SELECTOR%% .bde-fancy-testimonial_content {
+  {% if design.image.width.style %}
+    width: calc(100% - {{ design.image.width.style }} - {{ design.spacing.after_image.style | default('40px') }});
+  {% endif %}
+
+  text-align: {{ design.layout.content_position }};
+  {% if design.layout.content_position == 'left' %}
+    align-items: flex-start;
+  {% elseif design.layout.content_position == 'center' %}
+    align-items: center;
+  {% elseif design.layout.content_position == 'right' %}
+    align-items: flex-end;
+  {% endif %}
+}
+
+/* Typography */
+%%SELECTOR%% .bde-fancy-testimonial_title {
+  {{ macros.typography(design.typography.title, globalSettings)  }}
+  margin-bottom: {{ design.spacing.below_title.style }};
+}
+%%SELECTOR%% .bde-fancy-testimonial_text h3 {
+  {{ macros.typography(design.typography.testimonial, globalSettings)  }}
+  margin-bottom: {{ design.spacing.below_testimonial.style }};
+}
+%%SELECTOR%% .bde-fancy-testimonial_name {
+  {{ macros.typography(design.typography.name, globalSettings)  }}
+  margin-bottom: {{ design.spacing.below_name.style }};
+}
+%%SELECTOR%% .bde-fancy-testimonial_occupation {
+  {{ macros.typography(design.typography.occupation, globalSettings)  }}
+  margin-bottom: {{ design.spacing.below_occupation.style }};
+}
+
+/* Image */
+%%SELECTOR%% .bde-fancy-testimonial_image {
+  width: {{ design.image.width.style }};
+}
+%%SELECTOR%% .bde-fancy-testimonial_image img {
+  height:{{ design.image.height.style }};
+  {{ macros.borders(design.image.borders) }}
+}
+
+/* Quotes */
+%%SELECTOR%% .bde-fancy-testimonial_quote:nth-child(n) {
+  color:{{ design.quotes.color }};
+  font-size: {{ design.quotes.size.style }};
+}
+
+/* Stars */
+%%SELECTOR%%  .bde-fancy-testimonial_rate {
+  margin-bottom: {{ design.spacing.below_stars.style }};
+  order:{{ design.stars.position }};
+}
+%%SELECTOR%%  .bde-fancy-testimonial_rate svg {
+  width: {{ design.stars.size.style }};
+  fill: {{ design.stars.color }}
+}
+
+{% set stackAt = design.layout.stack_vertically_at|default(firstResponsiveBreakpointId) %} 
+{% if breakpoint == stackAt %}
+%%SELECTOR%% {
+	flex-direction:column;
+}
+%%SELECTOR%% .bde-fancy-testimonial_content,
+%%SELECTOR%% .bde-fancy-testimonial_image {
+  width:100%;
+}
+%%SELECTOR%% .bde-fancy-testimonial_image img {
+  width: {{ design.image.width.style }};
+}
+%%SELECTOR%% .bde-fancy-testimonial_quote:nth-child(1) {
+  left: 0px;
+}
+{% endif %}
+
+{{ macros.atomV1ButtonCss(design.button, 'bde-fancy-testimonial-button', '%%SELECTOR%%', breakpoint, globalSettings) }}
+
+      
+
+

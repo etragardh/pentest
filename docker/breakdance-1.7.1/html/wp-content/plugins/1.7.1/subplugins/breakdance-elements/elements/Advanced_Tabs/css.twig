@@ -1,0 +1,16 @@
+%%SELECTOR%% {
+  {{ macros.spacing_margin_y(design.spacing.wrapper) }}
+  width: {{ design.size.width.style }};
+}
+
+{# Tabs: spacing backwards compatibility #}
+%%SELECTOR%% .bde-tabs__tabslist-container {
+  margin-bottom: {{ design.spacing.below_tabs.style }};
+}
+
+%%SELECTOR%% .bde-tabs__panel,
+%%SELECTOR%% .bde-tabs__advanced-content{
+ min-height: {{ design.size.min_height.style }};
+}
+
+{{ macros.atomV1TabsCss('%%SELECTOR%%', design.tabs, breakpoint, globalSettings) }}

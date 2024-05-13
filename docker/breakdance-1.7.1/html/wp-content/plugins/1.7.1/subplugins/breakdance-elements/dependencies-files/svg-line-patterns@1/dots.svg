@@ -1,0 +1,15 @@
+<svg viewBox="0 0 66 24" fill="none" preserveAspectRatio="none"
+  overflow="visible"
+  height="100%" xmlns="http://www.w3.org/2000/svg">
+<circle cx="4.5" cy="9.5" r="2.5" fill="black"/>
+<circle cx="13.5" cy="14.5" r="2.5" fill="black"/>
+<circle cx="5.5" cy="18.5" r="2.5" fill="black"/>
+<circle cx="29.5" cy="5.5" r="2.5" fill="black"/>
+<circle cx="36.5" cy="15.5" r="2.5" fill="black"/>
+<circle cx="47.5" cy="18.5" r="2.5" fill="black"/>
+<circle cx="20.5" cy="19.5" r="2.5" fill="black"/>
+<circle cx="53.5" cy="8.5" r="2.5" fill="black"/>
+<circle cx="60.5" cy="15.5" r="2.5" fill="black"/>
+<ellipse cx="45" cy="9.5" rx="3" ry="2.5" fill="black"/>
+<ellipse cx="22" cy="10.5" rx="3" ry="2.5" fill="black"/>
+</svg>

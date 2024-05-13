@@ -1,0 +1,43 @@
+%%SELECTOR%% {
+  {{ macros.spacing_margin_y(design.spacing) }}
+  --bde-fancy-divider-border-style: {{ design.divider.style }};
+  --bde-fancy-divider-border-size: {{ design.divider.pattern.size.style }};
+  --bde-fancy-divider-border-color: {{ design.divider.pattern.color }};
+  {% if design.divider.style and design.divider.style not in ['dotted', 'dashed', 'solid', 'double'] %}
+    {% set patternUrl = getBreakdanceElementsPluginUrl() ~ 'dependencies-files/svg-line-patterns@1/' ~ design.divider.style ~ '.svg' %}
+  	--bde-fancy-divider-pattern-url: url('{{ patternUrl}}');
+    --bde-fancy-divider-pattern-height: {{ design.divider.pattern.size.style }};
+    --bde-fancy-divider-pattern-size: {{ design.divider.pattern.amount.style }};
+
+  {% endif %}
+  width: {{ design.divider.width.style }};
+}
+
+/* Image */
+%%SELECTOR%% .bde-fancy-divider__content {
+  margin-right: {{ design.content.space_around.style }};
+  margin-left: {{ design.content.space_around.style }};
+}
+
+%%SELECTOR%% .bde-fancy-divider__separator.has-content {
+  justify-content: {{ design.content.position }};
+}
+
+%%SELECTOR%% .bde-fancy-divider__content--text {
+  {{ macros.typography(design.content.typography, globalSettings) }}
+}
+
+%%SELECTOR%% .bde-fancy-divider__content--icon {
+  font-size: {{ design.content.size.style }};
+  color: {{ design.content.color }};
+  width: {{ design.content.size.style }};
+}
+
+%%SELECTOR%% .bde-fancy-divider__content--image img {
+  {{ macros.borders(design.content.borders) }}
+}
+
+%%SELECTOR%% .bde-fancy-divider__content--image {
+  width: {{ design.content.width.style }};
+}
+

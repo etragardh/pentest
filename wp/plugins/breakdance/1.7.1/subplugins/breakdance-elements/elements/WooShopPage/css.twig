@@ -1,0 +1,27 @@
+{{ macros.wooPresetProductsListElementsDesign('%%SELECTOR%%', design.products_list.elements, globalSettings) }}
+{{ macros.wooPresetProductsListLayoutDesign('%%SELECTOR%%', design.products_list.layout) }}
+{{ macros.wooPresetProductWrapperDesign('%%SELECTOR%%', design.products_list.product_wrapper) }}
+{{ macros.atomV1ButtonButton(design.products_list.elements.button.styles, ['%%SELECTOR%%.breakdance-woocommerce a.button.add_to_cart_button', '%%SELECTOR%%.breakdance-woocommerce a.product_type_external', '%%SELECTOR%%.breakdance-woocommerce a.button.product_type_grouped'], 'secondary', breakpoint, globalSettings) }}
+
+%%SELECTOR%% {
+  {{ macros.spacing_margin_y(design.spacing.container) }}
+}
+
+%%SELECTOR%% .woocommerce-result-count {
+  {{ macros.typography(design.result_count.typography, globalSettings)  }}
+}
+
+/* todo - overuse of gap is extremely annoying and makes this stuff not work */
+{% if design.spacing.above_products or design.spacing.above_pagination %}
+%%SELECTOR%%.breakdance-woocommerce ul.products {
+  margin-top: {{ design.spacing.above_products.style|default('var(--bde-woo-base-extra-large-gaps)') }};
+}
+
+%%SELECTOR%%.breakdance-woocommerce .woocommerce-pagination {
+  margin-top: {{ design.spacing.above_pagination.style|default('var(--bde-woo-base-extra-large-gaps)') }};
+}
+{% endif %}
+
+{{ macros.wooGlobalStyler(design.advanced.override_global_styles, '%%SELECTOR%%', breakpoint, globalSettings) }}
+
+{{ macros.pagination(design.pagination, '%%SELECTOR%%.breakdance-woocommerce', '.woocommerce-pagination ul.page-numbers', 'span.current') }}

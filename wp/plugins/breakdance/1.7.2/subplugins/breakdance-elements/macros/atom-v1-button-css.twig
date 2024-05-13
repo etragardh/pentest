@@ -1,0 +1,234 @@
+{% macro atomV1ButtonButton(styles, selector, buttonStyle = 'custom', breakpoint, globalSettings) %}
+
+    {# Default Styles #}
+    {{ _self.outputSelectorFromArray(selector) }} {
+
+        --bde-transition-duration: {{ styles.effects.transition_duration.style }};
+
+        {# CSS Variables #}
+        {% if styles.outline %}
+
+            --bde-button-{{buttonStyle}}-border-color: {{ styles.color|default('var(--bde-brand-primary-color)') }};
+            --bde-button-{{buttonStyle}}-border-color-hover: {{  styles.color_hover|default(styles.color)|default('var(--bde-brand-primary-color)') }};
+
+            {% if styles.background.value is defined %}
+                --bde-transition-duration: 0;
+                --bde-button-{{buttonStyle}}-background-color:  {{ styles.background.value }};
+            {% else %}
+                --bde-button-{{buttonStyle}}-background-color:  {{ styles.background|default('transparent') }};
+            {% endif %}
+
+
+            {% if styles.no_fill_on_hover %}
+              --bde-button-{{buttonStyle}}-background-color-hover: transparent;
+            {% else %}
+                {% if styles.background_hover.value is defined %}
+                    --bde-transition-duration: 0;
+                    --bde-button-{{buttonStyle}}-background-color-hover:  {{ styles.background_hover.value|default(styles.background.value)|default(styles.background) }};
+                {% else %}
+                    --bde-button-{{buttonStyle}}-background-color-hover:  {{ styles.background_hover|default(styles.background_hover.value)|default(styles.background)|default(styles.color_hover)|default(styles.color)|default('var(--bde-brand-primary-color)') }};
+                {% endif %}
+            {% endif %}
+            --bde-button-{{buttonStyle}}-text-color: {{ styles.typography.color|default(styles.color)|default('var(--bde-brand-primary-color)') }};
+
+            {% if styles.no_fill_on_hover %}
+              --bde-button-{{buttonStyle}}-text-color-hover: {{ styles.typography.color_hover|default(styles.typography.color)|default(styles.color_hover)|default(styles.color) }};
+            {% else %}
+              --bde-button-{{buttonStyle}}-text-color-hover: {{ styles.typography.color_hover|default(styles.typography.color)|default('#ffffff') }};
+            {% endif %}
+
+        {% elseif styles.background %}
+            --bde-button-{{buttonStyle}}-border-color: transparent;
+            --bde-button-{{buttonStyle}}-border-color-hover: transparent;
+
+            --bde-button-{{buttonStyle}}-text-color: {{ styles.typography.color|default('#ffffff') }};
+            --bde-button-{{buttonStyle}}-text-color-hover: {{ styles.typography.color_hover|default(styles.typography.color)|default('#ffffff') }};
+
+            {# We can't animate background gradients so we set the transition to 0 #}
+            {% if styles.background.value is defined %}
+                --bde-transition-duration: 0;
+                --bde-button-{{buttonStyle}}-background-color:  {{ styles.background.value }};
+            {% else %}
+                --bde-button-{{buttonStyle}}-background-color:  {{ styles.background }};
+            {% endif %}
+
+             {% if styles.background_hover.value is defined %}
+                --bde-transition-duration: 0;
+                --bde-button-{{buttonStyle}}-background-color-hover:  {{ styles.background_hover.value|default(styles.background.value)|default(styles.background) }};
+            {% else %}
+                --bde-button-{{buttonStyle}}-background-color-hover:  {{ styles.background_hover|default(styles.background_hover.value)|default(styles.background.value)|default(styles.background) }};
+            {% endif %}
+        {% endif %}
+
+
+        {# Borders: Radius #}
+        {% if styles.corners == 'square' %}
+            border-radius: 0px;
+        {% endif %}
+
+        {% if styles.corners == 'round' %}
+            border-radius: 9999px;
+        {% endif %}
+
+        {% if styles.corner_radius %}
+            border-radius: {{ styles.corner_radius.style }};
+        {% endif %}
+
+        {# Borders: Outline #}
+        {% if styles.outline and styles.width %}
+            border-width: {{ styles.width.style }};
+        {% endif %}
+
+        {# Remove border when gradient is present #}
+        {% if styles.background.value and not styles.outline %}
+            border-width: 0;
+        {% endif %}
+
+        {# Typography #}
+        {{ _self.typography(styles.typography, globalSettings) }}
+
+        {# Box Shadow #}
+        {% if styles.effects.shadow %}
+            box-shadow: {{ styles.effects.shadow.style }};
+        {% endif %}
+
+        {# Sizing #}
+        {% if styles.size.size == 'small' %}
+            padding: var(--bde-button-padding-sm);
+        {% elseif styles.size.size == 'default' %}
+            padding: var(--bde-button-padding-base);
+        {% elseif styles.size.size == 'large' %}
+            padding: var(--bde-button-padding-lg);
+        {% elseif styles.size.size == 'custom' %}
+            padding-top: {{ styles.size.padding.top.style }};
+            padding-right: {{ styles.size.padding.right.style }};
+            padding-bottom: {{ styles.size.padding.bottom.style }};
+            padding-left: {{ styles.size.padding.left.style }};
+        {% endif %}
+
+        {% if styles.size.override_width %}
+            --bde-button-width: {{ styles.size.override_width.style }};
+        {% endif %}
+
+    }
+
+    {# Responsive #}
+     {% if breakpoint and breakpoint == styles.size.full_width_at %}
+        {{ _self.outputSelectorFromArray(selector) }} {
+            --bde-button-width: 100%;
+            display: flex;
+        }
+     {% endif %}
+
+    {# Hover Styles #}
+    {{ _self.outputSelectorFromArray(selector, '', ':hover') }} {
+
+        {# Typography #}
+        {{ _self.typographyWithHoverableColorAndEffects(styles.typography, globalSettings) }}
+
+        {# Hover Effects #}
+        {% if styles.effects.scale_on_hover %}
+            transform: scale({{ styles.effects.scale_on_hover }});
+        {% endif %}
+
+        {% if styles.effects.shadow_hover %}
+            box-shadow: {{ styles.effects.shadow_hover.style }};
+        {% endif %}
+    }
+
+
+    {# Icons #}
+    {% if styles.icon.icon %}
+        {{ _self.outputSelectorFromArray(selector, '', '::after') }} {
+            {% set dataUri = data_uri(styles.icon.icon.svgCode, 'image/svg+xml') %}
+            content: "";
+            display: block;
+            background-color: {{ styles.icon.color|default('currentColor') }};
+            width: {{ styles.icon.size.style|default('0.9em') }};
+            height: {{ styles.icon.size.style|default('0.9em') }};
+            margin-right: {{ styles.icon.space_after.style|default('4px') }};
+            margin-left: {{ styles.icon.space_before.style|default('4px') }};
+            mask-image: url({{ dataUri|default('') }});
+            mask-position: 0 0;
+            mask-size: 100% 100%;
+            mask-repeat: no-repeat;
+            -webkit-mask-image: url({{ dataUri|default('') }});
+            -webkit-mask-position: 0 0;
+            -webkit-mask-size: 100% 100%;
+            transition-timing-function: ease-in-out;
+            transition-property: transform, background-color;
+            transition-duration: {{ styles.effects.transition_duration.style|default('var(--bde-transition-duration)') }};
+        }
+    {% endif %}
+
+    {# Responsive: Icon Hacks  #}
+    {% if styles.icon.size %}
+        {{ _self.outputSelectorFromArray(selector, '', '::after') }} {
+            width: {{ styles.icon.size.style }};
+            height: {{ styles.icon.size.style }};
+        }
+    {% endif %}
+	
+    {# Icon: Space After #}
+    {% if styles.icon.space_after %}
+        {{ _self.outputSelectorFromArray(selector, '', '::after') }} {
+            margin-right: {{ styles.icon.space_after.style }};
+        }
+    {% endif %}
+	
+    {# Icon: Space Before #}
+    {% if styles.icon.space_before %}
+        {{ _self.outputSelectorFromArray(selector, '', '::after') }} {
+            margin-left: {{ styles.icon.space_before.style }};
+        }
+    {% endif %}
+	
+    {# Icon: Hover Transform #}
+    {% if styles.icon.hover_transform %}
+        {{ _self.outputSelectorFromArray(selector, '', ':hover::after') }} {
+            transform: translate({{ styles.icon.hover_transform.style }}, 0px);
+        }
+    {% endif %}
+    
+    {# Icon: Color Hover #}
+    {% if styles.icon.color_hover %}
+        {{ _self.outputSelectorFromArray(selector, '', ':hover::after') }} {
+            background-color: {{ styles.icon.color_hover }};
+        }
+    {% endif %}
+
+    {# Icon: Position #}
+    {% if styles.icon.position == 'before' %}
+        {{ _self.outputSelectorFromArray(selector) }} {
+            flex-direction: row-reverse;
+        }
+    {% endif %}
+
+{% endmacro %}
+
+{% macro outputSelectorFromArray(maybeSelectorArray, prefix = '', suffix = '') %}
+    {% if maybeSelectorArray[0] %}
+        {% for selector in maybeSelectorArray %}
+            {{ prefix }}{{ selector }}{{ suffix }}{{ loop.last ? '' : ','}}
+        {% endfor %}
+    {% else %}
+        {{ prefix }}{{ maybeSelectorArray }}{{ suffix }}
+    {% endif %}
+{% endmacro %}
+
+{# Used in atom-default-css.css.twig #}
+{% macro atomV1ButtonVariant(variant) %}
+.breakdance .button-atom--{{variant}} {
+  color: var(--bde-button-{{variant}}-text-color);
+  background: var(--bde-button-{{variant}}-background-color);
+  border-color: var(--bde-button-{{variant}}-border-color);
+}
+
+.breakdance .button-atom--{{variant}}:hover {
+  color: var(--bde-button-{{variant}}-text-color-hover);
+  background: var(--bde-button-{{variant}}-background-color-hover);
+  border-color: var(--bde-button-{{variant}}-border-color-hover);
+}
+{% endmacro %}
+
+

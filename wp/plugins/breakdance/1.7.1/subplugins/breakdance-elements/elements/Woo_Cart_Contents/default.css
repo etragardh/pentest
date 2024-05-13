@@ -1,0 +1,8 @@
+.bde-cart-contents {
+  width: 100%;
+  text-align: left;
+}
+
+.bde-cart-contents .woocommerce-cart-form {
+  margin-bottom: 0;
+}

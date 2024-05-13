@@ -1,0 +1,95 @@
+%%SELECTOR%% {
+  
+  --bde-back-to-top-width: {{ design.button.size.style }};
+  --bde-back-to-top-height: {{ design.button.size.style }};
+  --bde-back-to-top-animation-duration: {{ design.button.duration.style }};
+    
+    {% if design.container.sticky %}
+  
+      {% if design.container.vertical_align == 'top' %}
+        top: 0;
+        bottom: auto;
+      {% elseif design.container.vertical_align == 'center' %}
+        top: 50%;
+        transform: translateY(-50%);
+      {% elseif design.container.vertical_align == 'bottom' %}
+        bottom: 0;
+        top: auto;
+      {% endif %}
+
+      {% if design.container.horizontal_align == 'left' %}
+        left: 0;
+        right: auto;
+      {% elseif design.container.horizontal_align == 'center' %}
+        left: 50%;
+        transform: translateX(-50%);
+      {% elseif design.container.horizontal_align == 'right' %}
+        right: 0;
+        left: auto;
+      {% endif %}
+
+      {% if design.container.horizontal_align == 'center' and design.container.vertical_align == 'center' %}
+          transform: translateX(-50%) translateY(-50%);
+      {% endif %}
+
+   {% endif %}
+  
+  {{ macros.spacing_margin_all(design.spacing) }}
+}
+
+%%SELECTOR%% .bde-back-to-top__button {
+  background-color: {{ design.button.background }};
+} 
+
+%%SELECTOR%%.bde-back-to-top--icon .bde-back-to-top__button,
+%%SELECTOR%%.bde-back-to-top--text .bde-back-to-top__button {
+   {{ macros.borders(design.button.borders) }}
+}
+
+%%SELECTOR%%.bde-back-to-top--text .bde-back-to-top__button {
+  gap: {{ design.button.icon.space_after.style }};
+}
+
+%%SELECTOR%% .bde-back-to-top__button:hover {
+ background-color: {{ design.button.background_hover }}
+}
+
+%%SELECTOR%% .bde-back-to-top__icon-wrap {
+  color: {{ design.button.icon.color }};
+  font-size: {{ design.button.icon.size.style }};
+}
+
+%%SELECTOR%% .bde-back-to-top__button:hover .bde-back-to-top__icon-wrap {
+  color: {{ design.button.icon.color_hover }};
+  font-size: {{ design.button.icon.size_hover.style }};
+}
+
+%%SELECTOR%%.bde-back-to-top--text .bde-back-to-top__text {
+  {{ macros.typography(design.button.button_styles.typography, globalSettings) }}
+}
+
+%%SELECTOR%%.bde-back-to-top--text .bde-back-to-top__button {
+   {{ macros.spacing_padding_all(design.button.button_styles.padding) }}
+}
+
+%%SELECTOR%% .bde-back-to-top__progress-svg {
+   padding: {{ design.button.progress.padding.style }};
+}
+
+%%SELECTOR%% .bde-back-to-top__progress-svg path {
+	stroke-width: {{ design.button.progress.width }};
+}
+
+%%SELECTOR%% .bde-back-to-top__progress-svg path.tracker {
+ 	stroke: {{ design.button.progress.tracker }};
+}
+
+%%SELECTOR%% .bde-back-to-top__progress-svg path.background {
+ 	stroke: {{ design.button.progress.background }};
+}
+
+
+
+
+
+

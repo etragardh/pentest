@@ -1,0 +1,48 @@
+.bde-icon-boxes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 2em;
+    width: 100%;
+}
+
+.bde-icon-box {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.bde-icon-box-icon-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.bde-icon-box-icon {
+    display: flex;
+    font-size: 24px;
+}
+
+.bde-icon-box-icon > svg {
+    font-size: inherit;
+    width: 1em;
+    height: 1em;
+    stroke-width: 0;
+    stroke: currentColor;
+    fill: currentColor;
+}
+
+.bde-icon-box-content-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.bde-icon-box-title {
+    font-size: 24px;
+}
+
+.bde-icon-box-text {
+    font-size: 16px;
+}
+
+

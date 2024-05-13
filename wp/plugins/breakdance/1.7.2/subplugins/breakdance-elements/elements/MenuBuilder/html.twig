@@ -1,0 +1,23 @@
+{% set options = {
+  links: design.desktop_menu.links,
+  vertical: design.desktop_menu.vertical,
+  removeColumnTitles: design.mobile_menu.links.remove_column_titles,
+  toggle: design.mobile_menu.toggle,
+  attributes: content.content.accessibility.attributes,
+  hideArrowsOn: {
+    desktop: design.desktop_menu.links.dropdown_arrows.disable,
+    mobile: design.mobile_menu.links.dropdown_arrows.disable,
+  }
+} %}
+
+{% set topbarOptions = {
+  mode: design.mobile_menu.mode,
+  layout: design.mobile_menu.top_bar
+} %}
+
+{{ macros.menuStart(options) }}
+  <ul class="breakdance-menu-list" id="menu-%%ID%%">
+    {{ macros.menuTopbar(topbarOptions) }}
+    %%CHILDREN%%
+  </ul>
+{{ macros.menuEnd() }}

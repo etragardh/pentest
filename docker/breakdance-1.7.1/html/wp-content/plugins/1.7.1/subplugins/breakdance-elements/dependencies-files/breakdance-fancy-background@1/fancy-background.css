@@ -1,0 +1,112 @@
+.breakdance .section-background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  overflow: hidden;
+  pointer-events:none;
+}
+
+.breakdance .section-background-video .section-youtube-wrapper,
+.breakdance .section-background-video .section-vimeo-wrapper {
+  aspect-ratio: 16/9;
+  pointer-events: none;
+  position: absolute;
+  min-width: 100%;
+  min-height: 100%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.breakdance
+  .section-background-video
+  .section-youtube-wrapper
+  .section-background-iframe,
+.breakdance .section-background-video .section-vimeo-wrapper iframe {
+  max-width: none;
+}
+
+.breakdance .section-background-video .section-vimeo-wrapper iframe {
+  width: 100%;
+  min-height: 100%;
+}
+
+.breakdance .section-background-video video,
+.breakdance .section-background-video iframe {
+  pointer-events:none;
+  width: 100%;
+  height: 100%;
+  left:0;
+  top:0;
+  position: relative;
+  border: 0;
+}
+
+.breakdance .section-background-video > video {
+  object-fit: cover;
+  object-position: center center;
+  width: 100%;
+  height: 100%;
+}
+
+.breakdance .section-background-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.breakdance .section-background-slideshow {
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: auto;
+  padding: 0;
+}
+
+.breakdance .section-background-slideshow .swiper {
+  height: 100%;
+  z-index: 0;
+}
+
+.breakdance .section-background-slideshow .swiper-slide-item {
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.breakdance .section-background-slideshow .swiper-wrapper {
+  z-index: 0;
+}
+@keyframes breakdance-section-gradient-x {
+  0% {
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}
+
+@keyframes breakdance-section-gradient-y {
+  0% {
+    background-position: 60% 0;
+  }
+  50% {
+    background-position: 40% 100%;
+  }
+  100% {
+    background-position: 60% 0;
+  }
+}

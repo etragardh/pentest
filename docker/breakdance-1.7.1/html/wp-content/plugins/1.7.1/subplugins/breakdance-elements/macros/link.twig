@@ -1,0 +1,105 @@
+{% macro linkStart(link, class, attString, zoom, _contentEditablePath) %}
+    {% set url = _self.getUntrimmedLinkUrl(link)|trim %}
+    {% set target = link.openInNewTab ? '_blank' : '_self' %}
+
+    {{ _self.linkMaybeEnqueueLightboxStyles(link) }}
+    {{ _self.linkMaybeEnqueueLinkActions(link) }}
+
+    {% if link.type == 'lightbox' %}
+      {% set attString = attString ~ ' data-lightbox-id="%%POSTID%%-%%ID%%"' %}
+
+      {% if zoom %}
+        {% set attString = attString ~ ' data-zoom="1"' %}
+      {% endif %}
+    {% endif %}
+
+    {% if link.html.id %}
+      {% set attString = attString ~ ' id="' ~ link.html.id ~ '"' %}
+    {% endif %}
+
+    {% if link.type == 'action' %}
+      {% set linkAction = link.action|json_encode %}
+      {% set attString = attString ~ " data-action='" ~ linkAction ~ "'" %}
+    {% endif %}
+
+    {% for attribute in link.html.attributes %}
+      {% if attribute.name %}
+        {% set attString = attString ~ ' ' ~ attribute.name ~ '="' ~ attribute.value ~ '"' %}
+      {% endif %}
+    {% endfor %}
+
+    <a class="breakdance-link{{ class ? ' ' ~ class }}" href="{{ url is empty ? '#' : url }}" target="{{ target }}" data-type="{{ link.type }}" {{ attString }} {{ dataContentEditablePropertyPath(_contentEditablePath) }}>
+{% endmacro %}
+
+{% macro linkEnd() %}
+    </a>
+{% endmacro %}
+
+{% macro linkMaybeEnqueueLightboxStyles(link) %}
+    {# Load lightbox scripts #}
+    {% if link.type == 'lightbox' %}
+      {{
+        add_dependency({
+          'styles': [
+            '%%BREAKDANCE_ELEMENTS_PLUGIN_URL%%dependencies-files/lightgallery@2/css/lightgallery-bundle.min.css'
+          ],
+          'scripts': [
+            '%%BREAKDANCE_ELEMENTS_PLUGIN_URL%%dependencies-files/lightgallery@2/lightgallery-bundle.min.js',
+            '%%BREAKDANCE_ELEMENTS_PLUGIN_URL%%dependencies-files/elements-reusable-code/lightbox.js'
+          ]
+        })
+      }}
+    {% endif %}
+{% endmacro %}
+
+{% macro linkMaybeEnqueueLinkActions(link) %}
+    {# Load link actions scripts #}
+    {% if link.type == 'action' %}
+       {% if link.action.type is not empty %}
+        {{
+          add_dependency({
+            'scripts': [
+              '%%BREAKDANCE_ELEMENTS_PLUGIN_URL%%dependencies-files/elements-reusable-code/breakdance-link-actions.js'
+            ]
+          })
+        }}
+       {# Load link popups #}
+       {% if link.action.type == 'popup' %}
+         {{ renderPopup(link.action.popupOptions.popupId) }}
+       {% endif %}
+      {% endif %}
+    {% endif %}
+{% endmacro %}
+
+{% macro getUntrimmedLinkUrl(link) %}
+    {% if link is iterable %}
+        {% set contact = link.contact %}
+        {% set lightbox = link.lightbox %}
+
+        {% set contact_urls = {
+            'email': 'mailto:' ~ contact.email ~ '?subject=' ~ contact.subject ~ '&body=' ~ contact.message,
+            'whatsapp': 'https://api.whatsapp.com/send?phone=' ~ contact.phoneNumber ~ '&text=' ~ contact.message,
+            'tel': 'tel:' ~ contact.phoneNumber,
+            'sms': 'sms:' ~ contact.phoneNumber
+        } %}
+
+        {% set lightbox_urls = {
+            'image': lightbox.image.url,
+            'video': lightbox.video.embedUrl
+        } %}
+
+        {% set urls = {
+            'url': link.url,
+            'lightbox': lightbox_urls[lightbox.type],
+            'contact': contact_urls[contact.type],
+            'action': '#'
+        } %}
+
+        {% set url = urls[link.type] %}
+
+        {{ url }}
+    {% else %}
+        {# link can be a string when coming from dynamic data #}
+        {{ link }}
+    {% endif %}
+{% endmacro %}

@@ -1,0 +1,10 @@
+%%SELECTOR%% {
+  {{ macros.spacing_margin_y(design.spacing) }}
+}
+
+%%SELECTOR%% .entry-summary {
+  {{ design.image.position == 'right' ? 'order: -1;' }}
+}
+
+{{ macros.atomV1TabsCss('%%SELECTOR%% .bde-tabs', design.tabs, breakpoint, globalSettings) }}
+{{ macros.wooGlobalStyler(design.advanced.override_global_styles, '%%SELECTOR%%', breakpoint, globalSettings) }}

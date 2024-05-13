@@ -1,0 +1,17 @@
+{{ macros.EssentialElements_PostsSharedCss('%%SELECTOR%%', design, globalSettings, isBaseBreakpoint, breakpoint, isBuilder) }}
+
+%%SELECTOR%% {
+  width: {{ design.container.width.style }};
+  background-color: {{ design.container.background }};
+  {{ macros.borders(design.container.borders) }}
+  {{ macros.spacing_padding_all(design.container.padding) }}
+  {{ macros.spacing_margin_y(design.spacing) }}
+}
+
+%%SELECTOR%% .bde-dynamic-repeater-item {
+  background-color: {{ design.item.background }};
+  {{ macros.borders(design.item.borders) }}
+  {{ macros.spacing_padding_all(design.item.padding) }}
+}
+
+

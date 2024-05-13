@@ -1,0 +1,72 @@
+{% macro wooPresetQuantityInput(selector, styles, breakpoint, globalSettings) %}
+  {{ selector }} .quantity {
+    max-width: {{ styles.max_width.style }};
+  }
+
+  {{ selector }} .quantity .input-text {
+    {{ _self.backgroundColor(styles.background) }}
+    {{ _self.typography(styles.typography, globalSettings) }}
+    {{ _self.borders(styles.borders) }}
+    {{ _self.spacing_padding_all(styles.padding) }}
+  }
+
+  {{ selector }} .quantity .input-text:hover {
+    {{ _self.backgroundColor(styles.background_hover) }}
+  }
+
+  {{ selector }} .bde-quantity-button {
+    width: {{ styles.buttons.width.style }};
+    height: {{ styles.buttons.height.style }};
+    font-size: {{ styles.buttons.icon_size.style }};
+    {{ _self.textColor(styles.buttons.icon_color) }}
+    {{ _self.backgroundColor(styles.buttons.background) }}
+    {{ _self.typography(styles.buttons.typography, globalSettings) }}
+    {{ _self.borders(styles.buttons.borders) }}
+    {{ _self.spacing_padding_all(styles.buttons.padding) }}
+  }
+
+  {{ selector }} .bde-quantity-button:hover {
+    {{ _self.textColor(styles.buttons.icon_color_hover) }}
+    {{ _self.backgroundColor(styles.buttons.background_hover) }}
+  }
+
+  {% if styles.buttons.nudge.x or styles.buttons.nudge.y %}
+    {{ selector }} .bde-quantity-button {
+      {% if styles.buttons.nudge.y %}
+        top: {{ styles.buttons.nudge.y.style }};
+        bottom: auto;
+      {% endif %}
+    }
+
+    {{ selector }} .bde-quantity-button--inc {
+      right: {{ styles.buttons.nudge.x.style }};
+    }
+
+    {{ selector }} .bde-quantity-button--dec {
+      left: {{ styles.buttons.nudge.x.style }};
+    }
+  {% endif %}
+
+  {% if styles.buttons.no_overlap %}
+    {{ selector }} .quantity {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      gap: {{ styles.buttons.between_inputs.style|default('5px') }};
+      max-width: {{ styles.max_width.style|default('100px') }};
+    }
+
+    {{ selector }} .quantity .input-text {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    {{ selector }} .quantity .bde-quantity-button {
+      position: relative;
+      inset: 0;
+      transform: none;
+      height: {{ styles.buttons.height.style|default('100%') }};
+    }
+  {% endif %}
+{% endmacro %}

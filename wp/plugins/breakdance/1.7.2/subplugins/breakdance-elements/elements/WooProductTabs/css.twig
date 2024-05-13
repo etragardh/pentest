@@ -1,0 +1,11 @@
+%%SELECTOR%% {
+  {{ macros.spacing_margin_y(design.spacing.container) }}
+}
+
+{# Tabs: spacing backwards compatibility #}
+%%SELECTOR%% .bde-tabs__tabslist-container {
+  margin-bottom: {{ design.spacing.below_tabs.style }};
+}
+
+{{ macros.atomV1TabsCss('%%SELECTOR%% .bde-tabs', design.tabs, breakpoint, globalSettings) }}
+{{ macros.wooGlobalStyler(design.advanced.global_styles_override, '%%SELECTOR%%', breakpoint, globalSettings) }}

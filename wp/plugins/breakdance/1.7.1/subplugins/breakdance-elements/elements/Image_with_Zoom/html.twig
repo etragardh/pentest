@@ -1,0 +1,5 @@
+{% if content.controls.image.url %}
+    {{ macros.image(content.controls.image, content.controls.image_size, content.controls.alt, content.controls.lazy_load) }}
+{% else %}
+    <img src='https://images.pexels.com/photos/248280/pexels-photo-248280.jpeg'>
+{% endif %}

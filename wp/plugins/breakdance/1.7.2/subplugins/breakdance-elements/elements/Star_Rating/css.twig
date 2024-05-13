@@ -1,0 +1,64 @@
+{% set integer = content.components.rating|round(0, 'floor') %}
+
+/* Label Position */
+{% if design.label.label_position == 'before' %}
+  %%SELECTOR%% .bde-star-rating__label {
+    order: 1;
+  }
+
+  %%SELECTOR%% .bde-star-rating__wrapper {
+    order: 2;
+  }
+{% elseif design.label.label_position == 'after' %}
+  %%SELECTOR%% .bde-star-rating__label {
+    order: 2;
+  }
+
+  %%SELECTOR%% .bde-star-rating__wrapper {
+    order: 1;
+  }
+{% endif %}
+
+{% if content.components.rating is defined %}
+  %%SELECTOR%% .bde-star-rating__wrapper svg:nth-child(n+{{ integer + 1 }})  {
+    fill:{{ design.stars.unmarked_color | default('lightgrey') }};
+  }
+
+  %%SELECTOR%% .bde-star-rating__wrapper svg:nth-child({{ integer + 1 }})  {
+   fill:url(#starhalf%%ID%%);
+  }
+{% endif %}
+
+%%SELECTOR%%.bde-star-rating {
+  gap: {{ design.spacing.label_spacing.style }};
+}
+
+
+%%SELECTOR%% .bde-star-rating__wrapper {
+  column-gap: {{ design.stars.gap.style }};
+  font-size: {{ design.stars.size.style }};
+}
+
+%%SELECTOR%% .bde-star-rating__wrapper svg {
+  width: {{ design.stars.size.style }};
+  height: {{ design.stars.size.style }};
+}
+
+%%SELECTOR%% .bde-star-rating__wrapper svg {
+  fill: {{ design.stars.stars_color }};
+}
+
+%%SELECTOR%% .bde-star-rating__label {
+  {{ macros.typography(design.label.label_typography, globalSettings)  }}
+}
+
+%%SELECTOR%%.bde-star-rating {
+  {{ macros.spacing_margin_y(design.spacing.wrapper) }}
+}
+
+{% if breakpoint == design.label.vertical_layout | default(firstResponsiveBreakpointId) %}
+  %%SELECTOR%%.bde-star-rating {
+    flex-direction: column;
+    align-items:flex-start;
+  }
+{% endif %}

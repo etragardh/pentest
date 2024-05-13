@@ -1,0 +1,71 @@
+/* Style / Width */
+%%SELECTOR%% {
+  max-width: {{ design.style.width.style }};
+}
+
+/* Style / Hide Heading */
+{% if design.style.hide_heading %}
+%%SELECTOR%% h2 {
+  display: none;
+}
+{% endif %}
+
+/* Style / Separators */
+%%SELECTOR%%.breakdance-woocommerce .woocommerce-product-attributes tr {
+border-color: {{ design.style.separators }}
+}
+
+/* Style / Hide Separators */
+{% if design.style.hide_separators %}
+%%SELECTOR%%.breakdance-woocommerce .woocommerce-product-attributes tr {
+  border: none;
+}
+%%SELECTOR%%.breakdance-woocommerce .woocommerce-product-attributes tr th {
+  padding-left: 0;
+}
+%%SELECTOR%%.breakdance-woocommerce .woocommerce-product-attributes tr td {
+  padding-right: 0;
+}
+
+%%SELECTOR%%.breakdance-woocommerce .woocommerce-product-attributes tr th,
+%%SELECTOR%%.breakdance-woocommerce .woocommerce-product-attributes tr td {
+  padding-top: 8px;
+  padding-bottom: 8px;
+} 
+{% endif %}
+
+/* Typography / Heading */
+%%SELECTOR%% h2 {
+  {{ macros.typography(design.typography.heading, globalSettings)  }}
+}
+
+/* Typography / Attribute Title */
+%%SELECTOR%%.breakdance-woocommerce .woocommerce-product-attributes tr th {
+{{ macros.typography(design.typography.attribute_title, globalSettings)  }}
+}
+
+/* Typography / Attribute Value */
+%%SELECTOR%%.breakdance-woocommerce .woocommerce-product-attributes tr td {
+{{ macros.typography(design.typography.attribute_value, globalSettings)  }}
+}
+
+/* Spacing / After Heading */
+%%SELECTOR%% {
+gap: {{ design.spacing.after_heading.style }};
+}
+
+/* Spacing / After Attribute */
+%%SELECTOR%%.breakdance-woocommerce .woocommerce-product-attributes tr th {
+  width: {{ design.spacing.after_attribute.style }};
+}
+/* Spacing / Row */
+%%SELECTOR%%.breakdance-woocommerce .woocommerce-product-attributes tr th,
+%%SELECTOR%%.breakdance-woocommerce .woocommerce-product-attributes tr td {
+	padding-top: {{ design.spacing.row.style }};
+    padding-bottom: {{ design.spacing.row.style }};
+}
+
+/* Spacing / Container */
+%%SELECTOR%% {
+{{ macros.spacing_margin_y(design.spacing.container) }}
+}

@@ -1,0 +1,87 @@
+%%SELECTOR%% {
+  width: {{ design.container.width.style }};
+  height: {{ design.container.height.style }};
+  {{ macros.backgroundColor(design.container.background) }}
+  {{ macros.borders(design.container.borders) }}
+
+  {% if not design.container.content_padding_only %}
+    {{ macros.spacing_complex(design.container.padding, 'padding') }}
+  {% endif %}
+  
+  gap: {{ design.spacing.after_image.style }};
+
+  {% if design.image.position == 'left' %}
+    flex-direction: row;
+  {% elseif design.image.position == 'right' %}
+    flex-direction: row-reverse;
+  {% endif %}
+  
+  {% if design.image.position == 'left' or design.image.position == 'right' %}  
+    {% if design.image.vertical_alignment == 'middle' %}
+      align-items: center;
+    {% elseif design.image.vertical_alignment == 'bottom' %}
+      align-items: flex-end;
+    {% else %}
+      align-items: flex-start;
+    {% endif %}
+  {% else %}
+    {% if design.container.content_position == 'left' %}
+      align-items: flex-start;
+    {% elseif design.container.content_position == 'center' %}
+      align-items: center;
+    {% elseif design.container.content_position == 'right' %}
+      align-items: flex-end;
+    {% endif %}
+  {% endif %}
+
+  {{ macros.spacing_margin_y(design.spacing.container) }}
+}
+
+%%SELECTOR%% .ee-imagebox-content {
+  {% if design.container.content_position == 'left' %}
+    align-items: flex-start;
+    text-align: left;
+  {% elseif design.container.content_position == 'center' %}
+    align-items: center;
+    text-align: center;
+  {% elseif design.container.content_position == 'right' %}
+    align-items: flex-end;
+    text-align: right;
+  {% endif %}
+  
+  {% if design.container.content_padding_only %}
+    {{ macros.spacing_complex(design.container.padding, 'padding') }}
+  {% endif %}
+
+}
+
+{% if breakpoint == design.image.top_at %}
+  %%SELECTOR%% {
+    flex-direction: column;
+    align-items: center;
+  }
+{% endif %}
+
+%%SELECTOR%% .ee-imagebox-image {
+  width: {{ design.image.width.style }};
+}
+
+%%SELECTOR%% .ee-imagebox-image img {
+  {{ macros.borders(design.image.borders) }}
+  box-shadow: {{ design.image.shadow.style }};
+}
+
+%%SELECTOR%% .ee-imagebox-title {
+  {{ macros.typography(design.typography.title, globalSettings)  }}
+  margin-bottom: {{ design.spacing.below_title.style }};
+}
+
+%%SELECTOR%% .ee-imagebox-text {
+  {{ macros.typography(design.typography.text, globalSettings)  }}
+}
+
+%%SELECTOR%% .ee-imagebox-button {
+  margin-top: {{ design.spacing.above_button.style }};
+}
+
+{{ macros.atomV1ButtonCss(design.button, 'ee-imagebox-button', '%%SELECTOR%%', breakpoint, globalSettings) }}

@@ -1,0 +1,107 @@
+{% set content = content.content %}
+
+{% if content.accent %}
+{% if content.accent_text %}
+  <div class="bde-pricing-table__accent-label" {{ dataContentEditablePropertyPath('content.content.accent_text') }}>   
+    <span>{{ content.accent_text }}</span> 
+  </div>
+{% endif %}
+{% endif %}
+
+{% if content.icon.svgCode %}
+  <div class="bde-pricing-table__icon">
+    {{ content.icon.svgCode }}
+  </div>
+{% endif %}
+
+{% if content.title %}
+  <{{ content.html_tags.title|default('div') }} class="bde-pricing-table__title" {{ dataContentEditablePropertyPath('content.content.title') }}>
+    {{ content.title }}
+  </{{ content.html_tags.title|default('div') }}>
+{% endif %}
+
+
+<div class='bde-pricing-table__price-area'>
+
+  {% if content.price.before_price %}
+    <div class="bde-pricing-table__price-area--before-price-text" {{ dataContentEditablePropertyPath('content.content.price.before_price') }}>
+      {{ content.price.before_price }}
+    </div>
+  {% endif %}
+
+  <div class="bde-pricing-table__price-area--amount-and-period-wrapper">
+
+    <div class="bde-pricing-table__price-area--amount">
+      <span class="bde-pricing-table__price-area--amount-currency" {{ dataContentEditablePropertyPath('content.content.price.currency_symbol') }}>
+        {{ content.price.currency_symbol }}
+      </span>
+      <span class="bde-pricing-table__price-area--amount-number">
+        <span class="bde-pricing-table__price-area--amount-number-main" {{ dataContentEditablePropertyPath('content.content.price.amount') }}>
+          {{ content.price.amount }}
+        </span>
+        {% if content.price.fractional_amount %}
+          <span class="bde-pricing-table__price-area--amount-number-fractional" {{ dataContentEditablePropertyPath('content.content.price.fractional_amount') }}>
+            {{ content.price.fractional_amount }}
+          </span>
+        {% endif %}
+      </span>
+    </div>
+
+    {% if content.price.per_period %}
+      <span class="bde-pricing-table__price-area--billing-period" {{ dataContentEditablePropertyPath('content.content.price.per_period') }}>
+        {{ content.price.per_period }}
+      </span>
+    {% endif %}
+
+  </div>
+
+  {% if content.price.badge %}
+    <div class="bde-pricing-table__price-area--badge" {{ dataContentEditablePropertyPath('content.content.price.badge') }}>
+      <span>{{ content.price.badge }}</span>
+    </div>
+  {% endif %}
+</div>
+
+
+
+{% if content.description %}
+  <div class="bde-pricing-table__description" {{ dataContentEditablePropertyPath('content.content.description') }}>
+    {{content.description}}
+  </div>
+{% endif %}
+
+{% if content.features %}
+  <ul class="bde-pricing-table__features">
+    {% for feature in content.features %}
+
+      {% if design.features.icons.custom_icons.included_icon.svgCode is empty %}
+        {% set yesicon = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.71,7.21a1,1,0,0,0-1.42,0L9.84,14.67,6.71,11.53A1,1,0,1,0,5.29,13l3.84,3.84a1,1,0,0,0,1.42,0l8.16-8.16A1,1,0,0,0,18.71,7.21Z"/></svg>' %}
+      {% else %}
+        {% set yesicon = design.features.icons.custom_icons.included_icon.svgCode %}
+      {% endif %}
+
+      {% if design.features.icons.custom_icons.not_included_icon.svgCode is empty %}
+        {% set noicon = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.41,12l4.3-4.29a1,1,0,1,0-1.42-1.42L12,10.59,7.71,6.29A1,1,0,0,0,6.29,7.71L10.59,12l-4.3,4.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0L12,13.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42Z"/></svg>' %}
+      {% else %}
+        {% set noicon = design.features.icons.custom_icons.not_included_icon.svgCode  %}
+      {% endif %}
+
+      {% set feature_class = feature.not_included ? 'bde-pricing-table__features-item--not-included' : 'bde-pricing-table__features-item--included' %}
+
+      <li class="bde-pricing-table__features-item {{ feature_class }}">
+        <span class="bde-pricing-table__features-icon">
+          {% if feature.not_included %}
+            {{ noicon }}
+          {% else %}
+            {{ yesicon }}
+          {% endif %}
+        </span>
+        <span class="bde-pricing-table__features-text" {{ dataContentEditablePropertyPath('content.content.features[' ~ loop.index0 ~ '].text') }}>
+          {{ feature.text }}
+        </span>
+      </li>
+    {% endfor %}
+  </ul>
+{% endif %}
+
+{{ macros.atomV1ButtonHtml(content.button, 'bde-pricing-table__cta-button', design.button, 'content.content.button.text') }}

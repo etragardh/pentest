@@ -1,0 +1,14 @@
+{{ do_action('breakdance_form_before_footer', form) }}
+
+<div class="breakdance-form-field breakdance-form-footer">
+    {% for step in steps %}
+        <div class="breakdance-form-field breakdance-form-field--step-buttons" data-form-step="{{ loop.index }}">
+            {{ macros.atomV1ButtonHtmlManual(step.previous_button_text ?? 'Previous Step' , false, 'breakdance-form-button breakdance-form-button__previous-step hidden', previousStepButtonDesign, 'secondary', false, false, 'step.next_button_text') }}
+            {{ macros.atomV1ButtonHtmlManual(step.next_button_text ?? 'Next Step' , false, 'breakdance-form-button breakdance-form-button__next-step hidden', nextStepButtonDesign, 'primary', false, false, 'step.next_button_text') }}
+        </div>
+    {% endfor %}
+
+    {{ macros.atomV1ButtonHtmlManual(submitButtonText ?? 'Submit' , false, 'breakdance-form-button breakdance-form-button__submit', submitButtonDesign, 'primary', submitButtonId, true, 'content.form.submit_text', disableSubmitButton) }}
+    <input type="hidden" name="form_id" value="%%ID%%">
+    <input type="hidden" name="post_id" value="%%POSTID%%">
+</div>

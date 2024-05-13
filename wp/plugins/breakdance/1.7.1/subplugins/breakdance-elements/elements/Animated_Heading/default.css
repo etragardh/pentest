@@ -1,0 +1,13 @@
+.breakdance .bde-animated-heading {
+  max-width: 100%;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.breakdance .bde-animated-heading .bde-animated-heading__text {
+  margin: 0;
+}
+
+.bde-animated-heading__noscript {
+  display: none;
+}

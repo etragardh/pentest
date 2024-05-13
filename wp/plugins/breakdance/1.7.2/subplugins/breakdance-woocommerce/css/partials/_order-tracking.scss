@@ -1,0 +1,18 @@
+/* Element Selector Full Width*/
+.bde-woopageordertracking {
+  width: 100%;
+
+  .woocommerce {
+    display: flex;
+    flex-direction: column;
+    gap: var(--bde-woo-base-large-gaps);
+  }
+
+  .woocommerce-customer-details,
+  .woocommerce-order-details,
+  .woocommerce-form-track-order {
+    display: flex;
+    flex-direction: column;
+    gap: var(--bde-woo-base-big-gaps);
+  }
+}

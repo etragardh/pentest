@@ -1,0 +1,91 @@
+%%SELECTOR%% {
+  max-width: {{ design.container.width.style }};
+  {{ macros.spacing_padding_all(design.container.padding) }}
+  {{ macros.backgroundColor(design.container.background) }}
+  gap: {{ design.spacing.between_items.style }};
+  {{ macros.spacing_margin_y(design.spacing.container) }}
+  {{ macros.iconToCssVar('bde-accordion-icon-default', design.item.icon.icon) }}
+  {{ macros.iconToCssVar('bde-accordion-icon-active', design.item.icon.active_icon) }}
+}
+
+%%SELECTOR%% .bde-accordion__panel {
+  margin-top: {{ design.spacing.below_item.style }}; 
+}
+
+%%SELECTOR%% .bde-accordion__button {
+  background-color: {{ design.item.background }};
+  {{ macros.spacing_padding_all(design.item.padding) }};
+  {% if design.item.icon.position == 'left' %}
+    flex-direction: row-reverse;
+  {% endif %}
+  gap: {{ design.item.icon.space_after.style }};
+}
+
+%%SELECTOR%%.bde-accordion--pills .bde-accordion__button {
+  {{ macros.borders(design.item.borders) }}
+}
+
+%%SELECTOR%% .bde-accordion__button:hover {
+  background-color: {{ design.item.background_hover }};
+}
+
+%%SELECTOR%% .bde-accordion__button.is-active {
+  background: {{ design.item.active.background }};
+  border-color: {{ design.item.active.border_color }};
+}
+
+%%SELECTOR%% .bde-accordion__button.is-active .bde-accordion__title {
+  color: {{ design.item.active.text_color }};
+}
+
+%%SELECTOR%% .bde-accordion__title {
+  {{ macros.typography(design.item.typography, globalSettings) }}
+}
+
+%%SELECTOR%% .bde-accordion__button:hover .bde-accordion__title {
+  {{ macros.typographyWithHoverableColorAndEffects(design.item.typography) }}
+}
+
+%%SELECTOR%% .bde-accordion__icon {
+  background-color: {{ design.item.icon.color }};
+  width: {{ design.item.icon.size.style }};
+  height: {{ design.item.icon.size.style }};
+}
+
+{% if isBaseBreakpoint %}
+  {% if design.item.icon.active_icon.svgCode is empty %}
+    %%SELECTOR%% .bde-accordion__icon--active {
+      display: none !important;
+    }
+    %%SELECTOR%% .bde-accordion__icon--default {
+      display: flex !important;
+    }
+  {% endif %}
+
+  {% if design.item.icon.icon.svgCode is empty %}
+    %%SELECTOR%% .bde-accordion__icon--default {
+      display: none !important;
+    }
+  {% endif %}
+{% endif %}
+
+%%SELECTOR%% .bde-accordion__button.is-active .bde-accordion__icon {
+  background-color: {{ design.item.icon.active_color }};
+}
+
+%%SELECTOR%% .bde-accordion__button.is-active .bde-accordion__icon--default {
+  background-color: {{ design.item.icon.active_color }};
+}
+
+%%SELECTOR%%.bde-accordion--bordered,
+%%SELECTOR%%.bde-accordion--bordered-bottom {
+  --bde-accordion-border-color: {{ design.item.bordered.border_color }}; 
+  --bde-accordion-border-width: {{ design.item.bordered.border_width.style }};
+  --bde-accordion-border-radius: {{ design.item.bordered.border_radius.style }};
+}
+
+
+
+
+
+

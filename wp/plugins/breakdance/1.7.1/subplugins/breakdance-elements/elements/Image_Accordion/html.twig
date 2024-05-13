@@ -1,0 +1,42 @@
+{% set unplash = [
+'https://source.unsplash.com/qfvlR390Zrs/600x600',
+'https://source.unsplash.com/6fiRnDWxQMw/600x600',
+'https://source.unsplash.com/O0xQcGATOw4/600x600'] %}
+{% set nb = unplash|length %}
+
+  {% for x in range(1, content.content.images|length ? content.content.images|length : 3) %}
+
+    {% set item = content.content.images[loop.index0] %}
+
+    <div class="ee-image-accordion-item ee-image-accordion-item-{{ loop.index }}">
+
+      {# is this the right way to do it for seo, or should the content be linked in the A tag, or does. itnot matter because Google is smart now? #}
+      {% if item.link %}
+        {{ macros.linkStart(item.link, 'ee-image-accordion-link') }}{{ macros.linkEnd() }}
+      {% endif %}
+      
+      {% if item.title or item.text or item.icon.svgCode %} 
+
+          {% if item.icon.svgCode %}
+            <div class="ee-image-accordion-content-item ee-image-accordion-icon">{{ item.icon.svgCode }}</div>
+          {% endif %}
+          
+          {% if item.title %}
+            <div class="ee-image-accordion-content-item ee-image-accordion-title" {{ dataContentEditablePropertyPath('content.content.images[' ~ loop.index0 ~ '].title') }}>{{ item.title }}</div>
+          {% endif %}
+
+          {% if item.text %}
+            <div class="ee-image-accordion-content-item ee-image-accordion-desc"  {{ dataContentEditablePropertyPath('content.content.images[' ~ loop.index0 ~ '].text') }}>{{ item.text }}</div>
+          {% endif %}
+
+      {% endif %}
+
+        {% if item.image %}
+            {{ macros.image(item.image, item.image_options.size, item.image_options.alt, item.image_options.lazy_load) }}
+        {% else %}
+            <img src="{{ unplash[loop.index0 % nb] }}">
+        {% endif %}
+
+    </div>
+
+  {% endfor %}

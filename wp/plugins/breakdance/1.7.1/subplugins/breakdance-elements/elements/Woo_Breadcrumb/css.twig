@@ -1,0 +1,27 @@
+/* Delimiter and Space Between */
+%%SELECTOR%%.bde-woo-breadcrumb .bde-woo-breadcrumb_delimiter:before {
+  {% if design.typography.delimiter %}
+  content: "{{ design.typography.delimiter }}";
+  {% endif %}
+  margin: 0  {{ design.spacing.space_between_items.style | default('8px')}};
+  {{ macros.typography(design.typography.delimiter_typography, globalSettings) }}
+}
+
+/* Typography */
+%%SELECTOR%%.bde-woo-breadcrumb .woocommerce-breadcrumb a {
+  {{ macros.typography(design.typography.links, globalSettings)  }}
+}
+%%SELECTOR%%.bde-woo-breadcrumb .woocommerce-breadcrumb a:hover {
+   {{ macros.typographyWithHoverableEverything(design.typography.links) }}
+}
+%%SELECTOR%%.bde-woo-breadcrumb nav.woocommerce-breadcrumb {
+   {{ macros.typography(design.typography.last_item, globalSettings)  }}
+}
+
+/* Spacing Above/Below */
+%%SELECTOR%%.bde-woo-breadcrumb {
+	{{ macros.spacing_margin_y(design.spacing.container) }}
+}
+
+
+

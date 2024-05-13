@@ -1,0 +1,4 @@
+{% set numposts = content.comments.count ? content.comments.count : 5 %}
+{% set sortBy = content.comments.sort_by ? content.comments.sort_by : 'reverse_time' %}
+
+<div class="fb-comments" data-href="%%SSR%%" data-width="100%" data-numposts="{{ numposts }}" data-order-by="{{ sortBy }}"></div>

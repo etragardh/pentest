@@ -1,0 +1,14 @@
+%%SELECTOR%% {
+  max-width: {{ design.size.width.style }};
+  {{ macros.spacing_margin_y(design.spacing) }}
+  {{ macros.typography(design.both, globalSettings)  }}
+}
+
+%%SELECTOR%% .dual-heading--primary  {
+  {{ macros.typography(design.primary.typography, globalSettings)  }}
+}
+
+%%SELECTOR%% .dual-heading--secondary {
+  {{ macros.typography(design.secondary.typography, globalSettings)  }}
+}
+

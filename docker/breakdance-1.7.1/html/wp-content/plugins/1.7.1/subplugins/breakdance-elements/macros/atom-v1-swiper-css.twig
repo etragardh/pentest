@@ -1,0 +1,159 @@
+{% macro AtomV1SwiperCss(sliderSettings, selector, globalSettings, isBaseBreakpoint) %}
+    {% set arrowSettings = sliderSettings.arrows %}
+    {% set paginationSettings = sliderSettings.pagination %}
+    {% set areArrowsOutside = arrowSettings.overlay != true and arrowSettings.disable != true %}
+
+    {% set anyArrowSpacingIsSet =
+        arrowSettings.space_to_edge.style or
+        arrowSettings.space_to_slides.style or
+        arrowSettings.size.style %}
+    {# Make sure to update the values in the preset defaults CSS if these defaults change #}
+    {% set spaceFromSlideToSliderEdgeWhenArrowsAreOutside = 'calc(' ~
+        arrowSettings.space_to_edge.style|default('12px') ~ ' + ' ~
+        arrowSettings.space_to_slides.style|default('12px') ~ ' + ' ~
+        arrowSettings.size.style|default('20px') ~
+        ')' %}
+    {% set progressbarHeight = paginationSettings.progress_bar.height.style|default('4px') %}
+
+    {# This default here is fine because the var is only used within conditions #}
+    {% set paginationMargin = paginationSettings.margin.style %}
+
+
+    {% if isBuilder == true %}
+        {{ selector }} .swiper .swiper-slide{
+            pointer-events: all;
+        }
+    {% endif %}
+
+    {# ARROWS #}
+    {# {% if isBaseBreakpoint %}
+        {{ selector }} {
+          width: 100%
+        }
+    {% endif %} #}
+
+    {{ selector }} .breakdance-swiper-wrapper{
+        --swiper-navigation-size: {{ arrowSettings.size.style }};
+    }
+
+    {{ selector }} .swiper-button-prev,
+    {{ selector }} .swiper-button-next{
+        color: {{ arrowSettings.color }};
+    }
+
+    {{ selector }} .swiper-button-prev {
+        left: {{ arrowSettings.space_to_edge.style }};
+    }
+
+    {{ selector }} .swiper-button-next{
+        right: {{ arrowSettings.space_to_edge.style }};
+    }
+
+    {% if arrowSettings.custom_icons.previous.svgCode %}
+        {{ selector }} .swiper-button-prev:after {
+            content: '';
+        }
+    {% endif %}
+
+    {% if arrowSettings.custom_icons.next.svgCode %}
+        {{ selector }} .swiper-button-next:after {
+            content: '';
+        }
+    {% endif %}
+
+    {% if areArrowsOutside and anyArrowSpacingIsSet %}
+        {{ selector }} .breakdance-swiper-wrapper{
+            padding: 0 {{ spaceFromSlideToSliderEdgeWhenArrowsAreOutside }};
+        }
+    {% elseif areArrowsOutside == false or arrowSettings.disable == true %}
+        {{ selector }} .breakdance-swiper-wrapper{
+            padding: 0;
+        }
+    {% endif %}
+
+    {# PAGINATION #}
+    {{ selector }} .swiper-pagination,
+    {{ selector }} .swiper-pagination-bullet{
+        color: {{ paginationSettings.color }};
+        --swiper-pagination-color: {{ paginationSettings.color }};
+        --swiper-theme-color: {{ paginationSettings.color }};
+    }
+
+    {% if paginationSettings.overlay %}
+        {{ selector }} .swiper-pagination {
+        position: absolute;
+
+        {% if paginationSettings.type == 'progressbar' and paginationSettings.progress_bar.position == 'top' %}
+            margin-top: {{ paginationMargin|default('0px') }};
+        {% else %}
+            margin-bottom: {{ paginationMargin }};
+        {% endif %}
+        }
+    {% else %}
+        {% if paginationSettings.type == 'progressbar' %}
+            {{ selector }} .swiper-pagination {
+            position: absolute;
+            margin: 0;
+            }
+
+            {{ selector }} .breakdance-swiper-wrapper {
+            {% if paginationSettings.progress_bar.position == 'top' %}
+                padding-top: calc({{ progressbarHeight }} + {{ paginationMargin|default('0px') }});
+            {% else %}
+                padding-bottom: calc({{ progressbarHeight }} + {{ paginationMargin|default('0px') }});
+            {% endif %}
+            }
+        {% else %}
+            {{ selector }} .swiper-pagination {
+            margin-top: {{ paginationMargin }};
+            }
+        {% endif %}
+    {% endif %}
+
+
+    {% if paginationSettings.type == 'bullets' or paginationSettings.type == null %}
+        {{ selector }} .swiper-pagination-bullet{
+            width: {{ paginationSettings.bullets.size.style }};
+            height: {{ paginationSettings.bullets.size.style }};
+            background-color: {{ paginationSettings.bullets.color }};
+            border-radius: {{ paginationSettings.bullets.radius.style }};
+
+            {% if paginationSettings.bullets.space_between.number %}
+                margin: 0 {{ paginationSettings.bullets.space_between.number / 2 }}px !important;
+            {% endif %}
+        }
+    {% elseif paginationSettings.type == 'fraction' %}
+        {{ selector }} .swiper-pagination-fraction{
+            {{ _self.typography(paginationSettings.fraction, globalSettings) }}
+        }
+    {% elseif paginationSettings.type == 'progressbar' %}
+        {{ selector }} .swiper-pagination-progressbar{
+            background: {{ paginationSettings.progress_bar.background }};
+
+            {% if paginationSettings.progress_bar.progress != null %}
+                --swiper-pagination-color: {{ paginationSettings.progress_bar.progress }};
+            {% endif %}
+
+            {% if paginationSettings.progress_bar.position == 'top' %}
+                top: 0;
+                bottom: initial;
+            {% else %}
+                top: initial;
+                bottom: 0;
+            {% endif %}
+
+            height: {{ progressbarHeight }};
+
+            {# make the progressbar match the slider's width when made smaller by the outside arrows #}
+            {% if areArrowsOutside and anyArrowSpacingIsSet %}
+                width: calc(100% - {{ spaceFromSlideToSliderEdgeWhenArrowsAreOutside }} * 2);
+                left: {{ spaceFromSlideToSliderEdgeWhenArrowsAreOutside }};
+            {% elseif arrowSettings.disable == true or areArrowsOutside == false %}
+                width: 100%;
+                left: 0;
+            {% endif %}
+        }
+    {% endif %}
+{% endmacro %}
+
+

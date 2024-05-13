@@ -1,0 +1,37 @@
+%%SELECTOR%% {
+  {{ macros.spacing_margin_y(design.spacing) }}
+  width: {{ design.box.width.style }};
+}
+
+%%SELECTOR%%.bde-notification-bar > div {
+  {{ macros.spacing_complex(design.box.padding.padding, 'padding') }}
+  {% if design.box.background %}--eenbBgColor: {{ design.box.background }};{% endif %}
+  {% if design.box.accent %}--eenbAccentColor: {{ design.box.accent }};{% endif %}
+  border-width: {{ design.box.border.border_width.style }};
+  border-radius: {{ design.box.border.border_radius.style }};
+}
+
+%%SELECTOR%% .ee-alertbox-title {
+  {{ macros.typography(design.typography.title, globalSettings)  }}
+}
+
+%%SELECTOR%% .ee-alertbox-desc {
+  {{ macros.typography(design.typography.description, globalSettings)  }}
+}
+
+
+%%SELECTOR%% .ee-alertbox-link > a {
+  {{ macros.typography(design.typography.link, globalSettings)  }}
+}
+
+%%SELECTOR%% .ee-alertbox-link > a:hover {
+  {{ macros.typographyWithHoverableEverything(design.typography.link) }}
+}
+
+
+
+%%SELECTOR%% .ee-alertbox-icon {
+  font-size: {{ design.icon.size.style }};
+  color: {{ design.icon.color }};
+}
+

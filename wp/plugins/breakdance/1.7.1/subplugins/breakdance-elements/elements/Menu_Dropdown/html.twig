@@ -1,0 +1,27 @@
+<div class="breakdance-dropdown{{ design.wrapper.width ? ' breakdance-dropdown--custom' }} {{ content.content.link ? ' breakdance-dropdown--with-link' }}">
+    <div class="breakdance-dropdown-toggle">
+      {% set attString = 'aria-expanded="false" aria-controls="dropdown-%%ID%%"' %}
+      
+      {% if content.content.link %}
+        {{ macros.linkStart(content.content.link, 'breakdance-menu-link', attString, false, 'content.content.text') }}
+          {{ content.content.text }}
+        {{ macros.linkEnd() }}
+      {% else %}
+        <button class="breakdance-menu-link" type="button" {{ attString }} {{ dataContentEditablePropertyPath('content.content.text') }}>
+          {{ content.content.text }}
+        </button>
+      {% endif %}
+
+      <button class="breakdance-menu-link-arrow" type="button" aria-expanded="false" aria-controls="dropdown-%%ID%%" aria-label="{{ content.content.text }} Submenu"></button>
+    </div>
+
+    <div class="breakdance-dropdown-floater" aria-hidden="true" id="dropdown-%%ID%%">
+        <div class="breakdance-dropdown-body">
+            {{ macros.menuSection(content.content.columns) }}
+
+            {% if content.content.show_another_section %}
+            {{ macros.menuSection(content.content.columns_2, 'additional') }}
+          {% endif %}
+        </div>
+    </div>
+</div>

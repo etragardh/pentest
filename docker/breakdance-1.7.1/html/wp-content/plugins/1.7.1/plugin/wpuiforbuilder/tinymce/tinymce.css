@@ -1,0 +1,27 @@
+#adminmenumain,
+#wpcontent,
+#wpfooter {
+  display: none !important;
+}
+
+#breakdance-tinymce-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: white;
+}
+
+.modal-open #breakdance-tinymce-wrapper {
+  visibility: hidden;
+}
+
+.wp-editor-tools {
+  padding-left: 6px;
+  padding-top: 6px;
+}
+
+.media-modal {
+  inset: 0 !important;
+}

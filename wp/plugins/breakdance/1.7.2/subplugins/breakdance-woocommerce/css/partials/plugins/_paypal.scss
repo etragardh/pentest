@@ -1,0 +1,17 @@
+/*
+ * Plugin: woocommerce-paypal-payments
+ */
+
+.breakdance-woocommerce {
+  &.woocommerce-cart .ppc-button-wrapper,
+  &.woocommerce-checkout .ppc-button-wrapper {
+    width: 100%;
+    margin-top: var(--bde-woo-base-big-gaps);
+  }
+
+  // Checkout
+  .payment_method_paypal img {
+    padding: 0 12px;
+    max-width: 200px;
+  }
+}

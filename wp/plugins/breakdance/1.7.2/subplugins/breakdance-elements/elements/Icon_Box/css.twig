@@ -1,0 +1,75 @@
+%%SELECTOR%% {
+  width: {{ design.container.width.style }};
+  height: {{ design.container.height.style }};
+  {{ macros.backgroundColor(design.container.background) }}
+  {{ macros.borders(design.container.borders) }}
+  {{ macros.spacing_complex(design.container.padding, 'padding') }}
+  box-shadow: {{ design.container.shadow.style }};
+  gap: {{ design.spacing.after_icon.style }};
+    
+  {% if design.icon.position == 'left' or design.icon.position == 'right' %}
+    {% if design.icon.position == 'left' %} 
+      flex-direction: row;
+    {% elseif design.icon.position == 'right' %} 
+      flex-direction: row-reverse;
+    {% endif %}
+    {% if design.icon.vertical_alignment == 'middle' %}
+      align-items: center;
+    {% elseif design.icon.vertical_alignment == 'bottom' %}
+      align-items: flex-end;
+    {% else %}
+      align-items: flex-start;
+    {% endif %}
+  {% else %}
+    {% if design.container.alignment == 'left' %}
+      align-items: flex-start;
+    {% elseif design.container.alignment == 'center' %}
+      align-items: center;
+    {% elseif design.container.alignment == 'right' %}
+      align-items: flex-end;
+    {% endif %}
+  {% endif %}
+  
+  {% if breakpoint == design.icon.top_at %}
+    flex-direction: column;
+    {% if design.container.alignment == 'left' %}
+      align-items: flex-start;
+    {% elseif design.container.alignment == 'center' %}
+      align-items: center;
+    {% elseif design.container.alignment == 'right' %}
+      align-items: flex-end;
+    {% else %}
+      align-items: flex-start;
+    {% endif %}
+  {% endif %}
+  
+  {{ macros.spacing_margin_y(design.spacing.container) }}
+}
+
+%%SELECTOR%% .ee-iconbox-content {
+  {% if design.container.alignment == 'left' %}
+  align-items:flex-start;
+  text-align:left;
+{% elseif design.container.alignment == 'center' %}
+  align-items:center;
+  text-align:center;
+{% elseif design.container.alignment == 'right' %}
+  align-items:flex-end;
+  text-align:right;
+{% endif %}
+}
+
+%%SELECTOR%% .ee-iconbox-title {
+  {{ macros.typography(design.typography.title, globalSettings)  }}
+  margin-bottom:{{ design.spacing.below_title.style }};
+}
+%%SELECTOR%% .ee-iconbox-text {
+  {{ macros.typography(design.typography.text, globalSettings)  }}
+}
+
+%%SELECTOR%% .ee-iconbox-button {
+  margin-top: {{ design.spacing.above_button.style }};
+}
+
+{{ macros.atomV1IconCss(design.icon.style, 'ee-iconbox-icon', '%%SELECTOR%%') }}
+{{ macros.atomV1ButtonCss(design.button, 'ee-iconbox-button', '%%SELECTOR%%', breakpoint, globalSettings) }}

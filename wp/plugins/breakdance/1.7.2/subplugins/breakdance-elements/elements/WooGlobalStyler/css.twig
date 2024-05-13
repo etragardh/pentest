@@ -1,0 +1,336 @@
+{% set localSelector = rootSelector ?? '.breakdance-woocommerce' %}
+
+{{ rootSelector ?? ':root, .bde-global-css-vars' }} {
+  --bde-woo-base-text-color: {{ design.colors.text }};
+  --bde-woo-base-headings-color: {{ design.colors.headings }};
+  --bde-woo-base-border-color: {{ design.colors.borders }};
+  --bde-woo-base-primary-color: {{ design.colors.brand }};
+  --bde-woo-base-primary-color-hover: {{ design.colors.brand_hover|default(design.colors.brand) }};
+  --bde-woo-base-text-on-primary-color: {{ design.colors.text_on_brand }};
+
+  --bde-woo-base-space: {{ design.other.spacing.base.style }};
+  --bde-woo-base-ratio: {{ design.other.spacing.ratio }};
+
+  --bde-woo-base-extra-small-gaps: {{ design.other.spacing.sizes.extra_small.style }};
+  --bde-woo-base-small-gaps: {{ design.other.spacing.sizes.small.style }};
+  --bde-woo-base-standard-gaps: {{ design.other.spacing.sizes.standard.style }};
+  --bde-woo-base-medium-gaps: {{ design.other.spacing.sizes.medium.style }};
+  --bde-woo-base-big-gaps: {{ design.other.spacing.sizes.big.style }};
+  --bde-woo-base-large-gaps: {{ design.other.spacing.sizes.large.style }};
+  --bde-woo-base-extra-large-gaps: {{ design.other.spacing.sizes.extra_large.style }};
+
+  --bde-woo-typography-font-weight-normal: {{ design.typography.weights.normal }};
+  --bde-woo-typography-font-weight-medium: {{ design.typography.weights.medium }};
+  --bde-woo-typography-font-weight-heavy: {{ design.typography.weights.heavy}};
+
+  --bde-woo-typography__size-small: {{ design.typography.sizes.small.size.style }};
+  --bde-woo-typography__size-small-font-family: {{ process_font(design.typography.sizes.small.font) }};
+  --bde-woo-typography__size-standard: {{ design.typography.sizes.standard.size.style }};
+  --bde-woo-typography__size-standard-font-family: {{ process_font(design.typography.sizes.standard.font) }};
+  --bde-woo-typography__size-medium: {{ design.typography.sizes.medium.size.style }};
+  --bde-woo-typography__size-medium-font-family: {{ process_font(design.typography.sizes.medium.font) }};
+  --bde-woo-typography__size-large: {{ design.typography.sizes.large.size.style }};
+  --bde-woo-typography__size-large-font-family: {{  process_font(design.typography.sizes.large.font) }};
+  --bde-woo-typography__size-extra-large: {{ design.typography.sizes.extra_large.size.style }};
+  --bde-woo-typography__size-extra-large-font-family: {{  process_font(design.typography.sizes.extra_large.font) }};
+
+  {% set link_color = design.buttons_links.text_links.color|default(design.colors.brand) %}
+  {% set link_hover_color = design.buttons_links.text_links.color_hover|default(design.buttons_links.text_links.color)|default(design.colors.brand_hover)|default(design.colors.brand) %}
+  --bde-woo-buttons-and-links__text-link-color: {{ link_color }};
+  --bde-woo-buttons-and-links__text-link-color-hover: {{ link_hover_color }};
+
+  --bde-woo-buttons-and-links__disabled-button-color: {{ design.buttons_links.disabled.background }};
+  --bde-woo-buttons-and-links__disabled-button-text-color: {{ design.buttons_links.disabled.text }};
+
+  {# Woo: Forms #}
+  {# Important: see macros below for more overrides #}
+
+  --bde-woo-forms__spacing-after-label: {{ design.forms.spacing.after_label.style }};
+  --bde-woo-forms__spacing-sub-label: {{ design.forms.spacing.sub_label.style }};
+  --bde-woo-forms__spacing-between-fields: {{ design.forms.spacing.between_fields.style }};
+  --bde-woo-forms__spacing-between-columns: {{ design.forms.spacing.between_columns.style }};
+
+  --bde-woo-forms__inputs-placeholder-color:  {{ design.forms.fields.placeholder }};
+
+  --bde-woo-forms__inputs-select2-selected-item: {{ design.forms.fields.advanced.dropdown.selected }};
+  --bde-woo-forms__inputs-select2-hover-item: {{ design.forms.fields.advanced.dropdown.hover }};
+
+  --bde-woo-forms__labels-color: {{ design.forms.labels.text|default(design.colors.headings) }};
+  --bde-woo-forms__labels-required-color: {{ design.forms.fields.required.color }};
+  --bde-woo-forms__labels-required-size: {{ design.forms.fields.required.size.style }};
+
+  --bde-woo-forms__labels-required-nudge-x: {{ design.forms.fields.required.nudge_x.style }};
+  --bde-woo-forms__labels-required-nudge-y: {{ design.forms.fields.required.nudge_y.style }};
+
+  {# Woo: Notices #}
+  
+  --bde-woo-notices__icon-size: {{ design.other.notices.icon_size.style }};
+  --bde-woo-notices__padding: {{ design.other.notices.padding.style }};
+  --bde-woo-notices__padding-left: {{ design.other.notices.padding_left.style }};
+  --bde-woo-notices__border-radius: {{ design.other.notices.border_radius.style }};
+  --bde-woo-notices__error-background: {{ design.other.notices.error.background }};
+  --bde-woo-notices__error-text: {{ design.other.notices.error.text }};
+  --bde-woo-notices__error-link-text: {{ design.other.notices.error.link }};
+  --bde-woo-notices__error-link-text-hover: {{ design.other.notices.error.link_hover|default(design.other.notices.error.link) }};
+  --bde-woo-notices__info-background: {{ design.other.notices.info.background }};
+  --bde-woo-notices__info-text: {{ design.other.notices.info.text }};
+  --bde-woo-notices__info-link-text: {{ design.other.notices.info.link }};
+  --bde-woo-notices__info-link-text-hover: {{ design.other.notices.info.link_hover|default(design.other.notices.info.link) }};
+  --bde-woo-notices__success-background: {{ design.other.notices.success.background }};
+  --bde-woo-notices__success-text: {{ design.other.notices.success.text }};
+  --bde-woo-notices__success-link-text: {{ design.other.notices.success.link }};
+  --bde-woo-notices__success-link-text-hover: {{ design.other.notices.success.link_hover|default(design.other.notices.success.link) }};
+
+  {# Notices Icons Colors #}
+  {% if design.other.notices.error.icon %}
+    --error-svg-icon: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm5.5 16.084l-1.403 1.416-4.09-4.096-4.102 4.096-1.405-1.405 4.093-4.092-4.093-4.098 1.405-1.405 4.088 4.089 4.091-4.089 1.416 1.403-4.092 4.087 4.092 4.094z"/></svg>');
+    --error-svg-icon-color: {{ design.other.notices.error.icon }};
+  {% endif %}
+  {% if design.other.notices.success.icon %}
+    --success-svg-icon: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-1 17l-5-5.299 1.399-1.43 3.574 3.736 6.572-7.007 1.455 1.403-8 8.597z"/></svg>');
+    --success-svg-icon-color: {{ design.other.notices.success.icon }};
+  {% endif %}
+  {% if design.other.notices.info.icon %}
+    --info-svg-icon: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm1 18h-2v-6h-2v-2h4v8zm-1-9.75c-.69 0-1.25-.56-1.25-1.25s.56-1.25 1.25-1.25 1.25.56 1.25 1.25-.56 1.25-1.25 1.25z"/></svg>');
+    --info-svg-icon-color: {{ design.other.notices.info.icon }};
+  {% endif %}
+
+  --bde-woo-sale-badge__border-radius: {{ design.other.sale_badge.radius.style }};
+  --bde-woo-sale-badge__background-color: {{ design.other.sale_badge.background }};
+  --bde-woo-sale-badge__text-color: {{ design.other.sale_badge.text }};
+  --bde-woo-sale-badge__font-weight: {{ design.other.sale_badge.font_weight }};
+  --bde-woo-sale-badge__font-size: {{ design.other.sale_badge.font_size.style }};
+  --bde-woo-sale-badge__padding: {{ design.other.sale_badge.padding.style }} {{ design.other.sale_badge.horizontal_padding.style }};
+
+  --bde-woo-ratings__star-color: {{ design.other.ratings.star_color }};
+  --bde-woo-ratings__star-size: {{ design.other.ratings.star_size.style }};
+
+  --bde-woo-product-images__border-radius: {{ design.other.product_images.border_radius.style }};
+  --bde-woo-product-images__border-width: {{ design.other.product_images.border_width.style }};
+  --bde-woo-product-images__border-color: {{ design.other.product_images.border_color }};
+
+  --bde-woo-wrappers__background-color: {{ design.other.wrappers.background }};
+  --bde-woo-wrappers__border-radius: {{ design.other.wrappers.border_radius.style }};
+  --bde-woo-wrappers__border-width: {{ design.other.wrappers.border_width.style }};
+  --bde-woo-wrappers__border-color: {{ design.other.wrappers.border }};
+  --bde-woo-wrappers__shadow: {{ design.other.wrappers.shadow.style }};
+
+  --bde-woo-tables__header-color: {{ design.other.tables.header }};
+  --bde-woo-tables__background-color: {{ design.other.tables.background }};
+  --bde-woo-tables__border-radius: {{ design.other.tables.border_radius.style }};
+  --bde-woo-tables__border-color: {{ design.other.tables.border }};
+  --bde-woo-tables__border-width: {{ design.other.tables.border_width.style }};
+
+  --bde-woo-widgets__chip-text-color: {{ design.other.widgets.chip_text }};
+  --bde-woo-widgets__chip-background-color: {{ design.other.widgets.chip_background }};
+  --bde-woo-widgets__chip-text-color-hover: {{ design.other.widgets.chip_text_hover }};
+  --bde-woo-widgets__chip-background-color-hover: {{ design.other.widgets.chip_background_hover }};
+
+  {# Misc #}
+  --bde-woo-select2__active-item-background-color: {{ design.other.misc.select2_active_item }};
+  --bde-woo-widgets__remove-item-from-cart-color: {{ design.other.misc.remove_item_from_cart }};
+  --bde-woo-gallery__zoom-icon-shadow: {{ design.other.misc.gallery_zoom_icon_shadow.style }};
+
+  {# Products List #}
+
+  {% if design.other.products_list.products_per_row %}
+    --bde-woo-products-list-products-per-row: {{ design.other.products_list.products_per_row }};
+  {% elseif not rootSelector %}
+    {% if breakpoint == 'breakpoint_base' %}
+      --bde-woo-products-list-products-per-row: 4;
+    {% elseif breakpoint == 'breakpoint_tablet_portrait' %}
+      --bde-woo-products-list-products-per-row: 3;
+    {% elseif breakpoint == 'breakpoint_phone_landscape' %}
+      --bde-woo-products-list-products-per-row: 2;
+    {% elseif breakpoint == 'breakpoint_phone_portrait' %}
+      --bde-woo-products-list-products-per-row: 1;
+    {% endif %}
+  {% endif %}
+
+  --bde-woo-payment-box-background-color: {{ design.other.payment_box.background }};
+  --bde-woo-payment-box-border-color: {{ design.other.payment_box.border_color }};
+  --bde-woo-payment-box-border-width: {{ design.other.payment_box.border_width.style }};
+
+  {# Quicklook #}
+  --bde-woo-quicklook-button-background-color: {{ design.other.quicklook.button.background }};
+  --bde-woo-quicklook-button-background-color-hover: {{ design.other.quicklook.button.background_hover }};
+  --bde-woo-quicklook-button-text-indent: {{ design.other.quicklook.hide_label ? '-9999px' }};
+  --bde-woo-quicklook-button-backdrop-color: {{ design.other.quicklook.backdrop.color }};
+  --bde-woo-quicklook-button-backdrop-opacity: {{ design.other.quicklook.backdrop.opacity }};
+
+  {% if design.other.quicklook.button.icon %}
+    --bde-woo-quicklook-button-icon: url({{ data_uri(design.other.quicklook.button.icon.svgCode, 'image/svg+xml') }});
+  {% endif %}
+
+  --bde-woo-quicklook-modal-background-color: {{ design.other.quicklook.modal.background }};
+  --bde-woo-quicklook-overlay-color: {{ design.other.quicklook.modal.overlay_color }};
+  --bde-woo-quicklook-close-button-size: {{ design.other.quicklook.modal.close_button.size.style }};
+  --bde-woo-quicklook-close-button-color: {{ design.other.quicklook.modal.close_button.color }};
+  --bde-woo-quicklook-close-button-color-hover: {{ design.other.quicklook.modal.close_button.color_hover }};
+  --bde-woo-quicklook-arrow-size: {{ design.other.quicklook.modal.arrows.size.style }};
+  --bde-woo-quicklook-arrow-color: {{ design.other.quicklook.modal.arrows.color }};
+  --bde-woo-quicklook-arrow-color-hover: {{ design.other.quicklook.modal.arrows.color_hover }};
+  --bde-woo-quicklook-arrow-background-color: {{ design.other.quicklook.modal.arrows.background }};
+  --bde-woo-quicklook-arrow-background-color-hover: {{ design.other.quicklook.modal.arrows.background_hover }};
+
+  {# Variation Swatches #}
+  --bde-woo-swatch-alignment: {{ design.variation_swatches.alignment }};
+  --bde-woo-swatch-space-after-label: {{ design.variation_swatches.spacing.space_after_label.style }};
+  --bde-woo-swatch-space-between-items: {{ design.variation_swatches.spacing.space_between_items.style }};
+  --bde-woo-swatch-space-between-options: {{ design.variation_swatches.spacing.space_between_options.style }};
+  {{ macros.paddingToCssVar('bde-woo-swatch-padding', design.variation_swatches.all_swatches.padding.padding) }}
+  --bde-woo-swatch-background: {{ design.variation_swatches.all_swatches.background }};
+  --bde-woo-swatch-background-hover: {{ design.variation_swatches.all_swatches.background_hover }};
+  --bde-woo-swatch-background-selected: {{ design.variation_swatches.all_swatches.selected.background }};
+  {# Variation Swatches - Color #}
+  {{ macros.paddingToCssVar('bde-woo-swatch-color-padding', design.variation_swatches.image_and_color_swatches.padding.padding) }}
+  --bde-woo-swatch-color-background: {{ design.variation_swatches.image_and_color_swatches.background }};
+  --bde-woo-swatch-color-width: {{ design.variation_swatches.image_and_color_swatches.width.style }};
+  --bde-woo-swatch-color-height: {{ design.variation_swatches.image_and_color_swatches.height.style }};
+  {# Variation Swatches - Tooltip #}
+  --bde-woo-swatch-tooltip-background: {{ design.variation_swatches.tooltip.background }};
+  {{ macros.paddingToCssVar('bde-woo-swatch-tooltip-padding', design.variation_swatches.tooltip.padding.padding) }}
+
+  {# Responsive #}
+  {% set stackAt = design.other.stack_vertically_at|default('breakpoint_phone_landscape') %}
+
+  {% if breakpoint == stackAt %}
+    /*
+    * Make all woo elements stack vertically on mobile
+    */
+    --bde-woo-responsive__stack: column;
+    --bde-woo-responsive__width: 100%;
+    --bde-woo-responsive__max-width: 100%;
+  {% endif %}
+}
+
+{# Woo Buttons: Brand Color  #}
+{{ localSelector }} {
+  --bde-brand-primary-color: {{ design.colors.brand }};
+  --bde-brand-primary-color-hover: {{ design.colors.brand_hover|default(design.colors.brand) }};
+  --bde-button-primary-text-color: {{ design.colors.text_on_brand }};
+  --bde-button-primary-text-color-hover: {{ design.colors.text_on_brand }};
+
+  {% if design.colors.brand %}
+    --bde-button-primary-background-color: var(--bde-brand-primary-color);
+    --bde-button-primary-background-color-hover: var(--bde-brand-primary-color-hover);
+
+    {# Buttons: Secondary #}
+    --bde-button-secondary-border-color: var(--bde-brand-primary-color);
+    --bde-button-secondary-border-color-hover: var(--bde-brand-primary-color);
+    --bde-button-secondary-text-color: var(--bde-brand-primary-color);
+    --bde-button-secondary-background-color-hover: var(--bde-brand-primary-color);
+  {% endif %}
+}
+
+{# Fields: Default #}
+{{ rootSelector }} .select2-container--default .select2-search--dropdown .select2-search__field,
+{{ rootSelector }} .select2-container--default .select2-selection--single,
+{{ rootSelector }} .price_slider_amount input[type="text"],
+{{ rootSelector }} input[type="search"],
+{{ localSelector }} textarea,
+{{ localSelector }} .woocommerce-Input,
+{{ localSelector }} .input-text,
+{{ localSelector }} select,
+{{ localSelector }} .wc_payment_method input[type="text"],
+{{ localSelector }} .wc-stripe-elements-field {
+  background-color: {{ design.forms.fields.background }};
+  {{ macros.borders(design.forms.fields.borders) }}
+  {{ macros.spacing_padding_all(design.forms.fields.padding) }}
+  {{ macros.typography(design.forms.typography.values, globalSettings) }}
+}
+
+{# Fields: Focused #}
+{{ rootSelector }} .select2-container--default .select2-search--dropdown .select2-search__field:focus,
+{{ rootSelector }} .select2-container--default .select2-selection--single:focus,
+{{ localSelector }} .price_slider_amount input[type="text"]:focus,
+{{ localSelector }} input[type="search"]:focus,
+{{ localSelector }} textarea:focus,
+{{ localSelector }} .woocommerce-Input:focus,
+{{ localSelector }} .input-text:focus,
+{{ localSelector }} select:focus,
+{{ localSelector }} .wc_payment_method input[type="text"]:focus {
+  background-color: {{ design.forms.fields.focused.background }};
+  border-color: {{ design.forms.fields.focused.border }};
+  box-shadow: {{ design.forms.fields.focused.shadow.style }};
+}
+
+{# Labels #}
+{{ localSelector }} .woocommerce-password-strength,
+{{ localSelector }} label span.optional,
+{{ localSelector }} label {
+  {{ macros.typography(design.forms.typography.labels, globalSettings) }}
+}
+
+{# Quicklook #}
+{{ localSelector }} .bde-woo-quicklook-modal {
+  {{ macros.spacing_padding_all(design.other.quicklook.modal.padding) }}
+}
+
+{# Variation Swatches #}
+{{ macros.wooVariationSwatchesDesign(localSelector, design.variation_swatches, breakpoint, globalSettings) }}
+
+{# IMPORTANT #}
+{# WooCommerce selectors need to be in sync in following files: #}
+{# woo-plugin-css-temp/css/a-root.css #}
+{# breakdance/global-styles/buttons/global-buttons.css.twig #}
+{# breakdance-elements/elements/WooGlobalStyler/css.twig #}
+
+{# Primary Buttons #}
+{% set primaryButtons = [
+  localSelector ~ ' .bde-mini-cart-offcanvas .button',
+  localSelector ~ ' .bde-woo-product-quicklook-button',
+  localSelector ~ ' .woocommerce-page.woocommerce-lost-password .breakdance-woocommerce button[type="submit"]',
+  localSelector ~ ' .woocommerce-form-track-order button[type="submit"]',
+  localSelector ~ ' #place_order',
+  localSelector ~ ' .woocommerce-button.pay',
+  localSelector ~ ' button.single_add_to_cart_button',
+  localSelector ~ ' a.single_add_to_cart_button',
+  localSelector ~ ' a.button.wc-backward',
+  localSelector ~ ' a.checkout-button',
+  localSelector ~ ' p.order-again a.button',
+  localSelector ~ ' button[name="add-to-cart"]',
+  localSelector ~ ' button[name="login"]',
+  localSelector ~ ' button[name="save_address"]',
+  localSelector ~ ' button[name="save_account_details"]',
+  localSelector ~ ' button[name="woocommerce_checkout_place_order"]',
+  localSelector ~ ' button[name="register"]',
+  localSelector ~ ' .woocommerce-MyAccount-content a.button[href*="add-payment-method"]'
+  ]
+%}
+
+
+{# Secondary Buttons #}
+{% set secondaryButtons = [
+  localSelector ~ ' .woocommerce-MyAccount-downloads-file',
+  localSelector ~ ' .woocommerce-Address a.edit',
+  localSelector ~ ' .woocommerce-button.view',
+  localSelector ~ ' .woocommerce-Button--previous',
+  localSelector ~ ' .woocommerce-Button--next',
+  localSelector ~ ' .widget_price_filter .button',
+  localSelector ~ ' a.button.product_type_grouped',
+  localSelector ~ ' a.button.add_to_cart_button',
+  localSelector ~ ' .added_to_cart',
+  localSelector ~ ' .woocommerce-widget-layered-nav-dropdown__submit',
+  localSelector ~ ' .woocommerce-product-search button[type="submit"]',
+  localSelector ~ ' a.product_type_simple',
+  localSelector ~ ' a.product_type_variable',
+  localSelector ~ ' .form-submit input[type="submit"]',
+  localSelector ~ ' button[name="update_cart"]',
+  localSelector ~ ' button[name="calc_shipping"]',
+  localSelector ~ ' button[name="apply_coupon"]',
+  localSelector ~ ' a.product_type_external',
+  ]
+%}
+
+{# Descructive Buttons #}
+{% set destructiveButtons = [localSelector ~ ' .reset_variations', localSelector ~ ' .woocommerce-button.cancel'] %}
+
+{# Button Macros #}
+{{ macros.atomV1ButtonButton(design.buttons_links.primary_buttons, primaryButtons, 'primary', breakpoint, globalSettings) }}
+{{ macros.atomV1ButtonButton(design.buttons_links.secondary_buttons, secondaryButtons, 'secondary', breakpoint, globalSettings) }}
+{{ macros.atomV1ButtonButton(design.buttons_links.destructive_buttons, destructiveButtons, 'custom', breakpoint, globalSettings) }}
+{{ macros.atomV1ButtonButton(design.other.quicklook.button, localSelector ~ ' .bde-woo-product-quicklook-button', 'primary', breakpoint, globalSettings) }}
+
+{# Quantity Input #}
+{{ macros.wooPresetQuantityInput(localSelector, design.forms.fields.advanced.quantity_input, breakpoint, globalSettings) }}

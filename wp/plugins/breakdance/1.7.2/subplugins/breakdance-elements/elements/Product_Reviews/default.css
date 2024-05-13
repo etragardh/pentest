@@ -1,0 +1,15 @@
+.breakdance .bde-product-reviews {
+  width: 100%;
+}
+.breakdance .bde-product-reviews .woocommerce-Reviews {
+    max-width: 100%;
+}
+.breakdance .bde-product-reviews .comment-text {
+  gap: 0;
+}
+.breakdance .bde-product-reviews .star-rating {
+  margin-bottom: var(--bde-woo-base-standard-gaps);
+}
+.breakdance .bde-product-reviews .comment_container p.meta {
+  margin-bottom: var(--bde-woo-base-standard-gaps);
+}

@@ -1,0 +1,14 @@
+{% set tag = content.content.title_tag|default('h3') %}
+<{{ tag }} class="bde-accordion__title-tag">
+  <button type="button" class="bde-accordion__button" id="accordion-button-%%ID%%" aria-controls="accordion-panel-%%ID%%" aria-expanded="false">
+     <span class="bde-accordion__title" {{ dataContentEditablePropertyPath('content.content.title') }}>{{ content.content.title ?? 'New Tab' }}</span>
+     <span class="bde-accordion__icon bde-accordion__icon--default"></span>
+     <span class="bde-accordion__icon bde-accordion__icon--active"></span>
+  </button>
+</{{ tag }}>
+
+<div role="region" class="bde-accordion__panel" id="accordion-panel-%%ID%%" aria-labelledby="accordion-button-%%ID%%" hidden>
+   %%CHILDREN%%
+</div>
+
+

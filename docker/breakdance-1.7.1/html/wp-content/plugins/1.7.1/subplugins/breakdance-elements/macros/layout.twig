@@ -1,0 +1,32 @@
+{% macro layout(layout) %}
+  display: {{ layout.display }};
+
+  {% if layout.display == 'flex' or layout.display == 'inline-flex' %}
+  	flex-direction: {{ layout.flex_direction }};
+  	align-items: {{ layout.align_items }};
+  	justify-content: {{ layout.justify_content }};
+  	flex-wrap: {{ layout.flex_wrap }};
+  	align-content: {{ layout.align_content }};
+    gap: {{ layout.gap.style }};
+  {% endif %}
+
+  overflow: {{ layout.advanced.overflow }};
+  float: {{ layout.advanced.legacy.float }};
+  clear: {{ layout.advanced.legacy.clear }};
+  visibility: {{ layout.advanced.legacy.visibility }};
+  z-index: {{ layout.advanced.z_index }};
+
+  {% if layout.advanced.position.position %}
+    position: {{ layout.advanced.position.position }};
+    top: {{ layout.advanced.position.top.style }};
+    left: {{ layout.advanced.position.left.style }};
+    right: {{ layout.advanced.position.right.style }};
+    bottom: {{ layout.advanced.position.bottom.style }};
+  {% endif %}
+
+  align-self: {{ layout.advanced.flex_child.align_self }};
+  order: {{ layout.advanced.flex_child.order }};
+  flex-grow: {{ layout.advanced.flex_child.flex_grow }};
+  flex-shrink: {{ layout.advanced.flex_child.flex_shrink }};
+  flex-basis: {{ layout.advanced.flex_child.flex_basis.number }}{{ layout.advanced.flex_child.flex_basis.unit }};
+{% endmacro %}

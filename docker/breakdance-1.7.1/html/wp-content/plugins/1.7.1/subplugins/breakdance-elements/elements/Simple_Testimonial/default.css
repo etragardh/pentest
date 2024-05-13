@@ -1,0 +1,170 @@
+.breakdance .bde-simple-testimonial {
+  /* standard image */
+
+  --quoteSize: 60px;
+
+  --spaceAfterImage: 25px;
+  --spaceAfterTestimonial: 25px;
+  --spaceAfterAuthor: 8px;
+  --spaceAfterInfo: 0px;
+
+  --imageSize: 150px;
+
+  --testimonialWidth: 100%;
+
+  --quotemarkIconSize: 0px;
+  --quotemarkIconColor: #999999;
+
+  --outlinedCircleImageOutlineWidth: 4px;
+  --outlinedCircleImageOutlineOffset: 4px;
+  --outlinedCircleImageOutlineOffsetColor: #ffffff;
+
+  --standardImageBorderWidth: 0px;
+  --standardImageBorderFill: "rgba(255, 255, 255, 0.1)";
+  --standardImageBorderRadius: 50%;
+}
+
+/* defaults */
+.breakdance .bde-simple-testimonial {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 100%;
+  width: var(--testimonialWidth);
+}
+
+.breakdance .bde-simple-testimonial div:last-child {
+  margin-bottom: 0;
+}
+
+.simple-testimonial__image-outer-wrapper {
+  display: flex;
+  overflow: hidden;
+  width: var(--imageSize);
+  height: var(--imageSize);
+  margin-bottom: var(--spaceAfterImage);
+}
+
+.simple-testimonial__image-inner-wrapper {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+.simple-testimonial__image-inner-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.simple-testimonial__quote {
+  margin-bottom: var(--spaceAfterTestimonial);
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.simple-testimonial__quote > blockquote {
+  margin: 0;
+  font-size: 1.875em;
+  line-height: 1.4;
+  order: 1;
+  z-index: 1;
+}
+
+.simple-testimonial__author {
+  margin-bottom: var(--spaceAfterAuthor);
+  font-weight: 700;
+  font-size: 1.125em;
+}
+
+.simple-testimonial__author-info {
+  margin-bottom: var(--spaceAfterAuthorInfo);
+  font-size: 0.875em;
+}
+
+.simple-testimonial__author,
+.simple-testimonial__author-info,
+.simple-testimonial__image-outer-wrapper {
+  margin-left: var(--quotemarkIconSize);
+  margin-right: var(--quotemarkIconSize);
+}
+
+/* outlined circle image */
+.simple-testimonial__image-outer-wrapper.simple-testimonial__outlined-circle-image {
+  border-radius: 50%;
+  padding: var(--outlinedCircleImageOutlineWidth);
+}
+
+.simple-testimonial__image-outer-wrapper.simple-testimonial__outlined-circle-image
+  > .simple-testimonial__image-inner-wrapper {
+  padding: var(--outlinedCircleImageOutlineOffset);
+  background-color: var(--outlinedCircleImageOutlineOffsetColor);
+  border-radius: 50%;
+}
+
+.simple-testimonial__image-outer-wrapper.simple-testimonial__outlined-circle-image
+  > .simple-testimonial__image-inner-wrapper
+  > img {
+  border-radius: 50%;
+}
+
+/* standard image */
+.simple-testimonial__image-outer-wrapper.simple-testimonial__standard-image {
+  border-radius: var(--standardImageBorderRadius);
+}
+
+.simple-testimonial__image-outer-wrapper.simple-testimonial__standard-image
+  > .simple-testimonial__image-inner-wrapper {
+  position: relative;
+}
+
+.simple-testimonial__image-outer-wrapper.simple-testimonial__standard-image
+  > .simple-testimonial__image-inner-wrapper::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  content: "";
+  border-radius: var(--standardImageBorderRadius);
+  border-width: var(--standardImageBorderWidth);
+  border-color: var(--standardImageBorderFill);
+  border-style: solid;
+  display: block;
+}
+
+.simple-testimonial__image-outer-wrapper.simple-testimonial__standard-image
+  > .simple-testimonial__image-inner-wrapper
+  > img {
+  border-radius: var(--standardImageBorderRadius);
+}
+
+/* masked image */
+.simple-testimonial__image-inner-wrapper--mask {
+  -webkit-mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: contain;
+}
+
+/* quote marks */
+.simple-testimonial__quote-mark {
+  width: var(--quotemarkIconSize);
+  height: var(--quotemarkIconSize);
+  flex: 1 0 auto;
+}
+
+.simple-testimonial__quote-mark path {
+  fill: var(--quotemarkIconColor);
+}
+
+.simple-testimonial__quote-mark.left-icon {
+  margin-bottom: auto;
+}
+
+.simple-testimonial__quote-mark.right-icon {
+  transform: scaleX(-1);
+  order: 2;
+  margin-top: auto;
+}

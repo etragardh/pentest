@@ -1,0 +1,31 @@
+%%SELECTOR%% {
+  width: {{ design.container.width.style }};
+  min-height: {{ design.container.min_height.style }};
+  {{ macros.typography(design.typography.text, globalSettings)  }}
+  {{ macros.backgroundColor(design.container.background) }}
+  {{ macros.borders(design.container.borders) }}
+  {{ macros.spacing_margin_y(design.spacing.wrapper) }}
+  {{ macros.spacing_padding_all(design.container.padding) }}
+}
+
+%%SELECTOR%% cite {
+  margin-top: {{ design.spacing.before_author.style }};
+  {{ macros.typography(design.typography.author, globalSettings)  }}
+}
+
+%%SELECTOR%% .blockquote-icon {
+  color: {{ design.quotes.color }};
+  font-size: {{ design.quotes.size.style }};
+}
+
+%%SELECTOR%% .inline-text_blockquote-icon .blockquote-icon {
+  margin-right: {{ design.spacing.after_quote.style }};
+}
+
+%%SELECTOR%% .above-text_blockquote-icon .blockquote-icon {
+  margin-bottom: {{ design.spacing.after_quote.style }};
+}
+
+%%SELECTOR%% .above-text_blockquote-icon {
+  text-align: {{ design.quotes.alignment }}
+}

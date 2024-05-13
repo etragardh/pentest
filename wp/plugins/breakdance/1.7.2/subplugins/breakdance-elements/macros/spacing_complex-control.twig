@@ -1,0 +1,8 @@
+{% macro spacing_complex(spacing, marginOrPadding) %}
+{{marginOrPadding}}-left: {{ spacing.left.style }};
+{{marginOrPadding}}-right: {{ spacing.right.style }};
+{{marginOrPadding}}-bottom: {{ spacing.bottom.style }};
+{{marginOrPadding}}-top: {{ spacing.top.style }};
+{% endmacro %}
+
+

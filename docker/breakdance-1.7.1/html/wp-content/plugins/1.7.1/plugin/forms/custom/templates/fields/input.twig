@@ -1,0 +1,23 @@
+<input
+    class="breakdance-form-field__input"
+    {{ (field.advanced.id ? 'id="' ~ field.advanced.id ~ '"') }}
+    {{ (field.advanced.id ? 'aria-describedby="' ~ field.advanced.id ~ '"') }}
+    type="{{ field.type }}"
+    name="{{ field.name }}"
+    placeholder="{{ field.advanced.placeholder }}"
+    value="{{ field.advanced.value }}"
+    {% if field.advanced.conditional %}
+        {{ macros.conditionalFormFieldAttributes(field.advanced.condition) }}
+    {% endif %}
+    {% if field.type == 'date' %}
+        {{ (field.min_date ? 'min="' ~ field.min_date ~ '"') }}
+        {{ (field.max_date ? 'max="' ~ field.max_date ~ '"') }}
+    {% else %}
+        {{ (field.min ? 'min="' ~ field.min ~ '"') }}
+        {{ (field.max ? 'max="' ~ field.max ~ '"') }}
+    {% endif %}
+    {{ (field.step ? 'step="' ~ field.step ~ '"') }}
+    {{ field.advanced.required ? 'required' }}
+    {{ field.advanced.autocomplete_disabled ? 'autocomplete="off"' }}
+    {{ field.advanced.tabindex ? 'tabindex=' ~ field.advanced.tabindex }}
+>

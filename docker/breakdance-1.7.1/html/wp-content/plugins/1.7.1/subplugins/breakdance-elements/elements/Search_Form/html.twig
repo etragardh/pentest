@@ -1,0 +1,93 @@
+{% import _self as e %}
+{% set type = design.form.style is empty ? 'classic' : design.form.style %}
+{% set effect = design.form.expand_styles.effect is empty ? 'fade' : design.form.expand_styles.effect %}
+
+{% macro searchIcon() %}
+	<svg width="100%" aria-hidden="true" class="search-form__icon--search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.0.0-beta2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) --><path d="M504.1 471l-134-134C399.1 301.5 415.1 256.8 415.1 208c0-114.9-93.13-208-208-208S-.0002 93.13-.0002 208S93.12 416 207.1 416c48.79 0 93.55-16.91 129-45.04l134 134C475.7 509.7 481.9 512 488 512s12.28-2.344 16.97-7.031C514.3 495.6 514.3 480.4 504.1 471zM48 208c0-88.22 71.78-160 160-160s160 71.78 160 160s-71.78 160-160 160S48 296.2 48 208z"/></svg>
+{% endmacro %}
+
+{% macro arrowIcon() %}
+	<svg width="100%" aria-hidden="true" class="search-form__icon--arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Pro 6.0.0-beta2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) --><path d="M264.6 70.63l176 168c4.75 4.531 7.438 10.81 7.438 17.38s-2.688 12.84-7.438 17.38l-176 168c-9.594 9.125-24.78 8.781-33.94-.8125c-9.156-9.5-8.812-24.75 .8125-33.94l132.7-126.6H24.01c-13.25 0-24.01-10.76-24.01-24.01s10.76-23.99 24.01-23.99h340.1l-132.7-126.6C221.8 96.23 221.5 80.98 230.6 71.45C239.8 61.85 254.1 61.51 264.6 70.63z"/></svg>
+{% endmacro %}
+
+{% macro closeIcon() %}
+  <svg width="100%" aria-hidden="true" class="search-form__icon--close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Pro 6.0.0-beta2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) --><path d="M312.1 375c9.369 9.369 9.369 24.57 0 33.94s-24.57 9.369-33.94 0L160 289.9l-119 119c-9.369 9.369-24.57 9.369-33.94 0s-9.369-24.57 0-33.94L126.1 256L7.027 136.1c-9.369-9.369-9.369-24.57 0-33.94s24.57-9.369 33.94 0L160 222.1l119-119c9.369-9.369 24.57-9.369 33.94 0s9.369 24.57 0 33.94L193.9 256L312.1 375z"/></svg>
+{% endmacro %}
+
+
+
+  {% if type == 'full-screen' %}
+    <button aria-label="{{ esc_html__('Toggle search', 'breakdance') }}" aria-expanded="false" aria-controls="search-form-%%ID%%" class="search-form__button search-form__button--full-screen js-search-form-expand-button">
+        {% if content.form.icon %}
+            {{ content.form.icon.svgCode }}
+        {% else %}
+            {{ e.searchIcon() }}
+        {% endif %}
+    </button>
+  {% endif %} 
+
+
+<form id="search-form-%%ID%%" role="search" method="get" data-type="{{ type }}" aria-hidden="{{ type == 'full-screen' ? 'true' : 'false' }}" class="js-search-form search-form search-form--{{ type }}" action="{{ wp_home_url() }}">
+ {% if content.form.limit_to_post_type %}
+   <input type='hidden' name='post_type' value='{{ content.form.limit_to_post_type }}' />
+ {% endif %}
+ <div class="search-form__container">
+  {% if type == 'classic' %}
+    <button type="submit" aria-label="search" class="search-form__button{{ design.form.classic_styles.icon_button.type == 'text' ? ' has-text' : '' }}">
+      {% if design.form.classic_styles.icon_button.type == 'custom' %}
+		  {{ design.form.classic_styles.icon_button.icon.svgCode }}
+      {% elseif design.form.classic_styles.icon_button.type == 'text' %}
+          {{ design.form.classic_styles.icon_button.text|default('Search') }}
+      {% else %}
+          {{ e.searchIcon() }}
+      {% endif %}
+    </button>
+  {% endif %} 
+   
+
+  	
+  	<label class="screen-reader-text" for="search-form-%%ID%%">Search for:</label>
+   
+    {% if type == 'classic' %}
+    <input id="search-form-%%ID%%" type="text" class="js-search-form-field search-form__field" placeholder="{{ content.form.placeholder }}" value="" name="s" />
+  	{% endif %} 
+
+    {% if type == 'expand' %}
+      <div class="form-search__wrapper form-search__wrapper--{{ effect }}">
+        <input id="search-form-search-field-%%ID%%" type="text" class="js-search-form-field search-form__field" placeholder="{{ content.form.placeholder }}" value="" name="s" />
+      </div>
+    {% endif %} 
+   
+    {% if type == 'expand' %}
+      <div role="button" class="search-form__button js-search-form-expand-button">
+        {{ e.searchIcon() }}
+        {{ e.closeIcon() }}
+      </div>
+    {% endif %} 
+
+     {% if type == 'full-screen' %}
+      <div class="search-form__lightbox">
+        <div role="button" class="search-form__lightbox-close js-search-form-close">
+          {{ e.closeIcon() }}
+        </div>
+
+        <div class="search-form__lightbox-bg js-search-form-lightbox-bg"></div>
+       
+      
+     <div class="search-form__lightbox-container">
+        <button type="submit" class="search-form__lightbox-button">
+          {% if content.form.icon %}
+		  	{{ content.form.icon.svgCode }}
+      	  {% else %}
+          	{{ e.searchIcon() }}
+      	  {% endif %}
+        </button>
+        <input type="text" id="search-form-search-field-%%ID%%" class="js-search-form-field search-form__field" placeholder="{{ content.form.placeholder }}" value="" name="s" />
+      </div>
+
+    </div>
+  
+    {% endif %} 
+  </div>
+</form>
+

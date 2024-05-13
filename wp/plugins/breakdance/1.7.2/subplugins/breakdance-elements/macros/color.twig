@@ -1,0 +1,48 @@
+{# Background #}
+{% macro backgroundColor(color) %}
+  background: {{ color.value ?? color }};
+{% endmacro %}
+
+{# Text #}
+{% macro textColor(color) %}
+  {% if color.value or '-gradient' in color %}
+    background: {{ color.value ?? color }};
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+  {% else %}
+    color: {{ color }};
+  {% endif %}
+{% endmacro %}
+
+{# Border #}
+
+{% macro borderColor(color) %}
+  {% if color.value or '-gradient' in color %}
+    border-image: {{ color.value ?? color }};
+    border-image-slice: 1;
+  {% else %}
+    border-color: {{ color }};
+  {% endif %}
+{% endmacro %}
+
+{# SVG #}
+{# Use a SVG gradient as fill for another SVG #}
+{% macro svgColor(color, id = 'color') %}
+  {% if '-gradient' in color %}
+    fill: url(#{{ color|replace({'var(--': '', ')' : ''}) }});
+  {% else %}
+    {% set url = 'url(#' ~ id ~ ')' %}
+    {% set fill = color.type == 'radial' or color.type == 'linear' ? url : color %}
+
+    fill: {{ fill }};
+  {% endif %}
+{% endmacro %}
+
+{# Output gradient as an SVG #}
+{% macro svgGradient(color, id = 'color') %}
+  {% if (color.svgValue) %}
+    {{ color.svgValue|replace({'%%GRADIENTID%%': id}) }}
+  {% endif %}
+{% endmacro %}

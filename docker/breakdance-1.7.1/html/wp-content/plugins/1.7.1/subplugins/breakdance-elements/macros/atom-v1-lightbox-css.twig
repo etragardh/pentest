@@ -1,0 +1,57 @@
+{% macro atomV1LightboxCss(design) %}
+  {% set className = '.bde-lightbox-%%POSTID%%-%%ID%%' %}
+
+  {# Controls #}
+  {{ className }} .lg-next,
+  {{ className }} .lg-prev,
+  {{ className }} .lg-toolbar,
+  {{ className }} .lg-icon,
+  {{ className }} .lg-counter,
+  {{ className }} .lg-sub-html {
+    {{ _self.textColor(design.controls) }}
+  }
+
+  {{ className }} .lg-icon:hover {
+    {{ _self.textColor(design.controls_hover) }}
+  }
+
+  {# Thumbnails #}
+  {{ className }} .lg-outer .lg-thumb-item,
+  {{ className }} .lg-outer .lg-thumb-item {
+    border-color: {{ design.thumbnail }};
+    background-color: {{ design.thumbnail }};
+  }
+
+  {{ className }} .lg-outer .lg-thumb-item.active,
+  {{ className }} .lg-outer .lg-thumb-item:hover {
+    border-color: {{ design.thumbnail_active }};
+    background-color: {{ design.thumbnail_active }};
+  }
+
+  {# Background #}
+  {{ className }} .lg-backdrop {
+    {{ _self.backgroundColor(design.background) }}
+  }
+{% endmacro %}
+
+{% macro lightboxVideoAttrs(url, mime) %}
+  data-lg-size="1280-720" data-video='{"source": [{"src":"{{ url }}", "type":"{{ mime }}"}], "attributes": {"preload": false, "controls": true}}'
+{% endmacro %}
+
+{% macro lightboxImageAttrs(img, size = 'full') %}
+  {% set lImg = img.sizes[size]|default(img.sizes.full) %} {# Defaults to full image #}
+  data-lg-size="{{ lImg.width }}-{{ lImg.height }}"
+{% endmacro %}
+
+{# TODO: Refactor this once the controls are simplified #}
+{% macro lightboxAttrs(item, size = 'full') %}
+  {% if item.type == 'image' %}
+    {% if item.image.type == 'video' %}
+      {{ _self.lightboxVideoAttrs(item.image.url, item.video.mime) }}
+    {% else %}
+      {{ _self.lightboxImageAttrs(item.image) }}
+    {% endif %}
+  {% elseif item.video.type == 'video' %}
+    {{ _self.lightboxVideoAttrs(item.video.url, 'video/mp4') }}
+  {% endif %}
+{% endmacro %}

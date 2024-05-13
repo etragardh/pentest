@@ -1,0 +1,25 @@
+{% set popupPostId %}%%POSTID%%{% endset %}
+<div
+    class="breakdance-popup
+    {% if content.popup.advanced.popup_css_class %}{{ content.popup.advanced.popup_css_class }}{% endif %}"
+    data-breakdance-popup-id="%%POSTID%%"
+    {% if content.popup.advanced.popup_html_id %} id="{{ content.popup.advanced.popup_html_id }}" {% endif %}
+    {% if freeModeOnFrontend() and isPopupUsingProOnlyTriggers(popupPostId) %} data-breakdance-popup-using-pro-triggers="true" {% endif %}
+>
+  <div class='breakdance-popup-content'>
+    %%CHILDREN%%
+  </div>
+  {% if not content.popup.disable_close_button %}
+  	<div class="breakdance-popup-close-button{% if design.close_button.show_after %} hidden{% endif %} breakdance-popup-position-{{ design.close_button.position|default('top-right') }}" data-breakdance-popup-reference="%%POSTID%%" data-breakdance-popup-action="close">
+      <div class="breakdance-popup-close-icon">
+        {% if design.close_button.custom_icon %}
+          {{ design.close_button.custom_icon.svgCode }}
+        {% else %}
+          <svg viewBox="0 0 24 24">
+            <path d="M20 6.91L17.09 4L12 9.09L6.91 4L4 6.91L9.09 12L4 17.09L6.91 20L12 14.91L17.09 20L20 17.09L14.91 12L20 6.91Z" />
+          </svg>
+        {% endif %}
+      </div>
+    </div>
+  {% endif %}
+</div>

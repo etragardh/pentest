@@ -1,0 +1,73 @@
+/* Layout / Stack Vertically At */
+{% set stackAt = design.layout.stack_vertically_at|default('breakpoint_tablet_landscape') %}
+{% if breakpoint == stackAt or design.layout.single_column %}
+  %%SELECTOR%% {
+    --bde-woo-responsive__stack: column;
+    --bde-woo-responsive__width: 100%;
+    --bde-woo-responsive__max-width: 100%;
+  }
+{% endif %}
+
+/* Spacing */
+%%SELECTOR%% {
+{{ macros.spacing_margin_y(design.spacing.container) }}
+  --bde-woo-base-extra-large-gaps: {{ design.spacing.gap.style }};
+}
+
+%%SELECTOR%% .woocommerce-billing-fields h3,
+%%SELECTOR%% .woocommerce-shipping-fields h3,
+%%SELECTOR%% #order_review_heading {
+  margin-bottom: {{ design.spacing.below_headings.style }};
+}
+
+/* Advanced */
+{{ macros.wooGlobalStyler(design.advanced.override_global_styles, '%%SELECTOR%%', breakpoint, globalSettings) }}
+
+{% if design.advanced.force_full_width_form_fields %}
+%%SELECTOR%% .form-row {
+  width: 100% !important;
+}
+{% endif %}
+
+/* Typography */
+/* Headings */
+%%SELECTOR%%.breakdance-woocommerce .woocommerce-billing-fields h3,
+%%SELECTOR%%.breakdance-woocommerce .woocommerce-checkout h3#order_review_heading,
+%%SELECTOR%%.breakdance-woocommerce #ship-to-different-address .woocommerce-form__label-for-checkbox span {
+  {{ macros.typography(design.typography.headings, globalSettings) }}
+}
+/* Your Order / Table Heading */
+%%SELECTOR%%.breakdance-woocommerce table.woocommerce-checkout-review-order-table thead {
+  {{ macros.typography(design.typography.your_order.table_heading, globalSettings) }}
+}
+/* Your Order / Labels */
+%%SELECTOR%%.breakdance-woocommerce table td.product-name,
+%%SELECTOR%%.breakdance-woocommerce dl.variation,
+%%SELECTOR%%.breakdance-woocommerce table tfoot tr:not(:last-child) th {
+{{ macros.typography(design.typography.your_order.labels, globalSettings) }}
+}
+/* Your Order / Prices */
+%%SELECTOR%%.breakdance-woocommerce tbody .woocommerce-Price-amount bdi,
+%%SELECTOR%%.breakdance-woocommerce tfoot tr:not(:last-child) .woocommerce-Price-amount bdi {
+  {{ macros.typography(design.typography.your_order.prices, globalSettings) }}
+}
+/* Your Order / Total Label */
+%%SELECTOR%%.breakdance-woocommerce table tfoot tr:last-child th {
+  {{ macros.typography(design.typography.your_order.total_label, globalSettings) }}
+}
+/* Your Order / Total Value */
+%%SELECTOR%%.breakdance-woocommerce tfoot tr:last-child .woocommerce-Price-amount bdi {
+  {{ macros.typography(design.typography.your_order.total_value, globalSettings) }}
+}
+/* Payment */
+%%SELECTOR%%.breakdance-woocommerce .woocommerce-privacy-policy-text p:not([class]) {
+  {{ macros.typography(design.typography.payment, globalSettings) }}
+}
+
+{{ macros.wooCheckoutCouponDesign(design.coupon, '%%SELECTOR%%', breakpoint, globalSettings) }}
+{{ macros.wooCheckoutBillingDesign(design.billing_details, '%%SELECTOR%%', breakpoint, globalSettings) }}
+{{ macros.wooCheckoutShippingDesign(design.shipping_address, '%%SELECTOR%%', breakpoint, globalSettings) }}
+{{ macros.wooCheckoutAdditionalDesign(design.additional_info, '%%SELECTOR%%', breakpoint, globalSettings) }}
+{{ macros.wooCheckoutOrderReviewDesign(design.your_order, '%%SELECTOR%%', breakpoint, globalSettings) }}
+{{ macros.wooCheckoutTotalsDesign(design.totals, '%%SELECTOR%%', breakpoint, globalSettings) }}
+{{ macros.wooCheckoutPaymentDesign(design.payment, '%%SELECTOR%%', breakpoint, globalSettings) }}

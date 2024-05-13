@@ -1,0 +1,9 @@
+{% if design.borders.top or design.sticky.style.borders.top %}
+<div class="bde-header-builder__header-builder-border-top"></div>
+{% endif %}
+
+<div class="bde-header-builder__container">%%CHILDREN%%</div>
+
+{% if design.borders.bottom or design.sticky.style.borders.bottom %}
+<div class="bde-header-builder__header-builder-border-bottom"></div>
+{% endif %}

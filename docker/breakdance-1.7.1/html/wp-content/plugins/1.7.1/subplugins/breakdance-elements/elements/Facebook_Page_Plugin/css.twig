@@ -1,0 +1,9 @@
+%%SELECTOR%% {
+  {% if design.size.width %}
+  width: {{ design.size.width }}px;
+  {% endif %}
+  {% if design.size.height %}
+  max-height: {{ design.size.height }}px;
+  {% endif %}
+  {{ macros.spacing_margin_y(design.spacing) }}   
+}

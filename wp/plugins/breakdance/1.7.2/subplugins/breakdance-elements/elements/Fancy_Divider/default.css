@@ -1,0 +1,100 @@
+.bde-fancy-divider {
+	max-width: 100%;
+    width: 100%;
+    display: flex;
+  --bde-fancy-divider-border-style: dotted;
+  --bde-fancy-divider-border-size: 2px;
+  --bde-fancy-divider-border-color: var(--grey-600);
+  --bde-fancy-divider-pattern-height: 12px;
+  --bde-fancy-divider-pattern-size: 40px;
+  --bde-fancy-divider-pattern-url: 'url()';
+}
+
+.bde-fancy-divider__wrapper {
+   display: flex;
+   width: 100%;
+}
+
+.bde-fancy-divider__separator {
+  width: 100%;
+  border-top: var(--bde-fancy-divider-border-size) var(--bde-fancy-divider-border-style) var(--bde-fancy-divider-border-color);
+}
+
+.bde-fancy-divider__separator.has-content {
+  border-top: 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.bde-fancy-divider__separator.has-content::before,
+.bde-fancy-divider__separator.has-content::after
+{
+  content: "";
+  width: 100%;
+  display: block;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  border-top: var(--bde-fancy-divider-border-size) var(--bde-fancy-divider-border-style) var(--bde-fancy-divider-border-color);
+}
+
+.bde-fancy-divider__separator.has-content-flex-end::after,
+.bde-fancy-divider__separator.has-content-flex-start::before {
+  display: none;
+}
+
+.bde-fancy-divider__content {
+  margin-right: 16px;
+  margin-left: 16px;
+  flex-shrink: 0;
+}
+
+.bde-fancy-divider__separator.has-content-flex-start .bde-fancy-divider__content {
+  margin-left: 0 !important;
+}
+
+.bde-fancy-divider__separator.has-content-flex-end .bde-fancy-divider__content {
+  margin-right: 0 !important;
+}
+
+.bde-fancy-divider__content--icon > svg {
+    font-size: inherit;
+    width: 1em;
+    height: 1em;
+    stroke-width: 0;
+    stroke: currentColor;
+    fill: currentColor;
+}
+
+.bde-fancy-divider__content--icon {
+    display: flex;
+    font-size: 32px;
+}
+
+.bde-fancy-divider__content--image {
+  width: 200px;
+}
+
+.bde-fancy-divider__separator.has-pattern:not(.has-content),
+.bde-fancy-divider__separator.has-pattern.has-content::before,
+.bde-fancy-divider__separator.has-pattern.has-content::after {
+  min-height: var(--bde-fancy-divider-pattern-height);
+  -webkit-mask-size: var(--bde-fancy-divider-pattern-size) 100%;
+  mask-size: var(--bde-fancy-divider-pattern-size) 100%;
+  -webkit-mask-repeat: repeat;
+  mask-repeat: repeat;
+  background-color: var(--bde-fancy-divider-border-color);
+  -webkit-mask-image: var(--bde-fancy-divider-pattern-url);
+  mask-image: var(--bde-fancy-divider-pattern-url);
+}
+
+
+
+
+
+
+
+
+

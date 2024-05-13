@@ -1,0 +1,77 @@
+{% macro spacing_all(s) %}
+    {{ _self.spacing_margin_all(s) }}
+    {{ _self.spacing_padding_all(s) }}
+{% endmacro %}
+
+{% macro spacing_all_y(s) %}
+    margin-top: {{ s.margin_top.style }};
+    margin-bottom: {{ s.margin_bottom.style }};
+
+    padding-top: {{ s.padding_top.style }};
+    padding-bottom: {{ s.padding_bottom.style }};
+{% endmacro %}
+
+{% macro spacing_all_x(s) %}
+    margin-right: {{ s.margin_right.style }};
+    margin-left: {{ s.margin_left.style }};
+
+    padding-right: {{ s.padding_right.style }};
+    padding-left: {{ s.padding_left.style }};
+{% endmacro %}
+
+{# --- Padding --- #}
+
+{% macro spacing_padding_all(s) %}
+    {% if
+        s.padding.top.style and
+        s.padding.right.style and
+        s.padding.bottom.style and
+        s.padding.left.style
+    %}
+        padding: {{ s.padding.top.style }} {{ s.padding.right.style }} {{ s.padding.bottom.style }} {{ s.padding.left.style }};
+    {% else %}
+        padding-top: {{ s.padding.top.style }};
+        padding-right: {{ s.padding.right.style }};
+        padding-bottom: {{ s.padding.bottom.style }};
+        padding-left: {{ s.padding.left.style }};
+    {% endif %}
+{% endmacro %}
+
+{% macro spacing_padding_y(s) %}
+    padding-top: {{ s.padding_top.style }};
+    padding-bottom: {{ s.padding_bottom.style }};
+{% endmacro %}
+
+{% macro spacing_padding_x(s) %}
+    padding-right: {{ s.padding_right.style }};
+    padding-left: {{ s.padding_left.style }};
+{% endmacro %}
+
+
+{# --- Margin --- #}
+
+{% macro spacing_margin_all(s) %}
+    {% if
+        s.margin.top.style and
+        s.margin.right.style and
+        s.margin.bottom.style and
+        s.margin.left.style
+    %}
+        margin: {{ s.margin.top.style }} {{ s.margin.right.style }} {{ s.margin.bottom.style }} {{ s.margin.left.style }};
+    {% else %}
+        margin-top: {{ s.margin.top.style }};
+        margin-right: {{ s.margin.right.style }};
+        margin-bottom: {{ s.margin.bottom.style }};
+        margin-left: {{ s.margin.left.style }};
+    {% endif %}
+{% endmacro %}
+
+{% macro spacing_margin_y(s) %}
+    margin-top: {{ s.margin_top.style }};
+    margin-bottom: {{ s.margin_bottom.style }};
+{% endmacro %}
+
+{% macro spacing_margin_x(s) %}
+    margin-right: {{ s.margin_right.style }};
+    margin-left: {{ s.margin_left.style }};
+{% endmacro %}

@@ -1,0 +1,16 @@
+/* Container */
+%%SELECTOR%% {
+  width: {{ design.container.width.style }};
+  {{ macros.spacing_margin_y(design.spacing) }}
+}
+
+/* Form */
+%%SELECTOR%% form {
+  {{ macros.background(design.form.background) }}
+  {{ macros.borders(design.form.borders) }}
+  {{ macros.spacing_padding_all(design.form.padding) }}
+}
+
+/* Advanced / Global Styles */
+{{ macros.wooGlobalStyler(design.advanced.override_global_styles, '%%SELECTOR%%', breakpoint, globalSettings) }}
+

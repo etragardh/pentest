@@ -1,0 +1,8 @@
+{% for item in content.content.days %}
+  <div class="bde-business-hours__row {% if item.accent_style %}bde-business-hours__row-accent{% endif %}">
+    <div class="bde-business-hours__day">{{ item.day }}</div>
+    <div class="bde-business-hours__time">
+      {{ item.time }}
+    </div>
+  </div>
+{% endfor %}

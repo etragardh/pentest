@@ -1,0 +1,25 @@
+.breakdance .bde-image-with-zoom {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 640px;
+  max-width: 100%;
+  height: auto;
+  background-position: 50% 50%;
+  background-size: 150%;
+  background-repeat: no-repeat;
+  position: relative;
+  overflow: hidden;
+  cursor: zoom-in;
+}
+
+.breakdance .bde-image-with-zoom img {
+  width: 100%;
+  height: auto;
+  transition: opacity ease 100ms;
+}
+
+.breakdance .bde-image-with-zoom:hover img {
+  opacity: 0;
+}

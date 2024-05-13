@@ -1,0 +1,272 @@
+{% macro wooCartCrossSellDesign(selector, design, breakpoint, globalSettings) %}
+  {{ selector }} .cross-sells {
+    {% if breakpoint == design.hide_at_breakpoint %}
+      display: none;
+    {% endif %}
+  }
+
+  {{ selector }} .cross-sells > h2 {
+    {{ _self.typography(design.title, globalSettings) }}
+  }
+
+  {{ selector }} .cross-sells {
+    gap: {{ design.space_after_title.style }};
+  }
+
+  {{ _self.wooPresetProductWrapperDesign(selector, design.product_wrapper) }} 
+  {{ _self.wooPresetProductsListElementsDesign(selector, design.elements, globalSettings) }}
+  {{ _self.wooPresetProductsListLayoutDesign(selector, design.layout) }}
+{% endmacro %}
+
+{% macro wooCartTableDesign(selector, design, breakpoint, globalSettings) %}
+  {{ selector }} {
+    --bde-woo-cart-thumbnail-size: {{ design.thumbnails.size.style }};
+    --bde-woo-cart-rows-spacing: {{ design.rows.spacing.style }};
+    
+    width: {{ design.wrapper.width.style }};
+    {{ _self.backgroundColor(design.wrapper.background) }}
+    {{ _self.borders(design.wrapper.borders) }}
+    {{ _self.spacing_padding_all(design.wrapper.padding) }}
+  }
+  
+  /* Contents / Wrapper */
+  {{ selector }} table.woocommerce-cart-form__contents thead {
+    --bde-woo-tables__border-color: {{ design.wrapper.border_color }};
+    --bde-woo-tables__border-width: {{ design.wrapper.border_width.style }};
+    border-top-left-radius: {{ design.wrapper.border_radius.style }};
+    border-top-right-radius: {{ design.wrapper.border_radius.style }};
+  }
+
+  {{ selector }} .woocommerce-cart-form__contents tbody {
+    --bde-woo-tables__border-color: {{ design.wrapper.border_color }};
+    --bde-woo-tables__border-width: {{ design.wrapper.border_width.style }};
+    border-bottom-left-radius: {{ design.wrapper.border_radius.style }};
+    border-bottom-right-radius: {{ design.wrapper.border_radius.style }};
+  }
+
+  {{ selector }} table {
+    border-radius: {{ design.wrapper.border_radius.style }};
+  }
+
+  /* Contents / Rows / Separator */
+  {% if design.rows.separator %}
+    {{ selector }} .woocommerce-cart-form__contents tr {
+      border-color: {{ design.rows.separator_color }};
+      border-width: {{ design.rows.separator_height.style }};
+    }
+  {% else %}
+    {{ selector }} .woocommerce-cart-form__contents tr {
+      border: none;
+    }
+  {% endif %}
+
+  /* Contents / Remove Icon / Size */
+  {% if design.remove_icon.size.style %}
+    {{ selector }} .woocommerce-cart-form__contents .product-remove a {
+      font-size: {{ design.remove_icon.size.style }};
+      line-height: 0.5;
+    }
+
+    {{ selector }} .woocommerce-cart-form__contents td.product-remove {
+      vertical-align: middle;
+    }
+  {% endif %}
+
+  /* Contents / Remove Icon / Color */
+  {{ selector }} .woocommerce-cart-form__contents .product-remove a {
+    color: {{ design.remove_icon.color }};
+    {% if design.remove_icon.color %}
+      opacity: 1;
+    {% endif %}
+  }
+
+  {{ selector }} .woocommerce-cart-form__contents .product-remove a:hover {
+    color: {{ design.remove_icon.color_hover }};
+    {% if design.remove_icon.color_hover %}
+      opacity: 1;
+    {% endif %}
+  }
+
+  /* Contents / Thumbnails / Size */
+  {{ selector }} .woocommerce-cart-form__contents .attachment-woocommerce_thumbnail {
+    width: {{ design.thumbnails.size.style }};
+    height: {{ design.thumbnails.size.style }};
+    opacity: {{ design.thumbnails.opacity }};
+    {{ _self.borders(design.thumbnails.borders) }}
+  }
+
+  {{ selector }} .woocommerce-cart-form__contents .attachment-woocommerce_thumbnail:hover {
+    opacity: {{ design.thumbnails.opacity_hover }};
+  }
+  
+  {% if design.hide_coupon_actions_row %}
+    {{ selector }} td.actions {
+      display: none;
+    }
+  {% endif %}
+  
+  /* Typography */
+  /* Contents / Table Headings */
+  {{ selector }} table.woocommerce-cart-form__contents thead tr th {
+    {{ _self.typography(design.typography.table_heading, globalSettings) }}
+  }
+
+  /* Contents / Product Title */
+  {{ selector }} td.product-name a {
+    {{ _self.typography(design.typography.product_title, globalSettings) }}
+  }
+
+  /* Contents / Product Title Hover */
+  {{ selector }} td.product-name a:hover {
+    {{ _self.typographyWithHoverableEverything(design.contents.typography.product_title) }}
+  }
+
+  /* Contents / Prices */
+  {{ selector }} table.woocommerce-cart-form__contents .woocommerce-Price-amount bdi {
+    {{ _self.typography(design.typography.prices, globalSettings) }}
+  }
+
+  /* Contents / Attributes */
+  {{ selector }} dl.variation dt {
+    {{ _self.typography(design.typography.attributes, globalSettings) }}
+  }
+
+  /* Contents / Attribute Value */
+  {{ selector }} dl.variation dd {
+    {{ _self.typography(design.typography.attribute_value, globalSettings) }}
+  }
+
+  {% set selectorObject = { 'value' : selector } %}
+  
+  {{ _self.wooGlobalStyler(design.override_global_styles, selectorObject.value ~ ' .woocommerce-cart-form', breakpoint, globalSettings) }}
+  {{ _self.wooGlobalStyler(design.override_global_styles, selectorObject.value ~ ' .cart-collaterals', breakpoint, globalSettings) }}
+{% endmacro %}
+
+{% macro wooCartTotalsDesign(selector, design, breakpoint, isBaseBreakpoint, globalSettings) %}
+  /* Totals / Wrapper */
+  {{ selector }} .cart-collaterals {
+    width: {{ design.wrapper.max_width.style }};
+  }
+
+  {{ selector }} .cart_totals {
+    /* Totals / Wrapper / Background */
+    {{ _self.backgroundColor(design.wrapper.background) }}
+    /* Totals / Wrapper / Borders */
+    {{ _self.borders(design.wrapper.borders) }}
+    /* Totals / Wrapper / Padding */
+    {{ _self.spacing_padding_all(design.wrapper.padding) }}
+  }
+
+  {{ selector }} .cart-collaterals h2 {
+    margin-bottom: {{ design.space_after_title.style }};
+  }
+
+  /* Button */
+  {{ selector }} .cart-collaterals a.checkout-button {
+    margin-top: {{ design.button.space_above.style }};
+  }
+
+  {% if design.button.alignment == 'left' %}
+    {{ selector }} .wc-proceed-to-checkout {
+      justify-content: flex-start;
+      display: flex;
+      width: 100%;
+    }
+    {{ selector }} .wc-proceed-to-checkout a {
+      width: auto;
+    }
+  {% elseif design.button.alignment == 'center' %}
+    {{ selector }} .wc-proceed-to-checkout {
+      justify-content: center;
+      display: flex;
+    }
+    {{ selector }} .wc-proceed-to-checkout a {
+      width: auto;
+    }
+  {% elseif design.button.alignment == 'right' %}
+    {{ selector }} .wc-proceed-to-checkout {
+      justify-content: flex-end;
+      display: flex;
+    }
+    {{ selector }} .wc-proceed-to-checkout a {
+      width: auto;
+    }
+  {% endif %}
+
+  /* Totals / Rows / Separator */
+  {% if isBaseBreakpoint %}
+    {% if design.rows.separator %}
+      /* Totals / Rows / Separator Color */
+      {{ selector }} .cart-collaterals table tr {
+        border-color: {{ design.rows.separator_color }};
+      }
+      /* Totals / Rows / Separator Height */
+      {{ selector }} .cart-collaterals table tr {
+        border-width: {{ design.rows.separator_height.style }};
+      }
+    {% else %}
+      {{ selector }} .cart-collaterals table tr {
+        border: none;
+      }
+    {% endif %}
+  {% endif %}
+
+  /* Totals / Rows / Spacing */
+  {{ selector }} .cart-collaterals table th {
+    padding-top: {{ design.rows.spacing.style }};
+    padding-bottom: {{ design.rows.spacing.style }};
+  }
+  {{ selector }} .cart-collaterals table td {
+    padding-top: {{ design.rows.spacing.style }};
+    padding-bottom: {{ design.rows.spacing.style }};
+  }
+
+  /* Totals / Gaps */
+  {{ selector }} .cart_totals {
+    gap: {{ design.gaps.style }};
+  }
+
+  /* Totals / Heading */
+  {{ selector }} .cart_totals h2 {
+    {{ _self.typography(design.typography.heading, globalSettings) }}
+  }
+
+  /* Totals / Labels */
+  {{ selector }} .cart_totals .shop_table tr:not(:last-child) th {
+    {{ _self.typography(design.typography.labels, globalSettings) }}
+  }
+
+  /* Totals / Values */
+  {{ selector }} .woocommerce-shipping-destination {
+    {{ _self.typography(design.typography.values, globalSettings) }}
+  }
+
+  /* Totals / Price Amounts */
+  {{ selector }} .cart-collaterals table tr:not(.order-total) .woocommerce-Price-amount bdi {
+    {{ _self.typography(design.typography.price_amounts, globalSettings) }}
+  }
+
+  /* Totals / Total Label */
+  {{ selector }} .cart-collaterals table tr:last-child th {
+    {{ _self.typography(design.typography.total_label, globalSettings) }}
+  }
+
+  /* Totals / Total Amount */
+  {{ selector }} .cart-collaterals table tr.order-total .woocommerce-Price-amount bdi {
+    {{ _self.typography(design.typography.total_amount, globalSettings) }}
+  }
+
+  /* Totals / Links */
+  {{ selector }} table a.shipping-calculator-button {
+    {{ _self.typography(design.typography.links, globalSettings) }}
+  }
+
+  /* Totals / Links Hover */
+  {{ selector }} table a.shipping-calculator-button:hover {
+    {{ _self.typographyWithHoverableEverything(design.typography.links) }}
+  }
+
+  {{ _self.atomV1ButtonButton(design.button.styles, selector ~ ' .wc-proceed-to-checkout a', 'primary', breakpoint, globalSettings) }}
+  {{ _self.wooGlobalStyler(design.override_global_styles, selector ~ ' .cart-collaterals', breakpoint, globalSettings) }}
+  {{ _self.wooGlobalStyler(design.override_global_styles, selector ~ ' .woocommerce-cart-form', breakpoint, globalSettings) }}
+{% endmacro %}

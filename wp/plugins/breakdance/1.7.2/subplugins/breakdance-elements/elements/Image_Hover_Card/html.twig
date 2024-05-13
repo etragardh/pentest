@@ -1,0 +1,20 @@
+{% if content.link.link %}
+   {{ macros.linkStart(content.link.link) }}
+{% endif %}
+<figure class="ee-imagehover c4-izmir {{ design.effects.border_effect }} {{ design.effects.image_effect }}">
+    {{ macros.image(content.image.image, content.image.size, content.image.alt, content.image.lazy_load) }}
+  <figcaption {% if content.captions.position %}class="{{ content.captions.position }}"{% endif %}>
+    {% for item in content.captions.captions %}
+      {% if item.effect %}
+      <div class="{{ item.effect }} {{ item.delay }}">
+      {% else %} 
+      <div {% if item.delay %}class="{{ item.delay }}"{% endif %}>
+      {% endif %}
+        <{{ content.captions.tag | default('h4') }}>{{ item.text }}</{{ content.captions.tag | default('h4') }}>
+      </div>
+    {% endfor %}
+  </figcaption>
+</figure>
+{% if content.link.link %}
+  {{ macros.linkEnd() }}
+{% endif %}

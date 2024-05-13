@@ -1,0 +1,12 @@
+{% set content = content.content %}
+
+{% if content.tabs %}
+  {{ macros.atomV1TabsHtml('%%UNIQUESLUG%%', content.tabs, design.tabs) }}
+  <div class="bde-tabs-content-container">
+    {% for item in content.tabs %}
+    <div tabindex="0" role="tabpanel" class="bde-tabs__panel js-panel" id="tab-panel-%%UNIQUESLUG%%-{{ loop.index }}" hidden="" aria-labelledby="tab-%%UNIQUESLUG%%-{{ loop.index }}">
+      <div class="bde-tabs__panel-content breakdance-rich-text-styles">{{ item.content }}</div>
+    </div>
+    {% endfor %}
+  </div>
+{% endif %}

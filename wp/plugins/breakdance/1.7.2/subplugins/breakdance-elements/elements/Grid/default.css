@@ -1,0 +1,13 @@
+.breakdance .bde-grid {
+  --bde-grid-gap: var(--bde-column-gap);
+  display: grid;
+  grid-template-columns: repeat(var(--bde-grid-items-per-row, 4), minmax(0, 1fr));
+  gap: var(--bde-grid-gap);
+  text-align: left;
+  max-width: 100%;
+  width: 100%;
+  position: relative;
+  background-size: cover;
+  align-items: var(--bde-grid-align-items, stretch);
+  justify-items: var(--bde-grid-justify-items, stretch);
+}

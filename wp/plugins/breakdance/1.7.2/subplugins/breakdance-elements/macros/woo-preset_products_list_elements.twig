@@ -1,0 +1,112 @@
+{% macro wooPresetProductsListElementsDesign(selector, elements, globalSettings) %}
+
+    {{ selector }} ul.products li.product .bde-woo-product-image {
+        order: {{ elements.image.order }};
+        margin-bottom: {{ elements.image.space_after.style }};
+    }
+
+    {{ selector }} ul.products li.product .bde-woo-product-image > img {
+        {{ _self.borders(elements.image.borders) }}
+    }
+
+    {{ selector }} ul.products li.product .woocommerce-loop-product__title {
+        order: {{ elements.title.order }};
+        margin-bottom: {{ elements.title.space_after.style }};
+        {{ _self.typography(elements.title.typography, globalSettings) }}
+    }
+
+    {{ selector }} ul.products li.product .price {
+        order: {{ elements.price.order }};
+        margin-bottom: {{ elements.price.space_after.style }};
+    }
+
+    /* Old Price */
+    {{ selector }} ul.products li.product .price del,
+    {{ selector }} ul.products li.product .price del .woocommerce-Price-amount bdi,
+    {{ selector }} ul.products li.product .price del .woocommerce-Price-amount bdi * {
+      {{ _self.typography(elements.price.old_price_typography, globalSettings) }}
+    }
+
+    /* Current Price */
+    {{ selector }} ul.products li.product .price,
+    {{ selector }} ul.products li.product .price > .woocommerce-Price-amount,
+    {{ selector }} ul.products li.product .price > .woocommerce-Price-amount bdi,
+    {{ selector }} ul.products li.product .price ins .woocommerce-Price-amount bdi,
+    {{ selector }} ul.products li.product .price ins .woocommerce-Price-amount bdi * {
+      {{ _self.typography(elements.price.current_price_typography, globalSettings) }}
+    }
+
+
+    {{ selector }} ul.products li.product .bde-woo-ratings {
+        order: {{ elements.rating.order }};
+        margin-bottom: {{ elements.rating.space_after.style }};
+        {{ _self.typography(elements.rating.typography, globalSettings) }}
+    }
+
+    {{ selector }} ul.products li.product .bde-woo-ratings > .bde-woo-ratings-count {
+        {{ _self.typography(elements.rating.count_typography, globalSettings) }}
+        {% if elements.rating.review_count %}
+            display: block;
+        {% endif %}
+    }
+
+    {{ selector }} ul.products li.product .woocommerce-product-details__short-description {
+        order: {{ elements.excerpt.order }};
+        margin-bottom: {{ elements.excerpt.space_after.style }};
+    }
+
+    {{ selector }} ul.products li.product .woocommerce-product-details__short-description,
+    {{ selector }} ul.products li.product .woocommerce-product-details__short-description * {
+        {{ _self.typography(elements.excerpt.typography, globalSettings) }}
+    }
+
+    {{ selector }} ul.products li.product .bde-woo-categories-list {
+        order: {{ elements.categories.order }};
+        margin-bottom: {{ elements.categories.space_after.style }};
+        {{ _self.typography(elements.categories.typography, globalSettings) }}
+    }
+
+    {{ selector }} ul.products li.product .bde-woo-product-footer {
+        gap: {{ elements.quantity_input.space_after.style }};
+    }
+
+    {{ selector }} ul.products li.product .button.product_type_simple,
+    {{ selector }} ul.products li.product .button.product_type_variable,
+    {{ selector }} ul.products li.product .button.product_type_external,
+    {{ selector }} ul.products li.product .button.product_type_grouped {
+        order: {{ elements.button.order }};
+        margin-bottom: {{ elements.button.space_after.style }};
+    }
+
+    /* Sale Badge */
+    {{ selector }} .onsale {
+      {{ _self.backgroundColor(elements.sale_badge.background) }}
+      {{ _self.typography(elements.sale_badge.typography, globalSettings) }}
+      {{ _self.borders(elements.sale_badge.borders) }}
+      {{ _self.spacing_padding_all(elements.sale_badge.padding) }}
+      --bde-woo-sale-badge__nudge-x: {{ elements.sale_badge.nudge.x.style }};
+      --bde-woo-sale-badge__nudge-y: {{ elements.sale_badge.nudge.y.style }};
+
+      {% if elements.sale_badge.position == 'top-left' %}
+        top: 12px;
+        right: auto;
+        left: 12px;
+        bottom: auto;
+      {% elseif elements.sale_badge.position == 'top-right' %}
+        top: 12px;
+        right: 12px;
+        left: auto;
+        bottom: auto;
+      {% endif %}
+    }
+
+    {% if elements.custom_areas %}
+      {% for custom_area in elements.custom_areas.areas %}
+        {{ selector }} ul.products li.product .custom-area.custom-area-{{ loop.index }} {
+          order: {{ custom_area.order }};
+          margin-top: {{ custom_area.space_before.style }};
+          margin-bottom: {{ custom_area.space_after.style }};
+        }
+      {% endfor %}
+    {% endif %}
+{% endmacro %}

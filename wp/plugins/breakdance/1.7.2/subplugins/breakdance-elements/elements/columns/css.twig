@@ -1,0 +1,80 @@
+%%SELECTOR%% {
+--columnCount: {{ childElementCount }};
+{{ macros.spacing_margin_y(design.spacing.container) }}
+  width: {{ design.size.width.style }};
+  {% if design.size.height == 'full' %}
+    height: 100%;
+  {% elseif design.size.height == "custom" %}
+    min-height: {{ design.size.min_height.style }};
+  {% endif %}
+
+  --bde-column-gap: {{ design.spacing.column_gap.style }};
+
+}
+
+{% if design.spacing.column_padding.style is defined %}
+  %%SELECTOR%% > div {
+      padding: {{ design.spacing.column_padding.style }};
+  }
+{% endif %}
+
+{% if breakpoint == design.layout.slug_cant_start_with_number_50_width %}
+  %%SELECTOR%%.bde-columns {
+      --columnCount: 2;
+      flex-direction: row;
+      flex-wrap: wrap;
+  }
+
+  %%SELECTOR%%.bde-columns > .bde-column {
+      --column-width: 50%;
+  }
+{% endif %}
+
+{% if breakpoint == design.layout.stack_vertically|default(firstResponsiveBreakpointId) %}
+%%SELECTOR%%.bde-columns {
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+
+%%SELECTOR%%.bde-columns > .bde-column {
+  width: 100%;
+}
+{% endif %}
+
+
+{# hacky solution to reverse column order.
+supports up to 10 columns (lol)
+we could implement it in a reasonable if we had
+breakpoint =< design.layout.reverse_order. #}
+{% if breakpoint == design.layout.reverse_order %}
+%%SELECTOR%% > div:nth-child(1) {
+    order: 10;
+}
+%%SELECTOR%% > div:nth-child(2) {
+    order: 9;
+}
+%%SELECTOR%% > div:nth-child(3) {
+    order: 8;
+}
+%%SELECTOR%% > div:nth-child(4) {
+    order: 7;
+}
+%%SELECTOR%% > div:nth-child(5) {
+    order: 6;
+}
+%%SELECTOR%% > div:nth-child(6) {
+    order: 5;
+}
+%%SELECTOR%% > div:nth-child(7) {
+    order: 4;
+}
+%%SELECTOR%% > div:nth-child(8) {
+    order: 3;
+}
+%%SELECTOR%% > div:nth-child(9) {
+    order: 2;
+}
+%%SELECTOR%% > div:nth-child(10) {
+    order: 1;
+}
+{% endif %}

@@ -1,0 +1,20 @@
+@function fluidWidthOnMobile($width) {
+  @return var(--bde-woo-responsive__width, $width);
+}
+
+@function fluidMaxWidthOnMobile($width) {
+  @return var(--bde-woo-responsive__max-width, $width);
+}
+
+@function column($width: 100%, $gap: "extra-large") {
+  $val: calc(#{$width} - var(--bde-woo-base-#{$gap}-gaps) / 2);
+  @return fluidWidthOnMobile($val);
+}
+
+@mixin clearfix() {
+  &::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+}

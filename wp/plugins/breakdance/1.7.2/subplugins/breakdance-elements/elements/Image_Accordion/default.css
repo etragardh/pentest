@@ -1,0 +1,109 @@
+.breakdance .bde-image-accordion {
+  max-width: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  height: 500px;
+  --eeiaTransitionDuration: var(--bde-transition-duration);
+}
+
+.breakdance .bde-image-accordion .ee-image-accordion-item {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  flex-basis: 100%;
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  padding: 20px;
+  transition-duration: var(--eeiaTransitionDuration);
+  transition-timing-function: ease;
+  transition-property: all;
+  z-index: 1;
+}
+
+.breakdance .bde-image-accordion .ee-image-accordion-item:first-child {
+  transform-origin: left center;
+}
+
+.breakdance .bde-image-accordion .ee-image-accordion-item:last-child {
+  transform-origin: right center;
+}
+
+.breakdance .bde-image-accordion .ee-image-accordion-item:hover {
+  flex-basis: 135%;
+  z-index: 5;
+}
+
+.breakdance .bde-image-accordion .ee-image-accordion-content-item {
+  color: white;
+  z-index: 1;
+}
+
+.breakdance .bde-image-accordion
+  .ee-image-accordion-icon {
+  font-size: 1.25em;
+  margin-bottom: 8px;
+}
+
+.breakdance .bde-image-accordion
+  .ee-image-accordion-title {
+  text-align: center;
+  font-size: 1.25em;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.breakdance .bde-image-accordion
+  .ee-image-accordion-desc {
+  text-align: center;
+  font-size: 0.875em;
+}
+
+.breakdance .bde-image-accordion
+  .ee-image-accordion-icon
+  > svg {
+  font-size: inherit;
+  width: 1em;
+  height: 1em;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+
+.breakdance .bde-image-accordion .ee-image-accordion-item img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.breakdance .bde-image-accordion .ee-image-accordion-item::after {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  content: "";
+  position: absolute;
+  opacity: 0.25;
+  transition-duration: var(--eeiaTransitionDuration);
+  transition-timing-function: ease-in-out;
+  transition-property: background, opacity;
+}
+
+.breakdance .bde-image-accordion .ee-image-accordion-item:hover::after {
+  opacity: 0.5;
+}
+
+.breakdance .bde-image-accordion
+  .ee-image-accordion-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+}

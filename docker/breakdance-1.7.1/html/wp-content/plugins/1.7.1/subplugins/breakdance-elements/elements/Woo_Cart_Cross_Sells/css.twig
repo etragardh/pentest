@@ -1,0 +1,6 @@
+%%SELECTOR%% {
+  {{ macros.spacing_margin_y(design.spacing) }}
+}
+
+{{ macros.wooCartCrossSellDesign('%%SELECTOR%%', design.cross_sells, breakpoint, globalSettings) }}
+{{ macros.AtomV1SwiperCss(design.cross_sells.layout.slider, '%%SELECTOR%%', globalSettings, isBaseBreakpoint) }}

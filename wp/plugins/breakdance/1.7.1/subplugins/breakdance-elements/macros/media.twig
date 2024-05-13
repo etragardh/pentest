@@ -1,0 +1,85 @@
+{% macro image(img, chosenSize, alt, lazyLoad, imgClass, dontOutputSrcSetOrSizes) %}
+  {% set defaultSize = 'full' %}
+  {% set allSizes = img.sizes %}
+  {% set size = chosenSize|default(defaultSize) %}
+
+  {% set customAlt = alt|default(img.alt) %}
+
+  {% if alt is same as(false) %}
+    {% set customAlt = false %}
+  {% endif %}
+
+  {% set altAttr = customAlt ? 'alt="' ~ customAlt ~ '"' %}
+
+  {% set extraImageClass = imgClass ? ' ' ~ imgClass %}
+
+  {# Default to 'full' size in case the chosen size doesn't exist. #}
+  {% set full = allSizes[defaultSize] %}
+  {% set selected = allSizes[size]|default(full) ?: getImagePlaceholder() %}
+
+  {% if img.type == 'external_image' %}
+    <img
+      class="breakdance-image-object{{ extraImageClass  }}"
+      src="{{ img.url }}"
+      {{ altAttr }}
+      {{ lazyLoad ? 'loading="lazy"' }}
+    />
+  {% else %}
+    <img
+      class="breakdance-image-object{{ extraImageClass  }}"
+      src="{{ selected.url }}"
+      width="{{ selected.width }}"
+      height="{{ selected.height }}"
+      {{ altAttr }}
+      {{ lazyLoad ? 'loading="lazy"' }}
+      {% for attribute, value in img.attributes %}
+        {% if value %}
+          {% if dontOutputSrcSetOrSizes and attribute == 'srcset' or attribute == 'sizes' %}
+          {% else %}
+            {{ attribute }}="{{ value }}"
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+    >
+  {% endif %}
+{% endmacro %}
+
+{% macro video(video, lazyLoad) %}
+  {% if video.type == 'video' %}
+    <video src="{{ video.url }}" playsinline {{ lazyLoad ? 'loading="lazy"' }}></video>
+  {% elseif video.type == 'oembed' %}
+    <iframe
+      src="{{ video.embedUrl }}"
+      title="{{ video.title }}"
+      {{ lazyLoad ? 'loading="lazy"' }}
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
+    ></iframe>
+  {% endif %}
+{% endmacro %}
+
+{% macro getVideoThumbnail(video) %}
+  {% if video.type == "oembed" %}
+    {# Some oEmbeds aka iframes have thumbnails by default. #}
+    {{ _self.image(video.thumbnail) }}
+  {% elseif video.type == "video" %}
+    {#
+      We use the first frame from the video as thumbnail
+      because WordPress doesn't generate them for us,
+      or the link could be external.
+    #}
+    {{ _self.video(video) }}
+  {% endif %}
+{% endmacro %}
+
+{#
+  Generates the approriate HTML tag given the media type.
+  Supports: videos, oEmbeds (iframes), and images
+#}
+{% macro getMedia(media, size, lazyLoad, dontOutputSrcSetOrSizes) %}
+  {# TODO: Should we handle documents somehow? (Documents/PDFs, etc) #}
+  {% if media.type == 'video' %}
+    {{ _self.video(media, lazyLoad) }}
+  {% else %}
+    {{ _self.image(media, size, media.alt, lazyLoad, false, dontOutputSrcSetOrSizes) }}
+  {% endif %}
+{% endmacro %}

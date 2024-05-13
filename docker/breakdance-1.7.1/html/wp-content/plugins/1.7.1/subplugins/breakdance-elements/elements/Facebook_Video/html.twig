@@ -1,0 +1,8 @@
+{% set url = content.video.video_url ? content.video.video_url : 'https://www.facebook.com/FacebookDevelopers/videos/10152454700553553/' %}
+{% set fullscreen = content.video.allow_fullscreen ? 'true' : 'false' %}
+{% set autoplay = content.video.autoplay ? 'true' : 'false' %}
+{% set show_captions = content.video.captions ? 'true' : 'false' %}
+{% set show_text = content.video.show_full_post ? 'true' : 'false' %}
+{% set width = design.size.width ? design.size.width.style : 'auto' %}
+   
+<div class="fb-video" data-href="{{ url }}" data-width="{{ width }}" data-allowfullscreen="{{ fullscreen }}" data-autoplay="{{ autoplay }}" data-show-captions="{{ show_captions }}" data-show-text="{{ show_text }}"></div>

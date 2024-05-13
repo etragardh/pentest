@@ -1,0 +1,40 @@
+<div class="breakdance-swiper-wrapper" data-swiper-id="%%ID%%">
+    <div class="swiper">
+      <div class="swiper-wrapper">
+      {% for item in content.content.slides %}
+
+	    {% set overlay = item.background.overlay ? macros.backgroundColor(item.background.overlay) : false %}
+        {% set background = item.background.color ? macros.backgroundColor(item.background.color) : false %}
+        {% set image = item.background.image ? item.background.image : false %}
+
+        <div class="swiper-slide">
+          <div class="bde-basicslider__slide"{% if background %} style="{{ background }}"{% endif %}>
+              <div class="bde-basicslider__content">
+            {% if item.title %}
+              <{{content.content.title_html_tag|default('h3')}} class="bde-basicslider__title">{{item.title}}</{{content.content.title_html_tag|default('h3')}}>
+            {% endif %}
+            {% if item.text %}
+            <div class="bde-basicslider__text">
+              {{ item.text }}
+            </div>
+            {% endif %}
+            {% if item.button.text %}
+                {{ macros.atomV1ButtonHtml(item.button, 'bde-basicslider__button', design.button, 'content.content.slides[' ~ loop.index0 ~ '].button.text') }}
+            {% endif %}
+            </div>
+
+			{% if overlay %}
+			<div class="bde-basicslider__overlay" style="{{ overlay }}"></div>
+			{% endif %}
+			{% if image %}
+          {{ macros.image(image, item.background.size, item.background.alt, item.background.lazy_load, 'bde-basicslider__image') }}
+			{% endif %}
+
+          </div>
+        </div>
+       {% endfor %}
+
+      </div>
+    </div>
+    {{ macros.AtomV1SwiperPaginationAndArrowsHtml(design.slider) }}
+</div>

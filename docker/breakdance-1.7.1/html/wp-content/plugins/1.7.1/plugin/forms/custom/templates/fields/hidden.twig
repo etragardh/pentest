@@ -1,0 +1,9 @@
+<input
+    id="{{ field.advanced.id }}"
+    type="hidden"
+    name="{{ field.name }}"
+    value="{{ field.advanced.value }}"
+    {% if field.advanced.conditional %}
+        {{ macros.conditionalFormFieldAttributes(field.advanced.condition) }}
+    {% endif %}
+>

@@ -1,0 +1,250 @@
+.bde-woopagecheckout,
+.bde-checkout-builder {
+  width: 100%;
+}
+
+.breakdance-woocommerce .woocommerce-columns--addresses.col2-set,
+.breakdance-woocommerce .woocommerce-checkout .col2-set,
+.breakdance-woocommerce ul.woocommerce-order-overview,
+.bde-woopagecheckout .breakdance-woocommerce .woocommerce,
+.woocommerce-page.woocommerce-checkout .breakdance-woocommerce .woocommerce {
+  display: flex;
+  flex-direction: column;
+  gap: var(--bde-woo-base-large-gaps);
+}
+
+.bde-checkout-builder,
+.breakdance-woocommerce {
+  .woocommerce-order,
+  .woocommerce-checkout-review-order,
+  .woocommerce-form-coupon,
+  .woocommerce-customer-details,
+  .woocommerce-order-details,
+  .woocommerce-additional-fields,
+  .form-row.place-order,
+  ul.wc_payment_methods,
+  form[name="checkout"] .col-1,
+  form[name="checkout"] .col-2,
+  .woocommerce-shipping-fields,
+  .woocommerce-shipping-fields__field-wrapper,
+  .woocommerce-billing-fields__field-wrapper,
+  .woocommerce-account-fields,
+  .woocommerce-checkout .create-account {
+    display: flex;
+    flex-direction: column;
+    gap: var(--bde-woo-forms__spacing-between-fields);
+  }
+
+  #order_review_heading,
+  .woocommerce-billing-fields h3 {
+    margin-bottom: var(--bde-woo-forms__spacing-between-fields);
+  }
+
+  /* Form Fields */
+  .woocommerce-shipping-fields__field-wrapper,
+  .woocommerce-billing-fields__field-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    /* Full Width Fields */
+
+    p.form-row {
+      width: 100%;
+    }
+  }
+
+  /* Half Width Fields */
+  .woocommerce-shipping-fields__field-wrapper,
+  .woocommerce-billing-fields__field-wrapper {
+    #shipping_first_name_field,
+    #shipping_last_name_field,
+    #billing_first_name_field,
+    #billing_last_name_field {
+      width: calc(50% - var(--bde-woo-forms__spacing-between-fields) / 2);
+      min-width: 140px;
+      flex-grow: 1;
+    }
+
+    #shipping_state_field,
+    #shipping_country_field,
+    #shipping_postcode_field,
+    #billing_state_field,
+    #billing_country_field,
+    #billing_postcode_field {
+      width: calc(33.33% - var(--bde-woo-forms__spacing-between-fields) * 2 / 3);
+      flex-grow: 1;
+      min-width: 140px;
+    }
+  }
+
+  /* Billing Details Form Columns */
+  .woocommerce-checkout .col2-set .col-1,
+  .woocommerce-checkout .col2-set .col-2 {
+    width: 100%;
+  }
+
+  /* Addresses Two Columns Wrapper */
+  .woocommerce-columns--addresses.col2-set {
+    flex-direction: row;
+    width: 100%;
+  }
+
+  /* Address in a column or not */
+  .woocommerce-customer-details address {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .bde-order-review-column {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .woocommerce-checkout-review-order {
+    flex: 1;
+  }
+
+  /* Billing Form Columns */
+  .woocommerce-checkout {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: var(--bde-woo-responsive__stack);
+    gap: var(--bde-woo-base-extra-large-gaps);
+
+    .col2-set {
+      width: column(60%);
+    }
+
+    .bde-order-review-column {
+      width: column(40%);
+    }
+
+    button#place_order {
+      width: 100%;
+    }
+
+    @media (max-width: 767px) {
+      .col2-set,
+      .bde-order-review-column {
+        width: column(50%);
+      }
+    }
+  }
+
+  /* Order Overview */
+  ul.woocommerce-order-overview {
+    background-color: var(--bde-woo-wrappers__background-color);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    margin: 0;
+    gap: var(--bde-woo-base-medium-gaps);
+
+    li {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  /* Coupon Form Layout */
+  .woocommerce-form-coupon {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: var(--bde-woo-base-standard-gaps);
+
+    p:first-child {
+      width: 100%;
+    }
+
+    p.form-row {
+      align-items: stretch;
+    }
+
+    p.form-row-first {
+      flex-grow: 1;
+    }
+
+    .input-text {
+      height: 100%;
+    }
+
+    /* Coupon Button */
+    p.form-row button[name="apply_coupon"] {
+      height: 100%;
+      justify-content: center;
+    }
+  }
+
+  // Payment
+  .wc_payment_method {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
+    fieldset {
+      border: none;
+      padding: 0;
+    }
+  }
+
+  .payment_box {
+    position: relative;
+    margin-top: 15px;
+    padding: var(--bde-woo-base-medium-gaps);
+    width: 100%;
+    border: var(--bde-woo-payment-box-border-width) solid
+    var(--bde-woo-payment-box-border-color);
+    background-color: var(--bde-woo-payment-box-background-color);
+    border-radius: var(--bde-woo-wrappers__border-radius);
+    color: var(--bde-woo-base-text-color);
+
+    p:first-child {
+      margin-top: 0;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    input[type="checkbox"],
+    input[type="radio"] {
+      width: var(--bde-form-checkbox-size) !important;
+    }
+
+    input[type="radio"] {
+      border-radius: 12px;
+    }
+  }
+
+  .woocommerce-terms-and-conditions-wrapper {
+    p.form-row {
+      margin-top: 20px;
+    }
+
+    .woocommerce-form__label {
+      line-height: 1.2;
+      margin-bottom: 0;
+    }
+  }
+
+  .woocommerce-privacy-policy-text {
+    margin-top: 20px;
+  }
+
+  /* Notices */
+  .woocommerce-NoticeGroup-checkout {
+    width: 100%;
+  }
+
+  .woocommerce-form-login {
+    max-width: 100%;
+
+    /* Remember Me Row Layout */
+    p:nth-child(5) {
+      display: flex;
+      flex-direction: column;
+      gap: var(--bde-woo-base-medium-gaps);
+      margin-top: 12px;
+    }
+  }
+}

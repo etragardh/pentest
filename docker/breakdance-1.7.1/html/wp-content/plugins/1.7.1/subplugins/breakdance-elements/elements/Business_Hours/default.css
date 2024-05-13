@@ -1,0 +1,21 @@
+.breakdance .bde-business-hours {
+  font-size: 0.875em;
+  width: 480px;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.breakdance .bde-business-hours__row {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  font-weight: 500;
+}
+
+.breakdance .bde-business-hours__time {
+  font-size: 1em;
+  font-weight: 700;
+}

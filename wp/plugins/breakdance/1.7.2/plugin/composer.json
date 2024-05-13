@@ -1,0 +1,55 @@
+{
+  "require-dev": {
+    "spatie/ray": "^1.28"
+  },
+  "scripts": {
+    "psalm": "../psalm/psalm --no-file-cache --no-reflection-cache --root=../plugin/",
+    "update-google-fonts": "fonts/integrations/google-fonts/update-font-list.php",
+    "post-install-cmd": [
+      "\"vendor/bin/mozart\" compose",
+      "composer dump-autoload"
+    ],
+    "post-update-cmd": [
+      "\"vendor/bin/mozart\" compose",
+      "composer dump-autoload"
+    ]
+  },
+  "config": {
+    "platform": {
+      "php": "7.4"
+    }
+  },
+  "require": {
+    "php": "^7.4 || ^8.0",
+    "twig/twig": "dev-no-global-functions",
+    "league/html-to-markdown": "^5.0",
+    "cebe/markdown": "~1.2.0",
+    "filp/whoops": "^2.14",
+    "sabberworm/php-css-parser": "^8.4",
+    "coenjacobs/mozart": "^0.7.1",
+    "sinergi/browser-detector": "^6.1"
+  },
+  "extra": {
+    "mozart": {
+      "dep_namespace": "Breakdance\\Lib\\Vendor\\",
+      "dep_directory": "/lib/mozart-scoped-psr4/",
+      "classmap_directory": "/lib/mozart-scoped-classmap/",
+      "classmap_prefix": "BREAKDANCE_Vendor_",
+      "delete_vendor_directories": true,
+      "excluded_packages": [
+        "coenjacobs/mozart"
+      ]
+    }
+  },
+  "autoload": {
+    "psr-4": {
+      "Breakdance\\Lib\\Vendor\\": "lib/mozart-scoped-psr4/"
+    }
+  },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/soflyy/Twig.git"
+    }
+  ]
+}

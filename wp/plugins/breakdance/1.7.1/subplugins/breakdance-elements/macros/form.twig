@@ -1,0 +1,298 @@
+{% macro atomV1FormCss(style, selector, breakpoint, globalSettings) %}
+
+  {{ selector ?? ':root, .bde-global-css-vars' }} {
+    --bde-form-gap: {{ style.spacing.between_fields.style }};
+    --bde-form-after-label: {{ style.spacing.after_label.style }};
+    --bde-form-after-sublabel: {{ style.spacing.sub_label.style }};
+    --bde-form-input-background-color: {{ style.fields.background }};
+    --bde-form-input-padding-top: {{ style.fields.padding.padding.top.style }};
+    --bde-form-input-padding-right: {{ style.fields.padding.padding.right.style }};
+    --bde-form-input-padding-bottom: {{ style.fields.padding.padding.bottom.style }};
+    --bde-form-input-padding-left: {{ style.fields.padding.padding.left.style }};
+    --bde-form-input-placeholder-color: {{ style.fields.placeholder }};
+    --bde-form-label-color: {{ style.typography.labels.color }};
+    --bde-form-label-required-color: {{ style.fields.required.color }};
+    --bde-form-label-required-nudge-x: {{ style.fields.required.nudge_x.style }};
+    --bde-form-label-required-nudge-y: {{ style.fields.required.nudge_y.style }};
+    --bde-form-label-required-size: {{ style.fields.required.size.style }};
+    --bde-form-text-color: {{ style.typography.values.color }};
+    --bde-form-input-focused-background-color: {{ style.fields.focused.background }};
+    --bde-form-input-focused-border-color: {{ style.fields.focused.border }};
+    --bde-form-input-focused-shadow: {{ style.fields.focused.shadow.style }};
+    --bde-form-checkbox-size: {{ style.fields.advanced.radio_checkbox.size.style }};
+    --bde-form-checkbox-selected-color: {{ style.fields.advanced.radio_checkbox.color }};
+    {{ _self.border_radius_to_css_vars(style.fields.borders.radius) }}
+    {{ _self.border_complex_to_css_vars(style.fields.borders.border) }}
+  }
+
+  {# Main Styles #}
+  {{ selector }} .breakdance-form {
+    gap: {{ style.spacing.between_fields.style }};
+  }
+
+
+  {# Labels #}
+  {{ selector }} .breakdance-form-field__label,
+  {# Labels : Woo #}
+  {{ selector }}.breakdance-woocommerce .woocommerce-password-strength,
+  {{ selector }}.breakdance-woocommerce label span.optional,
+  {{ selector }}.breakdance-woocommerce label {
+    {{ _self.typography(style.typography.labels, globalSettings) }}
+  }
+
+  {# Fields #}
+  {{ selector }} .breakdance-form .breakdance-form-field__input,
+  {{ selector }} .breakdance-form-dropzone,
+  {# Fields: Woo #}
+  {{selector}} .select2-container--default .select2-search--dropdown .select2-search__field,
+  {{selector}} .select2-container--default .select2-selection--single,
+  {{selector}} .breakdance-woocommerce .price_slider_amount input[type="text"],
+  {{selector}} .breakdance-woocommerce input[type="search"],
+  {{selector}} .breakdance-woocommerce textarea,
+  {{selector}} .breakdance-woocommerce .woocommerce-Input,
+  {{selector}} .breakdance-woocommerce .input-text,
+  {{selector}} .breakdance-woocommerce select,
+  {{selector}} .breakdance-woocommerce .wc_payment_method input[type="text"],
+  {{selector}} .breakdance-woocommerce .wc-stripe-elements-field {
+    background-color: {{ style.fields.background }};
+    {{ _self.borders(style.fields.borders) }}
+    {{ _self.typography(style.typography.values, globalSettings) }}
+  }
+
+  {# Fields/Focused #}
+  {{ selector }} .breakdance-form .breakdance-form-field__input:focus {
+    background-color: {{ style.fields.focused.background|default(style.fields.background) }};
+    border-color: {{ style.fields.focused.border }};
+    box-shadow: {{ style.fields.focused.shadow.style }};
+  }
+
+  {# Fields/Placeholder #}
+  {{ selector }} .breakdance-form .breakdance-form-field__input::placeholder {
+    color: {{ style.fields.placeholder }};
+  }
+
+  {# Fields/Advanced/Checkbox-Radio #}
+  {{ selector }} .breakdance-form-checkbox input[type="checkbox"],
+  {{ selector }} .breakdance-form-radio input[type="radio"] {
+    width: {{ style.fields.advanced.radio_checkbox.size.style }};
+    height: {{ style.fields.advanced.radio_checkbox.size.style }};
+    color: {{ style.fields.advanced.radio_checkbox.color }};
+  }
+
+  {{ selector }} .breakdance-form-checkbox,
+  {{ selector }} .breakdance-form-radio {
+    margin-bottom: {{ style.spacing.sub_label.style }};
+    {{ _self.typography(style.typography.sub_labels, globalSettings) }}
+  }
+
+  {# Links #}
+  {{ selector }} .breakdance-form-link {
+    {{ _self.typography(style.typography.links, globalSettings) }}
+  }
+
+  {{ selector }} .breakdance-form-link:hover {
+    {{ _self.typographyWithHoverableColorAndEffects(style.typography.links) }}
+  }
+
+  {# Messages #}
+  {{ selector }} .breakdance-form-message {
+    margin-top: {{ style.messages.space_above.style }};
+    padding: {{ style.messages.padding.style }};
+    background-color: {{ style.messages.success.background }};
+    {{ _self.borders(style.messages.success.borders) }}
+    {{ _self.typography(style.messages.success.typography, globalSettings) }}
+  }
+
+  {{ selector }} .breakdance-form-message--error {
+    background-color: {{ style.messages.error.background }};
+    {{ _self.borders(style.messages.error.borders) }}
+    {{ _self.typography(style.messages.error.typography, globalSettings) }}
+  }
+
+  {# File Upload/Dropzone #}
+  {{ selector }} .breakdance-form {
+    --bde-form-dropzone-color: {{ style.fields.advanced.file_input.drag_drop.text }};
+    --bde-form-dropzone-color-hover: {{ style.fields.advanced.file_input.drag_drop.text_hover }};
+    --bde-form-dropzone-color-dragging: {{ style.fields.advanced.file_input.drag_drop.active.text }};
+    --bde-form-dropzone-icon-color: {{ style.fields.advanced.file_input.drag_drop.icon_color }};
+    --bde-form-dropzone-icon-color-hover: {{ style.fields.advanced.file_input.drag_drop.icon_color_hover }};
+    --bde-form-dropzone-icon-color-dragging: {{ style.fields.advanced.file_input.drag_drop.active.icon_color }};
+    --bde-form-dropzone-link-color: {{ style.fields.advanced.file_input.drag_drop.link }};
+    --bde-form-dropzone-link-color-hover: {{ style.fields.advanced.file_input.drag_drop.link_hover }};
+    --bde-form-dropzone-link-color-dragging: {{ style.fields.advanced.file_input.drag_drop.active.link }};
+    --bde-form-dropzone-border-color: {{ style.fields.advanced.file_input.drag_drop.border_color }};
+    --bde-form-dropzone-border-color-hover: {{ style.fields.advanced.file_input.drag_drop.border_color_hover }};
+    --bde-form-dropzone-border-color-dragging: {{ style.fields.advanced.file_input.drag_drop.active.border_color }};
+    --bde-form-dropzone-background-color: {{ style.fields.advanced.file_input.drag_drop.background }};
+    --bde-form-dropzone-background-color-hover: {{ style.fields.advanced.file_input.drag_drop.background_hover }};
+    --bde-form-dropzone-background-color-dragging: {{ style.fields.advanced.file_input.drag_drop.active.background }};
+    /* Files List */
+    --bde-form-files-list-gap: {{ style.fields.advanced.file_input.drag_drop.files_list.space_between.style }};
+    --bde-form-files-list-background-color: {{ style.fields.advanced.file_input.drag_drop.files_list.background }};
+  }
+
+  {{ selector }} .breakdance-form-dropzone {
+    {{ _self.spacing_padding_all(style.fields.advanced.file_input.drag_drop.padding) }}
+  }
+
+  {{ selector }} .breakdance-form-files-list-item {
+    background-color: {{ style.fields.advanced.file_input.drag_drop.files_list.background }};
+    {{ _self.borders(style.fields.advanced.file_input.drag_drop.files_list.borders) }}
+    {{ _self.spacing_padding_all(style.fields.advanced.file_input.drag_drop.files_list.padding) }}
+  }
+
+  {{ selector }} .breakdance-form-files-list-item__name,
+  {{ selector }} .breakdance-form-files-list-item__size {
+    {{ _self.typography(style.fields.advanced.file_input.drag_drop.files_list.typography, globalSettings) }}
+  }
+
+  {{ selector }} .breakdance-form-files-list-item__delete {
+    background-color: {{ style.fields.advanced.file_input.drag_drop.files_list.delete_color }};
+  }
+
+  {{ selector }} .breakdance-form-files-list-item__delete:hover {
+    background-color: {{ style.fields.advanced.file_input.drag_drop.files_list.delete_color_hover }};
+  }
+
+  {# Required #}
+  {{ selector }} .breakdance-form-field__required {
+    color: {{ style.fields.required.color }};
+    font-size: {{ style.fields.required.size.style }};
+    {% if style.fields.required.nudge %}
+      transform: translateX({{ style.fields.required.nudge.style }});
+    {% endif %}
+  }
+
+
+  {# Labels #}
+  {% if style.fields.advanced.hide_labels %}
+    {{ selector }} .breakdance-form-field__label,
+    {# Woo: Labels #}
+    {{ selector }}.breakdance-woocommerce .woocommerce-password-strength,
+    {{ selector }}.breakdance-woocommerce label span.optional,
+    {{ selector }}.breakdance-woocommerce label {
+      border: 0;
+      clip: rect(0 0 0 0);
+      height: 1px;
+      margin: -1px;
+      overflow: hidden;
+      padding: 0;
+      position: absolute;
+      width: 1px;
+    }
+  {% endif %}
+
+  {# Form Footer #}
+  {% if style.submit_button.alignment %}
+    {{ selector }} .breakdance-form-footer {
+      justify-content: {{ style.submit_button.alignment }}
+    }
+    {% if style.submit_button.alignment == 'unset' %}
+      {{ selector }} .breakdance-form-footer .breakdance-form-button__submit,
+      {{ selector }} .breakdance-form-footer .breakdance-form-field--step-buttons {
+        width: 100%;
+      }
+    {% endif %}
+  {% endif %}
+
+  {# Stepper #}
+  {{ selector }} .breakdance-form-stepper {
+    justify-content: {{ style.other.stepper.alignment }};
+    {% if style.other.stepper.disable %}
+      display: none;
+    {% endif %}
+  }
+
+  {% if breakpoint == style.other.stepper.disable_at %}
+    {{ selector }} .breakdance-form-stepper {
+      display: none;
+    }
+  {% endif %}
+  
+  {{ selector }} .breakdance-form-stepper__list {
+    max-width: {{ style.other.stepper.width.style }};
+    gap: {{ style.other.stepper.divider.space_between.style }};
+  }
+
+  {% if breakpoint == style.other.stepper.stack_vertically_at|default('breakdpoint_phone_portrait') %}
+    {{ selector }} .breakdance-form-stepper__list {
+      flex-direction: column;
+      align-items: {{ style.other.stepper.alignment }};
+    }
+  {% endif %}
+
+  {{ selector }} .breakdance-form-stepper__label {
+    {{ _self.typography(style.other.stepper.step.label, globalSettings) }}
+  }
+
+  {{ selector }} .breakdance-form-stepper__step {
+    gap: {{ style.other.stepper.step.bullet.space_after.style }};
+  }
+
+  {{ selector }} .breakdance-form-stepper__step-icon {
+    width: {{ style.other.stepper.step.bullet.size.style }};
+    height: {{ style.other.stepper.step.bullet.size.style }};
+    border-radius: {{ style.other.stepper.step.bullet.radius.style }};
+    background-color: {{ style.other.stepper.step.bullet.background }};
+    {% if style.other.stepper.step.bullet.style == 'number' %}
+      {{ _self.typography(style.other.stepper.step.bullet.typography, globalSettings) }}
+    {% endif %}
+    {% if style.other.stepper.step.bullet.style == 'icon' %}
+      font-size: {{ style.other.stepper.step.bullet.icon_size.style }};
+    {% endif %}
+    {% if style.other.stepper.step.bullet.disable %}
+      display: none;
+    {% endif %}
+  }
+
+  {{ selector }} .breakdance-form-stepper__step-icon span {
+    {{ _self.typography(style.other.stepper.step.bullet.number, globalSettings) }}
+  }
+
+  {{ selector }} .breakdance-form-stepper__step-icon svg {
+    font-size: {{ style.other.stepper.step.bullet.icon.size.style }};
+    color: {{ style.other.stepper.step.bullet.icon.color }};
+  }
+
+  {{ selector }} .breakdance-form-stepper__step.is-active .breakdance-form-stepper__label {
+    color: {{ style.other.stepper.step.active.label_color }};
+  }
+
+  {{ selector }} .breakdance-form-stepper__step.is-active .breakdance-form-stepper__step-icon {
+    background-color:  {{ style.other.stepper.step.active.bullet_background }};
+  }
+
+  {{ selector }} .breakdance-form-stepper__step.is-active .breakdance-form-stepper__step-icon svg,
+  {{ selector }} .breakdance-form-stepper__step.is-active .breakdance-form-stepper__step-icon span {
+    color: {{ style.other.stepper.step.active.icon_color }};
+  }
+
+  {{ selector }} .breakdance-form-stepper__step.is-active .breakdance-form-stepper__label {
+    color: {{ style.other.stepper.step.active.text_color }};
+  }
+
+  {{ selector }} .breakdance-form-stepper__separator {
+    border-bottom-width: {{ style.other.stepper.divider.width.style }};
+    border-bottom-color: {{ style.other.stepper.divider.color }};
+    border-bottom-style: {{ style.other.stepper.divider.style }};
+  }
+
+  {# Buttons #}
+  {# NOTE: I have no fucking idea how Twig concats strings using the tilde operator #}
+  {#  It does mutate strings in a very weird way - see below #}
+  {# 
+    {% set buttonClass = selector ~ '.some-class' %} // returns '.selector .some-class'
+    {% set someOtherClass = selector ~ '.other-class' %} // returns '.selector .some-class .other-class'
+    
+    WTF?
+  #}
+  {# This ugly hack puts selector inside an object. This makes the selector immutable. #}
+  {% set selectorObject = { 'value' : selector } %}
+  {{ _self.atomV1ButtonButton(style.submit_button.styles, selectorObject.value ~  ' .breakdance-form-button__submit', 'primary', breakpoint, globalSettings) }}
+  {{ _self.atomV1ButtonButton(style.other.stepper.next_button, selectorObject.value ~ ' .breakdance-form-button__next-step', 'primary', breakpoint, globalSettings) }}
+  {{ _self.atomV1ButtonButton(style.other.stepper.previous_button, selectorObject.value ~ ' .breakdance-form-button__previous-step', 'secondary', breakpoint, globalSettings) }}
+  {{ _self.atomV1ButtonButton(style.fields.advanced.file_input.button, selectorObject.value ~ ' .breakdance-form-file-upload__button', 'secondary', breakpoint, globalSettings) }}
+
+{% endmacro %}
+
+

@@ -1,0 +1,59 @@
+%%SELECTOR%% {
+  {{ macros.spacing_margin_y(design.spacing) }}
+}
+
+.tippy-box[data-theme="bde-tooltip-theme-%%ID%%"] {
+  --bde-tooltip-size: {{ design.tooltip.arrow.size.style }};
+  --bde-tooltip-x: {{ design.tooltip.arrow.offset_x.style }};
+  --bde-tooltip-y: {{ design.tooltip.arrow.offset_y.style }};
+  background-color: {{ design.tooltip.background }}; 
+  border-radius: {{ design.tooltip.radius.style }};
+}
+
+.tippy-box[data-theme="bde-tooltip-theme-%%ID%%"] .tippy-content {
+  {{ macros.spacing_padding_all(design.tooltip.padding) }}
+}
+
+.tippy-box[data-theme="bde-tooltip-theme-%%ID%%"] .tippy-arrow {
+  color: {{ design.tooltip.background }};
+}
+
+.tippy-box[data-theme="bde-tooltip-theme-%%ID%%"] .tippy-content h1,
+.tippy-box[data-theme="bde-tooltip-theme-%%ID%%"] .tippy-content h2,
+.tippy-box[data-theme="bde-tooltip-theme-%%ID%%"] .tippy-content h3,
+.tippy-box[data-theme="bde-tooltip-theme-%%ID%%"] .tippy-content h4,
+.tippy-box[data-theme="bde-tooltip-theme-%%ID%%"] .tippy-content h5,
+.tippy-box[data-theme="bde-tooltip-theme-%%ID%%"] .tippy-content h6,
+.tippy-box[data-theme="bde-tooltip-theme-%%ID%%"] .tippy-content p,
+.tippy-box[data-theme="bde-tooltip-theme-%%ID%%"] .tippy-content ul,
+.tippy-box[data-theme="bde-tooltip-theme-%%ID%%"] .tippy-content ol,
+.tippy-box[data-theme="bde-tooltip-theme-%%ID%%"] .tippy-content li,
+.tippy-box[data-theme="bde-tooltip-theme-%%ID%%"] .tippy-content a {
+  margin-block-end: {{ design.tooltip.typography.space_after.style }};
+  {{ macros.typography(design.tooltip.typography.default, globalSettings)  }}
+}
+
+
+.tippy-box[data-theme="bde-tooltip-theme-%%ID%%"] .tippy-content a {
+  {{ macros.typography(design.tooltip.typography.links, globalSettings)  }}
+}
+
+.tippy-box[data-theme="bde-tooltip-theme-%%ID%%"] .tippy-content a:hover {
+  {{ macros.typographyWithHoverableEverything(design.tooltip.typography.links) }}
+}
+
+.tippy-box[data-theme="bde-tooltip-theme-%%ID%%"] .tippy-content p {
+  {{ macros.typography(design.tooltip.typography.paragraphs, globalSettings)  }}
+}
+
+.tippy-box[data-theme="bde-tooltip-theme-%%ID%%"] .tippy-content h1,
+.tippy-box[data-theme="bde-tooltip-theme-%%ID%%"] .tippy-content h2,
+.tippy-box[data-theme="bde-tooltip-theme-%%ID%%"] .tippy-content h3,
+.tippy-box[data-theme="bde-tooltip-theme-%%ID%%"] .tippy-content h4,
+.tippy-box[data-theme="bde-tooltip-theme-%%ID%%"] .tippy-content h5,
+.tippy-box[data-theme="bde-tooltip-theme-%%ID%%"] .tippy-content h6
+{
+ {{ macros.typography(design.tooltip.typography.headings, globalSettings)  }}
+}
+
+

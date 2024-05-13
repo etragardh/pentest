@@ -1,0 +1,12 @@
+%%SELECTOR%% {
+  {{ macros.spacing_margin_y(design.spacing) }}
+}
+
+{% if design.button.style == 'custom' and breakpoint == design.button.custom.size.full_width_at %}
+%%SELECTOR%% {
+  width: 100%;
+}
+{% endif %}
+
+{{ macros.atomV1ButtonCss(design.button, 'bde-button__button', '%%SELECTOR%%', breakpoint, globalSettings) }}
+{{ macros.atomV1LightboxCss(design.lightbox) }}

@@ -1,0 +1,16 @@
+<textarea
+    class="breakdance-form-field__input"
+    id="{{ field.advanced.id }}"
+    aria-describedby="{{ field.advanced.id }}"
+    type="{{ field.type }}"
+    name="{{ field.name }}"
+    {% if field.rows_textarea %}
+    rows="{{ field.rows_textarea }}"
+    {% endif %}
+    placeholder="{{ field.advanced.placeholder }}"
+    {{ field.advanced.required ? 'required' : '' }}
+    {% if field.advanced.conditional %}
+        {{ macros.conditionalFormFieldAttributes(field.advanced.condition) }}
+    {% endif %}
+>{{ field.advanced.value }}
+</textarea>

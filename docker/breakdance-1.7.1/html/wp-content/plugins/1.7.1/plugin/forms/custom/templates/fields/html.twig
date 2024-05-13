@@ -1,0 +1,13 @@
+<div class="form-input-html"
+    {% if field.advanced.conditional %}
+      data-conditional-field-id="{{ field.advanced.condition.field.advanced.id }}"
+      {% if field.advanced.condition.value is iterable %}
+        data-conditional-value="{{ field.advanced.condition.value | join(',') }}"
+      {% else %}
+        data-conditional-value="{{ field.advanced.condition.value }}"
+      {% endif %}
+      data-conditional-operand="{{ field.advanced.condition.operand ?? 'equals' }}"
+    {% endif %}
+>
+  {{ field.html }}
+</div>

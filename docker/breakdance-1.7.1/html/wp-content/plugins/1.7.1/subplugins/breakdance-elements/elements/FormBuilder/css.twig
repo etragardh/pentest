@@ -1,0 +1,51 @@
+%%SELECTOR%% {
+  {{ macros.spacing_margin_y(design.spacing) }}
+  {{ macros.formContainer(design.container) }}
+}
+
+{# Custom Widths #}
+{% set startIndex = 0 %}
+{% set offsetIndex = 0 %}
+
+{% for field in content.form.fields %}
+  {% if field.type == 'step' %}
+    {% set offsetIndex = offsetIndex + 1 %}
+
+    {% if startIndex == 0 %}
+      {# We need to skip the stepper container. #}
+      {% set startIndex = 1 %}
+    {% endif %}
+  {% endif %}
+
+  {% if field.advanced.width %}
+    %%SELECTOR%% .breakdance-form-field:nth-child({{ startIndex + loop.index - offsetIndex }}) {
+      grid-column-start: span {{ field.advanced.width }};
+    }
+  {% endif %}
+{% endfor %}
+
+{# Responsive #}
+{% if breakpoint == design.layout.vertical_at %}
+  %%SELECTOR%% .breakdance-form {
+    grid-template-columns: unset;
+  }
+
+  %%SELECTOR%% .breakdance-form--horizontal {
+    grid-auto-flow: unset;
+  }
+
+  %%SELECTOR%% .breakdance-form.has-breakpoints .breakdance-form-field {
+    grid-column-start: unset;
+  }
+
+  %%SELECTOR%% .breakdance-form .breakdance-form {
+    grid-template-columns: unset;
+  }
+
+  %%SELECTOR%% .breakdance-form .breakdance-form-footer .breakdance-form-button {
+    width: 100%;
+  }
+{% endif %}
+
+{# Forms #}
+{{ macros.atomV1FormCss(design.form, '%%SELECTOR%%', breakpoint, globalSettings) }}

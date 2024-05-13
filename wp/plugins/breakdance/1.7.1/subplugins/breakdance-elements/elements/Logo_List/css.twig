@@ -1,0 +1,45 @@
+%%SELECTOR%% {
+  width: {{ design.list.width.style }};
+  --wrapper-gradient-color: {{ design.list.gradient_overlay.color }};
+  {{ macros.spacing_margin_y(design.spacing.container) }}
+}
+
+%%SELECTOR%% .un-logo-bar__marquee-content,
+%%SELECTOR%%.un-static-image-grid,
+%%SELECTOR%% .un-logo-bar__scrollable-wrapper {
+  column-gap: {{ design.spacing.between_logos.style }};
+}
+
+%%SELECTOR%%.un-static-image-grid {
+  row-gap: {{ design.list.vertical_gap.style }};
+}
+
+%%SELECTOR%%.un-image-carousel-container .un-logo-bar__marquee-content {
+  animation-duration: {{ design.list.animation.animation_duration.style }};
+}
+
+%%SELECTOR%%.gradient-overlay__left::before,
+%%SELECTOR%%.gradient-overlay__both::before,
+%%SELECTOR%%.gradient-overlay__both::after,
+%%SELECTOR%%.gradient-overlay__right::after {
+  width: {{ design.list.gradient_overlay.width.style }};
+}
+
+%%SELECTOR%% .un-logo-bar__logo-wrapper,
+%%SELECTOR%% .bde-logo-list .breakdance-link {
+  height: {{ design.logo.height.style }};
+}
+
+{% if design.list.type == 'show-all' %}
+%%SELECTOR%%.un-static-image-grid {
+{% if design.list.alignment == 'flex-start' %}
+  justify-content: flex-start;
+{% elseif design.list.alignment == 'center' %}
+  justify-content: center;
+{% elseif design.list.alignment == 'flex-end' %}
+  justify-content: flex-end;
+{% else %}
+  justify-content: center;
+{% endif %}
+}
+{% endif %}

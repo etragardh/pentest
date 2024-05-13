@@ -1,0 +1,15 @@
+.breakdance .bde-accordion__content-wrapper .bde-accordion__panel { 
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: left;
+  align-items: flex-start;
+}
+
+.breakdance .bde-accordion__content-wrapper .bde-accordion__panel[hidden] { 
+  display: none;
+}
+
+.breakdance .bde-accordion__content-wrapper .bde-accordion__title-tag {
+  margin: 0;
+}

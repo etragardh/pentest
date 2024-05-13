@@ -1,0 +1,61 @@
+/*
+ * Plugin: woocommerce-gateway-stripe
+ */
+
+.breakdance-woocommerce {
+  // Checkout
+  #payment .payment_method_stripe {
+    display: flex;
+    flex-wrap: wrap;
+
+    .wc-saved-payment-methods {
+      padding-left: 0;
+      list-style-type: none;
+    }
+
+    .wc-stripe-elements-field {
+      /* Stripe Elements are not real inputs but iframes */
+      margin: 0;
+      padding: 10px 12px;
+      height: 40px;
+    }
+
+    .wc-credit-card-form .form-row {
+      gap: 0;
+      margin-bottom: 10px;
+    }
+
+    /* Save credit card checkbox */
+    .woocommerce-SavedPaymentMethods-saveNew {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-items: center;
+      gap: 0;
+    }
+  }
+
+  /* Stripe - Google Pay */
+  #wc-stripe-payment-request-wrapper {
+    max-width: 510px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  #wc-stripe-payment-request-button-separator {
+    width: 100%;
+  }
+
+  .bde-checkout-billing-form #wc-stripe-payment-request-wrapper {
+    max-width: 100%;
+  }
+}
+
+.woocommerce-page.woocommerce-account {
+  #stripe-payment-data {
+    p {
+      margin-bottom: 20px;
+      display: block;
+    }
+  }
+}

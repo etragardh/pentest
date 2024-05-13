@@ -1,0 +1,80 @@
+.breakdance .bde-scroll-progress {
+  --bde-scroll-progress-height: 8px;
+  --bde-scroll-progress-current: 0%;
+  --bde-scroll-progress-circle-size: 100px;
+  --bde-scroll-progress-offset-x: 20px;
+  --bde-scroll-progress-offset-y: 20px;
+  width: 100%;
+  display: flex;
+}
+
+.bde-scroll-progress__wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.bde-scroll-progress__bar {
+  width: 100%;
+  background-color: var(--grey-200);
+  position: relative;  
+  display: flex;
+}
+
+.bde-scroll-progress__current {
+  background-color: var(--bde-brand-primary-color);
+  width: var(--bde-scroll-progress-current);
+  height: var(--bde-scroll-progress-height);
+  transition: all .3s linear;
+}
+
+.bde-scroll-progress__percentage {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--grey-800); 
+  font-feature-settings: "tnum";
+  font-variant-numeric: tabular-nums;
+  z-index: 30;
+}
+
+
+.bde-scroll-progress__circle .bde-scroll-progress__percentage {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  font-size: 22px;
+}
+
+.bde-scroll-progress__circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: var(--bde-scroll-progress-circle-size);
+  height: var(--bde-scroll-progress-circle-size);
+}
+
+.bde-scroll-progress__circle-svg {
+  position: relative;
+  z-index: 30;
+  width: var(--bde-scroll-progress-circle-size);
+  height: var(--bde-scroll-progress-circle-size);
+  fill: none; 
+  overflow: visible;
+}
+
+.bde-scroll-progress__circle-svg path {
+  stroke: var(--grey-200);
+  stroke-width: 5;
+  box-sizing: border-box;
+  transition: all 200ms linear;
+  stroke-linecap: round;
+}
+
+.bde-scroll-progress__circle-svg path.progress {
+  stroke: var(--grey-900);
+}
+
+

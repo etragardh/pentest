@@ -1,0 +1,12 @@
+<div class="bde-progress-bar__background">
+  <div class="bde-progress-bar__progress-wrap">
+    <div class="bde-progress-bar__progress">
+      <div class="bde-progress-bar__title" {{ dataContentEditablePropertyPath('content.progress_bar.title_text') }}>
+        {{ content.progress_bar.title_text }}
+      </div>
+      {% if content.progress_bar.hide_percentage %}{% else %}
+        <div class="bde-progress-bar__percent">{{ content.progress_bar.progress|default('70') }}%</div>
+      {% endif %}
+    </div>
+  </div>
+</div>

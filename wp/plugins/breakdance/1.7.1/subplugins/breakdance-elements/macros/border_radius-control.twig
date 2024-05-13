@@ -1,0 +1,21 @@
+{% macro border_radius(radius) %}
+    {% if radius.editMode == "custom" %}
+        border-top-left-radius: {{ radius.topLeft.style }};
+        border-top-right-radius: {{ radius.topRight.style }};
+        border-bottom-left-radius: {{ radius.bottomLeft.style }};
+        border-bottom-right-radius: {{ radius.bottomRight.style }};
+    {% else %}
+        border-radius: {{ radius.all.style }};
+    {% endif %}
+{% endmacro %}
+
+{% macro border_radius_to_css_vars(radius) %}
+    {% if radius.editMode == "custom" %}
+        --bde-form-input-border-top-left-radius: {{ radius.topLeft.style }};
+        --bde-form-input-border-top-right-radius: {{ radius.topRight.style }};
+        --bde-form-input-border-bottom-left-radius: {{ radius.bottomLeft.style }};
+        --bde-form-input-border-bottom-right-radius: {{ radius.bottomRight.style }};
+    {% else %}
+        --bde-form-input-border-radius: {{ radius.all.style }};
+    {% endif %}
+{% endmacro %}

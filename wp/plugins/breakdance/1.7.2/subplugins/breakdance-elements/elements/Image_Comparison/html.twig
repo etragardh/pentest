@@ -1,0 +1,31 @@
+{% set orientation = design.settings.vertical_mode ? 'vertical' : 'horizontal' %}
+{% set separator = design.separator.hide ? 'separator-hidden' : 'separator-visible' %}
+{% set hideLabels = design.labels.hide ? 'labels-hidden' : 'labels-visible' %}
+{% set cssClasses = [
+	'bde-image-comparison__wrapper',
+	'bde-image-comparison__wrapper--' ~ orientation,
+	'bde-image-comparison__wrapper--' ~ separator,
+	'bde-image-comparison__wrapper--' ~ hideLabels
+]|join(' ') %}
+
+<div class="bde-image-comparison__container js-image-container">
+	<div class="{{cssClasses}}">
+		<div class="js-comparison-container">
+			<div class="images">
+				<div class="image-rgt js-image-after" data-src="{{ content.content.after.url|default('https://user-images.githubusercontent.com/669243/151164278-d14c35ef-5025-4c40-a730-a36fb007e63b.jpg') }}"></div>
+				<div class="image-lft js-image-before" data-src="{{ content.content.before.url|default('https://user-images.githubusercontent.com/669243/151164294-8186f9dd-6df6-4aac-8dc2-452f0816773f.jpg') }}"></div>
+			</div>
+			<div class="ui">
+
+				<div class="un-slide-img-label label-before">{{ content.content.labels.before|default('Before') }}</div>
+				<div class="un-slide-img-label label-after">{{ content.content.labels.after|default('After') }}</div>
+
+				<div class="dragger">
+					<div class="dragger-arrow"></div>
+					<div class="dragger-arrow"></div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div>

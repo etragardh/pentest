@@ -1,0 +1,26 @@
+%%SELECTOR%% {
+  width: {{ design.container.size.style }};
+  background-color: {{ design.container.background }};
+  {{ macros.borders(design.container.borders) }}
+  {{ macros.spacing_padding_all(design.container.padding) }}
+  {{ macros.spacing_margin_y(design.spacing.container) }}
+}
+
+{{ macros.wooPresetProductsListElementsDesign('%%SELECTOR%%', design.elements, globalSettings) }}
+{{ macros.wooPresetProductsListLayoutDesign('%%SELECTOR%%', design.layout) }}
+{{ macros.wooPresetProductWrapperDesign('%%SELECTOR%%', design.product_wrapper) }}
+{{ macros.atomV1ButtonButton(design.elements.button.styles, ['%%SELECTOR%%.breakdance-woocommerce a.button.add_to_cart_button', '%%SELECTOR%%.breakdance-woocommerce a.product_type_external', '%%SELECTOR%%.breakdance-woocommerce a.button.product_type_grouped'], 'secondary', breakpoint, globalSettings) }}
+{{ macros.AtomV1SwiperCss(design.layout.slider, '%%SELECTOR%%', globalSettings, isBaseBreakpoint) }}
+
+%%SELECTOR%% section.related.products > h2 {
+  {% if design.title.disable %}
+    display: none;
+  {% endif %}
+  {{ macros.typography(design.title.typography, globalSettings)  }}
+}
+
+%%SELECTOR%%.breakdance-woocommerce section.related.products {
+  gap: {{ design.spacing.below_title.style }};
+}
+
+{{ macros.wooGlobalStyler(design.advanced.override_global_styles, '%%SELECTOR%%', breakpoint, globalSettings) }}

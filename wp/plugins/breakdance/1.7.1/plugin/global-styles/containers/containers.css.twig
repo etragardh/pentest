@@ -1,0 +1,19 @@
+
+:root {
+	{% if settings.containers.sections.container_width.style %}
+	--bde-section-width: {{ settings.containers.sections.container_width.style }};
+	{% endif %}
+
+	{% if settings.containers.sections.vertical_padding.style %}
+	--bde-section-vertical-padding: {{ settings.containers.sections.vertical_padding.style }};
+	{% endif %}
+
+	{% if settings.containers.sections.horizontal_padding.style %}
+	--bde-section-horizontal-padding: {{ settings.containers.sections.horizontal_padding.style }};
+	{% endif %}
+
+    {% if settings.containers.column_gap.style %}
+	--bde-column-gap: {{ settings.containers.column_gap.style }};
+	{% endif %}
+}
+

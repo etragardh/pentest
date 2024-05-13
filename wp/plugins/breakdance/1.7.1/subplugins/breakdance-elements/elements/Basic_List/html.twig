@@ -1,0 +1,11 @@
+{% for item in content.content.items %}
+  <li {% if item.link %}class='bde-basic-list-item-with-link'{% endif %} {{ dataContentEditablePropertyPath('content.content.items[' ~ loop.index0 ~ '].text') }}>    
+    {% if item.link %}
+      {{ macros.linkStart(item.link) }}
+    {% endif %}
+      {{ item.text }}
+    {% if item.link %}
+      {{ macros.linkEnd() }}
+    {% endif %}
+  </li>
+{% endfor %}

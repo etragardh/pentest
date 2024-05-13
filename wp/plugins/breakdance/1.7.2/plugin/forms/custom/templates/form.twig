@@ -1,0 +1,15 @@
+{% set layout = formLayout ?: 'vertical' %}
+{% set breakpoints = hasBreakpoints ? 'has-breakpoints' : '' %}
+{% set cssClasses = [
+  'breakdance-form',
+  'breakdance-form--' ~ layout,
+  breakpoints
+]|join(" ") %}
+
+<form id="{{ formId }}" class="{{ cssClasses }}" data-options="{{ options|json_encode|escape }}" data-steps="{{ stepCount }}" {% if stepCount >= 1 %} data-current-step="1" {% endif %}>
+  {{ do_action('breakdance_form_start', form) }}
+  %%STEPPER%%
+  %%BODY%%
+  %%FOOTER%%
+  {{ do_action('breakdance_form_end', form) }}
+</form>

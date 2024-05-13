@@ -1,0 +1,19 @@
+{% macro grid(grid) %}
+{% if grid.enable == 'true' %}
+display: grid;
+justify-items: {{ grid.columns.horizontal_alignment | default('stretch') }};
+align-items: {{ grid.rows.vertical_alignment | default('stretch') }};
+{% if grid.columns.template == 'auto' %}
+grid-template-columns: repeat(
+    {{ grid.columns.columns | default('3') }}
+    ,minmax({{ grid.columns.min_width.number | default('10' )}}{{ grid.columns.min_width.unit | default('px') }},{{ grid.columns.max_width.number | default('1') }}{{ grid.columns.max_width.unit | default('fr') }}));
+{% elseif grid.columns.template == 'custom' %}
+grid-template-columns: {{ grid.columns.columns_template }};
+{% endif %}
+{% if grid.rows.template == 'custom' %}
+grid-template-rows: repeat({{ grid.rows.rows | default('1') }}, minmax({{ grid.rows.min_height.number | default('10') }}{{ grid.rows.min_height.unit | default('px') }}, {{ grid.rows.max_height.number | default('1') }}{{ grid.rows.max_height.unit | default('fr') }}));
+{% endif %}
+grid-column-gap: {{ grid.columns.gap.number | default('0') }}{{ grid.columns.gap.unit | default('px') }};
+grid-row-gap: {{ grid.rows.gap.number | default('0') }}{{ grid.rows.gap.unit | default('px') }};
+{% endif %}
+{% endmacro %}

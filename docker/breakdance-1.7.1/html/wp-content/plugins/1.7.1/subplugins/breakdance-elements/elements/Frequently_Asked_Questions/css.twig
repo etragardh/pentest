@@ -1,0 +1,68 @@
+%%SELECTOR%% {
+  width: {{ design.wrapper.width.style }};
+  background-color: {{ design.wrapper.background }};
+  {{ macros.spacing_margin_y(design.spacing) }}
+  --faqItemHorizontalPadding: {{ design.item.horizontal_padding.style }};
+  --faqItemVerticalPadding: {{ design.item.vertical_padding.style }};
+  --faqBorderWidth: {{ design.borders.border_width.style }};
+  --faqBorderColor: {{ design.borders.border_color }};
+  gap: {{ design.item.after_item.style }};
+}
+
+%%SELECTOR%% .bde-faq__item {
+  background-color: {{ design.item.background }};
+  border-radius: {{ design.borders.border_radius.style }};
+ }
+
+{% if design.borders.below_only %}
+  %%SELECTOR%% .bde-faq__item {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-radius: 0;
+    margin-top: 0px !important;
+  }
+  %%SELECTOR%% .bde-faq__item:last-child {
+    border-bottom: none;
+  }
+  %%SELECTOR%% {
+    gap: 0;
+  }
+{% endif %}
+
+%%SELECTOR%% .bde-faq__item.is-active {
+  background-color: {{ design.item.active_background }};
+}
+
+
+%%SELECTOR%% .bde-faq__item.is-active .bde-faq__title {
+  color: {{ design.typography.active_title }};
+}
+
+%%SELECTOR%% .bde-faq__item.is-active .bde-faq__icon {
+  color: {{ design.item.icon.active_color|default(design.item.icon.color)|default(design.typography.active_title) }};
+}
+
+%%SELECTOR%% .bde-faq__icon {
+  color: {{ design.item.icon.color|default(design.typography.title.color) }};
+  font-size: {{ design.item.icon.size.style }};
+}
+
+%%SELECTOR%% .bde-faq__answer-content {
+  margin-top: {{ design.item.below_title.style }};
+}
+
+%%SELECTOR%% .bde-faq__title {
+  {{ macros.typography(design.typography.title, globalSettings)  }}
+}
+
+%%SELECTOR%% .bde-faq__answer-content {
+  {{ macros.typography(design.typography.content, globalSettings)  }}
+}
+
+%%SELECTOR%% .bde-faq__btn {
+  margin-top: {{ design.item.above_button.style }};
+}
+
+{{ macros.atomV1ButtonCss(design.item.button, 'bde-faq__button', '%%SELECTOR%%', breakpoint, globalSettings) }}
+

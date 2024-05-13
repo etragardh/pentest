@@ -1,0 +1,45 @@
+%%SELECTOR%% {
+{{ macros.spacing_margin_y(design.spacing) }}
+  max-width: {{ design.size.width.style }};
+}
+
+%%SELECTOR%% .bde-animated-heading__text {
+   {{ macros.typography(design.typography, globalSettings) }}
+}
+
+{% if design.effect.type == 'rotating' or design.effect.type is empty %}
+    %%SELECTOR%% .bde-animated-heading__wrapper {
+        position: relative;
+        display: inline-flex;
+        overflow:visible;
+        text-align:left;
+        perspective: 1000px;
+        transition: {{ design.effect.rotating.duration.style|default('800ms') }} ease-in-out width;
+    }
+
+	%%SELECTOR%% .bde-animated-heading__wrapper .bde-animated-heading__word {
+	  position: absolute;
+	  display: inline-block;
+	  white-space:nowrap;
+	  opacity:0;
+	  background-color: {{ design.effect.rotating.background }};
+	  {{ macros.spacing_padding_all(design.effect.rotating.spacing) }}
+      {% if design.effect.rotating.transform_origin %}
+        transform-origin: {{ design.effect.rotating.transform_origin.x }}% {{ design.effect.rotating.transform_origin.y }}%;
+      {% endif %}
+	}
+
+	%%SELECTOR%% .bde-animated-heading__wrapper .bde-animated-heading__word:first-child {
+	  position:relative;
+	}
+{% elseif design.effect.type == 'typing' %}
+	%%SELECTOR%% .bde-animated-heading__typed {
+	  {{ macros.typography(design.effect.typing.typography, globalSettings)  }}
+	  background-color: {{ design.effect.typing.background }};
+	  {{ macros.spacing_padding_all(design.effect.typing.spacing) }}
+	}
+
+	%%SELECTOR%% .typed-cursor {
+		{{ macros.typography(design.effect.typing.cursor_style, globalSettings)  }}
+	}
+{% endif %}

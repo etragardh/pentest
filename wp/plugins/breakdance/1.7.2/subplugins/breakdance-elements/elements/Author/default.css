@@ -1,0 +1,40 @@
+.breakdance .bde-author {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap: 24px;
+}
+.breakdance .bde-author .ee-author-avatar {
+  flex-shrink: 0;
+}
+.breakdance .bde-author .ee-author-avatar img {
+  width:60px;
+  height:60px;
+  vertical-align:top;
+  border-radius:50%;
+}
+.breakdance .bde-author .ee-author-description {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  flex-grow:1;
+}
+.breakdance .bde-author .ee-author-links {
+  display:flex;
+  flex-direction:row;
+  gap:20px;
+}
+
+.breakdance .bde-author .ee-author-name-link {
+  text-decoration:none;
+}
+.breakdance .bde-author .ee-author-name {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 500;
+}
+.breakdance .bde-author .ee-author-bio {
+  text-align:center;
+  line-height:1.6;
+  margin:0 0 20px 0;
+}

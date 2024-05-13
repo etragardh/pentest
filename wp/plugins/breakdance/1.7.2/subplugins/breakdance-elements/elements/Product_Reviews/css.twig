@@ -1,0 +1,85 @@
+%%SELECTOR%% {
+  width: {{ design.container.width.style }};
+  background-color: {{ design.container.background }};
+  {{ macros.borders(design.container.borders) }}
+  {{ macros.spacing_padding_all(design.container.padding) }}
+
+  --bde-woo-ratings__star-color: {{ design.reviews.stars.color }};
+  --bde-woo-ratings__star-size: {{ design.reviews.stars.size.style }};
+}
+
+/* Reviews / Stars */
+%%SELECTOR%% .comment_container img.avatar {
+  width: {{ design.reviews.avatar.size.style }};
+  height: {{ design.reviews.avatar.size.style }};
+  border-radius: {{ design.reviews.avatar.radius.style }};
+}
+
+/* Reviews / Separator */
+{% if design.reviews.separator.disable %}
+%%SELECTOR%%.bde-product-reviews .commentlist .review {
+  border: none;
+}
+{% endif %}
+%%SELECTOR%%.bde-product-reviews .commentlist .review {
+  border-color: {{ design.reviews.separator.color }};
+  border-width: {{ design.reviews.separator.width.style }};
+}
+
+
+/* Typography */
+{% if design.typography.hide_heading %}
+%%SELECTOR%% #comments h2 {
+  display: none;
+}
+{% endif %}
+%%SELECTOR%% #comments h2,
+%%SELECTOR%% #comments h2 * {
+  {{ macros.typography(design.typography.heading, globalSettings)  }}
+}
+%%SELECTOR%% .meta strong {
+  {{ macros.typography(design.typography.username, globalSettings)  }}
+}
+%%SELECTOR%% .meta *:not(strong) {
+  {{ macros.typography(design.typography.meta, globalSettings)  }}
+}
+%%SELECTOR%% .comment-text .description p {
+  {{ macros.typography(design.typography.review, globalSettings)  }}
+}
+%%SELECTOR%% .comment-reply-title {
+  {{ macros.typography(design.typography.form_heading, globalSettings)  }}
+}
+
+/* Spacing */
+%%SELECTOR%% {
+{{ macros.spacing_margin_y(design.spacing.container) }}
+}
+%%SELECTOR%% .commentlist > li:not(:first-child) {
+  padding-top: {{ design.spacing.reviews.around_review.style }};
+}
+%%SELECTOR%% .commentlist > li:not(:last-child) {
+  padding-bottom: {{ design.spacing.reviews.around_review.style }};
+}
+
+%%SELECTOR%% .comment_container {
+  gap:  {{ design.spacing.reviews.after_avatar.style }};
+}
+%%SELECTOR%% .star-rating {
+  margin-bottom: {{ design.spacing.reviews.after_stars.style }};
+}
+%%SELECTOR%% .comment_container p.meta {
+  margin-bottom: {{ design.spacing.reviews.after_meta.style }};
+}
+%%SELECTOR%% #comments ol.commentlist {
+  margin-top: {{ design.spacing.after_title.style }};
+}
+
+%%SELECTOR%% #reviews #comments {
+  margin-bottom: {{ design.spacing.after_reviews.style }};
+}
+%%SELECTOR%% #respond .comment-reply-title {
+  margin-bottom: {{ design.spacing.after_form_heading.style }};
+}
+
+/* Advanced / Override Global Styles */
+{{ macros.wooGlobalStyler(design.advanced.override_global_styles, '%%SELECTOR%%', breakpoint, globalSettings) }}

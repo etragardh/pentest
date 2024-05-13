@@ -1,0 +1,20 @@
+@import "functions";
+@import "partials/a-root";
+@import "partials/quantity-input";
+@import "partials/cart";
+@import "partials/checkout";
+@import "partials/mini-cart";
+@import "partials/my-account";
+@import "partials/order-tracking";
+@import "partials/product-builder";
+@import "partials/shop";
+@import "partials/shop-filters";
+@import "partials/select2";
+@import "partials/widgets";
+@import "partials/quicklook";
+
+// Plugins compatibility
+@import "partials/plugins/paypal";
+@import "partials/plugins/stripe";
+@import "partials/plugins/variation-swatches-woo";
+@import "partials/plugins/woo-variation-swatches";

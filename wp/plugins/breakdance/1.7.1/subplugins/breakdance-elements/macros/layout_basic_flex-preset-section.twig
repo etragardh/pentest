@@ -1,0 +1,43 @@
+{% macro layout_basic_flex(s) %}
+
+    display: flex;
+
+    {% if s.stack == 'horizontal' %}
+        flex-direction: row;
+        flex-wrap: wrap;
+
+        {% if s.h_h_alignment == 'left' %}
+            justify-content: flex-start;
+        {% elseif s.h_h_alignment == 'center' %}
+            justify-content: center;
+        {% elseif s.h_h_alignment == 'right' %}
+            justify-content: flex-end;
+        {% elseif s.h_h_alignment == 'space_around' %}
+            justify-content: space-around;
+        {% elseif s.h_h_alignment == 'space_between' %}
+            justify-content: space-between;
+        {% endif %}
+
+        {% if s.h_v_alignment == 'top' %}
+            align-items: flex-start;
+        {% elseif s.h_v_alignment == 'middle' %}
+            align-items: center;
+        {% elseif s.h_v_alignment == 'bottom' %}
+            align-items: flex-end;
+        {% endif %}
+
+    {% else %}
+        flex-direction: column;
+
+        {% if s.alignment == 'left' %}
+            align-items: flex-start;
+        {% elseif s.alignment == 'center' %}
+            align-items: center;
+            text-align: center;
+        {% elseif s.alignment == 'right' %}
+            align-items: flex-end;
+        {% endif %}
+
+    {% endif %}
+
+{% endmacro %}

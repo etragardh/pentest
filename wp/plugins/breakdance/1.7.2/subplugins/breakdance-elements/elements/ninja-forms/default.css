@@ -1,0 +1,48 @@
+.breakdance .bde-ninja-forms {
+    width: 100%;
+}
+
+.breakdance-form .nf-form-fields-required {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.breakdance-form nf-fields-wrap {
+    display: contents;
+}
+
+.breakdance-form #ninja_forms_required_items,
+.breakdance-form .nf-field-container {
+    margin-bottom: 0!important;
+}
+
+.breakdance-form .nf-form-content {
+    padding: 0;
+}
+
+.breakdance-form .nf-form-content textarea.ninja-forms-field {
+    height: auto;
+}
+
+.breakdance-form .nf-form-content textarea.ninja-forms-field,
+.breakdance-form .nf-form-content .listselect-wrap .nf-field-element div,
+.breakdance-form .nf-form-content input.ninja-forms-field,
+.breakdance-form .nf-form-content select.ninja-forms-field:not([multiple]) {
+    height: auto;
+}
+
+.breakdance-form .nf-form-content .label-above .nf-field-label,
+.breakdance-form .nf-form-content .label-below .nf-field-label,
+.breakdance-form .nf-form-content .label-hidden .nf-field-label {
+    margin-bottom: 0!important;
+}
+
+.breakdance-form .nf-pass.field-wrap .nf-field-element:after,
+.breakdance-form .nf-error.field-wrap .nf-field-element:after {
+    display: none;
+}
+
+.breakdance-form .nf-form-content .listselect-wrap .nf-field-element div,
+.breakdance-form .nf-form-content .ninja-forms-field {
+    margin-top: 4px;
+}

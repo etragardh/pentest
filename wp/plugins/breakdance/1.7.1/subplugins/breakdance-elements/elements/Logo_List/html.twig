@@ -1,0 +1,78 @@
+{% set logos = [
+  'https://breakdancedemos.com/elements/wp-content/uploads/sites/8/2022/08/logo-1.png',
+  'https://breakdancedemos.com/elements/wp-content/uploads/sites/8/2022/08/logo-2.png',
+  'https://breakdancedemos.com/elements/wp-content/uploads/sites/8/2022/08/logo-3.png',
+  'https://breakdancedemos.com/elements/wp-content/uploads/sites/8/2022/08/logo-4.png',
+  'https://breakdancedemos.com/elements/wp-content/uploads/sites/8/2022/08/logo-5.png',
+  'https://breakdancedemos.com/elements/wp-content/uploads/sites/8/2022/08/logo-6.png',
+] %}
+
+{% if design.list.type == 'animated' %}
+  <div class="un-logo-bar__marquee-content carousel-type__{{ design.list.animation.animation_type }}">
+  {% if content.setting.logos %}
+    {%  for repeat in [1,2,3,4,5,6] %}
+      {% for item in content.setting.logos %}
+        {% if item.link %}
+    	{{ macros.linkStart(item.link, 'un-logo-bar__logo-wrapper') }}
+        	{{ macros.image(item.image, item.size, item.alt, false) }}
+     	{{ macros.linkEnd() }}
+        {% else %}
+        <div class="un-logo-bar__logo-wrapper">
+          {{ macros.image(item.image, item.size, item.alt, false) }}
+        </div>
+        {% endif %}
+      {% endfor %}
+    {% endfor %}
+  {% else %}
+    {% for repeat in [1,2,3,4] %}
+      {% for logo in logos %}
+        <div class="un-logo-bar__logo-wrapper">
+          <img src="{{ logo }}">
+        </div>
+      {% endfor %}
+    {% endfor %}
+  {% endif %}
+  </div>
+{% elseif design.list.type == "side-scroll" %}
+  <div class="un-logo-bar__scrollable-wrapper">
+  {% if content.setting.logos %}
+    {% for item in content.setting.logos %}
+      {% if item.link %}
+        {{ macros.linkStart(item.link, 'un-logo-bar__logo-wrapper') }}
+        	{{ macros.image(item.image, item.size, item.alt, false) }}
+     	{{ macros.linkEnd() }}
+        {% else %}
+        <div class="un-logo-bar__logo-wrapper">
+          {{ macros.image(item.image, item.size, item.alt, false) }}
+        </div>
+        {% endif %}
+    {% endfor %}
+    {% else %}
+      {% for logo in logos %}
+        <div class="un-logo-bar__logo-wrapper">
+          <img src="{{ logo }}">
+        </div>
+      {% endfor %}
+  {% endif %}
+  </div>
+{% else %}
+  {% if content.setting.logos %}
+    {% for item in content.setting.logos %}
+      {% if item.link %}
+        {{ macros.linkStart(item.link, 'un-logo-bar__logo-wrapper') }}
+        	{{ macros.image(item.image, item.size, item.alt, false) }}
+     	{{ macros.linkEnd() }}
+        {% else %}
+        <div class="un-logo-bar__logo-wrapper">
+          {{ macros.image(item.image, item.size, item.alt, false) }}
+        </div>
+        {% endif %}
+    {% endfor %}
+    {% else %}
+      {% for logo in logos %}
+        <div class="un-logo-bar__logo-wrapper">
+          <img src="{{ logo }}">
+        </div>
+      {% endfor %}
+  {% endif %}
+{% endif %}

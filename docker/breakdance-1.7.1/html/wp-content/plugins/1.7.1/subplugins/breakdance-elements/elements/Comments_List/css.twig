@@ -1,0 +1,96 @@
+%%SELECTOR%% {
+  {{ macros.spacing_margin_y(design.spacing.container) }}
+  width: {{ design.size.width.style }};
+}
+
+%%SELECTOR%% .comments-list {
+ gap: {{ design.spacing.comment.space_between.style }};
+}
+
+
+%%SELECTOR%% .comments-list__avatar .avatar {
+  width: {{ design.comment.avatar.size.style }};
+  height: {{ design.comment.avatar.size.style }};
+  border-radius: 50%;
+  {% if design.comment.avatar.corners == 'custom' %}
+     border-radius: {{ design.comment.avatar.radius.style }};
+  {% elseif design.comment.avatar.corners == 'square' %}
+    border-radius: 0;
+  {% elseif design.comment.avatar.corners == 'round' %}
+    border-radius: 8px;
+  {% endif %}
+}
+
+%%SELECTOR%% .comments-list__avatar {
+  flex-basis: {{ design.comment.avatar.size.style }};
+  {% if design.comment.avatar.hide %}
+	display: none;
+  {% endif %}
+}
+
+   
+
+%%SELECTOR%% .comments-list__item {
+ {{ macros.borders(design.comment.borders) }}
+ {{ macros.spacing_padding_all(design.comment.padding) }}
+ background-color: {{ design.comment.background }};
+}
+
+%%SELECTOR%% .comments-list__author-name {
+  {{ macros.typography(design.typography.name, globalSettings)  }}
+  margin-bottom: {{ design.spacing.comment.after_name.style }};
+}
+
+%%SELECTOR%% .comments-list__header {
+  margin-bottom: {{ design.spacing.comment.after_date.style }};
+}
+
+%%SELECTOR%% .comments-list__entry {
+  margin-bottom: {{ design.spacing.comment.after_comment.style }};
+}
+
+%%SELECTOR%% .comments-list__body,
+%%SELECTOR%% .comments-list__header {
+  gap: {{ design.spacing.comment.after_avatar.style }};
+}
+
+%%SELECTOR%% .comments-list__metadata {
+  {{ macros.typography(design.typography.date, globalSettings)  }}
+}
+
+%%SELECTOR%% .comments-list__metadata a {
+  {{ macros.typography(design.typography.links, globalSettings)  }}
+}
+
+%%SELECTOR%% .comments-list__text p {
+  {{ macros.typography(design.typography.comment, globalSettings)  }}
+}
+
+%%SELECTOR%% .comments-list .children {
+  margin-left: {{ design.spacing.comment.space_between.style }};
+}
+
+%%SELECTOR%% .comments-list__arrow {
+  width: {{ design.comment.arrow.size.style }};
+  height: {{ design.comment.arrow.size.style }};
+  color: {{ design.comment.arrow.color }};
+  
+  {% if design.comment.arrow.disable %}
+  	display: none !important;
+  {% endif %}
+}
+
+%%SELECTOR%% .comments-list__avatar {
+  gap: {{ design.comment.arrow.space_after.style }};
+}
+
+
+
+
+
+
+
+
+
+   
+    

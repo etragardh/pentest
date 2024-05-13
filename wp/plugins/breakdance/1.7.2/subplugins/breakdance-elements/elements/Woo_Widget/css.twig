@@ -1,0 +1,19 @@
+%%SELECTOR%% {
+  --bde-woo-base-border-color: {{ design.general.borders }};
+  {{ macros.spacing_margin_y(design.spacing) }}
+  width: {{ design.container.width.style }};
+  background-color: {{ design.container.background }};
+  {{ macros.spacing_padding_all(design.container.padding) }}
+  {{ macros.borders(design.container.borders) }}
+}
+
+{{ macros.wooGlobalStyler(design.advanced.override_global_styles, '%%SELECTOR%%', breakpoint, globalSettings) }}
+
+%%SELECTOR%% h2.widgettitle {
+  {% if not design.title.hide %}
+    {{ macros.typography(design.title.typography, globalSettings) }}
+  {% else %}
+    display: none;
+  {% endif %}
+  margin-bottom: {{ design.title.space_below.style }};
+}

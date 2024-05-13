@@ -1,0 +1,25 @@
+{% macro iconToCssVar(name, icon) %}
+  {% if icon %}
+    {% set dataUri = data_uri(icon.svgCode, 'image/svg+xml') %}
+    --{{ name }}: url({{ dataUri }});
+  {% endif %}
+{% endmacro %}
+
+{% macro paddingToCssVar(name, p) %}
+  {% if
+    p.top.style or
+    p.right.style or
+    p.bottom.style or
+    p.left.style
+  %}
+    --{{ name }}: {{ p.top.style ?? 0 }} {{ p.right.style ?? 0 }} {{ p.bottom.style ?? 0 }} {{ p.left.style ?? 0 }};
+  {% endif %}
+{% endmacro %}
+
+{% macro radiusToCssVar(name, radius) %}
+  {% if radius.editMode == "custom" %}
+    --{{ name }}: {{ radius.topLeft.style ?? 0 }} {{ radius.topRight.style ?? 0 }} {{ radius.bottomRight.style ?? 0 }} {{ radius.bottomLeft.style ?? 0 }};
+  {% else %}
+    --{{ name }}: {{ radius.all.style }};
+  {% endif %}
+{% endmacro %}

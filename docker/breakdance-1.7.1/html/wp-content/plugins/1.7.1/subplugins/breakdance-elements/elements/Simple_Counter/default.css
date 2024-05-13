@@ -1,0 +1,27 @@
+.breakdance .bde-simple-counter {
+  position: relative;
+  text-align: center;
+  max-width: 100%;
+  width: 100%;
+}
+
+.breakdance .bde-simple-counter__number {
+  font-size: 64px;
+  margin: 0;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 8px;
+  color: var(--bde-brand-primary-color);
+  display: inline-flex;
+  align-items: baseline;
+}
+
+.bde-simple-counter__digit {
+  letter-spacing: -0.07em;
+  font-variant-numeric: tabular-nums;
+}
+
+.bde-simple-counter__title {
+  margin-top: 0;
+  margin-bottom: 0;
+}

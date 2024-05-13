@@ -1,0 +1,11 @@
+.breakdance .bde-advancedslide.swiper-slide {
+  height: auto;
+}
+
+.breakdance .bde-advancedslide .advanced-slider__slide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 30px 50px;
+}

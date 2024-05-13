@@ -1,0 +1,20 @@
+{% if content.content.link %}
+ {{ macros.linkStart(content.content.link) }}
+{% endif %}
+    
+{% if content.content.icon %}
+  <div class="ee-scrollimage-icon">
+    {{ content.content.icon.svgCode }}
+  </div>
+  {% endif %}
+  {% if content.content.caption %}
+    <div class="ee-scrollimage-caption-wrap">
+      <div class="ee-scrollimage-caption" {{ dataContentEditablePropertyPath('content.content.caption') }}>
+        <span>{{ content.content.caption }}</span>
+      </div>
+    </div>
+{% endif %}
+
+{% if content.content.link %}
+  {{ macros.linkEnd() }}
+{% endif %}

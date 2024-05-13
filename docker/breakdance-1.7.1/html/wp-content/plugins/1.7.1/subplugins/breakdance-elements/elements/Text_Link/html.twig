@@ -1,0 +1,11 @@
+{% set prevent_whitespace_output %}
+{{ macros.linkMaybeEnqueueLightboxStyles(content.content.link) }}
+{{ macros.linkMaybeEnqueueLinkActions(content.content.link) }}
+{% endset %}
+{% if content.content.tag %}
+  <{{ content.content.tag }} {{ dataContentEditablePropertyPath('content.content.text') }}>
+{% endif %}
+  {{ content.content.text|default('Text Link') }}
+{% if content.content.tag %}
+  </{{ content.content.tag }}>
+{% endif %}

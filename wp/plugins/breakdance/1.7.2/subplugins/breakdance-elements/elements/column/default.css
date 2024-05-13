@@ -1,0 +1,13 @@
+.breakdance .bde-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: left;
+  align-items: flex-start;
+  width: calc(
+    var(--column-width) - var(--bde-column-gap) *
+      ((var(--columnCount) - 1) / var(--columnCount))
+  );
+  position: relative;
+  background-size: cover;
+}

@@ -1,0 +1,12 @@
+{% set tabs = 'timeline' %}
+{% set tabs = content.page.messages ? tabs ~ ',messages' : tabs %}
+{% set tabs = content.page.events ? tabs ~ ',events' : tabs %}
+{% set url = content.page.page_url is empty ? 'https://wwww.facebook.com/Meta' : content.page.page_url %}
+{% set width = design.size.width is empty ? '340' : design.size.width %}
+{% set height = design.size.height is empty ? '500' : design.size.height %}
+{% set hide_cover = content.page.hide_cover_photo ? 'true' : 'false' %}
+{% set small_header = content.page.small_header ? 'true' : 'false' %}
+{% set show_facepile = content.page.profile_photos ? 'true' : 'false' %}
+{% set hide_cta = content.page.cta_button ? 'true' : 'false' %}
+
+<div class="fb-page" data-href="{{ url }}" data-tabs="{{ tabs }}" data-width="{{ width }}" data-height="{{ height }}" data-small-header="{{ small_header }}" data-adapt-container-width="true" data-hide-cover="{{ hide_cover }}" data-show-facepile="{{ show_facepile }}"></div>

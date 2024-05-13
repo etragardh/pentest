@@ -1,0 +1,21 @@
+{% macro image_settings(settings) %}
+
+  {% if settings.size == 'custom' %}
+    background-size: {{ settings.width.style ?: 'auto' }} {{ settings.height.style ?: 'auto' }};
+  {% else %}
+    background-size: {{ settings.size }};
+  {% endif %}
+  {% if settings.repeat %}
+    background-repeat: {{ settings.repeat }};
+  {% endif %}
+  {% if settings.position %}
+    {% if settings.position == 'custom' %}
+      background-position: {{ settings.custom_position.x }}% {{ settings.custom_position.y }}%;
+    {% else %}
+      background-position: {{ settings.position }};
+    {% endif %}
+  {% endif %}
+  {% if settings.attachment %}
+    background-attachment: {{ settings.attachment }};
+  {% endif %}
+{% endmacro %}

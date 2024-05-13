@@ -1,0 +1,21 @@
+{% macro wooPresetProductWrapperDesign(selector, layout) %}
+  {{ selector }} li.product {
+    {{ _self.backgroundColor(layout.background) }}
+    {{ _self.borders(layout.borders) }}
+    {{ _self.spacing_padding_all(layout.padding) }}
+  }
+
+  {{ selector }} li.product,
+  {{ selector }} a.woocommerce-LoopProduct-link {
+    align-items: {{ layout.align_content }};
+  }
+
+  {{ selector }} li.product .price {
+    justify-content: {{ layout.align_content }};
+  }
+  
+  {{ selector }} li.product,
+  {{ selector }} h2.woocommerce-loop-product__title {
+    text-align: {{ layout.align_content }};
+  }
+{% endmacro %}

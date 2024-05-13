@@ -1,0 +1,79 @@
+{% macro EssentialElements_PostsSharedCss(selector, design, globalSettings, isBaseBreakpoint, breakpoint, isBuilder) %}
+  {{ selector }} {
+    width: {{ design.list.width.style }};
+    {{ _self.spacing_margin_y(design.spacing) }}
+  }
+
+  {{ selector }} > .ee-posts {
+    --bde-posts-gap: {{ design.list.space_between_items.style }};
+
+    {% if design.list.layout != 'list' %}
+      --bde-posts-per-row: {{ design.list.items_per_row }};
+    {% endif %}
+
+    {% if breakpoint == design.list.one_item_at %}
+      --bde-posts-per-row: 1;
+    {% endif %}
+  }
+
+  {% if design.list.layout == 'slider' %}
+    {% if design.list.slider.arrows.overlay %}
+      {{ selector }} .breakdance-swiper-wrapper {
+        padding: 0;
+      }
+    {% endif %}
+
+    {{ selector }} .swiper-slide {
+      height: auto;
+    }
+
+    {{ _self.AtomV1SwiperCss(design.list.slider, selector, globalSettings, isBaseBreakpoint) }}
+  {% endif %}
+
+  {#  Pagination #}
+
+  {{ selector }} .bde-posts-pagination {
+    margin-top: {{ design.pagination.space_above.style }};
+    justify-content: {{ design.pagination.alignment }};
+    gap: {{ design.pagination.space_between.style }};
+
+    {% if design.pagination.stack_horizontally %}
+      flex-direction: row;
+    {% endif %}
+
+    {% if design.pagination.vertical_at == breakpoint %}
+      flex-direction: column;
+    {% endif %}
+  }
+
+  {{ selector }} .bde-posts-navigation-numbers-prev-next {
+    align-items: {{ design.pagination.alignment }};
+  }
+
+  {{ selector }} .bde-posts-prev-next-link a {
+    {{ _self.typography(design.pagination.typography, globalSettings) }}
+  }
+
+  {{ selector }} .bde-posts-prev-next-link a:hover {
+    {{ _self.typographyWithHoverableEverything(design.pagination.typography, globalSettings) }}
+  }
+
+  {% if isBuilder %}
+    {{ selector }} .bde-posts-pagination-infinite-loader-wrapper {
+      {% if design.pagination.show_loading_icon_in_builder %}
+        display: flex;
+      {% else %}
+        display: none;
+      {% endif %}
+    }
+  {% endif %}
+
+  {{ selector }} .bde-posts-pagination-infinite-loader-wrapper {
+    font-size: {{ design.pagination.loading_icon.size.style }};
+    color: {{ design.pagination.loading_icon.color }};
+    margin-top: {{ design.pagination.space_above.style }};
+  }
+
+  {{ _self.atomV1ButtonCss(design.pagination.load_more_button, 'bde-posts-pagination-loadmore-button', selector, breakpoint, globalSettings) }}
+  {{ _self.pagination(design.pagination, selector, '.bde-posts-pagination ul', 'a.is-active', '.bde-posts-navigation-numbers--ellipses') }}
+{% endmacro %}

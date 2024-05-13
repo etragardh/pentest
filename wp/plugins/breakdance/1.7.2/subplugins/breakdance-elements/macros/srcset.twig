@@ -1,0 +1,26 @@
+{% macro srcset(source, sizes) %}
+  {% set imgs = [] %}
+  {% set descriptor = 'w' %}
+  {% set sourceAspectRatio = source.height / source.width %}
+  {# The maximum image width to be included in the 'srcset'. #}
+  {% set maxImageWidth = 2048 %}
+  {# Loop through available images. #}
+  {% for size in sizes %}
+    {% set sizeAspectRatio = size.height / size.width|default(1) %}
+    {% set matchesRatio = sizeAspectRatio|round(1, 'floor') == sourceAspectRatio|round(1, 'floor') %}
+    {# Filters out images that are wider than maxImageWidth #}
+    {% if size.width < maxImageWidth and matchesRatio %}
+      {% set imgs = imgs|merge([
+        size.url ~ ' ' ~ size.width ~ descriptor
+      ]) %}
+    {% endif %}
+  {% endfor %}
+  {% set srcset = imgs|join(', ') %}
+  {#
+    Output img attributes
+    Only return a 'srcset' value if there is more than one size.
+  #}
+  {% if sizes|length > 1 and not size.placeholder %}
+    srcset="{{ srcset }}" sizes="(max-width: {{ source.width }}px) 100vw, {{ source.width }}px"
+  {% endif %}
+{% endmacro %}

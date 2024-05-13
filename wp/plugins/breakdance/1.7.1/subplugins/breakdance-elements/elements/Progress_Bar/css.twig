@@ -1,0 +1,72 @@
+%%SELECTOR%% {
+  width: {{ design.container.width.style }};
+  {{ macros.spacing_margin_y(design.spacing.wrapper) }}
+}
+
+%%SELECTOR%% .bde-progress-bar__background {
+  border-radius: {{ design.container.border_radius.style }};
+  {{ macros.backgroundColor(design.container.background_color) }}
+}
+
+%%SELECTOR%% .bde-progress-bar__progress-wrap {
+  width: {{ content.progress_bar.progress }}%;
+}
+
+%%SELECTOR%% .bde-progress-bar__progress {
+  {{ macros.backgroundColor(design.progress_bar.background_color) }}
+}
+
+%%SELECTOR%% .bde-progress-bar__progress,
+%%SELECTOR%% .bde-progress-bar__progress::before {
+  border-top-right-radius: {{ design.progress_bar.border_radius.style }};
+  border-bottom-right-radius: {{ design.progress_bar.border_radius.style }};
+}
+
+%%SELECTOR%% .bde-progress-bar__progress {
+  padding-left: {{ design.progress_bar.horizontal_padding.style }};
+  padding-right: {{ design.progress_bar.horizontal_padding.style }};
+  padding-top: {{ design.progress_bar.vertical_padding.style }};
+  padding-bottom: {{ design.progress_bar.vertical_padding.style }};
+}
+
+
+%%SELECTOR%% .bde-progress-bar__title {
+  {{ macros.typography(design.typography.title, globalSettings)  }}
+  margin-right: {{ design.spacing.after_title.style }};
+}
+
+%%SELECTOR%% .bde-progress-bar__percent {
+  {{ macros.typography(design.typography.percent_counter, globalSettings)  }}
+}
+
+{% if design.progress_bar.disable_stripes %}
+  %%SELECTOR%% .bde-progress-bar__progress::before {
+    background-image: none;
+  }
+{% else %}
+  {% if design.animation.animation_stripes %}
+    %%SELECTOR%% .bde-progress-bar__progress::before {
+      animation: breakdance_progress_bar_stripes {{ design.animation.animation_duration.style | default('1000ms') }} linear infinite;
+    }
+  {% endif %}
+{% endif %}
+{% if design.container.disable_stripes %}
+  %%SELECTOR%% .bde-progress-bar__background::before {
+    background-image: none;
+  }
+{% else %}
+  {% if design.animation.animation_stripes %}
+  %%SELECTOR%% .bde-progress-bar__background::before {
+    animation: breakdance_progress_bar_stripes {{ design.animation.animation_duration.style | default('1000ms') }} linear infinite;
+  }
+  {% endif %}
+{% endif %}
+{% if design.animation.animate_progress_on_scroll %}
+  %%SELECTOR%% .bde-progress-bar__progress {
+    transition-duration: {{ design.animation.transition_duration.style | default('1000ms') }};
+    width: 0;
+  }
+  %%SELECTOR%% [data-scroll=in] .bde-progress-bar__progress {
+    width: 100%;
+  }
+{% endif %}

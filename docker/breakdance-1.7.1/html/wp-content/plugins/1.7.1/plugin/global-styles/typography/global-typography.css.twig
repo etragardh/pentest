@@ -1,0 +1,5 @@
+:root {
+    {% for preset_style in settings.typography.global_typography.typography_presets %}
+        {{ macros.customTypographyValuesAsCssVariables(preset_style.preset.id, preset_style.custom.customTypography) }}
+    {% endfor %}
+}

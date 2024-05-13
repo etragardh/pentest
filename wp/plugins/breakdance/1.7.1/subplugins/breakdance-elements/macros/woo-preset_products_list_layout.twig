@@ -1,0 +1,27 @@
+{% macro wooPresetProductsListLayoutDesign(selector, layout) %}
+
+    {{ selector }}.breakdance-woocommerce {
+        {% if layout.products_per_row %}
+          --bde-woo-products-list-products-per-row: {{ layout.products_per_row }};
+        {% endif %}
+
+        {% if layout.between_products.style %}
+            --bde-woo-products-list-gap: {{ layout.between_products.style }};
+        {% endif %}
+    }
+
+    {#
+
+    {% if layout.layout == 'slider' %}
+        {{ selector }} {
+            padding-bottom: 45px;
+        }
+
+        {{ _self.AtomV1SwiperSettingsCss(layout.slider.settings, selector) }}
+        {{ _self.AtomV1SwiperArrowsCss(layout.slider.arrows, selector) }}
+        {{ _self.AtomV1SwiperPaginationCss(layout.slider.pagination, selector) }}
+    {% endif %}
+
+    #}
+
+{% endmacro %}

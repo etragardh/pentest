@@ -1,0 +1,52 @@
+%%SELECTOR%% {
+  {{ macros.spacing_margin_y(design.spacing) }}
+  width: {{ design.container.width.style }};
+  {{ macros.backgroundColor(design.container.background) }}
+  {{ macros.borders(design.container.borders) }}
+  box-shadow: {{ design.container.shadow.style }};
+  {{ macros.spacing_padding_all(design.container.padding) }}
+}
+
+%%SELECTOR%% .bde-business-hours__row {
+  {{ macros.spacing_padding_all(design.rows.padding) }}
+}
+
+%%SELECTOR%% .bde-business-hours__row:nth-child(odd) {
+  {{ macros.backgroundColor(design.rows.background_a) }}
+}
+%%SELECTOR%% .bde-business-hours__row:nth-child(even) {
+  {{ macros.backgroundColor(design.rows.background_b) }}
+}
+
+%%SELECTOR%% .bde-business-hours__row.bde-business-hours__row-accent {
+  {{ macros.backgroundColor(design.rows.background_accent) }}
+}
+
+%%SELECTOR%% .bde-business-hours__row:not(:last-child) {
+  {% if design.rows.border %}
+    border-bottom: 1px solid {{ design.rows.border_color|default('black') }};
+  {% endif %}
+}
+
+
+%%SELECTOR%% .bde-business-hours__day {
+  {{ macros.typography(design.typography.day, globalSettings)  }}
+}
+%%SELECTOR%% .bde-business-hours__time {
+  {{ macros.typography(design.typography.time, globalSettings)  }}
+}
+
+/* do we really need the option to change text color on odd rows? it encourages users to make the design bad */
+%%SELECTOR%% .bde-business-hours__row:nth-child(even) .bde-business-hours__day {
+  color: {{ design.typography.day_b }};
+}
+%%SELECTOR%% .bde-business-hours__row:nth-child(even) .bde-business-hours__time {
+  color: {{ design.typography.time_b }};
+}
+
+%%SELECTOR%% .bde-business-hours__row-accent .bde-business-hours__day {
+  {{ macros.typography(design.typography.day_accent, globalSettings)  }}
+}
+%%SELECTOR%% .bde-business-hours__row-accent .bde-business-hours__time {
+  {{ macros.typography(design.typography.time_accent, globalSettings)  }}
+}

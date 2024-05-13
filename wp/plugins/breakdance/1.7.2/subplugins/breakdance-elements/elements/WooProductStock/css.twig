@@ -1,0 +1,9 @@
+%%SELECTOR%% {
+  {{ macros.spacing_margin_y(design.spacing) }}
+}
+
+{{ macros.wooPresetStockDesign(design.notices, '%%SELECTOR%%') }}
+
+%%SELECTOR%% p.stock.in-stock {
+  {{ macros.typography(design.in_stock, globalSettings) }}
+}

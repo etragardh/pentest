@@ -1,0 +1,26 @@
+<div class="bde-table-of-contents__wrapper">
+  <header class="bde-table-of-contents__header{{ design.header.accordion ? ' js-toc-accordion' : ''}}">
+    {% if content.table.title %}
+    <h3 class="bde-table-of-contents__title toc-ignore">{{ content.table.title }}</h3>
+    {% endif %}
+     {% if design.header.accordion %}
+    <div class="bde-table-of-contents__button">
+      {% if design.header.icon.active_icon.svgCode %}
+      <div class="bde-table-of-contents__icon bde-table-of-contents__icon--active">
+          {{ design.header.icon.active_icon.svgCode }}
+      </div>
+      {% endif %}
+      {% if design.header.icon.icon.svgCode %}
+      <div class="bde-table-of-contents__icon bde-table-of-contents__icon--inactive">
+          {{ design.header.icon.icon.svgCode }}
+      </div>
+      {% endif %}
+    </div>
+    {% endif %}
+  </header>
+  
+  <div class="bde-table-of-contents__list">
+    <nav id="bde-toc" class="toc js-breakdance-toc" aria-label="{{ content.table.title|default('Table of contents') }}">There are no headings in this document.</nav>
+  </div>
+</div>
+

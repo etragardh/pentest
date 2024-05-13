@@ -1,0 +1,50 @@
+%%SELECTOR%% {
+  {{ macros.spacing_margin_y(design.spacing.wrapper) }}  
+  --switchWidth: {{ design.switch.width.style }};
+  --switchHeight: {{ design.switch.height.style }};
+  --toggleSize: {{ design.switch.toggle.size.style }};
+  --switchPadding: {{ design.switch.padding.style }};
+  --switchBorderRadius: {{ design.switch.radius.style }};
+  width: {{ design.layout.width.style }};
+ 
+}
+%%SELECTOR%% .bde-content-toggle__switcher {
+  margin-bottom: {{ design.spacing.below_toggle.style }};
+  gap: {{ design.spacing.after_labels.style }};
+}
+{% if breakpoint == design.switch.vertical_at %}
+%%SELECTOR%% .bde-content-toggle__switcher {
+  flex-direction:column;
+}
+{% endif %}
+ 
+%%SELECTOR%% .bde-content-toggle__text {
+	{{ macros.typography(design.label.typography, globalSettings)  }}
+}
+
+%%SELECTOR%% .bde-content-toggle__text.is-active {
+  color: {{ design.label.active_color }};  
+}
+
+%%SELECTOR%% .bde-content-toggle__slider {
+  background-color: {{ design.switch.background.inactive }};
+}
+
+%%SELECTOR%% input:checked + .bde-content-toggle__slider {
+  background-color: {{ design.switch.background.active }};
+}
+
+%%SELECTOR%% .bde-content-toggle__slider:before {
+  background-color: {{ design.switch.toggle.inactive }};  
+  border-radius: {{ design.switch.toggle.radius.style }};
+}
+
+%%SELECTOR%% input:checked + .bde-content-toggle__slider:before {
+  background-color: {{ design.switch.toggle.active }};
+}
+
+{% if design.layout.fade_content %}
+%%SELECTOR%% .bde-content-toggle-content {
+  animation: breakdance-content-toggle-fade 1.2s both;
+}
+{% endif %}

@@ -1,0 +1,7 @@
+{% set layout = design.style.layout is empty ? 'standard' : design.style.layout %}
+{% set share = content.button.share_button ? 'true' : 'false' %}
+{% set action = content.button.action_type is empty ? 'like' : content.button.action_type %}
+{% set theme = design.style.theme is empty ? 'light' : design.style.theme %}
+{% set size = design.size.size is empty ? 'small' : design.size.size %}
+
+<div class="fb-like" data-href="%%SSR%%" data-layout="{{ layout }}" data-action="{{ action }}" data-size="{{ size }}" data-share="{{ share }}" data-colorscheme="{{ theme }}"></div>

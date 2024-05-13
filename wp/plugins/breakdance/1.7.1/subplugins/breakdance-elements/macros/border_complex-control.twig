@@ -1,0 +1,23 @@
+{% macro border_complex(borders) %}
+
+    {% for position, border in borders %}
+        {% if border.width is defined %}
+        border-{{ position }}: {{ border.width.style }} {{ border.style|default('solid') }} {{ border.color }};
+        {% endif %}
+    {% endfor %}
+
+{% endmacro %}
+
+{% macro border_complex_to_css_vars(borders) %}
+
+    {% for position, border in borders %}
+        {% if border.width is defined %}
+        --bde-form-input-border-{{ position }}: {{ border.width.style }} {{ border.style|default('solid') }} {{ border.color }};
+        {% endif %}
+
+    {% endfor %}
+
+{% endmacro %}
+
+
+

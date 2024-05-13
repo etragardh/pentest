@@ -1,0 +1,104 @@
+.breakdance .bde-content-toggle {
+  width: 100%;
+  max-width: 100%;
+  --switchWidth: 60px;
+  --switchHeight: 30px;
+  --toggleSize: 30px;
+  --switchPadding: 6px;
+  --switchBorderRadius: 9999px;
+}
+.breakdance .bde-content-toggle__switcher {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 36px;
+  gap: 20px;
+}
+
+.breakdance .bde-content-toggle__text {
+  cursor: pointer;
+  font-weight: 500;
+  color: var(--grey-400);
+}
+
+.breakdance .bde-content-toggle__text.is-active {
+  cursor: pointer;
+  color: var(--bde-headings-color);
+}
+
+.breakdance .bde-content-toggle__switch {
+  position: relative;
+  display: inline-block;
+  width: calc(var(--switchWidth) + 2 * var(--switchPadding));
+  height: calc(var(--switchHeight) + 2 * var(--switchPadding));
+}
+.breakdance .bde-content-toggle__switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.breakdance .bde-content-toggle__slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--bde-brand-primary-color);
+  transition: var(--bde-transition-duration);
+  border-radius: var(--switchBorderRadius);
+}
+
+.breakdance .bde-content-toggle__slider:before {
+  border-radius: var(--switchBorderRadius);
+}
+
+.breakdance .bde-content-toggle__slider:before {
+  position: absolute;
+  content: "";
+  width: var(--toggleSize);
+  height: var(--toggleSize);
+  top: 50%;
+  transform: translateY(-50%);
+  left: var(--switchPadding);
+
+  background-color: white;
+  transition: var(--bde-transition-duration);
+}
+.breakdance
+  .bde-content-toggle
+  input:checked
+  + .bde-content-toggle__slider:before {
+  transform: translateY(-50%)
+    translateX(calc(var(--switchWidth) - var(--toggleSize)));
+}
+.breakdance
+  .bde-content-toggle
+  input:checked
+  + .bde-content-toggle__slider:before {
+  background-color: white;
+}
+.breakdance .bde-content-toggle input:checked + .bde-content-toggle__slider {
+  background-color: var(--bde-brand-primary-color);
+}
+
+.breakdance .bde-content-toggle .bde-content-toggle-content {
+  display: none;
+}
+
+.breakdance .bde-content-toggle .bde-content-toggle-content.is-active {
+  display: flex;
+  display: flex;
+}
+
+@keyframes breakdance-content-toggle-fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

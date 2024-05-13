@@ -1,0 +1,93 @@
+%%SELECTOR%% {
+    grid-template-columns: repeat({{ design.layout.boxes_per_row }}, 1fr);
+    grid-gap: {{ design.layout.spacing.style }};
+    grid-row-gap: {{ design.layout.vertical_spacing.style }};
+}
+
+%%SELECTOR%% .bde-icon-box {
+    {% if design.layout.content_alignment == 'left' %}
+      align-items: flex-start;
+    {% elseif design.layout.content_alignment == 'center' %}
+      align-items: center;
+    {% elseif design.layout.content_alignment == 'right' %}
+      align-items: flex-end;
+    {% endif %}
+    {# you really shouldn't be using elseif elseif, there should be an else clause which is the default #}
+
+    text-align: {{ design.layout.content_alignment }};
+    {% if design.layout.icon_position == 'left' %}
+        flex-direction: row;
+    {% elseif design.layout.icon_position == 'right' %}
+        flex-direction: row-reverse;
+    {% endif %}
+
+    background-color: {{ design.box_style.background_color }};
+    padding: {{ design.box_style.padding.style }};
+    border-radius: {{ design.box_style.radius.style }};
+    box-shadow: {{ design.box_style.shadow }};
+
+}
+
+%%SELECTOR%% .bde-icon-box-icon-wrapper {
+    {% if design.layout.content_alignment == 'left' %}
+      align-items: flex-start;
+    {% elseif design.layout.content_alignment == 'center' %}
+      align-items: center;
+    {% elseif design.layout.content_alignment == 'right' %}
+      align-items: flex-end;
+    {% endif %}
+    {# you really shouldn't be using elseif elseif, there should be an else clause which is the default #}
+
+    {% if design.layout.icon_position == 'left' %}
+        margin-right: {{ design.layout.space_after_icon.style }};
+    {% elseif design.layout.icon_position == 'right' %}
+        margin-left: {{ design.layout.space_after_icon.style }};
+    {else}
+        margin-bottom: {{ design.layout.space_after_icon.style }};
+    {% endif %} {# if you used elseif design.layout.icon_position == 'top', if the user didn't choose 'top' but set space after the icon
+    the space would not be rendered #}
+
+}
+
+%%SELECTOR%% .bde-icon-box-icon {
+    font-size: {{ design.icon.size.style }};
+    color: {{ design.icon.color }};
+}
+
+%%SELECTOR%% .bde-icon-box:hover .bde-icon-box-icon {
+    color: {{ design.icon.color_hover }};
+}
+
+%%SELECTOR%% .bde-icon-box-title {
+    margin-bottom: {{ design.layout.space_after_title.style }};
+    %%TITLE_TYPOGRAPHY%%
+}
+
+%%SELECTOR%% .bde-icon-box-text {
+    %%TEXT_TYPOGRAPHY%%
+}
+
+{% if design.icon.style == 'outline' or design.icon.style == 'solid' %}
+%%SELECTOR%% .bde-icon-box-icon-wrapper {
+    padding: 1.5em;
+    border-radius: 50%;
+    padding: {{ design.icon.padding.style }};
+    border-radius: {{ design.icon.radius.style }};
+    {% if design.icon.style == 'outline' %}
+        border: 1px solid {{ design.icon.color }};
+    {% elseif design.icon.style == 'solid' %}
+        background-color: {{ design.icon.background_color }};     {# what about a gradient background #}
+    {% endif %}
+}
+{% endif %}
+
+
+{% if design.icon.style == 'outline' or design.icon.style == 'solid' %}
+%%SELECTOR%% .bde-icon-box:hover .bde-icon-box-icon-wrapper {
+    {% if design.icon.style == 'outline' %}
+        border: 1px solid {{ design.icon.color_hover }};
+    {% elseif design.icon.style == 'solid' %}
+        background-color: {{ design.icon.background_color_hover }};
+    {% endif %}
+}
+{% endif %}

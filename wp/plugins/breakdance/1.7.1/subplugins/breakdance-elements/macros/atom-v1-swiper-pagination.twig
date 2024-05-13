@@ -1,0 +1,16 @@
+{% macro AtomV1SwiperPaginationAndArrowsHtml(sliderSettings) %}
+    {% if sliderSettings.arrows.disable != true %}
+        <div class="swiper-button-prev">
+            {{ sliderSettings.arrows.custom_icons.previous.svgCode }}
+        </div>
+        <div class="swiper-button-next">
+            {{ sliderSettings.arrows.custom_icons.next.svgCode }}
+        </div>
+    {% endif %}
+
+    {% if sliderSettings.pagination.type != 'none' %}
+        <div class="swiper-pagination"></div>
+    {% endif %}
+{% endmacro %}
+
+

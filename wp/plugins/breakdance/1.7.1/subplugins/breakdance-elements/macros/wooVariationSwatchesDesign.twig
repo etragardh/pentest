@@ -1,0 +1,99 @@
+{% macro wooVariationSwatchesDesign(selector, styles, breakpoint, globalSettings) %}
+  {# Variation Label #}
+  .cfvsw-product-page {{ selector }} .variations .label label,
+  {{ selector }} .cfvsw_variations_form .variations .label label,
+  .woo-variation-swatches {{ selector }} .variations .label label,
+  .woo-variation-swatches {{ selector }} .variations .label .woo-selected-variation-item-name {
+    {{ _self.typography(styles.all_swatches.typography.label, globalSettings) }}
+  }
+  
+  {# Variation Button #}
+  .cfvsw-product-page {{ selector }} .cfvsw-swatches-option,
+  {{ selector }} .cfvsw_variations_form .cfvsw-swatches-option,
+  .woo-variation-swatches {{ selector }} .variable-items-wrapper .variable-item,
+  .woo-variation-swatches {{ selector }} .variable-items-wrapper {
+    {{ _self.typography(styles.all_swatches.typography.button, globalSettings) }}
+  }
+
+  .cfvsw-product-page {{ selector }} .cfvsw-swatches-option,
+  {{ selector }} .cfvsw_variations_form .cfvsw-swatches-option,
+  .woo-variation-swatches {{ selector }} .variable-items-wrapper .variable-item:hover,
+  .woo-variation-swatches {{ selector }} .variable-items-wrapper .variable-item:not(.radio-variable-item).button-variable-item:hover {
+    {{ _self.typographyWithHoverableColorAndEffects(styles.all_swatches.typography.button, globalSettings) }}
+  }
+
+  .cfvsw-product-page {{ selector }} .cfvsw-swatches-option,
+  {{ selector }} .cfvsw_variations_form .cfvsw-swatches-option,
+  .woo-variation-swatches {{ selector }} .variable-items-wrapper .variable-item:not(.radio-variable-item) {
+    {{ _self.spacing_padding_all(styles.all_swatches.padding) }}
+    {{ _self.borders(styles.all_swatches.borders) }}
+  }
+
+  {# Variation Item - Hover #}
+  .cfvsw-product-page {{ selector }} .cfvsw-swatches-option:hover,
+  {{ selector }} .cfvsw_variations_form .cfvsw-swatches-option:hover,
+  .woo-variation-swatches {{ selector }} .variable-items-wrapper .variable-item:not(.radio-variable-item):hover {
+    color: {{ styles.all_swatches.hover.text_color }};
+    background-color: {{ styles.all_swatches.hover.background }};
+    border-color: {{ styles.all_swatches.hover.border_color }};
+    opacity: {{ styles.all_swatches.hover.opacity }};
+  }
+  
+  {# Variation Item - Selected #}
+  .cfvsw-product-page {{ selector }} .cfvsw-selected-swatch,
+  .cfvsw-product-page {{ selector }} .cfvsw-selected-swatch:not(.cfvsw-label-option),
+  {{ selector }} .cfvsw_variations_form .cfvsw-selected-swatch,
+  {{ selector }} .cfvsw_variations_form .cfvsw-selected-swatch:not(.cfvsw-label-option),
+  .woo-variation-swatches {{ selector }} .variable-items-wrapper .variable-item:not(.radio-variable-item).selected
+  .woo-variation-swatches {{ selector }} .variable-items-wrapper .variable-item:not(.radio-variable-item).selected:hover,
+  .woo-variation-swatches {{ selector }} .variable-items-wrapper .variable-item:not(.radio-variable-item).button-variable-item.selected:not(.no-stock) {
+    color: {{ styles.all_swatches.selected.text_color }};
+    background-color: {{ styles.all_swatches.selected.background }};
+    border-color: {{ styles.all_swatches.selected.border_color }};
+    opacity: {{ styles.all_swatches.selected.opacity }};
+  }
+  
+  {# Variation Item - Disabled #}
+  .cfvsw-product-page {{ selector }} .cfvsw-swatches-disabled,
+  {{ selector }} .cfvsw_variations_form .cfvsw-swatches-disabled,
+  .woo-variation-swatches {{ selector }} .variable-items-wrapper .variable-item:not(.radio-variable-item).disabled {
+    color: {{ styles.all_swatches.disabled.text_color }};
+    background-color: {{ styles.all_swatches.disabled.background }};
+    border-color: {{ styles.all_swatches.disabled.border_color }};
+    opacity: {{ styles.all_swatches.disabled.opacity }};
+  }
+
+  .cfvsw-product-page {{ selector }} .cfvsw-swatches-disabled::before,
+  {{ selector }} .cfvsw_variations_form .cfvsw-swatches-disabled::before {
+    color: {{ styles.all_swatches.disabled.cross_color }};
+  }
+
+  {# Image & Color Swatches #}
+  .cfvsw-product-page {{ selector }} .cfvsw-image-option,
+  .cfvsw-product-page {{ selector }} .cfvsw-swatches-option:not(.cfvsw-label-option),
+  {{ selector }} .cfvsw_variations_form .cfvsw-image-option,
+  {{ selector }} .cfvsw_variations_form .cfvsw-swatches-option:not(.cfvsw-label-option),
+  .woo-variation-swatches {{ selector }} .variable-items-wrapper .variable-item.color-variable-item,
+  .woo-variation-swatches {{ selector }} .variable-items-wrapper .variable-item.image-variable-item {
+    background-color: {{ styles.image_and_color_swatches.background }};
+    {{ _self.spacing_padding_all(styles.image_and_color_swatches.padding) }}
+    {{ _self.borders(styles.image_and_color_swatches.borders) }}
+  }
+
+  .cfvsw-product-page {{ selector }} .cfvsw-image-option:hover,
+  .cfvsw-product-page {{ selector }} .cfvsw-swatches-option:not(.cfvsw-label-option):hover,
+  {{ selector }} .cfvsw_variations_form .cfvsw-image-option:hover,
+  {{ selector }} .cfvsw_variations_form .cfvsw-swatches-option:not(.cfvsw-label-option):hover,
+  .woo-variation-swatches {{ selector }} .variable-items-wrapper .variable-item.color-variable-item:hover,
+  .woo-variation-swatches {{ selector }} .variable-items-wrapper .variable-item.image-variable-item:hover {
+    background-color: {{ styles.image_and_color_swatches.background_hover }};
+  }
+
+  .cfvsw-product-page {{ selector }} .cfvsw-tooltip,
+  {{ selector }} .cfvsw_variations_form .cfvsw-tooltip,
+  .woo-variation-swatches {{ selector }} [data-wvstooltip]:before,
+  .woo-variation-swatches {{ selector }} .wvs-has-image-tooltip:before {
+    {{ _self.typography(styles.tooltip.typography, globalSettings) }}
+    {{ _self.borders(styles.tooltip.borders) }}
+  }
+{% endmacro %}

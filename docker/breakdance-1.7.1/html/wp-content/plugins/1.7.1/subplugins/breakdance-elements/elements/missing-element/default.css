@@ -1,0 +1,16 @@
+.breakdance .bde-missing-element {
+  padding: 20px;
+  background-color: #ffeeee;
+  color: #880000;
+  font-size: 20px;
+}
+
+.breakdance .bde-missing-element p {
+  margin: 0;
+  color: #880000;
+}
+
+.breakdance .bde-missing-element a {
+    color: #880000;
+}
+       

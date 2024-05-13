@@ -1,0 +1,19 @@
+.breakdance .bde-gravity-forms {
+    width: 100%;
+}
+
+.breakdance-form .gform_title {
+    margin-top: 0;
+}
+
+/* 1. Go Theme Compatibility */
+.breakdance-form .ginput_container.ginput_container_text {
+    --go-button--padding--y: 0; /* 1 */
+}
+
+.breakdance-form .gform_wrapper.gravity-theme .gform_footer,
+.breakdance-form .gform_wrapper.gravity-theme .gform_page_footer {
+    margin: 6px 0 0;
+    padding-top: 16px;
+    padding-bottom: 0;
+}

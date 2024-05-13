@@ -1,0 +1,197 @@
+%%SELECTOR%% {
+  {{ macros.spacing_margin_y(design.spacing.wrapper) }}
+  {{ macros.backgroundColor(design.container.background) }}
+  {{ macros.spacing_padding_all(design.container.padding) }}
+  {{ macros.borders(design.container.borders) }}
+  width: {{ design.container.width.style }};
+  box-shadow: {{ design.container.shadow.style }};
+
+  {% if content.content.accent %}
+    --featuredColor: {{ design.container.accent.color }};
+  {% endif %}  
+  {% if design.container.content_alignment == 'left' %}
+    --textAlign: left;
+    --alignItems: flex-start;
+  {% elseif design.container.content_alignment == 'right' %}
+    --textAlign: right;
+    --alignItems: flex-end;
+  {% endif %}
+
+}
+
+{% if design.accent.border_width.style %}
+%%SELECTOR%% .bde-pricing-table__accent-label {
+  --translateY: calc(-50% - {{design.accent.border_width.style}} / 2);
+  transform: translate(-50%, var(--translateY));
+}
+{% endif %}
+
+%%SELECTOR%% .bde-pricing-table__accent-label {
+  background-color: {{ design.accent.color }};
+  {{ macros.border_radius(design.accent.label_radius) }}
+  {{ macros.spacing_padding_all(design.accent.padding) }}
+}
+
+%%SELECTOR%% .bde-pricing-table__accent-label span {
+  {{ macros.typography(design.accent.typography, globalSettings) }}
+}
+
+%%SELECTOR%%.bde-pricing-table--featured {
+  border-color: {{ design.accent.color }};
+  border-width: {{ design.accent.border_width.style }};
+}
+
+%%SELECTOR%% .bde-pricing-table__icon svg {
+ fill: {{ design.icon.color }};
+ stroke: {{ design.icon.color }};
+ width: {{ design.icon.size.style }};
+ height: {{ design.icon.size.style }};
+
+}
+
+%%SELECTOR%% .bde-pricing-table__icon {
+ margin-bottom: {{ design.spacing.after_icon.style }};
+}
+
+%%SELECTOR%% .bde-pricing-table__title {
+  margin-bottom: {{ design.spacing.after_title.style }};
+  {{ macros.typography(design.typography.title, globalSettings)  }}
+}
+
+%%SELECTOR%% .bde-pricing-table__price-area {
+  margin-bottom: {{ design.spacing.after_price_area.style }};
+  {% if design.price.position == 'after-features' %}
+    order: 45;
+  {% endif %}
+}
+
+%%SELECTOR%% .bde-pricing-table__price-area--before-price-text {
+  margin-bottom: {{ design.spacing.price_area.before_amount.style }};
+  {{ macros.typography(design.typography.price.before_price, globalSettings)  }}
+}
+
+%%SELECTOR%% .bde-pricing-table__price-area--amount-and-period-wrapper {
+  {% if design.price.amount.period_position == 'horizontal' %}
+    flex-direction: row;
+    align-items: center;
+  {% endif %}
+  gap: {{ design.spacing.price_area.amount_period.style }};
+}
+
+
+%%SELECTOR%% .bde-pricing-table__price-area--amount {
+  {% if design.price.amount.currency_position == 'append' %}
+    flex-direction: row-reverse;
+  {% endif %}
+}
+
+%%SELECTOR%% .bde-pricing-table__price-area--amount-currency {
+  {{ macros.typography(design.typography.price.currency, globalSettings)  }}
+  {% if design.price.nudge.currency_x.style or design.price.nudge.currency_y.style %}
+    transform: translate({{ design.price.nudge.currency_x.style|default('0px')}},{{ design.price.nudge.currency_y.style|default('0px')}});
+  {% endif %}
+}
+
+%%SELECTOR%% .bde-pricing-table__price-area--amount-number {}
+%%SELECTOR%% .bde-pricing-table__price-area--amount-number-main {
+  {{ macros.typography(design.typography.price.price, globalSettings)  }}
+}
+%%SELECTOR%% .bde-pricing-table__price-area--amount-number-fractional {
+  {{ macros.typography(design.typography.price.fractional_part, globalSettings)  }}
+  {% if design.price.nudge.fraction_x.style or design.price.nudge.fraction_y.style %}
+    transform: translate({{ design.price.nudge.fraction_x.style|default('0px')}},{{ design.price.nudge.fraction_y.style|default('-50%')}});
+  {% endif %}
+}
+
+
+%%SELECTOR%% .bde-pricing-table__price-area--billing-period {
+  {{ macros.typography(design.typography.price.period, globalSettings)  }}
+  {% if design.price.nudge.period_x.style or design.price.nudge.period_y.style %}
+    transform: translate({{ design.price.nudge.period_x.style|default('0px')}},{{ design.price.nudge.period_y.style|default('0px')}});
+  {% endif %}
+}
+
+%%SELECTOR%% .bde-pricing-table__price-area--badge {
+  margin-top: {{ design.spacing.price_area.before_badge.style }};
+  {{ macros.spacing_padding_all(design.price.badge.padding) }}
+  {{ macros.backgroundColor(design.price.badge.color) }}
+  {{ macros.border_radius(design.price.badge.border_radius) }}
+}
+
+%%SELECTOR%% .bde-pricing-table__price-area--badge span {
+  {{ macros.typography(design.price.badge.typography, globalSettings)  }}
+}
+
+%%SELECTOR%% .bde-pricing-table__description {
+  margin-bottom: {{ design.spacing.after_description.style }};
+  {{ macros.typography(design.typography.description, globalSettings)  }}
+}
+
+%%SELECTOR%% .bde-pricing-table__features {
+  margin-bottom: {{ design.spacing.after_features.style }};
+  {% if design.container.content_alignment == 'right' %}
+    align-items: flex-end;
+  {% endif %}
+  {% if design.container.content_alignment == 'left' %}
+    align-items: flex-start;
+  {% endif %}
+  {% if design.container.content_alignment == 'center' %}
+    align-items: center;
+  {% endif %}
+  
+  {% if design.features.force_left_alignment %}
+    align-items: flex-start;
+  {% endif %}
+
+}
+
+%%SELECTOR%% .bde-pricing-table__features-item {
+  margin-bottom: {{ design.features.space_between_items.style }};
+}
+
+%%SELECTOR%% .bde-pricing-table__features-text {
+  margin-left: {{ design.features.text_indent.style }};
+  {{ macros.typography(design.typography.features, globalSettings)  }}
+}
+
+%%SELECTOR%% .bde-pricing-table__features-icon {
+  font-size: {{ design.features.icons.icon_size.style }};
+  {% if design.features.icons.nudge.icon_x_nudge.style or design.features.icons.nudge.icon_y_nudge.style %}
+    transform: translate({{ design.features.icons.nudge.icon_x_nudge.style|default('0px')}},{{ design.features.icons.nudge.icon_y_nudge.style|default('0px')}});
+  {% endif %}
+}
+
+%%SELECTOR%% .bde-pricing-table__features-item--included .bde-pricing-table__features-icon {
+  color: {{ design.features.icons.included_color }};
+}
+
+%%SELECTOR%% .bde-pricing-table__features-item--not-included .bde-pricing-table__features-icon {
+  color: {{ design.features.icons.excluded_color }};
+}
+
+{% if design.features.icons.background %}
+  %%SELECTOR%% .bde-pricing-table__features-icon {
+    padding: {{ design.features.icons.padding.style|default('5px') }};
+    border-radius: {{ design.features.icons.radius.style|default('4px') }};
+  }
+
+  %%SELECTOR%% .bde-pricing-table__features-item--included .bde-pricing-table__features-icon {
+    background-color: {{ design.features.icons.included_color }};
+    color: #fff;
+  }
+
+  %%SELECTOR%% .bde-pricing-table__features-item--not-included .bde-pricing-table__features-icon {
+    background-color: {{ design.features.icons.excluded_color }};
+    color: #fff;
+  }
+  %%SELECTOR%% .bde-pricing-table__features-item--included .bde-pricing-table__features-icon {
+    color: {{ design.features.icons.included_icon }};
+  }
+  %%SELECTOR%% .bde-pricing-table__features-item--not-included .bde-pricing-table__features-icon {
+    color: {{ design.features.icons.excluded_icon }};
+  }
+{% endif %}
+
+
+{{ macros.atomV1ButtonCss(design.button, 'bde-pricing-table__cta-button', '%%SELECTOR%%', breakpoint, globalSettings) }}
+

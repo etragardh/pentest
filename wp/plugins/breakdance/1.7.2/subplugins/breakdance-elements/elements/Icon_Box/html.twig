@@ -1,0 +1,12 @@
+{{ macros.atomV1IconHtml('ee-iconbox-icon', content.content.icon, content.content.rotate,false, design.icon.style) }}
+<div class="ee-iconbox-content">
+  {% if content.content.title %}
+    <{{content.content.title_tag|default('h3')}} class="ee-iconbox-title" {{ dataContentEditablePropertyPath('content.content.title') }}>{{ content.content.title }}</{{content.content.title_tag|default('h3')}}>
+  {% endif %}
+  {% if content.content.text %}
+    <div class="ee-iconbox-text" {{ dataContentEditablePropertyPath('content.content.text') }}>{{ content.content.text }}</div>
+  {% endif %}
+  {% if content.content.button.text %}
+    {{ macros.atomV1ButtonHtml(content.content.button, 'ee-iconbox-button', design.button, 'content.content.button.text') }}
+  {% endif %}
+</div>

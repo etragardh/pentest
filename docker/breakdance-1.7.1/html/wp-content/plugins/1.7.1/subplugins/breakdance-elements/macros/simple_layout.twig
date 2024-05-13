@@ -1,0 +1,28 @@
+{% macro simpleLayout(layout, breakpoint) %}
+
+  gap: {{ layout.gap.style }};    
+  
+  {% if layout.horizontal.align or layout.horizontal.vertical_align %}
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: {{ layout.horizontal.vertical_align }};
+    justify-content: {{ layout.horizontal.align }};
+  {% else %}
+      {% if layout.align == 'left' %}
+        align-items: flex-start;
+        text-align: left;
+      {% elseif layout.align == 'center' %}
+        align-items: center;
+        text-align: center;
+      {% elseif layout.align == 'right' %}
+        align-items: flex-end;
+        text-align: right;
+      {% endif %}
+      justify-content: {{ layout.vertical_align }};
+  {% endif %}
+  
+  {% if breakpoint == layout.horizontal.vertical_at %}
+    flex-direction: column;
+  {% endif %}
+
+{% endmacro %}

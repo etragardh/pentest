@@ -1,0 +1,11 @@
+.bde-advanced-tabs-content {
+  width: 100%;
+}
+
+.bde-advanced-tabs-content .bde-tabs__panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: left;
+  align-items: flex-start;
+}

@@ -1,0 +1,66 @@
+.breakdance .bde-scrolling-image {
+  --eesiTransitionDuration: var(--bde-transition-duration);
+  --eesiTransitionEasing: ease;
+  position: relative;
+  width: 350px;
+  height: 400px;
+  max-width: 100%;
+  overflow:hidden;
+  background-position:center top;
+  background-size:cover;
+  background-repeat:no-repeat;
+  transition-duration:var(--eesiTransitionDuration);
+  transition-timing-function: var(--eesiTransitionEasing);
+  transition-property: background-position;
+}
+.is-img-empty {
+  background-image:url(https://source.unsplash.com/random/350x600);
+}
+.breakdance .bde-scrolling-image:hover {
+  background-position:center bottom;
+}
+.breakdance .bde-scrolling-image .ee-scrollimage-icon {
+  display: flex;
+  font-size: 50px;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  transition-duration:var(--eesiTransitionDuration);
+  transition-timing-function: var(--eesiTransitionEasing);
+  transition-property: all;
+}
+
+.breakdance .bde-scrolling-image .ee-scrollimage-icon > svg {
+  font-size: inherit;
+  width: 1em;
+  height: 1em;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+
+.breakdance .bde-scrolling-image:hover .ee-scrollimage-icon {
+   opacity: 0
+}
+
+.breakdance .bde-scrolling-image .ee-scrollimage-caption-wrap {
+  position: absolute;
+  display:flex;
+  flex-wrap: wrap;
+  justify-content:center;
+  align-content:flex-end;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+}
+.breakdance .bde-scrolling-image .ee-scrollimage-caption {
+  padding: 12px;
+}
+
+.breakdance .bde-scrolling-image .ee-scrollimage-caption span {
+  width: 100%;
+  text-align:center;
+  font-size: 0.8125em;
+  display: inline-block;
+}

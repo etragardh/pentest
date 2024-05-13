@@ -1,0 +1,90 @@
+{% if isBaseBreakpoint %}
+
+{# Base #}
+.breakdance .button-atom {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  user-select: none;
+  appearance: none;
+  box-sizing: border-box;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  font-size: var(--bde-button-font-size);
+  line-height: var(--bde-button-line-height);
+  transform: translate(0, 0);
+  max-width: 100%;
+  width: var(--bde-button-width);
+}
+
+{# Button Base #}
+.breakdance .button-atom--primary,
+.breakdance .button-atom--secondary,
+.breakdance .button-atom--custom {
+  text-align: center;
+  font-weight: var(--bde-button-font-weight);
+  text-decoration: none;
+  padding: var(--bde-button-padding-base);
+  border-radius: var(--bde-button-border-radius);
+  cursor: pointer;
+  border-width: var(--bde-button-border-width);
+  border-style: solid;
+  border-color: transparent;
+  transition-timing-function: ease-in-out;
+  transition-property: all;
+  transition-duration: var(--bde-transition-duration);
+  overflow: hidden;
+}
+
+.breakdance .button-atom--text {
+  color: var(--bde-button-text-text-color);
+}
+
+.breakdance .button-atom--text:hover {
+  color: var(--bde-button-text-text-color-hover);
+}
+
+{# Button Variants #}
+{{ macros.atomV1ButtonVariant('primary') }}
+{{ macros.atomV1ButtonVariant('secondary') }}
+{{ macros.atomV1ButtonVariant('custom') }}
+
+{# Add Disabled styles back #}
+.breakdance .button-atom:disabled,
+.breakdance .button-atom:hover:disabled {
+    filter: grayscale(100%);
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+
+{# Button Arrows #}
+.button-atom__icon-wrapper > svg:not(.breakdance-icon-atom-svg-gradient) {
+  font-size: inherit;
+  width: 1em;
+  height: 1em;
+  stroke-width: 0;
+  stroke: var(--bde-brand-primary-color);
+  fill: var(--bde-brand-primary-color);
+}
+
+{# Icons #}
+.breakdance-icon-atom {
+    display: flex;
+    font-size: 40px;
+}
+
+.breakdance-icon-atom > svg:not(.breakdance-icon-atom-svg-gradient) {
+    font-size: inherit;
+    width: 1em;
+    height: 1em;
+    stroke-width: 0;
+    stroke: var(--bde-brand-primary-color);
+    fill: var(--bde-brand-primary-color);
+    transform: var(--eeiTransform);
+}
+
+{% endif %}

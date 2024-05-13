@@ -1,0 +1,319 @@
+{% macro fancyBackgroundHtml(design) %}
+  {% if design.type == 'gradient' or design.type == 'video' or design.type == 'slideshow' or design.overlay is not empty %}
+    {# Default CSS - Only load it when needed, as this macro is always called  #}
+    {# loom explaining why this can't go in fancyBackgroundCSS: https://www.loom.com/share/cdd581e22d624ec29f1a1c32db8739bb #}
+    {{
+      add_dependency({
+        'styles': [
+          '%%BREAKDANCE_ELEMENTS_PLUGIN_URL%%dependencies-files/breakdance-fancy-background@1/fancy-background.css'
+        ],
+      })
+    }}
+  {% endif %}
+
+	{% if design.type == 'video' %}
+  {%  set starttime = 0 %}
+  {%  if design.video_settings.start_time %}
+    {%  set starttime = design.video_settings.start_time %}
+  {% endif %}
+
+  {%  set endtime = 0 %}
+  {%  if design.video_settings.end_time %}
+    {%  set endtime = design.video_settings.end_time %}
+  {% endif %}
+  <div class="section-background-video">
+    {% if design.video.type == "oembed" %}
+      {% if 'youtube' in design.video.embedUrl %}
+        <div class="section-youtube-wrapper">
+          <div id="youtubeEmbed%%ID%%"></div>
+        </div>
+      {% endif %}
+      {% if 'vimeo' in design.video.embedUrl %}
+        <div id="vimeoEmbed%%ID%%" class="section-vimeo-wrapper"></div>
+      {% endif %}
+    {% endif %}
+    {% if design.video.type == "video" %}
+      <video
+          autoplay
+          muted
+          {% if design.video_settings.play_on_mobile == 1 %}
+            playsinline
+          {% endif %}
+          {% if design.video_settings.no_loop != 1 %}
+            loop
+          {% endif %}
+          {% if design.video_settings.fallback_image %}
+          poster="{{ design.video_settings.fallback_image.url }}"
+          {% endif %}
+      >
+        <source src="{{ design.video.url }}" type="{{ design.video.mime }}" />
+      </video>
+    {% endif %}
+  </div>
+{% endif %}
+
+{% if design.type == 'slideshow' %}
+  <div class="breakdance-swiper-wrapper section-background-slideshow">
+    <div class="swiper">
+      <!-- Additional required wrapper -->
+      <div class="swiper-wrapper">
+        <!-- Slides -->
+        {% for slide in design.slideshow %}
+          <div class="swiper-slide">
+            <div class="swiper-slide-item" style="background-image: url({{ slide.image.url }});"></div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+{% endif %}
+
+{% if design.overlay is not empty %}
+  <div class="section-background-overlay"></div>
+{% endif %}
+
+{% endmacro %}
+
+{% macro fancyBackgroundCss(selector, design, breakpoint, viewportHeight = false, setChildrenZIndex = false, setOverflowHiddenIfOverlayIsPresent = true) %}
+
+{% if design.type == 'image' and breakpoint == design.image_settings.unset_image_at %}
+
+{{ selector }} {
+  background-image: unset;
+}
+{% endif %}
+
+{# Background #}
+{{ selector }} {
+  background-color: {{ design.color }};
+
+  {% if design.type == 'image' %}
+    {% if design.image.url is not empty %}
+      {% set size = design.image_size ?? 'full' %}
+      background-image: url({{ design.image.sizes[size].url|default(design.image.url) }});
+    {% endif %}
+    {% if design.image_settings is not empty %}
+      {{ _self.image_settings(design.image_settings) }}
+    {% endif %}
+    {% if design.image_hover or design.color_hover %}
+      transition: all {{ design.transition_duration.style ?? 'var(--bde-transition-duration)' }} ease-in-out;
+    {% endif %}
+  {% endif %}
+
+  {% if design.type == 'gradient' %}
+  	{{ _self.backgroundColor(design.gradient) }}
+    {% if design.gradient_animation.scale %}
+      background-size: {{ design.gradient_animation.scale.style }} {{ design.gradient_animation.scale.style }};
+    {% elseif design.gradient_animation.speed %}
+      background-size: 200% 200%;
+    {% endif %}
+
+    {% if design.gradient_animation.speed or design.gradient_animation.scale %}
+      {% set speed = design.gradient_animation.speed.style|default('10s') %}
+      {% set degree = design.gradient.degree|default(0) %}
+      {% if degree > 45 and degree < 135 or degree > 225 and degree < 315 %}
+        animation: breakdance-section-gradient-x {{ speed }} ease infinite;
+      {% else %}
+        animation: breakdance-section-gradient-y {{ speed }} ease infinite;
+      {% endif %}
+    {% endif %}
+
+  {% endif %}
+}
+
+{{ selector }}:hover {
+  background-color: {{ design.color_hover }};
+}
+
+{% if design.type == 'video' %}
+  {{ selector }} .section-background-video iframe,
+  {{ selector }} .section-background-video video {
+  width: {{ design.video_settings.zoom.style  }};
+  height: {{ design.video_settings.zoom.style }};
+  {% if design.video_settings.offsetx is not empty %}
+    left:-{{ design.video_settings.offsetx.style }};
+  {% endif %}
+  {% if design.video_settings.offsety is not empty %}
+    top:-{{ design.video_settings.offsety.style }};
+  {% endif %}
+  }
+{% endif %}
+
+{% if design.video is not empty %}
+  {% if design.video_settings.fallback_image.url %}
+    {{ selector }} .section-background-video {
+      background-image: url({{ design.video_settings.fallback_image.url }});
+    }
+  {% endif %}
+  {% if viewportHeight == 'viewport' %}
+    {{ selector }} .section-background-video .section-vimeo-wrapper {
+      height: 100vh;
+    }
+  {% endif %}
+{% endif %}
+
+
+{% if design.image_hover %}
+  {{ selector }}:hover {
+      {% set hover_size = design.image_size_hover ?? design.image_size ?? 'full' %}
+      background-image: url({{ design.image_hover.sizes[hover_size].url }});
+    {% if design.image_settings.size == 'custom' and design.image_settings.width_hover and design.image_settings.height_hover %}
+      background-size: {{ design.image_settings.width_hover.style | default('auto') }} {{ design.image_settings.height_hover.style }};
+    {% endif %}
+  }
+{% endif %}
+{# Overlay #}
+
+{% if setChildrenZIndex and (design.overlay.color or (design.overlay.type == 'image' and design.overlay.image) or (design.overlay.type == 'gradient' and design.overlay.gradient)) %}
+  {{ selector }} > * {
+    z-index: 1;
+  }
+  {{ selector }} > .section-background-overlay {
+    z-index: 0;
+  }
+{% endif %}
+
+{% if design.overlay.type == 'gradient' %}
+  {{ selector }} > .section-background-overlay {
+  {% if design.overlay.gradient %}
+    {{ _self.backgroundColor(design.overlay.gradient) }}
+  {% endif %}
+  {% if design.overlay.gradient_animation.scale %}
+    background-size: {{ design.overlay.gradient_animation.scale.style }} {{ design.overlay.gradient_animation.scale.style }};
+  {% elseif design.overlay.gradient_animation.speed %}
+    background-size: 200% 200%;
+  {% endif %}
+
+  {% if design.overlay.gradient_animation.speed or design.overlay.gradient_animation.scale %}
+    {% set speed = design.overlay.gradient_animation.speed.style|default('10s') %}
+    {% set degree = design.overlay.gradient.degree|default(0) %}
+    {% if degree > 45 and degree < 135 or degree > 225 and degree < 315 %}
+      animation: breakdance-section-gradient-x {{ speed }} ease infinite;
+    {% else %}
+      animation: breakdance-section-gradient-y {{ speed }} ease infinite;
+    {% endif %}
+  {% endif %}
+  }
+{% endif %}
+
+{% if design.overlay.color %}
+  {{ selector }} > .section-background-overlay {
+    background-color: {{ design.overlay.color }};
+    transition: background-color {{ design.transition_duration.style ?? 'var(--bde-transition-duration)' }} ease-in-out;
+  }
+{% endif %}
+
+{% if setOverflowHiddenIfOverlayIsPresent %}
+  {% if design.overlay.color or design.overlay.type %}
+    {{ selector }} {
+      overflow: hidden;
+    }
+  {% endif %}
+{% endif %}
+
+{% if design.overlay.type == 'image' %}
+  {{ selector }} > .section-background-overlay {
+    {% if breakpoint == design.overlay.image_settings.unset_image_at %}
+      background-image: unset;
+    {% else %}
+      {% if design.overlay.image.url is not empty %}
+        {% set overlay_size = design.overlay.image_size ?? 'full' %}
+        background-image: url({{ design.overlay.image.sizes[overlay_size].url|default(design.overlay.image.url) }});
+      {% endif %}
+    {% endif %}
+    {{ _self.image_settings(design.overlay.image_settings) }}
+    transition: all {{ design.transition_duration.style ?? 'var(--bde-transition-duration)' }} ease-in-out;
+  }
+  {{ selector }}:hover > .section-background-overlay {
+    {% if design.overlay.image_hover.url is empty and design.overlay.image.url is not empty %}
+      {% set overlay_hover_size = design.overlay.image_size_hover ?? design.overlay.image_size ?? 'full' %}
+      background-image: url({{ design.overlay.image.sizes[overlay_hover_size].url | default(design.overlay.image.url) }});
+    {% endif %}
+    {% if design.overlay.image_hover.url is not empty %}
+      {% set overlay_hover_size = design.overlay.image_size_hover ?? design.overlay.image_size ?? 'full' %}
+      background-image: url({{ design.overlay.image_hover.sizes[overlay_hover_size].url|default(design.overlay.image_hover.url) }});
+    {% endif %}
+    {% if design.overlay.image_settings.size == 'custom' and design.overlay.image_settings.width_hover and design.overlay.image_settings.height_hover %}
+      background-size: {{ design.overlay.image_settings.width_hover.style }} {{ design.overlay.image_settings.height_hover.style }};
+    {% endif %}
+  }
+{% endif %}
+
+{% if design.overlay.opacity %}
+  {{ selector }} > .section-background-overlay {
+    opacity: {{ design.overlay.opacity }};
+  }
+{% endif %}
+
+{{ selector }} > .section-background-overlay {
+  {% if design.overlay.effects.blend_mode %}
+    mix-blend-mode: {{ design.overlay.effects.blend_mode }};
+  {% endif %}
+
+  filter:
+  {% for filter in design.overlay.effects.filter.filters %}
+      {% if filter.type == 'blur' %}
+        blur({{ filter.blur_amount.style }})
+      {% elseif filter.type == 'brightness' %}
+        brightness({{ filter.amount.style }})
+      {% elseif filter.type == 'contrast' %}
+        contrast({{ filter.amount.style }})
+      {% elseif filter.type == 'grayscale' %}
+        grayscale({{ filter.amount.style }})
+      {% elseif filter.type == 'hue-rotate' %}
+        hue-rotate({{ filter.rotate.style }})
+      {% elseif filter.type == 'invert' %}
+        invert({{ filter.amount.style }})
+      {% elseif filter.type == 'saturate' %}
+        saturate({{ filter.amount.style }})
+      {% elseif filter.type == 'sepia' %}
+        sepia({{ filter.amount.style }})
+      {% endif %}
+
+  {% endfor %};
+}
+
+{% if design.overlay.effects.filter.filters_hover %}
+{{ selector }}:hover > .section-background-overlay {
+  filter:
+  {% for filter in design.overlay.effects.filter.filters_hover %}
+      {% if filter.type == 'blur' %}
+        blur({{ filter.blur_amount.style }})
+      {% elseif filter.type == 'brightness' %}
+        brightness({{ filter.amount.style }})
+      {% elseif filter.type == 'contrast' %}
+        contrast({{ filter.amount.style }})
+      {% elseif filter.type == 'grayscale' %}
+        grayscale({{ filter.amount.style }})
+      {% elseif filter.type == 'hue-rotate' %}
+        hue-rotate({{ filter.rotate.style }})
+      {% elseif filter.type == 'invert' %}
+        invert({{ filter.amount.style }})
+      {% elseif filter.type == 'saturate' %}
+        saturate({{ filter.amount.style }})
+      {% elseif filter.type == 'sepia' %}
+        sepia({{ filter.amount.style }})
+      {% endif %}
+  {% endfor %};
+}
+{% endif %}
+
+{% if design.overlay.opacity_hover %}
+  {{ selector }} > .section-background-overlay {
+    transition: opacity {{ design.transition_duration.style ?? 'var(--bde-transition-duration)' }} ease-in-out;
+  }
+  {{ selector }}:hover > .section-background-overlay {
+    opacity: {{ design.overlay.opacity_hover }};
+  }
+{% endif %}
+
+{% if design.overlay.color_hover %}
+  {{ selector }} > .section-background-overlay {
+    transition: background-color {{ design.transition_duration.style ?? 'var(--bde-transition-duration)' }} ease-in-out;
+  }
+  {{ selector }}:hover > .section-background-overlay {
+    background-color: {{ design.overlay.color_hover }};
+  }
+{% endif %}
+
+{% endmacro %}

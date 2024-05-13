@@ -1,0 +1,15 @@
+%%SELECTOR%% {
+  {{ macros.spacing_margin_y(design.spacing) }}
+}
+
+%%SELECTOR%%, %%SELECTOR%% > * {
+  {{ macros.typography(design.typography, globalSettings)  }}  
+}
+
+%%SELECTOR%%:hover, %%SELECTOR%%:hover > * {
+  {{ macros.typographyWithHoverableEverything(design.typography) }}
+}
+
+%SELECTOR%%
+
+{{ macros.atomV1LightboxCss(design.lightbox) }}

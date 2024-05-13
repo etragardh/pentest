@@ -1,0 +1,97 @@
+{% import _self as e %}
+
+{% macro photo(design, content) %}
+
+{% if design.image.style == "outlined-circle" %}
+    {% set classForImageStyle = 'simple-testimonial__outlined-circle-image' %}
+{% elseif design.image.style == 'masked' %}
+    {% set classForImageStyle = 'simple-testimonial__masked-image' %}
+{% else %}
+    {% set classForImageStyle = 'simple-testimonial__standard-image' %}
+    {% if design.image.shape_outline.shape %}
+        {% set classForImageStyle = 'simple-testimonial__standard-image simple-testimonial__standard-image--'~ design.image.shape_outline.shape  %}
+    {% endif %}
+{% endif %}
+
+{% if content.content.image.url %}
+    <div class='simple-testimonial__image-outer-wrapper {{ classForImageStyle }}'>
+        {% if design.image.style == "masked" %}
+            <div class="simple-testimonial__image-inner-wrapper simple-testimonial__image-inner-wrapper--mask" style="-webkit-mask-image:url('{{ getBreakdanceElementsPluginUrl() }}elements/Simple_Testimonial/masks/{{ design.image.mask | default('blob3') }}.svg');mask-image:url('{{ getBreakdanceElementsPluginUrl() }}elements/Simple_Testimonial/masks/{{ design.image.mask | default('blob3') }}.svg');">
+                {{ macros.image(content.content.image, content.content.image_options.size, content.content.image_options.alt, content.content.image_options.lazy_load) }}
+            </div>
+        {% else %}
+            <div class='simple-testimonial__image-inner-wrapper'>
+                {{ macros.image(content.content.image, content.content.image_options.size, content.content.image_options.alt, content.content.image_options.lazy_load) }}
+            </div>
+        {% endif %}
+    </div>
+{% endif %}
+
+{% endmacro %}
+
+{% macro fancyQuotes(path)%}
+    <svg class='simple-testimonial__quote-mark left-icon' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+        <path d="{{path}}" fill="currentColor"/>
+    </svg>
+    <svg class='simple-testimonial__quote-mark right-icon' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+        <path d="{{path}}" fill="currentColor"/>
+    </svg>
+{% endmacro %}
+
+{% if design.layout.image_position == 'top' or design.layout.image_position == undefined %}
+    {{ e.photo(design, content) }}
+{% endif %}
+
+{% if content.content.testimonial %}
+    <div class='simple-testimonial__quote'>
+        <blockquote {{ dataContentEditablePropertyPath('content.content.testimonial') }}>
+            {{ content.content.testimonial }}
+        </blockquote>
+
+        {% if design.quotes.style %}
+
+            {% if design.quotes.style == 'quotes-1' %}
+                {{ e.fancyQuotes('M183.78 29h-42.411l-28.274 56.8V171h84.822V85.8h-42.411L183.78 29ZM70.684 29h-42.41L0 85.8V171h84.821V85.8h-42.41L70.684 29Z') }}
+            {% endif %}
+
+            {% if design.quotes.style == 'quotes-2' %}
+                {{ e.fancyQuotes('m1.079 62.282.25-1.683.259.06a45.156 45.156 0 0 1 11.77-22.07 44.812 44.812 0 0 1 21.674-12.354 44.657 44.657 0 0 1 24.89 1.17 44.866 44.866 0 0 1 20.43 14.335 45.204 45.204 0 0 1 9.668 23.078 45.283 45.283 0 0 1-4.074 24.702 45.015 45.015 0 0 1-16.56 18.709 44.703 44.703 0 0 1-23.94 6.945c-2.223 0-4.356-.34-6.48-.651.688 2.325 1.396 4.689 2.532 6.813 1.137 3.086 2.912 5.761 4.676 8.457 1.476 2.915 4.078 4.889 5.992 7.384 2.005 2.425 4.736 4.038 6.9 6.052 2.123 2.104 4.905 3.156 7.119 4.639 2.313 1.332 4.327 2.805 6.48 3.506l5.374 2.225 4.726 1.973L77.939 175l-5.952-1.443c-1.904-.481-4.227-1.042-6.87-1.713-2.701-.501-5.583-1.874-8.793-3.126-3.16-1.433-6.84-2.385-10.25-4.679-3.43-2.184-7.387-4.008-10.877-6.934-3.38-3.015-7.458-5.63-10.469-9.458-3.29-3.587-6.54-7.354-9.063-11.642-2.92-4.088-4.905-8.577-6.999-13.016-1.894-4.438-3.42-8.977-4.666-13.385C1.637 100.766.58 92.37.172 85.186c-.34-7.194-.14-13.175.279-17.504.14-1.807.35-3.609.628-5.4Zm109.672 0 .25-1.683.259.06a45.163 45.163 0 0 1 11.771-22.07 44.815 44.815 0 0 1 21.673-12.354 44.658 44.658 0 0 1 24.89 1.17 44.861 44.861 0 0 1 20.429 14.335 45.208 45.208 0 0 1 9.67 23.078 45.29 45.29 0 0 1-4.074 24.702 45.019 45.019 0 0 1-16.561 18.709 44.702 44.702 0 0 1-23.939 6.945c-2.223 0-4.357-.34-6.481-.651.688 2.325 1.396 4.689 2.533 6.813 1.136 3.086 2.911 5.761 4.676 8.457 1.475 2.915 4.078 4.889 5.992 7.384 2.004 2.425 4.736 4.038 6.899 6.052 2.124 2.104 4.906 3.156 7.119 4.639 2.313 1.332 4.327 2.805 6.481 3.506l5.374 2.225a657.488 657.488 0 0 1 4.715 1.953l-4.825 19.428-5.952-1.443c-1.905-.481-4.228-1.042-6.87-1.713-2.702-.501-5.583-1.874-8.794-3.126-3.16-1.433-6.839-2.385-10.249-4.679-3.43-2.184-7.388-4.008-10.877-6.934-3.38-3.015-7.458-5.631-10.469-9.458-3.29-3.587-6.541-7.354-9.063-11.642-2.921-4.088-4.905-8.577-6.999-13.016-1.895-4.438-3.42-8.977-4.666-13.385-2.363-8.838-3.42-17.234-3.829-24.418-.339-7.194-.139-13.175.279-17.504.149-1.8.362-3.595.638-5.38Z') }}
+            {% endif %}
+
+            {% if design.quotes.style == 'quotes-3' %}
+                {{ e.fancyQuotes('M161.017 14C181.988 14 199 31.501 199 53.094c0 21.58-17.012 39.094-37.983 39.094-37.97 0-12.661 75.568 37.983 75.568V186c-90.386.013-125.803-172-37.983-172ZM51.6 14c20.959 0 37.97 17.501 37.97 39.094 0 21.58-17.011 39.094-37.97 39.094-37.983 0-12.674 75.568 37.97 75.568V186C-.802 186.013-36.22 14 51.6 14Z')}}
+            {% endif %}
+
+            {% if design.quotes.style == 'quotes-4' %}
+                {{ e.fancyQuotes('M98 45h59.007L199 155h-59.007L98 45ZM0 45h59.007L101 155H41.993L0 45Z') }}
+            {% endif %}
+
+            {% if design.quotes.style == 'quotes-5' %}
+                {{ e.fancyQuotes('M198 12h-71.794v85.606L168.527 187l27.206-13.636-37.031-89.394H198V12ZM71.794 12H0v85.606L42.32 187l27.962-13.636L32.496 83.97h39.298V12Z') }}
+            {% endif %}
+
+        {% endif %}
+
+    </div>
+{% endif %}
+
+{% if design.layout.image_position == 'author' %}
+    {{ e.photo(design, content) }}
+{% endif %}
+
+{% if content.content.author %}
+    <div class='simple-testimonial__author' {{ dataContentEditablePropertyPath('content.content.author') }}>
+        {{ content.content.author }}
+    </div>
+{% endif %}
+
+{% if content.content.author_info %}
+    <div class='simple-testimonial__author-info' {{ dataContentEditablePropertyPath('content.content.author_info') }}>
+        {{ content.content.author_info }}
+    </div>
+{% endif %}
+
+{% if design.layout.image_position == 'bottom' %}
+    {{ e.photo(design, content) }}
+{% endif %}
+

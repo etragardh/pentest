@@ -1,0 +1,14 @@
+[data-entrance] {
+    visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.is-animating[data-entrance],
+.is-animated[data-entrance] {
+    visibility: visible;
+}
+
+.builder-element[data-entrance] {
+    /* Don't hide the element in the builder, otherwise it becomes unselectable. */
+    visibility: visible;
+}

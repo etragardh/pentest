@@ -1,0 +1,21 @@
+html.breakdance-noscroll {
+  overflow: hidden;
+}
+
+.breakdance .bde-popup,
+.breakdance .bde-popup .breakdance-popup {
+  opacity: 0;
+  visibility: hidden;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.breakdance .bde-popup.breakdance-popup-open,
+.breakdance .bde-popup.breakdance-popup-open .breakdance-popup,
+.breakdance .bde-popup.breakdance-popup-animating,
+.breakdance .bde-popup.breakdance-popup-animating .breakdance-popup {
+  visibility: visible;
+  opacity: 1;
+  z-index: var(--bde-z-index-popup);
+  pointer-events: unset;
+}

@@ -1,0 +1,10 @@
+{% if design.list.layout == 'slider' %}
+<div class="breakdance-swiper-wrapper" data-swiper-id="%%ID%%">
+  <div class="swiper">
+     %%SSR%%
+  </div> 
+  {{ macros.AtomV1SwiperPaginationAndArrowsHtml(design.list.slider) }}
+</div>
+{% else %}
+  %%SSR%%
+{% endif %}

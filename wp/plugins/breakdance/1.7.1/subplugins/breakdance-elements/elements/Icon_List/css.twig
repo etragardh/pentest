@@ -1,0 +1,88 @@
+%%SELECTOR%% {
+  width: {{ design.layout.width.style }};
+  {{ macros.spacing_margin_y(design.spacing) }}
+}
+
+%%SELECTOR%% ul {
+ gap: {{ design.layout.space_between.style }};
+}
+
+{% if design.layout.stack == 'vertical' %}
+  %%SELECTOR%% ul {
+    {% if design.layout.alignment_when_vertical == 'left' %}
+      align-items: flex-start;
+    {% elseif design.layout.alignment_when_vertical == 'center' %}
+      align-items: center;
+    {% elseif design.layout.alignment_when_vertical == 'right' %}
+      align-items: flex-end;
+    {% endif %}
+  }
+{% elseif design.layout.stack == 'horizontal' %}
+  %%SELECTOR%% ul {
+    flex-direction: row;
+    justify-content: {{ design.layout.horizontal_align | default('left') }};
+    flex-wrap: wrap;
+    align-items: center;
+  }
+{% endif %}
+
+
+{% if breakpoint == design.layout.stack_vertical_at %}
+  %%SELECTOR%% ul {
+    flex-direction: column;
+    align-items: flex-start;
+    {% if design.layout.alignment_when_vertical == 'left' %}
+    align-items: flex-start;
+    {% elseif design.layout.alignment_when_vertical == 'center' %}
+    align-items: center;
+    {% elseif design.layout.alignment_when_vertical == 'right' %}
+    align-items: flex-end;
+    {% endif %}
+  }
+{% endif %}
+
+
+
+/* icons */
+%%SELECTOR%% li .bde-icon-list__icon {
+  font-size: {{ design.icon.size.style }};
+}
+
+%%SELECTOR%% li .bde-icon-list__icon > svg {
+  {% if design.icon.nudge.vertical.style or design.icon.nudge.horizontal.style %}
+    transform: translate({{ design.icon.nudge.horizontal.style | default('0') }}, {{ design.icon.nudge.vertical.style | default('0') }});
+  {% endif %}
+}
+
+%%SELECTOR%% li .bde-icon-list__icon {
+  color: {{ design.icon.color }};
+  {% if design.icon.background %}
+    padding: {{ design.icon.padding.style }};
+    border-radius: {{ design.icon.radius.style }};
+    {{ macros.backgroundColor(design.icon.fill) }}
+  {% endif %}
+}
+
+%%SELECTOR%% li:hover .bde-icon-list__icon {
+  color: {{ design.icon.color_hover }};
+  {% if design.icon.background %}
+    {{ macros.backgroundColor(design.icon.fill_hover) }}
+  {% endif %}
+}
+
+/* list */
+
+%%SELECTOR%% li .bde-icon-list__text {
+  {{ macros.typography(design.typography, globalSettings)  }}
+}
+
+%%SELECTOR%% li:hover .bde-icon-list__text {
+  {{ macros.typographyWithHoverableEverything(design.typography) }}
+}
+
+%%SELECTOR%% ul li .bde-icon-list__item-wrapper {
+  gap: {{ design.layout.text_indent.style }};
+  align-items: {{ design.icon.position }};
+}
+
+

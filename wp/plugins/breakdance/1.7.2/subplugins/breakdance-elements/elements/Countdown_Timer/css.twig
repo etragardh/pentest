@@ -1,0 +1,100 @@
+%%SELECTOR%% {
+  {{ macros.spacing_margin_y(design.spacing.container) }}
+}
+
+%%SELECTOR%% .bde-countdown-timer__wrap {
+  justify-content: {{ design.timer.align }};
+  gap: {{ design.digits.space_between.style }};
+  {% if design.timer.divider.type == "colon" %}
+  	align-items: center;
+  {% endif %}
+}
+
+%%SELECTOR%% .bde-countdown-timer__message {
+   {{ macros.typography(design.typography.expired_message, globalSettings)  }}
+   {{ macros.spacing_padding_all(design.spacing.expired_message) }}
+}
+
+%%SELECTOR%% .bde-countdown-timer__number {
+  {{ macros.typography(design.typography.digits, globalSettings)  }}
+}
+
+%%SELECTOR%% .bde-countdown-timer__digit {
+  background-color: {{ design.digits.default.background }};
+}
+
+%%SELECTOR%% .bde-countdown-timer__digit--custom {
+  border-radius: {{ design.digits.default.radius.style }};
+}
+
+%%SELECTOR%% .bde-countdown-timer__digit--round,
+%%SELECTOR%% .bde-countdown-timer__digit--custom {
+  padding: {{ design.digits.default.padding.style }};
+}
+
+%%SELECTOR%% .bde-countdown-timer__digit--circle {
+  width: {{ design.digits.default.size.style }};
+  height: {{ design.digits.default.size.style }};
+}
+
+%%SELECTOR%% .bde-countdown-timer__label {
+  {{ macros.typography(design.typography.labels, globalSettings)  }}
+  margin-top: {{ design.timer.labels.above_label.style }};
+}
+
+%%SELECTOR%% .bde-countdown-timer__separator--colon svg {
+  width: {{ design.timer.divider.size.style}};
+}
+
+%%SELECTOR%% .bde-countdown-timer__separator--colon circle {
+  fill: {{ design.digits.default.background }};
+  fill: {{ design.timer.divider.color }};
+}
+
+%%SELECTOR%% .bde-countdown-timer__separator--line:after {
+  background-color: {{ design.timer.divider.color }};
+  width: {{ design.timer.divider.width.style }};
+  height: {{ design.timer.divider.height.style }};
+  {% if design.timer.divider.width.style %}
+  margin-left: {{ design.timer.divider.width.number / 2 * -1 }}px;
+  {% endif %}
+}
+
+%%SELECTOR%% .bde-countdown-timer__digit-svg {
+   width: {{ design.digits.donut.size.style }};
+   height: {{ design.digits.donut.size.style }};
+}
+
+%%SELECTOR%% .bde-countdown-timer__donut circle {
+  fill: {{ design.digits.donut.background }};
+  stroke: {{ design.digits.donut.line }};
+  stroke-width: {{ design.digits.donut.line_width.style }};
+  stroke-linecap: {{ design.digits.donut.line_cap }};
+}
+
+%%SELECTOR%% .bde-countdown-timer__digit-flip ul.flip {
+  {% if design.digits.flip.size.style %}
+  font-size: calc(80px + {{ design.digits.flip.size.style }});
+  width: calc(60px + {{ design.digits.flip.size.style }});
+  height: calc(90px + {{ design.digits.flip.size.style }});
+  line-height: calc(85px + {{ design.digits.flip.size.style }});
+  {% endif %}
+}
+
+%%SELECTOR%% ul.flip li .flip-item div div.inn {
+  background-color: {{ design.digits.flip.background }};
+}
+
+%%SELECTOR%% ul.flip {
+  box-shadow: {{ design.digits.flip.shadow.style }};
+}
+
+{% if breakpoint == 'breakpoint_phone_landscape' %}
+ %%SELECTOR%% .bde-countdown-timer__wrap {
+  	justify-content: center;
+  }
+
+  %%SELECTOR%% .bde-countdown-timer__separator {
+  	display: none;
+  }
+{% endif %}

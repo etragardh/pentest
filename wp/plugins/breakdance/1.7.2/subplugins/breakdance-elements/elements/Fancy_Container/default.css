@@ -1,0 +1,8 @@
+.breakdance .bde-fancy-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  max-width: 100%;
+  position: relative;
+}

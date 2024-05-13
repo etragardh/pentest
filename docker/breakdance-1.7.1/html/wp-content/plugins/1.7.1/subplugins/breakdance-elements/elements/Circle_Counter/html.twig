@@ -1,0 +1,18 @@
+<div class="bde-circle-counter__wrap">
+  <canvas class="bde-circle-counter__canvas js-canvas"></canvas>
+  {% if design.style.value_position == 'inside' or design.style.value_position is empty %}
+  	<div class="bde-circle-counter__label">
+      <span class="bde-circle-counter__prefix">{{ content.counter.prefix }}</span>
+      <span class="bde-circle-counter__value js-value"></span>
+      <span class="bde-circle-counter__suffix">{{ content.counter.suffix }}</span>
+    </div>
+  {% endif %}
+</div>
+{% if design.style.value_position == 'outside' %}
+<div class="bde-circle-counter__label bde-circle-counter__label--outside">
+  <span class="bde-circle-counter__prefix">{{ content.counter.prefix }}</span>
+  <span class="bde-circle-counter__value js-value"></span>
+  <span class="bde-circle-counter__suffix">{{ content.counter.suffix }}</span>
+</div>
+{% endif %}
+

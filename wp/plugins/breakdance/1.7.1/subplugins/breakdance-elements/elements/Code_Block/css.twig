@@ -1,0 +1,15 @@
+%%SELECTOR%% {
+  
+  {{ macros.simpleLayout(design.layout, breakpoint) }}
+  
+  width: {{ design.wrapper.width.style }};
+  
+  {{ macros.backgroundColor(design.wrapper.background) }}
+  {{ macros.borders(design.wrapper.borders) }}
+  {{ macros.spacing_padding_all(design.wrapper.padding) }}
+  {{ macros.typography(design.typography, globalSettings)  }}
+  {{ macros.spacing_margin_y(design.spacing) }}
+  
+}
+
+{{ content.content.css_code }}

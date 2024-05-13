@@ -1,0 +1,27 @@
+%%SELECTOR%% {
+  width: {{ design.container.width.style }};
+  {{ macros.typography(design.typography.text, globalSettings)  }}
+  background-color: {{ design.container.background }};
+  {{ macros.borders(design.container.borders) }}
+  {{ macros.spacing_padding_all(design.container.padding) }}
+  {{ macros.spacing_margin_y(design.spacing) }}
+}
+
+{% if design.container.hide_title %}
+%%SELECTOR%% .widgettitle {
+  display: none;
+}
+{% endif %}
+
+%%SELECTOR%% a {
+  {{ macros.typography(design.typography.links, globalSettings)  }}
+}
+
+%%SELECTOR%% a:hover {
+  {{ macros.typographyWithHoverableEverything(design.typography.links) }}
+}
+
+
+%%SELECTOR%% h1, %%SELECTOR%% h2, %%SELECTOR%% h3, %%SELECTOR%% h4, %%SELECTOR%% h5, %%SELECTOR%% h6 {
+  {{ macros.typography(design.typography.headings, globalSettings)  }}
+}

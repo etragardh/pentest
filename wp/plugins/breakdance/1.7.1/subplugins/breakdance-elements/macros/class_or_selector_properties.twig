@@ -1,0 +1,9 @@
+{% macro classOrSelectorProperties(_background, _layout, _size, _typography, globalSettings, _spacing, _borders, _effects) %}
+    {{ _self.background(_background) }}
+    {{ _self.layout(_layout) }}
+    {{ _self.size(_size) }}
+    {{ _self.typography(_typography, globalSettings)  }}
+    {{ _self.spacing_all(_spacing) }}
+    {{ _self.borders_without_shadows(_borders) }}
+    {{ _self.effects(_effects) }}
+{% endmacro %}

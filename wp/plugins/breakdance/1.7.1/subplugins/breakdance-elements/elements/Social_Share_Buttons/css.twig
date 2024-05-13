@@ -1,0 +1,146 @@
+%%SELECTOR%% {
+  {{ macros.spacing_margin_y(design.spacing.container) }}
+  justify-content: {{ design.position.alignment ? design.position.alignment : 'flex-start' }};
+  gap: {{ design.spacing.between_buttons.style }};
+  --shbtn-icon-size: {{ design.button.icon_size.style }};
+  --shbtn-padding: {{ design.button.padding.style }};
+}
+
+{% if design.position.placement == 'floating' %}
+  %%SELECTOR%% {
+    position: fixed;
+    z-index: var(--bde-z-index-social-share-buttons);
+  }
+  {% if design.position.floating_position == 'left' %}
+  %%SELECTOR%% {
+    top: 0;
+    left: 0;
+    transform: translate(0, calc(50vh - 50%));
+    width: auto;
+    height: 100%;
+    flex-direction: column;
+  }
+  {% elseif design.position.floating_position == 'right' %}
+  %%SELECTOR%% {
+    top: 0;
+    right: 0;
+    transform: translate(0, calc(50vh - 50%));
+    width: auto;
+    height: 100%;
+    flex-direction: column;
+  }
+  {% elseif design.position.floating_position == 'top' %}
+  %%SELECTOR%% { 
+    top: 0;
+    left: 0;
+    transform: translate(calc(50vw - 50%));
+  }
+  {% else %}
+  %%SELECTOR%% { 
+    bottom: 0;
+    left: 0;
+    transform: translate(calc(50vw - 50%));
+  }
+  {% endif %}
+{% endif %}
+
+
+{% if design.style.style == 'outline' %}
+%%SELECTOR%% .bde-social-share-button-text {
+  border-width: 2px;
+  border-left: {{ (design.style.display == 'icon-text') ? '0': '' }};;
+  background: #fff;
+  color: #222;
+  padding-inline-start: var(--shbtn-padding);
+}
+{% elseif design.style.style == 'minimal' %}
+%%SELECTOR%% .bde-social-share-button-text {
+  background: #fff;
+  color: #222;
+  padding-inline-start: var(--shbtn-padding);
+}
+{% elseif design.style.style == 'box' %}
+%%SELECTOR%% .bde-social-share-button-text {
+  background-color: rgba(0, 0, 0, 0.15);
+  padding-inline-start: var(--shbtn-padding);
+}
+{% elseif design.style.style is empty and design.style.display == 'text' %}
+%%SELECTOR%% .bde-social-share-button-text {
+  padding-inline-start: var(--shbtn-padding);
+}
+{% elseif design.style.style == 'flat' and design.style.display == 'text' %}
+%%SELECTOR%% .bde-social-share-button-text {
+  padding-inline-start: var(--shbtn-padding);
+}
+{% endif %}
+
+{% if design.style.display == 'icon' or design.style.style == 'minimal' or design.style.style == 'box' %}
+%%SELECTOR%% .bde-social-share-button-icon {
+  padding-inline-end: var(--shbtn-padding);
+}
+{% endif %}
+
+{% if design.button.border.style == 'circle' %}
+  %%SELECTOR%% .bde-social-share-button {
+    border-radius: 300px;
+  }
+  {% if design.style.display == 'icon-text' and design.style.style != 'minimal' %}
+  %%SELECTOR%% .bde-social-share-button-icon {
+    border-radius: 21px 0 0 21px;
+  }
+  %%SELECTOR%% .bde-social-share-button-text {
+    border-radius: 0 21px 21px 0;
+  }
+  {% else %}
+  %%SELECTOR%% .bde-social-share-button-icon,
+  %%SELECTOR%% .bde-social-share-button-text {
+    border-radius: 21px;
+  }
+  {% endif %}
+{% elseif design.button.border.style == 'custom' %}
+	%%SELECTOR%% .bde-social-share-button {
+     {{ macros.border_radius(design.button.border.radius) }}
+  	}
+  {% if design.style.display == 'icon-text' and design.style.style != 'minimal' %}
+  %%SELECTOR%% .bde-social-share-button-icon {
+ 
+    {{ macros.border_radius(design.button.border.radius) }}
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  %%SELECTOR%% .bde-social-share-button-text {
+    {{ macros.border_radius(design.button.border.radius) }}
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  {% else %}
+  %%SELECTOR%% .bde-social-share-button-icon,
+  %%SELECTOR%% .bde-social-share-button-text {
+    border-radius: 21px;
+  }
+  {% endif %}
+{% endif %}
+
+/* Colors & Typography */
+%%SELECTOR%% .bde-social-share-button {
+  background-color: {{ design.button.colors.background }};
+  border-color: {{ design.button.colors.border }};
+}
+
+%%SELECTOR%% .bde-social-share-button-icon {
+  color: {{ design.button.colors.icon }};
+}
+
+%%SELECTOR%% .bde-social-share-button-text {
+  {{ macros.typography(design.typography.text, globalSettings) }}
+}
+
+/* Hover Colors */
+%%SELECTOR%% .bde-social-share-button:hover {
+  background-color: {{ design.button.colors.background_hover }};
+  border-color: {{ design.button.colors.border_hover }};
+}
+
+%%SELECTOR%% .bde-social-share-button:hover .bde-social-share-button-icon {
+  color: {{ design.button.colors.icon_hover }};
+}

@@ -1,0 +1,20 @@
+{% if isBaseBreakpoint and settings.hide_on_breakpoint.hide is not empty %}
+    {% for b in builtinBreakpoints %}
+        {% if b.id in settings.hide_on_breakpoint.hide  %}
+            {{ make_above_and_below_query(b, builtinBreakpoints) }} {
+                %%SELECTOR%% {
+                    {% if isBuilder %}
+                        {% if settings.hide_on_breakpoint.builder_preview == 'hide' %}
+                            display: none;
+                        {% else %}
+                            opacity: 0.5;
+                            filter: grayscale(100%);
+                        {% endif %}
+                    {% else %}
+                        display: none;
+                    {% endif %}
+                }
+            }
+        {% endif %}
+    {% endfor %}
+{% endif %}

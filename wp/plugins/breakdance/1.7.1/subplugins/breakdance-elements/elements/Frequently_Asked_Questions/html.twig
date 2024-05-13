@@ -1,0 +1,41 @@
+{% if content.settings.items %}
+  {% for item in content.settings.items %}
+    <div class="bde-faq__item">
+      <{{ design.typography.title_tag|default('h3')}} class="bde-faq__title-tag">
+       <button id="bde-faq-%%ID%%-button-{{ loop.index }}" aria-expanded="false" aria-controls="bde-faq-%%ID%%-{{ loop.index }}" class="bde-faq__question js-faq-item">
+          <span class="bde-faq__title">{{ item.question }}</span>
+            {% if design.item.icon.icon.svgCode is empty and design.item.icon.active_icon.svgCode is empty %}
+               <div aria-hidden="true" class="bde-faq__icon bde-faq__icon--rotate">
+                 <svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 12">
+                	<path d="M.59 10.59 5.17 6 .59 1.41 2 0l6 6-6 6-1.41-1.41Z" />
+              	</svg>
+              </div>
+          	{% elseif design.item.icon.icon.svgCode and design.item.icon.active_icon.svgCode is empty %}
+         	  <div aria-hidden="true" class="bde-faq__icon bde-faq__icon--rotate">
+                 {{ design.item.icon.icon.svgCode }}
+              </div>
+            {% elseif design.item.icon.icon.svgCode and design.item.icon.active_icon.svgCode %}
+               <div aria-hidden="true" class="bde-faq__icon bde-faq__icon--inactive">
+              {% if design.item.icon.icon.svgCode %}
+                  {{ design.item.icon.icon.svgCode }}
+              {% endif %}
+              </div>
+         	  <div aria-hidden="true" class="bde-faq__icon bde-faq__icon--active">
+              {% if design.item.icon.active_icon.svgCode %}
+                  {{ design.item.icon.active_icon.svgCode }}
+              {% endif %}
+              </div>
+            {% endif %}
+      </button>
+      </{{ design.typography.title_tag|default('h3')}}>
+      <div hidden="true" aria-labelledby="bde-faq-%%ID%%-button-{{ loop.index }}" id="bde-faq-%%ID%%-{{ loop.index }}" class="bde-faq__answer">
+        <div class="bde-faq__answer-content breakdance-rich-text-styles">
+        {{ item.answer }}
+        </div>
+        {% if item.button.text %}
+          {{ macros.atomV1ButtonHtml(item.button, 'bde-faq__btn', design.item.button, 'content.settings.items[' ~ loop.index0 ~ '].button.text') }}
+        {% endif %}
+      </div>
+    </div>
+  {% endfor %}
+{% endif %}

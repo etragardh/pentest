@@ -1,0 +1,16 @@
+<div class="ee-imagebox-image">
+  {{ macros.image(content.content.image, content.content.image_options.size, content.content.image_options.alt, content.content.image_options.lazy_load) }}
+</div>
+<div class="ee-imagebox-content">
+  {% if content.content.title %}
+    <{{content.content.title_tag|default('h3')}} class="ee-imagebox-title" {{ dataContentEditablePropertyPath('content.content.title') }}>{{ content.content.title }}</{{content.content.title_tag|default('h3')}}>
+  {% endif %}
+  
+  {% if content.content.text %}
+    <div class="ee-imagebox-text" {{ dataContentEditablePropertyPath('content.content.text') }}>{{ content.content.text }}</div>
+  {% endif %}
+  
+  {% if content.content.button.text %}
+    {{ macros.atomV1ButtonHtml(content.content.button, 'ee-imagebox-button', design.button, 'content.content.button.text') }}
+  {% endif %}
+</div>

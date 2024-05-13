@@ -1,0 +1,12 @@
+.bde-cart-cross-sells {
+  width: 100%;
+  text-align: left;
+}
+
+.bde-cart-cross-sells .cross-sells {
+  margin-top: 0;
+}
+
+.breakdance .bde-cart-cross-sells .swiper-pagination {
+  margin-top: 20px;
+}

@@ -1,0 +1,17 @@
+%%SELECTOR%% { 
+  {{ macros.spacing_margin_y(design.spacing) }}
+  width: {{ design.size.width.style }};
+}
+
+%%SELECTOR%% .c4-izmir {
+  --transition-duration: {{ design.effects.transition_duration.style }};
+  --border-width: {{ design.effects.border_width.style }};
+  --image-opacity: {{ design.overlay.opacity }};
+  --border-color: {{ design.effects.border_color }};
+}
+%%SELECTOR%% figure {
+  {{ macros.backgroundColor(design.overlay.overlay_color) }}
+}
+%%SELECTOR%% figcaption {{ content.captions.tag | default('h4') }} {
+  {{ macros.typography(design.typography, globalSettings)  }}
+}

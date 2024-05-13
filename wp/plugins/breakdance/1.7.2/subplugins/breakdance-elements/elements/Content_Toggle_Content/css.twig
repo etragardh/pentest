@@ -1,0 +1,32 @@
+%%SELECTOR%% {
+  {{ macros.simpleLayout(design.layout, breakpoint) }}
+  {{ macros.background(design.background) }}
+  {{ macros.borders(design.borders) }}
+  {{ macros.spacing_padding_all(design.spacing) }}
+  width: {{ design.size.width.style }};
+    
+  {% if design.text_colors.text %}
+    color: {{ design.text_colors.text }};
+  {% endif %}
+  {% if design.text_colors.primary %}
+    --bd-brand-primary-color: {{ design.text_colors.primary }};
+  {% endif %}
+}
+
+{% if design.text_colors.headings %}
+  %%SELECTOR%% h1, %%SELECTOR%% h2, %%SELECTOR%% h3, %%SELECTOR%% h4, %%SELECTOR%% h5, %%SELECTOR%% h6 {
+    color: {{ design.text_colors.headings }};
+  }
+{% endif %}
+
+{% if design.text_colors.link %}
+  %%SELECTOR%% a {
+    color: {{ design.text_colors.link }};
+  }
+{% endif %}
+
+{% if design.text_colors.link_hover %}
+  %%SELECTOR%% a:hover {
+    color: {{ design.text_colors.link_hover }};
+  }
+{% endif %}

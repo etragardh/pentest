@@ -1,0 +1,13 @@
+%%SELECTOR%% { 
+  {% if design.container.height == 'custom' %}
+    --bde-advanced-slider-height: {{ design.container.custom_height.style }};
+  {% endif %}
+  {% if design.container.height == 'viewport' %}
+    --bde-advanced-slider-height: 100vh;
+  {% endif %}
+  max-width: {{ design.container.width.style }};
+  {{ macros.spacing_margin_y(design.spacing) }}
+}
+
+
+{{ macros.AtomV1SwiperCss(design.slider, '%%SELECTOR%%', globalSettings, isBaseBreakpoint) }}

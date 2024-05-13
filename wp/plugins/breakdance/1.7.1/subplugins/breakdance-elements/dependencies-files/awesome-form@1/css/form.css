@@ -1,0 +1,798 @@
+/* ==========================================================================
+   Resets
+   ========================================================================== */
+
+.breakdance-form input,
+.breakdance-form label,
+.breakdance-form select {
+  vertical-align: middle;
+  white-space: normal;
+  line-height: 1;
+}
+
+.breakdance-form textarea {
+  vertical-align: middle;
+  line-height: 1;
+}
+
+/* Box Sizing Reset
+-----------------------------------------------*/
+
+/* All of our custom controls should be what we expect them to be */
+.breakdance-form input,
+.breakdance-form textarea,
+.breakdance-form input[type="reset"],
+.breakdance-form input[type="button"],
+.breakdance-form input[type="submit"]:not(.breakdance-form-button),
+.breakdance-form input[type="checkbox"],
+.breakdance-form input[type="radio"],
+.breakdance-form select,
+.breakdance-form fieldset {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+/* Buttons
+-----------------------------------------------*/
+
+.breakdance-form input[type="reset"],
+.breakdance-form input[type="button"],
+.breakdance-form input[type="submit"] {
+  /* Fix IE7 display bug */
+  overflow: visible;
+  width: auto;
+}
+
+/* Textarea
+-----------------------------------------------*/
+
+.breakdance-form textarea {
+  /* Move the label to the top */
+  vertical-align: top;
+
+  /* Turn off scroll bars in IE unless needed */
+  overflow: auto;
+}
+
+/* Selects
+-----------------------------------------------*/
+
+.breakdance-form select[multiple] {
+  /* Move the label to the top */
+  vertical-align: top;
+}
+
+/* Time / Date Inputs
+-----------------------------------------------*/
+
+.breakdance-form input[type="time"]::-webkit-calendar-picker-indicator,
+.breakdance-form input[type="date"]::-webkit-calendar-picker-indicator {
+  padding: 0;
+  margin: 0;
+  display: block;
+}
+
+/* Prevent excessive date input height in Webkit
+   https://github.com/twbs/bootstrap/issues/34433 */
+
+.breakdance-form input::-webkit-datetime-edit {
+  padding: 0;
+  display: block;
+  margin-bottom: 1px;
+}
+
+/**
+ * Main Styles
+ */
+
+.breakdance-form {
+  --bde-form-delete-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3Cpath d='M170.5 51.6L151.5 80h145l-19-28.4c-1.5-2.2-4-3.6-6.7-3.6H177.1c-2.7 0-5.2 1.3-6.7 3.6zm147-26.6L354.2 80H368h48 8c13.3 0 24 10.7 24 24s-10.7 24-24 24h-8V432c0 44.2-35.8 80-80 80H112c-44.2 0-80-35.8-80-80V128H24c-13.3 0-24-10.7-24-24S10.7 80 24 80h8H80 93.8l36.7-55.1C140.9 9.4 158.4 0 177.1 0h93.7c18.7 0 36.2 9.4 46.6 24.9zM80 128V432c0 17.7 14.3 32 32 32H336c17.7 0 32-14.3 32-32V128H80zm80 64V400c0 8.8-7.2 16-16 16s-16-7.2-16-16V192c0-8.8 7.2-16 16-16s16 7.2 16 16zm80 0V400c0 8.8-7.2 16-16 16s-16-7.2-16-16V192c0-8.8 7.2-16 16-16s16 7.2 16 16zm80 0V400c0 8.8-7.2 16-16 16s-16-7.2-16-16V192c0-8.8 7.2-16 16-16s16 7.2 16 16z'/%3E%3C/svg%3E");
+  /* Text Color */
+  --bde-form-dropzone-color: var(--grey-600);
+  --bde-form-dropzone-color-hover: var(--bde-form-dropzone-color);
+  --bde-form-dropzone-color-dragging: var(--bde-form-dropzone-color);
+  /* Icon Color */
+  --bde-form-dropzone-icon-color: var(--grey-400);
+  --bde-form-dropzone-icon-color-hover: var(--bde-form-dropzone-icon-color);
+  --bde-form-dropzone-icon-color-dragging: var(--bde-form-dropzone-icon-color);
+  /* Secondary Color */
+  --bde-form-dropzone-link-color: var(--bde-brand-primary-color);
+  --bde-form-dropzone-link-color-hover: var(--bde-form-dropzone-link-color);
+  --bde-form-dropzone-link-color-dragging: var(--bde-brand-primary-color);
+  /* BG Color */
+  --bde-form-dropzone-background-color: var(--bde-form-input-background-color);
+  --bde-form-dropzone-background-color-hover: var(--bde-form-input-background-color);
+  --bde-form-dropzone-background-color-dragging: var(--grey-100);
+  /* Border Color */
+  --bde-form-dropzone-border-color: var(--grey-300);
+  --bde-form-dropzone-border-color-hover: var(--bde-form-input-focused-border-color);
+  --bde-form-dropzone-border-color-dragging: var(--bde-form-input-focused-border-color);
+  /* Files List */
+  --bde-form-files-list-gap: 10px;
+  --bde-form-files-list-background-color: var(--white);
+
+  font-size: var(--bde-form-font-size);
+  color: var(--bde-form-text-color);
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--bde-form-gap);
+}
+
+.breakdance-form--horizontal {
+  grid-auto-flow: column;
+}
+
+.breakdance-form--horizontal .breakdance-form-footer {
+  grid-column-start: span 1;
+}
+
+/* Fields */
+.breakdance-form-group,
+.breakdance-form-field {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  grid-column-start: span 12;
+}
+
+.breakdance-form--hidden .breakdance-form-field,
+.breakdance-form--hidden .breakdance-form-stepper,
+.breakdance-form-field.breakdance-form-field--hidden,
+.breakdance-form-field.breakdance-form-field--condition-hidden,
+.breakdance-form .breakdance-form-field.breakdance-form-field--hidden.breakdance-form-field--condition-hidden {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .breakdance-form:not(.has-breakpoints) {
+    grid-template-columns: unset;
+  }
+
+  .breakdance-form--horizontal:not(.has-breakpoints) {
+    grid-auto-flow: unset;
+  }
+
+  .breakdance-form:not(.has-breakpoints) .breakdance-form-field,
+  .breakdance-form:not(.has-breakpoints) .breakdance-form-stepper {
+    grid-column-start: unset !important;
+  }
+
+  .breakdance-form:not(.has-breakpoints)
+    .breakdance-form-footer
+    .breakdance-form-button {
+    width: 100%;
+  }
+}
+
+/* Labels */
+.breakdance-form-field__label {
+  display: block;
+  font-size: inherit;
+  font-weight: var(--bde-form-label-font-weight);
+  color: var(--bde-form-label-color);
+  margin-bottom: var(--bde-form-after-label);
+  cursor: pointer;
+}
+
+/* Inputs */
+.breakdance-form .breakdance-form-field__input {
+  display: block;
+  width: 100%;
+  font-size: var(--bde-form-font-size);
+  padding-top: var(--bde-form-input-padding-top);
+  padding-right: var(--bde-form-input-padding-right);
+  padding-bottom: var(--bde-form-input-padding-bottom);
+  padding-left: var(--bde-form-input-padding-left);
+  border-width: var(--bde-form-input-border-width);
+  border-style: solid;
+  border-color: var(--bde-form-input-border-color);
+  border-radius: var(--bde-form-input-border-radius);
+  background-color: var(--bde-form-input-background-color);
+  transition: all 0.3s ease-in-out;
+}
+
+.breakdance-form textarea.breakdance-form-field__input {
+  line-height: 1.4;
+  height: auto;
+  min-height: 100px;
+  resize: vertical;
+  padding-top: var(--bde-form-input-padding-top);
+  padding-right: var(--bde-form-input-padding-right);
+  padding-bottom: var(--bde-form-input-padding-bottom);
+  padding-left: var(--bde-form-input-padding-left);
+}
+
+.breakdance-form select.breakdance-form-field__input {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+  background-position: right 0.5rem center;
+  background-repeat: no-repeat;
+  background-size: 1.5em 1.5em;
+  padding-right: 2.5rem;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+  cursor: pointer;
+  line-height: normal;
+}
+
+.breakdance-form select.breakdance-form-field__input[multiple] {
+  background-image: unset;
+  padding-top: var(--bde-form-input-padding-top);
+  padding-right: var(--bde-form-input-padding-right);
+  padding-bottom: var(--bde-form-input-padding-bottom);
+  padding-left: var(--bde-form-input-padding-left);
+}
+
+/* Focused */
+.breakdance-form .breakdance-form-field__input:focus,
+.breakdance-form select.breakdance-form-field__input[multiple]:focus {
+  background-color: var(--bde-form-input-focused-background-color);
+  border-color: var(--bde-form-input-focused-border-color);
+  box-shadow: var(--bde-form-input-focused-shadow);
+  outline: 0;
+}
+
+.breakdance-form .breakdance-form-button:focus {
+  box-shadow: var(--bde-form-input-focused-shadow);
+  outline: 0;
+}
+
+/* Checkbox & Radio */
+.breakdance-form-field--checkbox,
+.breakdance-form-field--radio {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.breakdance-form-checkbox,
+.breakdance-form-radio {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.breakdance-form-checkbox,
+.breakdance-form-radio {
+  margin-bottom: var(--bde-form-after-sublabel);
+}
+
+.breakdance-form-checkbox:last-child,
+.breakdance-form-radio:last-child {
+  margin-bottom: 0;
+}
+
+.breakdance-form-checkbox input[type="checkbox"],
+.breakdance-form-radio input[type="radio"] {
+  appearance: none;
+  display: inline-block;
+  width: var(--bde-form-checkbox-size);
+  height: var(--bde-form-checkbox-size);
+  padding: 0;
+  vertical-align: middle;
+  background-origin: border-box;
+  user-select: none;
+  flex-shrink: 0;
+  color: var(--bde-form-checkbox-selected-color);
+  background-color: var(--bde-form-input-background-color);
+  cursor: pointer;
+  border-width: var(--bde-form-input-border-width);
+  border-style: solid;
+  border-color: var(--bde-form-input-border-color);
+  border-top: var(--bde-form-input-border-top);
+  border-right: var(--bde-form-input-border-right);
+  border-bottom: var(--bde-form-input-border-bottom);
+  border-left: var(--bde-form-input-border-left);
+  border-radius: 4px;
+  opacity: 1;
+}
+
+.breakdance-form-radio input[type="radio"] {
+  border-radius: 9999px;
+}
+
+.breakdance-form-checkbox input[type="checkbox"]:checked,
+.breakdance-form-radio input[type="radio"]:checked {
+  border-color: transparent;
+  background-color: currentColor;
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.breakdance-form-checkbox input[type="checkbox"]:checked {
+  background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3e%3c/svg%3e");
+}
+
+.breakdance-form-radio input[type="radio"]:checked {
+  background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='8' cy='8' r='3'/%3e%3c/svg%3e");
+}
+
+.breakdance-form-checkbox input[type="checkbox"]:checked:after,
+.breakdance-form-radio input[type="radio"]:checked:after {
+  display: none;
+}
+
+.breakdance-form-checkbox input[type="checkbox"]:focus,
+.breakdance-form-radio input[type="radio"]:focus {
+  border-color: currentColor;
+  box-shadow: 0 0 0 1px currentColor;
+  outline: 1px solid transparent;
+}
+
+.breakdance-form-radio__text,
+.breakdance-form-checkbox__text {
+  font-size: inherit !important;
+  margin-bottom: 0 !important;
+  padding-left: 5px !important;
+  line-height: inherit !important;
+  cursor: pointer;
+}
+
+/* Honeypot Hidden Input */
+.breakdance-form-field--hpinput {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 0;
+  width: 0;
+  z-index: -1;
+}
+
+/* File Upload */
+.breakdance-form-file-upload {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: inherit;
+  margin: 0;
+  cursor: pointer;
+}
+
+/* Inline Upload */
+.breakdance-form-file-upload__button {
+  flex-shrink: 0;
+  pointer-events: none;
+}
+
+.breakdance-form .breakdance-form-file-upload__input {
+  visibility: hidden;
+  position: absolute;
+  left: 0;
+  width: 0;
+  height: 0;
+}
+
+/* Drag & Drop */
+.breakdance-form-file-upload--draggable {
+  display: block;
+  width: 100%;
+}
+
+/* Files List */
+.breakdance-form-files-list {
+  display: flex;
+  gap: var(--bde-form-files-list-gap);
+  flex-direction: column;
+  width: 100%;
+  padding: 0;
+  list-style-type: none;
+  margin: var(--bde-form-files-list-gap) 0 0;
+}
+
+.breakdance-form-files-list:empty {
+  margin: 0;
+}
+
+.breakdance-form-files-list-item {
+  display: grid;
+  grid-template-columns: 1fr 40px;
+  column-gap: 30px;
+  row-gap: 5px;
+  text-align: left;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1;
+  padding: 16px;
+  border: 1px solid var(--grey-200);
+  border-radius: 12px;
+  background-color: var(--bde-form-files-list-background-color);
+}
+
+.breakdance-form-files-list-item__name {
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--grey-700);
+}
+
+.breakdance-form-files-list-item__size {
+  grid-column-start: 1;
+  color: var(--grey-500);
+}
+
+.breakdance-form-files-list-item__delete {
+  grid-row-start: 1;
+  grid-row-end: 3;
+  grid-column-start: 2;
+  justify-self: end;
+  mask-image: var(--bde-form-delete-icon);
+  mask-size: 16px 16px;
+  mask-position: center;
+  mask-repeat: no-repeat;
+  -webkit-mask-image: var(--bde-form-delete-icon);
+  -webkit-mask-size: 16px 16px;
+  -webkit-mask-position: top right;
+  -webkit-mask-repeat: no-repeat;
+  width: 30px;
+  height: 30px;
+  background-color: var(--grey-500);
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  transition: var(--bde-transition-duration) background-color ease;
+  border: none;
+}
+
+.breakdance-form-files-list-item__delete:hover {
+  background-color: var(--red-500);
+}
+
+/* Dropzone */
+
+.breakdance-form-dropzone {
+  display: block;
+  text-align: center;
+  padding: 30px 24px 32px;
+  border-radius: 6px;
+  border: 2px dashed var(--bde-form-dropzone-border-color);
+  background-color: var(--bde-form-dropzone-background-color);
+  color: var(--bde-form-dropzone-color);
+  cursor: pointer;
+  outline: none;
+  transition: var(--bde-transition-duration) background-color ease, 
+              var(--bde-transition-duration) text-color, 
+              var(--bde-transition-duration) border-color ease;
+}
+
+.breakdance-form-dropzone:hover,
+.breakdance-form-dropzone:focus {
+  color: var(--bde-form-dropzone-color-hover);
+  border-color: var(--bde-form-dropzone-border-color-hover);
+  background-color: var(--bde-form-dropzone-background-color-hover);
+}
+
+.is-dragging .breakdance-form-dropzone {
+  color: var(--bde-form-dropzone-color-dragging);
+  border-color: var(--bde-form-dropzone-border-color-dragging);
+  background-color: var(--bde-form-dropzone-background-color-dragging);
+}
+
+.breakdance-form-dropzone:where(:focus, :hover) .breakdance-form-dropzone__title span {
+  color: var(--bde-form-dropzone-link-color-hover);
+}
+
+.breakdance-form-dropzone:where(:focus, :hover) .breakdance-form-dropzone__icon {
+  color: var(--bde-form-dropzone-icon-color-hover);
+}
+
+.is-dragging .breakdance-form-dropzone__icon {
+  color: var(--bde-form-dropzone-icon-color-dragging);
+}
+
+.is-dragging .breakdance-form-dropzone__title span {
+  color: var(--bde-form-dropzone-link-color-dragging);
+}
+
+.breakdance-form-dropzone__title {
+  display: block;
+  font-size: var(--bde-form-font-size);
+  color: inherit;
+  line-height: 1;
+  margin-top: 5px;
+  margin-bottom: 8px;
+  transition: inherit;
+}
+
+.breakdance-form-dropzone__title span {
+  font-weight: 500;
+  color: var(--bde-form-dropzone-link-color);
+  transition: inherit;
+}
+
+.breakdance-form-dropzone__accepts {
+  font-size: calc(var(--bde-form-font-size) * 0.7);
+  opacity: 0.7;
+  font-weight: normal;
+  color: inherit;
+  transition: inherit;
+}
+
+.breakdance-form-dropzone__icon {
+  display: block;
+  margin: 0 auto;
+  color: var(--bde-form-dropzone-icon-color);
+  transition: inherit;
+}
+
+/* Other */
+
+.breakdance-form-link {
+  display: inline-block;
+  font-weight: 500;
+  text-decoration: none;
+  color: var(--bde-brand-primary-color);
+}
+
+.breakdance-form .breakdance-form-field__input::placeholder {
+  color: var(--bde-form-input-placeholder-color);
+}
+
+/* Submit Button */
+
+.breakdance-form-footer .breakdance-form-button {
+  display: inline-flex;
+}
+
+.breakdance-form-footer {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: end;
+}
+
+/* Set loader icon and user-defined icons to the same height and color */
+.breakdance-form-button .breakdance-form-loader {
+  width: 14px;
+  fill: currentColor;
+  margin-left: 10px;
+}
+
+.breakdance-form-button-icon {
+  line-height: 1;
+}
+
+/* Submit Loader */
+.breakdance-form-loader {
+  display: none;
+  animation: breakdance-spin 1s linear infinite;
+}
+
+@keyframes breakdance-spin {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+.breakdance-form.is-loading .breakdance-form-button .button-atom__text {
+  visibility: hidden;
+}
+
+.breakdance-form.is-loading .breakdance-form-button {
+  pointer-events: none;
+}
+
+.breakdance-form.is-loading .breakdance-form-button::after {
+  content: "";
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  mask-image: url("data:image/svg+xml,%3Csvg version='1.1' id='L9' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 100 100' enable-background='new 0 0 0 0' xml:space='preserve'%3E%3Cpath fill='currentColor' d='M73,50c0-12.7-10.3-23-23-23S27,37.3,27,50 M30.9,50c0-10.5,8.5-19.1,19.1-19.1S69.1,39.5,69.1,50'%3E%3CanimateTransform attributeName='transform' attributeType='XML' type='rotate' dur='1s' from='0 50 50' to='360 50 50' repeatCount='indefinite' /%3E%3C/path%3E%3C/svg%3E");
+  background-color: currentColor;
+  mask-position: 0 0;
+  mask-size: 100% 100%;
+  mask-repeat: no-repeat;
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg version='1.1' id='L9' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 100 100' enable-background='new 0 0 0 0' xml:space='preserve'%3E%3Cpath fill='currentColor' d='M73,50c0-12.7-10.3-23-23-23S27,37.3,27,50 M30.9,50c0-10.5,8.5-19.1,19.1-19.1S69.1,39.5,69.1,50'%3E%3CanimateTransform attributeName='transform' attributeType='XML' type='rotate' dur='1s' from='0 50 50' to='360 50 50' repeatCount='indefinite' /%3E%3C/path%3E%3C/svg%3E");
+  -webkit-mask-position: 0 0;
+  -webkit-mask-size: 100% 100%;
+}
+
+/* Utils */
+.breakdance-form-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.breakdance-form .visually-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+/* Misc */
+.breakdance-form-link--password {
+  margin-left: auto;
+}
+
+.breakdance-form-empty {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  text-align: center;
+  padding: 30px;
+  border: 2px dashed #c3c4c7;
+  grid-column: 1 / -1;
+}
+
+.breakdance-form-empty__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  height: 70px;
+  font-size: 30px;
+  overflow: hidden;
+  border-radius: 99999px;
+  background-color: #eff0f5;
+  color: #78909c;
+  margin-bottom: 15px;
+}
+
+.breakdance-form-empty__icon svg {
+  transform: translateY(2px);
+}
+
+.breakdance-form-empty__title {
+  font-size: 18px;
+  color: #646970;
+  font-weight: normal;
+  line-height: 1;
+  margin: 0 !important;
+}
+
+/* Success/Error Messages */
+.breakdance-form-message {
+  width: 100%;
+  padding: 16px;
+  border-radius: 4px;
+  color: #1e805b;
+  background-color: #edfbf6;
+  margin-top: var(--bde-form-gap);
+}
+
+.breakdance-form-message-dismissable {
+  display: flex;
+  flex: 1 1 0;
+  justify-content: space-between;
+}
+
+.breakdance-form-message--error {
+  color: var(--red-500);
+  line-height: 1.4;
+  background-color: #fef4f6;
+}
+
+.breakdance-form-message-dismiss {
+  padding-left: 12px;
+  margin: -6px;
+}
+
+.breakdance-form-message-dismiss-button {
+  display: inline-flex;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 20px;
+  color: inherit;
+  border: none;
+  background: none;
+}
+
+.breakdance-form-field__required {
+  color: var(--bde-form-label-required-color);
+  padding-left: 4px;
+  display: inline-block;
+  transform: translate(
+    var(--bde-form-label-required-nudge-x),
+    var(--bde-form-label-required-nudge-y)
+  );
+}
+
+.breakdance .bde-form-builder .breakdance-form-field.hidden-step,
+.breakdance .bde-form-builder .breakdance-form-button.hidden {
+  display: none;
+}
+
+.breakdance .breakdance-form-field__step {
+  display: none;
+}
+
+.breakdance .breakdance-form-button.breakdance-form-button__previous-step {
+  margin-right: 10px;
+}
+
+.breakdance-form-stepper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  grid-column-start: span 12;
+}
+
+.breakdance-form-stepper__step {
+  display: flex;
+  flex-shrink: 0;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+}
+
+.breakdance-form-stepper__list {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  gap: 12px;
+}
+
+.breakdance-form-stepper__label {
+  width: 100%;
+  color: var(--grey-400);
+}
+
+.breakdance-form-stepper__step-icon svg {
+  font-size: inherit;
+  width: 1em;
+  height: 1em;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+
+.breakdance-form-stepper__step-icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  background-color: var(--grey-400);
+  border-radius: 50%;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+}
+
+.breakdance-form-stepper__step-icon span {
+  color: #fff;
+  line-height: 1;
+}
+
+.breakdance-form-stepper__step-icon svg {
+  color: #fff;
+  font-size: 18px;
+}
+
+.breakdance-form-stepper__step.is-active .breakdance-form-stepper__step-icon {
+  background-color: var(--grey-900);
+}
+
+.breakdance-form-stepper__step.is-active .breakdance-form-stepper__label {
+  color: var(--grey-900);
+}
+
+.breakdance-form-stepper__separator {
+  flex: 1 1 auto;
+  width: 100%;
+  border-bottom: 1px solid var(--grey-300);
+}
+
+.breakdance-form-stepper__separator:last-child {
+  display: none;
+}
+
+.breakdance-form-field--step-buttons {
+  flex-direction: row;
+  justify-content: space-between;
+  width: auto;
+}
