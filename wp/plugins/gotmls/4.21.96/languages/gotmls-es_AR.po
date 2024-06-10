@@ -1,0 +1,523 @@
+# Translation of Plugins - Anti-Malware Security and Brute-Force Firewall - Development (trunk) in Spanish (Argentina)
+# This file is distributed under the same license as the Plugins - Anti-Malware Security and Brute-Force Firewall - Development (trunk) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2015-12-07 15:45:31+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/2.4.0-alpha\n"
+"Language: es_AR\n"
+"Project-Id-Version: Plugins - Anti-Malware Security and Brute-Force Firewall - Development (trunk)\n"
+
+#: index.php:686
+msgid "Date Infected"
+msgstr "Fecha de Infección"
+
+#: index.php:686
+msgid "Quarantined"
+msgstr "En caurentena"
+
+#: index.php:881
+msgid "Firewall Options"
+msgstr "Opciones de Firewall"
+
+#: index.php:853
+msgid "Your username is \"admin\", this is the most commonly guessed username by hackers and brute-force scripts. It is highly recommended that you change your username immediately."
+msgstr "Su nombre de usuario es \"admin\", es el más utilizado por hackers y ataques de brute-force scripts. Recomendamos encarecidamente que cambie su nombre de usuario ahora."
+
+#: images/index.php:156
+msgid "Invalid or expired Nonce Token!"
+msgstr "Código inválido o expirado"
+
+#: index.php:1133
+msgid "Save Settings"
+msgstr "Guardar configuración."
+
+#: index.php:1772
+msgid "Potential threats in file:"
+msgstr "Amenazas potenciales en archivo:"
+
+#: index.php:1772
+msgid "Are you sure this file is not infected and you want to ignore it in future scans?"
+msgstr "¿Está seguro que este archivo no está infectado y quiere ignorarlo en futuras exploraciones?"
+
+#: index.php:1729
+msgid "The file %s does not exist, it must have already been deleted."
+msgstr "El archivo %s no existe, es posible que ya haya sido eliminado."
+
+#: index.php:1712
+msgid "This file no longer exists in the quarantine."
+msgstr "Este archivo ya no existe en la Bóveda de Virus (Cuarentena)."
+
+#: index.php:1710
+msgid "File Details:"
+msgstr "Detalles del archivo:"
+
+#: index.php:1710
+msgid "Are you sure you want to delete this file from the quarantine?"
+msgstr "Está seguro que desea eliminar este archivo de la Bóveda de Virus (Cuarentena) ?"
+
+#: index.php:1641
+msgid "Nothing Selected to be Changed!"
+msgstr "Nada seleccionado para modificarse!"
+
+#: index.php:1639
+msgid "Never mind, it worked!"
+msgstr "No importa, funcionó!"
+
+#: index.php:1639
+msgid "Because some changes were made we need to check to make sure it did not break your site. If this stays Red and the frame below does not load please <a %s>revert the changes</a> made during this automated fix process."
+msgstr "Como realizamos algunos cambios queremos confirmar que su sitio no sufrió inconvenientes. Si esta sección permanece ROJA y el cuadro de abajo no carga por favor  <a %s>reveirta los cambios</a> realizados durante el proceso."
+
+#: index.php:1619
+msgid "Restore Failed!"
+msgstr "Error al recuperar!"
+
+#: index.php:1616
+msgid "Complete!"
+msgstr "Finalizado!"
+
+#: index.php:1608
+msgid "Failed to delete!"
+msgstr "Error al eliminar!"
+
+#: index.php:1605 index.php:1641 index.php:1643
+msgid "Done!"
+msgstr "Listo!"
+
+#: index.php:1552
+msgid "Failed to empty the trash."
+msgstr "Error al vaciar la papelera."
+
+#: index.php:1538
+msgid "saved."
+msgstr "guardado."
+
+#: index.php:1534
+msgid "New position"
+msgstr "Nueva posición"
+
+#: index.php:1351
+msgid "Starting Scan ..."
+msgstr "Comenzando escanneo..."
+
+#: index.php:1349
+msgid "Completed!"
+msgstr "Finalizado!"
+
+#: index.php:1316
+msgid "Scan Details:"
+msgstr "Detalles del escanneo:"
+
+#: index.php:841 index.php:1313
+msgid "read my blog"
+msgstr "leer mi blog"
+
+#: index.php:1257
+msgid "You are not currently scanning for this type of threat!"
+msgstr "Actualmente no estás buscando este tipo de amenaza!"
+
+#: index.php:1206
+msgid "Scan Complete!"
+msgstr "Escanneo completo!"
+
+#: index.php:1174
+msgid "WP-Login Updates"
+msgstr "Actualizacione de WP-Login"
+
+#: index.php:1142
+msgid "Quarantined Files"
+msgstr "Archivos en cuarentena (Bóveda de Virus)"
+
+#: index.php:1142
+msgid "Read/Write Errors"
+msgstr "Errores para Leer / Escribir"
+
+#: index.php:1142
+msgid "Skipped Files"
+msgstr "Archivos omitidos"
+
+#: index.php:1142
+msgid "Skipped Folders"
+msgstr "Carpetas omitidas"
+
+#: index.php:1142
+msgid "Scanned Folders"
+msgstr "Carpetas escanneadas"
+
+#: index.php:1142
+msgid "Scanned Files"
+msgstr "Archivos escanneados"
+
+#: index.php:1088
+msgid "Run Complete Scan"
+msgstr "Realizar un escanneo completo"
+
+#: index.php:1133
+msgid "This new BETA feature is only available to registered users who have donated at a certain level."
+msgstr "Esta opción BETA solamente está disponible para los usuarios registrados que donaron cierta cantidad."
+
+#: index.php:1133
+msgid "Automatically Update Definitions:"
+msgstr "Automáticamente actualizar definiciones:"
+
+#: index.php:1132
+msgid "a folder name or comma separated list of folder names to skip"
+msgstr "un nombre de carpeta o lista separada por comas de las carpetas a omitir"
+
+#: index.php:1132
+msgid "Skip directories with the following names:"
+msgstr "Omitir los directorios con los siguientes nombres:"
+
+#: index.php:1132
+msgid "a comma separated list of file extentions to skip"
+msgstr "una lista separa por comas de las extenciones a omitir"
+
+#: index.php:1131
+msgid "Skip files with the following extensions:"
+msgstr "Omitir archivos con las siguientes extensiones:"
+
+#: index.php:1126
+msgid "For very advanced users only. Do not use this without talking to Eli first. If used incorrectly you could easily break your site."
+msgstr "Para usuarios avanzados solamente. Hablar con Eli antes de utilizar. El uso incorrecto puede romper su sitio."
+
+#: index.php:1123
+msgid "-1 is infinite depth"
+msgstr "-1 es profundidad infinita"
+
+#: index.php:1123
+msgid "how far to drill down"
+msgstr "que tan profundo buscar"
+
+#: index.php:1122
+msgid "Scan Depth:"
+msgstr "Profundidad de escaneo:"
+
+#: index.php:1120
+msgid "What to scan:"
+msgstr "Qué escannear:"
+
+#: index.php:1116
+msgid "Download the new definitions (Right sidebar) to activate this feature."
+msgstr "Descargar las nuevas definiciones de actualización (barra derecha) para activar esta opción."
+
+#: index.php:1116
+msgid "Download Definition Updates to Use this feature"
+msgstr "Descargar las definiciones de actualización para utilizar esta opción"
+
+#: index.php:1089
+msgid "What to look for:"
+msgstr "Qué buscar:"
+
+#: index.php:1081
+msgid "Only Scan These Folders:"
+msgstr "Solamente escannear estas carpetas"
+
+#: index.php:1284 index.php:1404
+msgid "Scan Logs"
+msgstr "Registro de escanneo"
+
+#: index.php:712
+msgid "Quarantine"
+msgstr "Cuarentena"
+
+#: index.php:709
+msgid "White-lists"
+msgstr "Lista blanca"
+
+#: index.php:698
+msgid "No Items in Quarantine"
+msgstr "No hay archivos en cuarentena"
+
+#: index.php:691
+msgid "View Quarantined File"
+msgstr "Ver archivo en cuarentena"
+
+#: index.php:686
+msgid " Items in Quarantine"
+msgstr "Items en cuarentena"
+
+#: index.php:685
+msgid "Are you sure you want to permanently delete the selected files in the Quarantine?"
+msgstr "Está seguro que desea eliminar permanentemente los archivos seleccionados en la cuarentena?"
+
+#: index.php:685
+msgid "Delete selected files"
+msgstr "Eliminar archivos seleccionados"
+
+#: index.php:685
+msgid "Are you sure you want to overwrite the previously cleaned files with the selected files in the Quarantine?"
+msgstr "Está seguro que desea sobrescribir los archivos previamente eliminados con los archivos seleccionados en la cuarentena?"
+
+#: index.php:685
+msgid "Restore selected files"
+msgstr "Recuperar archivos seleccionados"
+
+#: index.php:594
+msgid "Date Updated"
+msgstr "Fecha de actualización"
+
+#: index.php:594
+msgid "Globally White-listed files"
+msgstr "Archivos generales colocados en lista blanca"
+
+#: index.php:587
+msgid "No Scans have been logged"
+msgstr "No se registran escanneos"
+
+#: index.php:545
+msgid "Cleared %s records from this log."
+msgstr "%s archivos eliminados de este registro."
+
+#: index.php:471
+msgid "Make a Donation with PayPal"
+msgstr "Realizar una donación a través de PayPal"
+
+#: index.php:448
+msgid "Resources & Links"
+msgstr "Recursos & Enlaces"
+
+#: index.php:427
+msgid "Submitting Registration ..."
+msgstr "Enviar registro..."
+
+#: index.php:422
+msgid "Plugin Installation Key is a required field!"
+msgstr "La Clave de instalación del plugin es un campo obligatorio!"
+
+#: index.php:420
+msgid "Your WordPress Site URL is a required field!"
+msgstr "Su Wordpress URL es un campo obligatorio!"
+
+#: index.php:412
+msgid "Email Address is a required field!"
+msgstr "El Email es un campo obligatorio!"
+
+#: index.php:410
+msgid "Last Name is a required field!"
+msgstr "El Apellido es un campo obligatorio!"
+
+#: index.php:408
+msgid "First Name is a required field!"
+msgstr "Su Nombre es un campo obligatorio!"
+
+#: index.php:402
+msgid "Please make a donation for the use of this wonderful feature!"
+msgstr "Por favor realice una donación para utilizar esta excelente función!"
+
+#: index.php:384
+msgid "Plugin Installation Key:"
+msgstr "Código de Instalación del Plugin"
+
+#: index.php:381
+msgid "Your WordPress Site URL:"
+msgstr "Su URL de Wordpress es:"
+
+#: index.php:378
+msgid "A password will be e-mailed to this address:"
+msgstr "Una contraseña será enviada a esta dirección de e-mail:"
+
+#: index.php:374
+msgid "Your Full Name:"
+msgstr "Su Nombre Completo:"
+
+#: index.php:372
+msgid "If you have not already registered your Key then register now using the form below.<br />* All registration fields are required<br />** I will NOT share your information."
+msgstr ""
+"Si aún no ha registrado su código hágalo utilizando el siguiente formulario.\n"
+"<br />* Todos los campos son obligatorios<br />\n"
+"** NO COMPARTIRÉ SU INFORMACIÓN"
+
+#: index.php:371
+msgid "<p>Get instant access to definition updates.</p>"
+msgstr "<p>Obtenga acceso instantáneo a las actualizaciones de definición.</p>"
+
+#: index.php:368
+msgid "Download new definitions!"
+msgstr "Descargar nuevas definiciones!"
+
+#: index.php:361
+msgid "Updates & Registration"
+msgstr "Actualizaciones & Registro"
+
+#: index.php:265
+msgid "No response from server!"
+msgstr "El Servidor no responde!"
+
+#: index.php:187
+msgid "If this is taking too long, click here."
+msgstr "Si esto toma demasiado mucho tiempo, hacer clic aquí."
+
+#: index.php:127
+msgid "Searching for updates ..."
+msgstr "Buscando actualizaciones..."
+
+#: index.php:118
+msgid "Upgrade to %s now!"
+msgstr "Mejora a %s ahora!"
+
+#: index.php:105
+msgid "Tested your site. It appears we didn't break anything"
+msgstr "Probamos su sitio. Aparentemente no rompimos nada"
+
+#: index.php:85
+msgid "FAQs"
+msgstr "FAQs"
+
+#: index.php:79
+msgid "Make sure the Definition Updates are current and Run a Complete Scan."
+msgstr "Asegúrese que las definiciones de actualización son las presentes y realice un escaneo completo."
+
+#: index.php:78
+msgid "Getting Started"
+msgstr "Comenzar"
+
+#: images/index.php:897
+msgid "Failed to read file!"
+msgstr "Error al leer el archivo!"
+
+#: images/index.php:883
+msgid "Skipped because of file size (%1$s bytes) or file extention (%2$s)!"
+msgstr "Omitido debito al tamaño de archivo (%1$s bytes) o la extensión (%2$s)!"
+
+#: images/index.php:865
+msgid "Failed to read directory!"
+msgstr "Error al leer el directorio!"
+
+#: images/index.php:833
+msgid "Skipped because of file extention!"
+msgstr "Omitido debido a la extensión del archivo!"
+
+#: images/index.php:831
+msgid "Skipped because of file size!"
+msgstr "Omitido debido al tamaño del archivo!"
+
+#: images/index.php:829
+msgid "Failed to determine file size!"
+msgstr "Error al determinar el tamaño de archivo!"
+
+#: images/index.php:498 images/index.php:819
+msgid "Examine File"
+msgstr "Revisar archivo"
+
+#: images/index.php:817
+msgid "Examine Quarantined File"
+msgstr "Revisar archivo en cuarentena"
+
+#: images/index.php:776 images/index.php:908
+msgid "Scanned %s"
+msgstr "Escanneados %s"
+
+#: images/index.php:759 images/index.php:858
+msgid "Scanning %s"
+msgstr "Escanneando %s"
+
+#: images/index.php:727
+msgid "Preparing %s"
+msgstr "Preparando %s"
+
+#: images/index.php:545 images/index.php:552
+msgid "Already Fixed!"
+msgstr "Ya Arreglado!"
+
+#: images/index.php:531
+msgid "no file contents!"
+msgstr "archivo sin contenido!"
+
+#: images/index.php:531
+msgid "file not writable!"
+msgstr "no se puede escribir en el archivo!"
+
+#: images/index.php:531
+msgid "failed to write!"
+msgstr "error al escribir!"
+
+#: images/index.php:531
+msgid "reason unknown!"
+msgstr "motivo desconocido!"
+
+#: images/index.php:531
+msgid "failed to quarantine!"
+msgstr "error al poner en cuarentena!"
+
+#: images/index.php:531
+msgid "Failed:"
+msgstr "Falló!"
+
+#: images/index.php:493
+msgid "File does not exist!"
+msgstr "El archivo no existe!"
+
+#: images/index.php:493
+msgid "File not readable!"
+msgstr "No se puede leer el archivo!"
+
+#: images/index.php:493
+msgid "File permissions read-only!"
+msgstr "Permisos de archivo read-only! (leer solamente)"
+
+#: images/index.php:493
+msgid "Fixed file permissions! (try again)"
+msgstr "Repare los permisos del archivo! (e intente nuevamente)"
+
+#: images/index.php:493
+msgid "Empty file!"
+msgstr "Archivo vacío!"
+
+#: images/index.php:493
+msgid "Failed to read file contents!"
+msgstr "Error al leer el contenido del archivo!"
+
+#: images/index.php:301 safe-load/trace.php:17
+msgid "unknown"
+msgstr "desconocido"
+
+#: images/index.php:299 safe-load/trace.php:15
+msgid "an unknown file"
+msgstr "un archivo desconocido"
+
+#: images/index.php:125
+msgid "Automatically Fix SELECTED Files Now"
+msgstr "Corregir automáticamente los ARCHIVOS SELECCIONADOS ahora"
+
+#: images/index.php:124
+msgid "Loading, Please Wait ..."
+msgstr "Cargando, por favor aguarde..."
+
+#: images/index.php:123
+msgid "Scan Settings"
+msgstr "Escanear configuración"
+
+#: images/index.php:122
+msgid "This Plugin requires WordPress version %s or higher"
+msgstr "Este Plugin requiere como mínimo la versión de Wordpress %s "
+
+#: images/index.php:121
+msgid "View Scan Log"
+msgstr "Ver Scan Log"
+
+#: images/index.php:120
+msgid "View Quarantine"
+msgstr "Ver Bóveda de Virus (Cuarentena)"
+
+#: images/index.php:119
+msgid "Quick Scan"
+msgstr "Escanneo Rápido"
+
+#: images/index.php:118
+msgid "Failed to list files in directory!"
+msgstr "Error en el directorio al listar archivos!"
+
+#: images/index.php:105
+msgid "Your Server could not start a Session!"
+msgstr "El Servidor donde tiene instalado el sitio no puede comenzar la Sesión!"
+
+#: images/index.php:101 index.php:766
+msgid "This feature is available to those who have donated!"
+msgstr "Puede utilizar esta función si realizó una donación!"
+
+#: images/index.php:101 index.php:766
+msgid "You must register and donate to use this feature!"
+msgstr "Debe registrarse y donar para utilizar esta función!"

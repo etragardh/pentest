@@ -1,0 +1,708 @@
+# Translation of Plugins - Anti-Malware Security and Brute-Force Firewall - Development (trunk) in Turkish
+# This file is distributed under the same license as the Plugins - Anti-Malware Security and Brute-Force Firewall - Development (trunk) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2017-05-08 10:40:15+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: GlotPress/2.4.0-alpha\n"
+"Language: tr\n"
+"Project-Id-Version: Plugins - Anti-Malware Security and Brute-Force Firewall - Development (trunk)\n"
+
+#: index.php:877
+msgid " However, if you would like to keep this rule enabled you should at least Whitelist your IP."
+msgstr "Bu kuralı etkin tutmak istiyorsanız, en azından IP'nizi beyaz listeye eklemeniz gerekir."
+
+#: index.php:877
+msgid "Whitelist your IP"
+msgstr "IP'nizi beyaz listeye ekleyin"
+
+#: index.php:875
+msgid " However, your current IP has been Whitelisted so you could probably keep this rule enabled if you really want to."
+msgstr "IP'niz beyaz listeye eklenmiştir. Şimdi gerçekten istiyorsanız bu kuralı etkinleştirebilirsiniz"
+
+#: index.php:872
+msgid "The Conflicting Firewall Rule (WP_firewall_exclude_terms) activated by the WP Firewall 2 plugin has been shown to interfere with the Definition Updates and WP Core File Scans in my Anti-Malware plugin. I recommend that you disable this rule in the WP Firewall 2 plugin."
+msgstr "WP Firewall 2 eklentisi tarafından etkinleştirilen Çakışan Güvenlik Duvarı Kuralı (WP_firewall_exclude_terms), Anti-Malware eklentisinde Tanım Güncellemeleri ve WP Çekirdek Dosya Taramaları'na müdahale ettiği gösterildi. WP Firewall 2 eklentisinde bu kuralı devre dışı bırakmanızı öneririz."
+
+#: index.php:871
+msgid "Disable this Rule"
+msgstr "Bu kuralı etkisizleştir"
+
+#: index.php:703
+msgid "Clear %s Deleted Files from the Trash"
+msgstr "%s Silinen Dosyası Çöp Kutusundan Kaldır"
+
+#: index.php:686
+msgid "Date Infected"
+msgstr "Enfekte Tarihi"
+
+#: index.php:686
+msgid "Quarantined"
+msgstr "Karantinaya Alınan"
+
+#: index.php:363
+msgid "Get FREE Key!"
+msgstr "Ücretsiz Anahtar Al"
+
+#: index.php:881
+msgid "Firewall Options"
+msgstr "Güvenlik Duvarı Ayarları"
+
+#: index.php:853
+msgid "Your username is \"admin\", this is the most commonly guessed username by hackers and brute-force scripts. It is highly recommended that you change your username immediately."
+msgstr "Kullanıcı adınız \"admin\", hackerlar ve brute-force scriptleri tarafından en çok tahmin edilen kullanıcı adı. Hemen kullanıcı adınızı değiştirmeniz önerilir."
+
+#: index.php:1402
+msgid "Starting a Complete Scan requires a valid Nonce Token. No valid Nonce Token was found at this time, either because the token have expired or because the data was invalid. Please try re-submitting the form above."
+msgstr "Tam bir tarama başlatmak, geçerli bir Geçiş Simgesi gerektirir. Şu anda, belirteçin süresi dolduğu veya veriler geçersiz olduğu için geçerli bir Geçiş Simgesi bulunamadı. Lütfen yukarıdaki formu tekrar deneyin."
+
+#: index.php:1283
+msgid "Saving these settings requires a valid Nonce Token. No valid Nonce Token was found at this time, either because the token have expired or because the data was invalid. Please try re-submitting the form above."
+msgstr "Bu ayarları kaydetmek için geçerli bir Geçiş Simgesi gereklidir. Şu anda, belirteçin süresi dolduğu veya veriler geçersiz olduğu için geçerli bir Geçiş Simgesi bulunamadı. Lütfen yukarıdaki formu tekrar deneyin."
+
+#: index.php:678
+msgid "You have old Quarantined files in the uploads directory on your server. The new quarantine is in your WordPress Database. You need to import these files into your database where they will be safer or just delete the quarantine folder inside /wp-content/uploads/ if you would rather just delete them."
+msgstr "Sunucunuzdaki uploads dizininde eski Karantinaya alınan dosyalarınız var. Yeni karantina dosyaları, WordPress veritabanınızda. Bu dosyaları daha güvenli olacağı veritabanınıza almanız veya yalnızca onları silmek yerine /wp-content/uploads/ içindeki karantina klasörünü silmeniz gerekir."
+
+#: images/index.php:156
+msgid "Invalid or expired Nonce Token!"
+msgstr "Yanlış veya Geçersiz Geçiş Simgesi"
+
+#: index.php:1133
+msgid "Save Settings"
+msgstr "Ayarları Kaydet"
+
+#. Description of the plugin/theme
+msgid "This Anti-Virus/Anti-Malware plugin searches for Malware and other Virus like threats and vulnerabilities on your server and helps you remove them. It's always growing and changing to adapt to new threats so let me know if it's not working for you."
+msgstr "Bu Anti-Virüs / Anti-Malware eklentisi, Kötü Amaçlı Yazılım ve diğer Virüs benzeri tehdit ve güvenlik açıklarını sunucunuzda arar ve bunları kaldırmanıza yardımcı olur. Yeni tehditlere uyum sağlamak için her zaman büyüyor ve değişiyor, eğer çalışmıyorsa lütfen bildirin."
+
+#: safe-load/trace.php:18
+msgid ": Headers sent by %1$s on line %2$s."
+msgstr ":%1$s tarafından gönderilen, %2$s satırındaki üstbilgiler."
+
+#: index.php:1772
+msgid "Potential threats in file:"
+msgstr "Dosyada ki potansiyel tehditler"
+
+#: index.php:1772
+msgid "Are you sure this file is not infected and you want to ignore it in future scans?"
+msgstr "Bu dosyanın virüslü olmadığından ve gelecekteki taramalarda onu yok saymak istediğinizden emin misiniz?"
+
+#: index.php:1729
+msgid "The file %s does not exist, it must have already been deleted."
+msgstr "%s dosyası yok, büyük ihtimal silinmiş olabilir."
+
+#: index.php:1712
+msgid "This file no longer exists in the quarantine."
+msgstr "Bu dosya artık karantinada yok."
+
+#: index.php:1710
+msgid "File Details:"
+msgstr "Dosya Detayları:"
+
+#: index.php:1710
+msgid "Are you sure you want to delete this file from the quarantine?"
+msgstr "Bu dosyası karantinadan silmek istediğinize emin misiniz?"
+
+#: index.php:1641
+msgid "Nothing Selected to be Changed!"
+msgstr "Değiştirmek için hiç birşey seçilmedi!"
+
+#: index.php:1639
+msgid "Because some changes were made we need to check to make sure it did not break your site. If this stays Red and the frame below does not load please <a %s>revert the changes</a> made during this automated fix process."
+msgstr "Bazı değişiklikler yapıldığı için sitenizi kırmadığından emin olmamız gerekiyor. Bu durum Kırmızı olarak kalırsa ve aşağıdaki çerçeve yüklenmezse lütfen bu otomatik düzeltme işlemi sırasında yapılan değişiklikleri <a %s> geri çevirin </a>."
+
+#: index.php:1619
+msgid "Restore Failed!"
+msgstr "Geri Yükleme Başarısız Oldu!"
+
+#: index.php:1552
+msgid "Failed to empty the trash."
+msgstr "Çöp kutusu boşaltılamadı."
+
+#: index.php:1538
+msgid "saved."
+msgstr "Kaydedildi."
+
+#: index.php:853
+msgid "Change your username:"
+msgstr "Kullanıcı adını değiştir:"
+
+#: index.php:852
+msgid "Your new username must be at least 3 characters and can only contain &quot;%s&quot;. Please try again."
+msgstr "Yeni kullanıcı adınız en az 3 karakter olmalıdır ve yalnızca &quot;%s&quot; içerebilir. Lütfen tekrar deneyin."
+
+#: index.php:849
+msgid "SQL Error changing username: %s. Please try again later."
+msgstr "Kullanıcı adı değiştirilirken SQL Hatası oluştu: %s. Lütfen daha sonra tekrar deneyiniz."
+
+#: index.php:847
+msgid "You username has been change to %s. Don't forget to use your new username when you login again."
+msgstr "Kullanıcı adı %s olarak değiştirildi. Yeniden giriş yaparken yeni kullanıcı adınızı kullanmayı unutmayın."
+
+#: index.php:841
+msgid " For more information on Brute-Force attack prevention and the WordPress wp-login-php file "
+msgstr " Brute-Force saldırı önleme ve WordPress wp-login-php dosyası hakkında daha fazla bilgi için"
+
+#: index.php:841
+msgid "Checking for session compatibility ..."
+msgstr "Oturum uyumluluğu kontrol ediliyor ..."
+
+#: index.php:825
+msgid "Removed Old Brute-Force Login Patch"
+msgstr "Eski Brute-Force Giriş Patchi kaldırıldı"
+
+#: index.php:822
+msgid "wp-config.php Not Found!"
+msgstr "wp-config.php Bulunamadı!"
+
+#: index.php:820
+msgid "wp-config.php Not Readable!"
+msgstr "wp-config.php okunaklı değil !"
+
+#: index.php:818
+msgid "Failed to install Brute-Force Protection (wp-config.php %s)"
+msgstr "Brute-Force Protection yüklenemedi (wp-config.php %s)"
+
+#: index.php:815
+msgid "Installed Brute-Force Protection"
+msgstr "Brute-Force Koruması Kuruldu"
+
+#: index.php:809
+msgid "Upgraded Brute-Force Protection"
+msgstr "Brute-Force Koruması Yükseltildi"
+
+#: index.php:804
+msgid "Removed Brute-Force Protection"
+msgstr "Brute-Force Koruması Kaldırıldı"
+
+#: index.php:790
+msgid "Most WordPress sites do not use the XMLRPC features and hack attempts on the xmlrpc.php file are more common then ever before. Even if there are no vulnerabilities for hackers to exploit, these attempts can cause slowness or downtime similar to a DDoS attack. This patch automatically blocks all external access to the xmlrpc.php file."
+msgstr "Çoğu WordPress sitesi, XMLRPC özelliklerini kullanmaz ve xmlrpc.php dosyası üzerindeki saldırı denemeleri daha önce hiç olmadığı kadar yaygın hale gelir. Bilgisayar korsanlarının yararlanabileceği herhangi bir güvenlik açığı bulunmasa bile, bu girişimler DDoS saldırısına benzer şekilde yavaşlama veya kesintilere neden olabilir. Bu düzeltme eki, xmlrpc.php dosyasına yapılan tüm harici erişimi otomatik olarak engeller."
+
+#: index.php:786
+msgid "Failed to install XMLRPC Protection [.htaccess %s]"
+msgstr "XMLRPC Koruması yüklenemedi [.htaccess %s]"
+
+#: index.php:778
+msgid "Failed to remove XMLRPC Protection [.htaccess %s]"
+msgstr "XMLRPC Koruması kaldırılamadı [.htaccess %s]"
+
+#: index.php:739
+msgid "Your WordPress Login page has the old version of my brute-force protection installed. Upgrade this patch to improve the protection on the WordPress Login page and preserve the integrity of your WordPress core files."
+msgstr "WordPress Giriş sayfasında brute-force korumasının eski sürümü yüklü. WordPress Giriş sayfasındaki korumayı iyileştirmek ve WordPress çekirdek dosyalarınızın bütünlüğünü korumak için bu düzeltme ekini yükseltin."
+
+#: index.php:733
+msgid "Your WordPress site has the current version of my brute-force Login protection installed."
+msgstr "WordPress sitenizde kaba kuvvet Giriş korumasının geçerli sürümü bulunmaktadır."
+
+#: index.php:728
+msgid "Your WordPress Login page is susceptible to a brute-force attack (just like any other login page). These types of attacks are becoming more prevalent these days and can sometimes cause your server to become slow or unresponsive, even if the attacks do not succeed in gaining access to your site. Applying this patch will block access to the WordPress Login page whenever this type of attack is detected."
+msgstr "WordPress Giriş sayfanız brute-force saldırısına açıktır (başka herhangi bir giriş sayfasında olduğu gibi). Bu tür saldırılar bu günlerde daha yaygın hale geliyor ve bazen saldırganlar sitenize erişmeyi başaramasa bile sunucunuzun yavaşlamasına veya yanıt vermemesine neden olabiliyor. Bu düzeltme ekini uyguladığınızda, bu saldırı türü tespit edildiğinde WordPress Giriş sayfasına erişimi engeller."
+
+#: index.php:1351
+msgid "Starting Scan ..."
+msgstr "Taramaya Başlıyor ..."
+
+#: index.php:1349
+msgid "Completed!"
+msgstr "Tamamlandı!"
+
+#: index.php:1294
+msgid "The Quick Scan was unable to finish because of a shortage of memory or a problem accessing a file. Please try using the Complete Scan, it is slower but it will handle these errors better and continue scanning the rest of the files."
+msgstr "Hızlı Tarama, bir belleğin yetersizliği veya bir dosyaya erişme sorunu nedeniyle tamamlanamadı. Lütfen Tam Taramayı kullanmayı deneyin, daha yavaştır, ancak bu hataları daha iyi ele alacak ve dosyaların geri kalanını taramaya devam edecektir."
+
+#: index.php:1317
+msgid "Not flushing OB Handlers: %s"
+msgstr "OB İşleyicileri temizlemez: %s"
+
+#: index.php:1316
+msgid "Scan Details:"
+msgstr "Tarama Detayları:"
+
+#: index.php:841 index.php:1313
+msgid "read my blog"
+msgstr "Bloğumu Okuyun"
+
+#: index.php:1313
+msgid "NOTE: We have detected changes to the WordPress Core files on your site. This could be an intentional modification or the malicious work of a hacker. We can restore these files to their original state to preserve the integrity of your original WordPress %s installation."
+msgstr "NOT: Sitenizdeki WordPress Çekirdek dosyalarında değişiklikler tespit ettik. Bu sizin tarafınızdan kasıtlı bir değişiklik veya bir bilgisayar korsanının kötü niyetli çalışması olabilir. Orijinal WordPress %s kurulumunun bütünlüğünü korumak için bu dosyaları orijinal durumuna geri yükleyebiliriz."
+
+#: index.php:1313
+msgid "NOTE: These are probably not malicious scripts (but it's a good place to start looking <u>IF</u> your site is infected and no Known Threats were found)."
+msgstr "NOT: Bunlar büyük olasılıkla kötü amaçlı komut dosyaları değildir (ancak sitenize bulaşmışsa ve Bilinen Tehdit bulunmadığı halde <u> IF </u> aramaya başlamak için iyi bir yerdir)."
+
+#: index.php:1257
+msgid "You are not currently scanning for this type of threat!"
+msgstr "Şu anda bu tür bir tehdit için tarama yapmıyorsunuz!"
+
+#: index.php:1206
+msgid "Scan Complete!"
+msgstr "Tarama Tamamlandı!"
+
+#: index.php:1174
+msgid "WP-Login Updates"
+msgstr "WP-Login Güncellendi"
+
+#: index.php:1142
+msgid "Quarantined Files"
+msgstr "Karantinaya Alınmış Dosyalar"
+
+#: index.php:1142
+msgid "Read/Write Errors"
+msgstr "Okuma/Yazma Hatası"
+
+#: index.php:1142
+msgid "Skipped Files"
+msgstr "Atlanan Dosyalar"
+
+#: index.php:1142
+msgid "Skipped Folders"
+msgstr "Atlanan Klasörler"
+
+#: index.php:1142
+msgid "Scanned Folders"
+msgstr "Taranan Klasörler"
+
+#: index.php:1142
+msgid "Selected Folders"
+msgstr "Seçilen Klasörler"
+
+#: index.php:1142
+msgid "Scanned Files"
+msgstr "Taranan Dosyalar"
+
+#: index.php:1140
+msgid "Another Plugin or Theme is using '%s' to handle output buffers. <br />This prevents actively outputing the buffer on-the-fly and will severely degrade the performance of this (and many other) Plugins. <br />Consider disabling caching and compression plugins (at least during the scanning process)."
+msgstr "Bir başka eklenti veya tema kullanarak çıkış tamponlarını işlemek için '%s' kullanıyor. <br /> Bu, anında arabellek çıkışını önler ve bu (ve diğer pek çok) eklentinin performansını önemli ölçüde düşürecektir. <br /> Önbellekleme ve sıkıştırma eklentilerini devre dışı bırakmayı (en azından tarama işlemi sırasında) düşünün."
+
+#: index.php:1088
+msgid "Run Complete Scan"
+msgstr "Tam Tarama Çalıştırın"
+
+#: index.php:1133
+msgid "This new BETA feature is only available to registered users who have donated at a certain level."
+msgstr "Bu yeni BETA özelliklerini sadece belli bir düzeyde bağış yapan kullanıcılar kullanabilir."
+
+#: index.php:1133
+msgid "Automatically Update Definitions:"
+msgstr "Tanımları Otomatik Güncelle:"
+
+#: index.php:1132
+msgid "a folder name or comma separated list of folder names to skip"
+msgstr "geçmek için bir klasör ismi veya virgülle ayrılmış klasör isimleri listesi"
+
+#: index.php:1132
+msgid "Skip directories with the following names:"
+msgstr "Dizinleri aşağıdaki adlarla atla:"
+
+#: index.php:1132
+msgid "a comma separated list of file extentions to skip"
+msgstr "geçmek için virgülle ayrılmış dosya eklentileri listesi"
+
+#: index.php:1131
+msgid "Skip files with the following extensions:"
+msgstr "Aşağıdaki uzantıları içeren dosyaları atla:"
+
+#: index.php:1126
+msgid "For very advanced users only. Do not use this without talking to Eli first. If used incorrectly you could easily break your site."
+msgstr "Yalnızca çok gelişmiş kullanıcılar içindir. Bunu önce Eli ile konuşmadan kullanmayın. Yanlış kullanılırsa, sitenizi kolayca kırabilirsiniz."
+
+#: index.php:1126
+msgid "Custom RegExp:"
+msgstr "Özel RegExp:"
+
+#: index.php:1123
+msgid "-1 is infinite depth"
+msgstr "-1 sonsuz derinliktir"
+
+#: index.php:1123
+msgid "how far to drill down"
+msgstr "Ne kadar detaya inilsin"
+
+#: index.php:1122
+msgid "Scan Depth:"
+msgstr "Tarama Derinliği:"
+
+#: index.php:1120
+msgid "What to scan:"
+msgstr "Ne taranacak:"
+
+#: index.php:1116
+msgid "Download the new definitions (Right sidebar) to activate this feature."
+msgstr "Bu özelliği etkinleştirmek için yeni tanımları indirin. (Sağ kenar çubuğunda)"
+
+#: index.php:1116
+msgid "Download Definition Updates to Use this feature"
+msgstr "Bu özelliği kullanmak için Tanım Güncellemelerini İndirin."
+
+#: index.php:1089
+msgid "What to look for:"
+msgstr "Bakılacak şey:"
+
+#: index.php:1081
+msgid "Only Scan These Folders:"
+msgstr "Sadece Bu Klasörleri Tara:"
+
+#: index.php:1284 index.php:1404
+msgid "Scan Logs"
+msgstr "Logları Tara"
+
+#: index.php:712
+msgid "Quarantine"
+msgstr "Karantina"
+
+#: index.php:709
+msgid "White-lists"
+msgstr "Beyaz liste"
+
+#: index.php:698
+msgid "No Items in Quarantine"
+msgstr "Karantina da bir şey yok"
+
+#: index.php:691
+msgid "View Quarantined File"
+msgstr "Karantinada ki Dosyaları Göster"
+
+#: index.php:686
+msgid " Items in Quarantine"
+msgstr "Karantinada ki Öğeler"
+
+#: index.php:686
+msgid "Check all %d"
+msgstr "Tüm %d 'yi kontrol et"
+
+#: index.php:685
+msgid "The following items have been found to contain malicious code, they have been cleaned, and the original infected file contents have been saved here in the Quarantine. The code is safe here and you do not need to do anything further with these files."
+msgstr "Aşağıdaki öğelerin kötü amaçlı kod içerdiği tespit edildi, bunlar temizlendi ve orijinal virüslü dosya içeriği Karantinaya kaydedildi. Kod burada güvenlidir ve bu dosyalarla başka bir şey yapmanıza gerek yoktur."
+
+#: index.php:685
+msgid "Are you sure you want to permanently delete the selected files in the Quarantine?"
+msgstr "Seçilen dosyaları Karantina'dan kalıcı olarak silmek istediğinizden emin misiniz?"
+
+#: index.php:685
+msgid "Delete selected files"
+msgstr "Seçilen dosyalar sil"
+
+#: index.php:685
+msgid "Are you sure you want to overwrite the previously cleaned files with the selected files in the Quarantine?"
+msgstr "Karantinadaki seçilen dosyalar ile önceden temizlenen dosyaları üzerine yazmak istediğinizden emin misiniz?"
+
+#: index.php:685
+msgid "Restore selected files"
+msgstr "Seçilen dosyaları geri yükle"
+
+#: index.php:604
+msgid "# of files"
+msgstr "# dosya sayısı"
+
+#: index.php:604
+msgid "WordPress Core files"
+msgstr "WordPress Çekirdek Dosyaları"
+
+#: index.php:594
+msgid "Date Updated"
+msgstr "Tarih Güncellendi"
+
+#: index.php:594
+msgid "# of patterns"
+msgstr "Desen sayısı"
+
+#: index.php:594
+msgid "Globally White-listed files"
+msgstr "Global Beyaz Liste dosyaları"
+
+#: index.php:587
+msgid "No Scans have been logged"
+msgstr "Hiç tarama kaydedilmedi"
+
+#: index.php:545
+msgid "Cleared %s records from this log."
+msgstr "%s kayıtları bu günlükten silindi."
+
+#: index.php:471
+msgid "Make a Donation with PayPal"
+msgstr "PayPal ile Bağış Yap"
+
+#: index.php:448
+msgid "Resources & Links"
+msgstr "Kaynaklar ve Bağlantılar"
+
+#: index.php:427
+msgid "Submitting Registration ..."
+msgstr "Kaydınız Gönderiliyor..."
+
+#: index.php:422
+msgid "Plugin Installation Key is a required field!"
+msgstr "Eklenti Kurulum Anahtarı zorunlu bir alandır!"
+
+#: index.php:420
+msgid "Your WordPress Site URL is a required field!"
+msgstr "WordPress Site URL'niz gerekli bir alandır!"
+
+#: index.php:412
+msgid "Email Address is a required field!"
+msgstr "Email adresini doldurmanız zorunludur!"
+
+#: index.php:410
+msgid "Last Name is a required field!"
+msgstr "Soyisim alanını doldurmanız zorunludur!"
+
+#: index.php:408
+msgid "First Name is a required field!"
+msgstr "İsim Alanını doldurmanız zorunludur!"
+
+#: index.php:402
+msgid "Please make a donation for the use of this wonderful feature!"
+msgstr "Lütfen bu muhteşem özelliğin kullanımı için bir bağış yapın!"
+
+#: index.php:384
+msgid "Plugin Installation Key:"
+msgstr "Eklenti Kurulum Anahtarı:"
+
+#: index.php:381
+msgid "Your WordPress Site URL:"
+msgstr "WordPress Site URL'niz:"
+
+#: index.php:378
+msgid "A password will be e-mailed to this address:"
+msgstr "Bu adrese şifre için e-posta gönderilecektir:"
+
+#: index.php:374
+msgid "Your Full Name:"
+msgstr "Tam Adınız:"
+
+#: index.php:372
+msgid "If you have not already registered your Key then register now using the form below.<br />* All registration fields are required<br />** I will NOT share your information."
+msgstr "Zaten anahtarınızı kaydettirmediyseniz, aşağıdaki formu kullanarak şimdi kayıt olunuz. <br /> * Tüm kayıt alanları gereklidir <br /> ** Bilgileriniz PAYLAŞILMAYACAKTIR."
+
+#: index.php:371
+msgid "<p>Get instant access to definition updates.</p>"
+msgstr "<p> Tanım güncellemelerine anında erişin. </p>"
+
+#: index.php:368
+msgid "Download new definitions!"
+msgstr "Yeni tanımlamaları indirin!"
+
+#: index.php:361
+msgid "Updates & Registration"
+msgstr "Güncellemeler & Kayıt"
+
+#: index.php:265
+msgid "No response from server!"
+msgstr "Sunucudan cevap yok!"
+
+#: index.php:187
+msgid "If this is taking too long, click here."
+msgstr "Bu işlem uzun sürerse, buraya tıklayın."
+
+#: index.php:127
+msgid "Searching for updates ..."
+msgstr "Güncellemeler aranıyor ..."
+
+#: index.php:118
+msgid "Upgrade to %s now!"
+msgstr "Şimdi %s sürümüne güncelleyin!"
+
+#: index.php:105
+msgid "Tested your site. It appears we didn't break anything"
+msgstr "Sitenizi test ettik. Görünüşe göre hiçbir şey bozmadık"
+
+#: index.php:85
+msgid "FAQs"
+msgstr "SSS"
+
+#: index.php:79
+msgid "A backup of the original infected files are placed in the Quarantine in case you need to restore them or just want to look at them later. You can delete these files if you don't want to save more."
+msgstr "Orijinal virüslü dosyaların bir yedek kopyası, onları geri yüklemeniz veya daha sonra yalnızca onlara bakmak isteyebilmeniz durumunda Karantina'ya yerleştirilir. Daha fazla kaydetmek istemiyorsanız, bu dosyaları silebilirsiniz."
+
+#: index.php:79
+msgid "If Known Threats are found and displayed in red then there will be a button to '%s'. If only Potentional Threats are found then there is no automatic fix because those are probably not malicious."
+msgstr "Bilinen Tehditler bulunursa ve kırmızı renkte gösterilirse, '%s' için bir düğme gözükecektir. Yalnızca Potansiyel Tehditler bulunursa otomatik düzeltme gözükmez, çünkü muhtemelen kötü amaçlı değildir."
+
+#: index.php:79
+msgid "Make sure the Definition Updates are current and Run a Complete Scan."
+msgstr "Tanım Güncellemelerinin geçerli olduğundan ve Tam Taramayı Çalıştırdıklarından emin olun."
+
+#: images/index.php:897
+msgid "Failed to read file!"
+msgstr "Dosya okunamadı!"
+
+#: images/index.php:883
+msgid "Skipped because of file size (%1$s bytes) or file extention (%2$s)!"
+msgstr "Dosya boyutu (%1$s bayt) veya dosya uzantısı (%2$s) nedeniyle atlandı!"
+
+#: images/index.php:865
+msgid "Failed to read directory!"
+msgstr "Dizin okunamadı!"
+
+#: images/index.php:833
+msgid "Skipped because of file extention!"
+msgstr "Dosya uzantısı nedeniyle atlandı!"
+
+#: images/index.php:831
+msgid "Skipped because of file size!"
+msgstr "Dosya boyutu nedeniyle atlandı!"
+
+#: images/index.php:829
+msgid "Failed to determine file size!"
+msgstr "Dosya boyutu belirlenemedi!"
+
+#: images/index.php:498 images/index.php:819
+msgid "Examine File"
+msgstr "Dosya İnceleme"
+
+#: images/index.php:817
+msgid "Examine Quarantined File"
+msgstr "Karantina Dosyasını İnceleme"
+
+#: images/index.php:776 images/index.php:908
+msgid "Scanned %s"
+msgstr "%s Tarandı"
+
+#: images/index.php:759 images/index.php:858
+msgid "Scanning %s"
+msgstr "%s Taranıyor"
+
+#: images/index.php:727
+msgid "Preparing %s"
+msgstr "%s Hazırlanıyor"
+
+#: images/index.php:545 images/index.php:552
+msgid "Already Fixed!"
+msgstr "Zaten Düzeltildi!"
+
+#: images/index.php:531
+msgid "no file contents!"
+msgstr "Dosya içeriği yok!"
+
+#: images/index.php:531
+msgid "file not writable!"
+msgstr "Dosya yazılabilir değil!"
+
+#: images/index.php:531
+msgid "failed to write!"
+msgstr "yazma hatası!"
+
+#: images/index.php:531
+msgid "reason unknown!"
+msgstr "bilinmeyen neden!"
+
+#: images/index.php:531
+msgid "failed to quarantine!"
+msgstr "Karantina başarısız oldu!"
+
+#: images/index.php:531
+msgid "Failed:"
+msgstr "Başarısız:"
+
+#: images/index.php:528
+msgid "Success!"
+msgstr "Başarılı!"
+
+#: images/index.php:493
+msgid "File does not exist!"
+msgstr "Dosya bulunamadı!"
+
+#: images/index.php:493
+msgid "File not readable!"
+msgstr "Dosya okunabilir değil!"
+
+#: images/index.php:493
+msgid "File permissions read-only!"
+msgstr "Dosya izinleri salt okunur!"
+
+#: images/index.php:493
+msgid "Fixed file permissions! (try again)"
+msgstr "Dosya izinleri düzeltildi! (tekrar deneyin)"
+
+#: images/index.php:493
+msgid "Empty file!"
+msgstr "Boş dosya!"
+
+#: images/index.php:493
+msgid "Failed to read file contents!"
+msgstr "Dosya içeriği okunamadı!"
+
+#: images/index.php:302
+msgid "<b>Headers already sent</b> in %1$s on line %2$s.<br />This is not a good sign, it may just be a poorly written plugin but Headers should not have been sent at this point.<br />Check the code in the above mentioned file to fix this problem."
+msgstr "<b> Başlıkları zaten gönderildi </b>%2$s satırında %1$s. <br /> Bu iyi bir işaret değil, sadece kötü bir şekilde yazılmış eklenti olabilir, ancak Başlıklar bu adrese gönderilmemelidir <br /> Bu sorunu düzeltmek için yukarıda belirtilen dosyadaki kodu kontrol edin."
+
+#: images/index.php:301 safe-load/trace.php:17
+msgid "unknown"
+msgstr "bilinmeyen"
+
+#: images/index.php:299 safe-load/trace.php:15
+msgid "an unknown file"
+msgstr "bilinmeyen bir dosya"
+
+#: images/index.php:125
+msgid "Automatically Fix SELECTED Files Now"
+msgstr "SEÇİLEN Dosyaları Şimdi Otomatik Düzenlt"
+
+#: images/index.php:124
+msgid "Loading, Please Wait ..."
+msgstr "Yükleniyor, Lütfen Bekleyin ..."
+
+#: images/index.php:123
+msgid "Scan Settings"
+msgstr "Tarama Ayarları"
+
+#: images/index.php:122
+msgid "This Plugin requires WordPress version %s or higher"
+msgstr "Bu Eklenti WordPress %s ve üzeri sürümde çalışır"
+
+#: images/index.php:121
+msgid "View Scan Log"
+msgstr "Tarama günlüklerini görüntüle"
+
+#: images/index.php:120
+msgid "View Quarantine"
+msgstr "Karantinayı Görüntüle"
+
+#: images/index.php:119
+msgid "Quick Scan"
+msgstr "Hızlı Tara"
+
+#: images/index.php:118
+msgid "Failed to list files in directory!"
+msgstr "Dizinde ki dosyalar listelenemedi!"
+
+#: images/index.php:105
+msgid "Your Server could not start a Session!"
+msgstr "Sunucunuz bir oturumu başlatamadı!"
+
+#: images/index.php:101 index.php:766
+msgid "This feature is available to those who have donated!"
+msgstr "Bu özellik bağış yapanların kullanımına sunulmuştur!"
+
+#: images/index.php:101 index.php:766
+msgid "You must register and donate to use this feature!"
+msgstr "Bu özelliği kullanabilmek için kayıt olmalısın ve bağış yapmalısın!"
+
+#: images/index.php:33 index.php:1174
+msgid "Potential Threats"
+msgstr "Potansiyel Tehditler"
+
+#: images/index.php:33
+msgid "Core File Changes"
+msgstr "Çekirdek Dosya Değişiklikleri"
+
+#: images/index.php:33
+msgid "Known Threats"
+msgstr "Bilinen Tehditler"
+
+#: images/index.php:33
+msgid "Backdoor Scripts"
+msgstr "Arka kapı komut dosyaları"
+
+#: images/index.php:33
+msgid "TimThumb Exploits"
+msgstr "TimThumb Exploits"
+
+#: images/index.php:33
+msgid "htaccess Threats"
+msgstr "htaccess Tehditleri"

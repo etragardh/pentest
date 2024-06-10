@@ -1,0 +1,1143 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Anti-Malware Security and Brute-Force Firewall\n"
+"POT-Creation-Date: 2021-07-06 12:18+0200\n"
+"PO-Revision-Date: 2021-07-06 14:37+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: hu_HU\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.4.3\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: index.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.min.js\n"
+
+#: images/index.php:55
+msgid "Failed to encode HTML entities!"
+msgstr "Nem sikerült kódolni a HTML-entitásokat!"
+
+#: images/index.php:70
+msgid "Failed to encode HTML characters!"
+msgstr "Nem sikerült kódolni a HTML karaktereket!"
+
+#: images/index.php:82
+msgid "Database Injections"
+msgstr "Adatbázis-injekciók"
+
+#: images/index.php:82
+msgid "htaccess Threats"
+msgstr "htaccess fenyegetések"
+
+#: images/index.php:82
+msgid "TimThumb Exploits"
+msgstr "TimThumb sérülékenységek"
+
+#: images/index.php:82
+msgid "Known Threats"
+msgstr "Ismert fenyegetések"
+
+#: images/index.php:82
+msgid "Core File Changes"
+msgstr "WP alapfájl változások"
+
+#: images/index.php:82 index.php:854
+msgid "Potential Threats"
+msgstr "Lehetséges fenyegetések"
+
+#: images/index.php:145
+msgid "Failed to list files in directory!"
+msgstr "Nem sikerült listázni a fájlokat a könyvtárban!"
+
+#: images/index.php:146
+msgid "Quick Scan"
+msgstr "Gyors ellenőrzés"
+
+#: images/index.php:147 images/index.php:723 index.php:345 index.php:353
+msgid "View Quarantine"
+msgstr "Karantén megtekintése"
+
+#: images/index.php:148
+msgid "View Scan History"
+msgstr "Beolvasási előzmények megtekintése"
+
+#: images/index.php:149
+#, php-format
+msgid "This Plugin requires WordPress version %s or higher"
+msgstr "Ez a bővítmény %s vagy magasabb Wordpress verziót igényel"
+
+#: images/index.php:150
+msgid "Scan Settings"
+msgstr "Ellenőrzési beállítások"
+
+#: images/index.php:151
+msgid "Loading, Please Wait ..."
+msgstr "Betöltés, kérjük várjon..."
+
+#: images/index.php:152
+msgid "Automatically Fix SELECTED Files Now"
+msgstr "Kijelölt fájlok automatikus javítása"
+
+#: images/index.php:220
+msgid "Invalid or expired Nonce Token!"
+msgstr "Érvénytelen vagy lejárt Nonce Token!"
+
+#: images/index.php:220
+msgid "Refresh and try again?"
+msgstr "Frissíti és újra próbálja?"
+
+#: images/index.php:368
+msgid "If this is taking too long, click here."
+msgstr "Ha ez túl sokáig tart, kattintson ide."
+
+#: images/index.php:446
+msgid "No response from server!"
+msgstr "Nem válaszol a szerver!"
+
+#: images/index.php:540
+msgid "Please make a donation for the use of this wonderful feature!"
+msgstr "Kérjük, adományozzon e csodálatos szolgáltatás használatáért!"
+
+#: images/index.php:549
+msgid "Tested your site. It appears we didn't break anything"
+msgstr "Teszteltük webhelyét. Úgy tűnik, nem töri semmi"
+
+#: images/index.php:570
+msgid "Restore selected files"
+msgstr "Kijelölt fájlok visszaállítása"
+
+#: images/index.php:570
+msgid ""
+"Are you sure you want to overwrite the previously cleaned files with the "
+"selected files in the Quarantine?"
+msgstr ""
+"Biztosan felülírja a korábban megtisztított fájlokat a karanténban levő "
+"kiválasztott fájlokkal?"
+
+#: images/index.php:570
+msgid "Delete selected files"
+msgstr "Kijelölt fájlok törlése"
+
+#: images/index.php:570
+msgid ""
+"Are you sure you want to permanently delete the selected files in the "
+"Quarantine?"
+msgstr ""
+"Biztos benne, hogy véglegesen törölni szeretné a karanténban kiválasztott "
+"fájlokat?"
+
+#: images/index.php:570
+msgid ""
+"The following items highlighted in yellow had been found to contain "
+"malicious code, they have been cleaned and the malicious contents have been "
+"removed. A record of the infection has been saved here in the Quarantine for "
+"your review and could help with any future investigations. The code is safe "
+"here and you do not need to do anything further with these files."
+msgstr ""
+"A sárgával kiemelt következő tételekről kiderült, hogy rosszindulatú kódot "
+"tartalmaznak, megtisztították őket, a rosszindulatú tartalmakat "
+"eltávolították. Egy feljegyzés a fertőzésről, amit itt tároltak a "
+"karanténban, hogy megvizsgálják, és segíthet a jövőbeli nyomozásokban. A kód "
+"itt biztonságos, és nem kell semmit sem tennie ezekkel a fájlokkal."
+
+#: images/index.php:571
+msgid "Re-clean re-infected files"
+msgstr "Újra tiszta újra fertőzött fájlok"
+
+#: images/index.php:571
+msgid ""
+"The items highlighted in red have been found to be re-infected. The "
+"malicious code has returned and needs to be cleaned again."
+msgstr ""
+"A pirossal kiemelteket újra fertőzöttnek találtuk. A rosszindulatú kód "
+"visszatért, és újra meg kell tisztítani."
+
+#: images/index.php:572 images/index.php:700
+#, php-format
+msgid "Check all %d"
+msgstr "Az összes ellenőrzése %d"
+
+#: images/index.php:572 images/index.php:700
+msgid " Items in Quarantine"
+msgstr " Karanténban lévő elemek"
+
+#: images/index.php:572 images/index.php:700
+msgid "Quarantined"
+msgstr "Karanténba helyezett"
+
+#: images/index.php:572 images/index.php:700
+msgid "Date Infected"
+msgstr "Fertőzés dátuma"
+
+#: images/index.php:579
+msgid "The current/live file is missing or deleted"
+msgstr "Az aktuális/élő fájl hiányzik vagy törölve lett"
+
+#: images/index.php:587
+msgid "View current/live version"
+msgstr "Aktuális/élő verzió megtekintése"
+
+#: images/index.php:591 images/index.php:593
+msgid "View Option Record: "
+msgstr "Beállításbejegyzés megtekintése: "
+
+#: images/index.php:595 images/index.php:606
+msgid "View Quarantine Record"
+msgstr "Karanténbejegyzés Megtekintése"
+
+#: images/index.php:613 images/index.php:721
+msgid "No Items in Quarantine"
+msgstr "Nincs karanténban lévő elem"
+
+#: images/index.php:617
+#, php-format
+msgid "Clear %s Deleted Files from the Trash"
+msgstr "%s fájlok törlése a lomtárból"
+
+#: images/index.php:693
+msgid "Are you sure you want to restore this file from the quarantine?"
+msgstr "Biztos, hogy vissza akarja állítani ezt a fájlt a karanténból?"
+
+#: images/index.php:693 index.php:1528
+msgid "File Details:"
+msgstr "Fájl részletei:"
+
+#: images/index.php:846 safe-load/trace.php:15
+msgid "an unknown file"
+msgstr "ismeretlen fájl"
+
+#: images/index.php:848 safe-load/trace.php:17
+msgid "unknown"
+msgstr "ismeretlen"
+
+#: images/index.php:849
+#, php-format
+msgid ""
+"<b>Headers already sent</b> in %1$s on line %2$s.<br />This is not a good "
+"sign, it may just be a poorly written plugin but Headers should not have "
+"been sent at this point.<br />Check the code in the above mentioned file to "
+"fix this problem."
+msgstr ""
+"<b>Fejlécek már beküldésre kerültek</b> %1$s a sorban %2$s .<br /> Ez nem jó "
+"jel, lehet, hogy csak egy rosszul megírt plugin, de a fejléceket nem kellett "
+"volna elküldeni ezen a ponton.<br />A probléma megoldásához ellenőrizze a "
+"fent említett fájlban lévő kódot."
+
+#: images/index.php:1020
+msgid "Failed to read file contents!"
+msgstr "Nem sikerült beolvasni a fájl tartalmát!"
+
+#: images/index.php:1020
+msgid "Empty file!"
+msgstr "Üres fájl!"
+
+#: images/index.php:1020
+msgid "Fixed file permissions! (try again)"
+msgstr "Rögzített fájl engedélyek! (próbálja újra)"
+
+#: images/index.php:1020
+msgid "File permissions read-only!"
+msgstr "Fájl jogosultságok csak olvasható!"
+
+#: images/index.php:1020
+msgid "File not readable!"
+msgstr "Fájl nem olvasható!"
+
+#: images/index.php:1020
+msgid "File does not exist!"
+msgstr "A fájl nem létezik!"
+
+#: images/index.php:1027
+msgid "Examine File"
+msgstr "Fájl vizsgálata"
+
+#: images/index.php:1057 images/index.php:1135 images/index.php:1189
+msgid "Success!"
+msgstr "Sikeres!"
+
+#: images/index.php:1060
+msgid "Failed:"
+msgstr "Nem sikerült:"
+
+#: images/index.php:1060
+msgid "failed to quarantine!"
+msgstr "nem érhető el a karantén!"
+
+#: images/index.php:1060
+msgid "reason unknown!"
+msgstr "ismeretlen ok miatt!"
+
+#: images/index.php:1060
+msgid "failed to write!"
+msgstr "nem sikerült írni!"
+
+#: images/index.php:1060
+msgid "file not writable!"
+msgstr "a fájl nem írható!"
+
+#: images/index.php:1060
+msgid "no file contents!"
+msgstr "nincs fájl tartalom!"
+
+#: images/index.php:1066
+msgid "Failed: "
+msgstr "Sikertelen: "
+
+#: images/index.php:1074 images/index.php:1081
+msgid "Already Fixed!"
+msgstr "Már javítva!"
+
+#: images/index.php:1125 images/index.php:1177 index.php:1387 index.php:1458
+#: index.php:1460
+msgid "Done!"
+msgstr "Készen vagyunk!"
+
+#: images/index.php:1128 images/index.php:1180
+msgid "Failed to delete!"
+msgstr "Nem sikerült törölni!"
+
+#: images/index.php:1138 images/index.php:1192
+msgid "Update Failed!"
+msgstr "Frissítés nem sikerült!"
+
+#: images/index.php:1145
+msgid "Are you sure you want to delete this option?"
+msgstr "Biztos, hogy törölni szeretné ezt a lehetőséget?"
+
+#: images/index.php:1145 images/index.php:1199
+msgid "Record Details:"
+msgstr "Adatok részletei:"
+
+#: images/index.php:1199
+msgid "Are you sure you want to delete this revision?"
+msgstr "Biztosan törölni kívánja ezt a változatot?"
+
+#: images/index.php:1202
+msgid "This record no longer exists."
+msgstr "Ez a rekord már nem létezik."
+
+#: images/index.php:1222 images/index.php:1511 images/index.php:1623
+#, php-format
+msgid "Scanning %s"
+msgstr "%s ellenőrzése"
+
+#: images/index.php:1224 images/index.php:1530 images/index.php:1679
+#, php-format
+msgid "Scanned %s"
+msgstr "Ellenőrizve %s"
+
+#: images/index.php:1226
+msgid "No Definitions for DB Injections!"
+msgstr "Nincs meghatározás a DB injekciókra!"
+
+#: images/index.php:1250 images/index.php:1272 images/index.php:1283
+msgid "View DB Injection"
+msgstr "DB injekció megtekintése"
+
+#: images/index.php:1479 index.php:1040
+#, php-format
+msgid "Preparing %s"
+msgstr "%s előkészítése"
+
+#: images/index.php:1582
+msgid "Examine Quarantined Content"
+msgstr "Karanténba helyezett tartalom vizsgálata"
+
+#: images/index.php:1584
+msgid "Examine Current Content"
+msgstr "Az Aktuális Tartalom Vizsgálata"
+
+#: images/index.php:1594
+msgid "Failed to determine file size!"
+msgstr "Nem sikerült megállapítani a fájlméretét!"
+
+#: images/index.php:1596
+msgid "Skipped because of file size!"
+msgstr "Kihagyta a fájlméret miatt!"
+
+#: images/index.php:1598
+msgid "Skipped because of file extention!"
+msgstr "Kihagyta a fájl kiterjesztése miatt!"
+
+#: images/index.php:1632
+msgid "Failed to read directory!"
+msgstr "Nem sikerült olvasni a könyvtárat!"
+
+#: images/index.php:1650
+#, php-format
+msgid "Skipped because of file size (%1$s bytes) or file extention (%2$s)!"
+msgstr "Kihagyva, mert a fájl mérete (%1$s bájt), vagy a kiterjesztése (%2$s)!"
+
+#: images/index.php:1666
+msgid "Failed to read file!"
+msgstr "Nem sikerült elolvasni a fájlt!"
+
+#: index.php:73
+msgid "Getting Started"
+msgstr "Kezdjük el"
+
+#: index.php:74
+msgid "Make sure the Definition Updates are current and Run a Complete Scan."
+msgstr ""
+"Ellenőrizze, hogy a definíciófrissítések naprakészek-e, majd futtasson le "
+"egy teljes keresést."
+
+#: index.php:74
+#, php-format
+msgid ""
+"If Known Threats are found and displayed in red then there will be a button "
+"to '%s'. If only Potentional Threats are found then there is no automatic "
+"fix because those are probably not malicious."
+msgstr ""
+"Ha ismert fenyegetések jelennek meg piros színnel, akkor megjelenik a (z) %s "
+"gomb. Ha csak potenciál fenyegetések találhatók, akkor nincs automatikus "
+"javítás, mert ezek valószínűleg nem rosszindulatúak."
+
+#: index.php:74
+msgid ""
+"A backup of the original infected files are placed in the Quarantine in case "
+"you need to restore them or just want to look at them later. You can delete "
+"these files if you don't want to save more."
+msgstr ""
+"Az eredeti fertőzött fájlok biztonsági mentése a karanténba kerül arra az "
+"esetre, ha vissza kell állítania őket, vagy csak később szeretné megnézni "
+"őket. Törölheti ezeket a fájlokat, ha nem szeretne többet menteni."
+
+#: index.php:80
+msgid "FAQs"
+msgstr "GYIK"
+
+#: index.php:105
+#, php-format
+msgid "Upgrade to %s now!"
+msgstr "Frissítsen most %s!"
+
+#: index.php:114
+msgid "Searching for updates ..."
+msgstr "Frissítések keresése ..."
+
+#: index.php:129
+msgid "Updates & Registration"
+msgstr "Frissítések és regisztráció"
+
+#: index.php:130
+msgid "Get FREE Key!"
+msgstr "Ingyenes kulcs kérése!"
+
+#: index.php:136
+msgid "Download new definitions!"
+msgstr "Töltse le az új definíciókat!"
+
+#: index.php:141
+msgid "Delete ALL definitions!"
+msgstr "Összes definíció törlése!"
+
+#: index.php:143
+msgid "<p>Get instant access to definition updates.</p>"
+msgstr "<p>Azonnali hozzáférés a definíciós frissítésekhez.</p>"
+
+#: index.php:144
+msgid ""
+"If you have not already registered your Key then register now using the form "
+"below.<br />* All registration fields are required<br />** I will NOT share "
+"your information."
+msgstr ""
+"Ha még nem regisztrálta a kulcsot, akkor regisztráljon most az alábbi űrlap "
+"segítségével.<br />* Minden regisztrációs mező szükséges<br />** NEM osztom "
+"meg az ön adatait."
+
+#: index.php:146
+msgid "Your Full Name:"
+msgstr "Teljes neve:"
+
+#: index.php:150
+msgid "A password will be e-mailed to this address:"
+msgstr "Jelszó e-mailben erre a címre:"
+
+#: index.php:150
+msgid ""
+"Note: The pre-populated email below is NOT the address this site is "
+"currently registered under!"
+msgstr ""
+"Megjegyzés: Az alábbi előretolt e-mail NEM az a cím, amely alatt ez az oldal "
+"jelenleg regisztrálva van!"
+
+#: index.php:153
+msgid "Your WordPress Site URL:"
+msgstr "A WordPress oldalának címe:"
+
+#: index.php:156
+msgid "Plugin Installation Key:"
+msgstr "Bővítmény telepítési kulcs:"
+
+#: index.php:174
+msgid "First Name is a required field!"
+msgstr "Az utónév kötelező mező!"
+
+#: index.php:176
+msgid "Last Name is a required field!"
+msgstr "A vezetéknév kötelező mező!"
+
+#: index.php:178
+msgid "Email Address is a required field!"
+msgstr "E-mail cím szükséges mező!"
+
+#: index.php:186
+msgid "Your WordPress Site URL is a required field!"
+msgstr "A Wordpress oldalának címe kötelező mező!"
+
+#: index.php:188
+msgid "Plugin Installation Key is a required field!"
+msgstr "Bővítmény telepítési kulcs kötelező mező!"
+
+#: index.php:193
+msgid "Submitting Registration ..."
+msgstr "Regisztráció beküldése..."
+
+#: index.php:215
+msgid "Resources & Links"
+msgstr "Források és linkek"
+
+#: index.php:274
+#, php-format
+msgid "Cleared %s records from the history."
+msgstr "%s rekord törlése az előzményekből."
+
+#: index.php:316
+msgid "No Scans have been logged"
+msgstr "Nincs beolvasás naplózva"
+
+#: index.php:323
+msgid "Globally White-listed files"
+msgstr "Globálisan fehér listán szereplő fájlok"
+
+#: index.php:323
+msgid "# of patterns"
+msgstr "# minták"
+
+#: index.php:323
+msgid "Date Updated"
+msgstr "Frissítve"
+
+#: index.php:333
+msgid "WordPress Core files"
+msgstr "WordPress Core Fájlok"
+
+#: index.php:333
+msgid "# of files"
+msgstr "# fájl"
+
+#: index.php:350
+msgid "White-lists"
+msgstr "Fehér listák"
+
+#: index.php:369
+msgid ""
+"(This patch only works under Apache servers and requires mod_rewrite and "
+"session_start to be active and functional)"
+msgstr ""
+"(Ez a javítás csak az Apache szerverek alatt működik, ezért a mod_rewrite és "
+"a session_start függvénynek aktívnak és működőképesnek kell lennie)"
+
+#: index.php:369
+msgid ""
+"Your WordPress Login page is susceptible to a brute-force attack (just like "
+"any other login page). These types of attacks are becoming more prevalent "
+"these days and can sometimes cause your server to become slow or "
+"unresponsive, even if the attacks do not succeed in gaining access to your "
+"site. Applying this patch will block access to the WordPress Login page "
+"whenever this type of attack is detected."
+msgstr ""
+"A WordPress Login oldala érzékeny a brute-force támadásra (csakúgy, mint "
+"bármely más bejelentkezési oldal). Az ilyen típusú támadások manapság egyre "
+"elterjedtebbek, és néha a szerver lassúvá vagy nem reagálóvá válhat, még "
+"akkor is, ha a támadásoknak nem sikerül hozzáférniük a webhelyhez. A javítás "
+"alkalmazásával blokkolni fogjuk a Hozzáférést a WordPress Login oldalához, "
+"amikor ilyen típusú támadást észlelünk."
+
+#: index.php:370
+msgid "Not Installed"
+msgstr "Nem installált"
+
+#: index.php:371
+msgid "Install Patch"
+msgstr "Javítás telepítése"
+
+#: index.php:374
+msgid ""
+"Your WordPress site has the current version of my brute-force Login "
+"protection installed."
+msgstr ""
+"A WordPress webhelyeden telepítve van a brute-force Login védelem aktuális "
+"verziója."
+
+#: index.php:375
+msgid "Uninstall Patch"
+msgstr "Javítás eltávolítása"
+
+#: index.php:376
+msgid "Enabled"
+msgstr "Engedélyezve"
+
+#: index.php:380
+msgid ""
+"Your WordPress Login page has the old version of my brute-force protection "
+"installed. Upgrade this patch to improve the protection on the WordPress "
+"Login page and preserve the integrity of your WordPress core files."
+msgstr ""
+"A WordPress Login oldalon telepítve van a brute-force védelem régi verziója. "
+"Frissítse ezt a javítást, hogy javítsa a WordPress Login oldal védelmét, és "
+"megőrizze a WordPress magfájlok integritását."
+
+#: index.php:381
+msgid "Upgrade Patch"
+msgstr "Frissítési javítás"
+
+#: index.php:382
+msgid "Out of Date"
+msgstr "Elavult"
+
+#: index.php:407 index.php:1285
+msgid "You must register and donate to use this feature!"
+msgstr "A funkció használatához regisztrálnia és adományoznia kell!"
+
+#: index.php:407 index.php:1285
+msgid "This feature is available to those who have donated!"
+msgstr "Ez a funkció csak azok számára érhető el, akik adományoztak!"
+
+#: index.php:419
+#, php-format
+msgid "Failed to remove XMLRPC Protection [.htaccess %s]"
+msgstr "Nem sikerült eltávolítani az XMLRPC védelmet [. htaccess %s]"
+
+#: index.php:427
+#, php-format
+msgid "Failed to install XMLRPC Protection [.htaccess %s]"
+msgstr "Nem sikerült telepíteni az XMLRPC-védelmet [.htaccess %s]"
+
+#: index.php:431
+msgid ""
+"Most WordPress sites do not use the XMLRPC features and hack attempts on the "
+"xmlrpc.php file are more common then ever before. Even if there are no "
+"vulnerabilities for hackers to exploit, these attempts can cause slowness or "
+"downtime similar to a DDoS attack. This patch automatically blocks all "
+"external access to the xmlrpc.php file."
+msgstr ""
+"A legtöbb WordPress webhely nem használja az XMLRPC funkciókat, és az xmlrpc."
+"php fájlon tett feltörési kísérletek gyakoribb, mint valaha. Még akkor is, "
+"ha a hackerek nem használnak sebezhetőségeket, ezek a kísérletek a DDoS-"
+"támadáshoz hasonló lassúságot vagy állásidőt okozhatnak. Ez a javítás "
+"automatikusan blokkolja az xmlrpc.php fájlhoz való összes külső hozzáférést."
+
+#: index.php:445
+msgid "Removed Brute-Force Protection"
+msgstr "Eltávolított Brute-Force Protection"
+
+#: index.php:450
+msgid "Upgraded Brute-Force Protection"
+msgstr "Frissített Brute-Force Védelem"
+
+#: index.php:456
+msgid "Installed Brute-Force Protection"
+msgstr "Telepített Brute-Force Védelem"
+
+#: index.php:459
+#, php-format
+msgid "Failed to install Brute-Force Protection (wp-config.php %s)"
+msgstr "Nem sikerült telepíteni Brute-Force Protection (wp-config.php %s)"
+
+#: index.php:461
+msgid "wp-config.php Not Readable!"
+msgstr "wp-config.php nem olvasható!"
+
+#: index.php:463
+msgid "wp-config.php Not Found!"
+msgstr "wp-config.php nem található!"
+
+#: index.php:466
+msgid "Removed Old Brute-Force Login Patch"
+msgstr "Eltávolította A Régi Brute-Force Bejelentkezési Javítást"
+
+#: index.php:482
+msgid "Checking for session compatibility ..."
+msgstr "Munkamenet-kompatibilitás ellenőrzése ..."
+
+#: index.php:482
+msgid ""
+" For more information on Brute-Force attack prevention and the WordPress wp-"
+"login-php file "
+msgstr ""
+" További információ a Brute-Force támadás megelőzéséről és a WordPress wp-"
+"login-php fájlról "
+
+#: index.php:482 index.php:1015
+msgid "read my blog"
+msgstr "olvassa a blogomban"
+
+#: index.php:489
+#, php-format
+msgid ""
+"You username has been change to %s. Don't forget to use your new username "
+"when you login again."
+msgstr ""
+"A Felhasználónév a következőre lett megváltoztatva %s. ne felejtse el ezt az "
+"új felhasználónevet használni, ha újra bejelentkezik."
+
+#: index.php:491
+#, php-format
+msgid "SQL Error changing username: %s. Please try again later."
+msgstr ""
+"SQL hiba a felhasználónév megváltoztatásakor: %s. Kérlek, próbáld újra "
+"később."
+
+#: index.php:494
+#, php-format
+msgid ""
+"Your new username must be at least 3 characters and can only contain &quot;"
+"%s&quot;. Please try again."
+msgstr ""
+"Az új felhasználónévnek legalább 3 karakterből kell lennie, és csak &quot;"
+"%s&quot; tartalmazhat. Kérem, próbálkozzon újra."
+
+#: index.php:495
+msgid "Change your username:"
+msgstr "Változtassa meg felhasználónevét:"
+
+#: index.php:495
+msgid ""
+"Your username is \"admin\", this is the most commonly guessed username by "
+"hackers and brute-force scripts. It is highly recommended that you change "
+"your username immediately."
+msgstr ""
+"A felhasználónév \"admin\", ez a leggyakrabban kitalált felhasználónév a "
+"hackerek és a brute-force szkriptek számára. Erősen ajánlott, hogy "
+"változtassa meg a felhasználónevét azonnal."
+
+#: index.php:513
+msgid "Disable this Rule"
+msgstr "A szabály letiltása"
+
+#: index.php:514
+msgid ""
+"The Conflicting Firewall Rule (WP_firewall_exclude_terms) activated by the "
+"WP Firewall 2 plugin has been shown to interfere with the Definition Updates "
+"and WP Core File Scans in my Anti-Malware plugin. I recommend that you "
+"disable this rule in the WP Firewall 2 plugin."
+msgstr ""
+"A WP Firewall 2 plugin által aktivált ütköző tűzfalszabály "
+"(WP_firewall_exclude_terms) zavarja a definíciós frissítéseket és a WP Core "
+"fájlvizsgálatokat az Anti-Malware pluginban. Javaslom, hogy tiltsa le ezt a "
+"szabályt a WP Firewall 2 beépülő modulban."
+
+#: index.php:517
+msgid ""
+" However, your current IP has been Whitelisted so you could probably keep "
+"this rule enabled if you really want to."
+msgstr ""
+" A jelenlegi IP-címe azonban fehérlistára került, így valószínűleg "
+"engedélyezve tarthatja ezt a szabályt, ha valóban szeretné."
+
+#: index.php:519
+msgid "Whitelist your IP"
+msgstr "Az IP-címed engedélyezése"
+
+#: index.php:519
+msgid ""
+" However, if you would like to keep this rule enabled you should at least "
+"Whitelist your IP."
+msgstr ""
+" Ha azonban szeretné, hogy ez a szabály engedélyezve maradjon, legalább "
+"fehérlistára kell tennie az IP-címét."
+
+#: index.php:523
+msgid "Firewall Options"
+msgstr "Tűzfalbeállítások"
+
+#: index.php:603
+msgid "definitions_array not set!"
+msgstr "definitions_array nincs beállítva!"
+
+#: index.php:747
+msgid "Only Scan These Folders:"
+msgstr "Csak ezeket a mappákat szkennelje be:"
+
+#: index.php:754
+msgid "Run Complete Scan"
+msgstr "Teljes ellenőrzés futtatása"
+
+#: index.php:755
+msgid "What to look for:"
+msgstr "Mire figyeljünk:"
+
+#: index.php:755
+msgid ""
+"Check for all threat types, if any of these are in red or otherwise "
+"unavailable then please download the latest definition updates."
+msgstr ""
+"Jelölje be az összes fenyegetéstípust, ha ezek közül bármelyik piros vagy "
+"más módon nem érhető el, akkor töltse le a legújabb definíciós frissítéseket."
+
+#: index.php:780
+msgid "Download Definition Updates to Use this feature"
+msgstr "A szolgáltatás használatához letöltheti a definíciófrissítéseket"
+
+#: index.php:780
+msgid "Download the new definitions (Right sidebar) to activate this feature."
+msgstr ""
+"Töltse le az új definíciókat (jobb oldalsávon), hogy aktiválja ezt a "
+"funkciót."
+
+#: index.php:784
+msgid "What to scan:"
+msgstr "Mit vizsgáljunk:"
+
+#: index.php:784
+#, php-format
+msgid ""
+"The higher up in the directory hierarchy you start the more sub-directories "
+"get scanned (e.g. scanning the %s directory will also include the sub-"
+"directories wp-content and plugins within it)."
+msgstr ""
+"Minél magasabbra kerül a könyvtári hierarchiában, annál több alkönyvtárat "
+"vizsgálunk át (pl. a %s könyvtár szkennelése magában foglalja az "
+"alkönyvtárak wp-tartalmát és plugin mappák tartalmát is)."
+
+#: index.php:786
+msgid "Directory Scan Depth:"
+msgstr "Könyvtár beolvasási mélysége:"
+
+#: index.php:786
+msgid ""
+"How many directories deep to scan: -1 is infinite depth, 0 to skip the file "
+"scan completely."
+msgstr ""
+"Hány könyvtár mélységig kell beolvasni: -1 végtelen mélység, 0 kihagyni a "
+"fájlvizsgálat teljesen."
+
+#: index.php:802
+msgid "Custom RegExp:"
+msgstr "Egyéni RegExp:"
+
+#: index.php:802
+msgid ""
+"For very advanced users only. Do not use this without talking to Eli first. "
+"If used incorrectly you could easily break your site."
+msgstr ""
+"Csak nagyon haladó felhasználók számára. Ne használja ezt anélkül, hogy "
+"először beszélne Eli-vel. Helytelen használat esetén könnyen megtörheti "
+"webhelyét."
+
+#: index.php:807
+msgid "Skip files with the following extensions:"
+msgstr "A következő kiterjesztésű fájlok kihagyása:"
+
+#: index.php:808
+msgid "a comma separated list of file extentions to skip"
+msgstr "kihagyni kívánt fájl kiterjesztések vesszővel elválasztott listája"
+
+#: index.php:808
+msgid "Skip directories with the following names:"
+msgstr "Hagyja ki a következő nevű könyvtárakat:"
+
+#: index.php:808
+msgid "a folder name or comma separated list of folder names to skip"
+msgstr "az átugrandó mappanév vagy vesszővel elválasztott mappanevek listája"
+
+#: index.php:809
+msgid "Automatically Update Definitions:"
+msgstr "Definíciók automatikus frissítése:"
+
+#: index.php:809
+msgid ""
+"This feature is only available to registered users who have donated at a "
+"certain level."
+msgstr ""
+"Ez a funkció csak regisztrált felhasználók számára érhető el, akik egy "
+"bizonyos szinten adományoztak."
+
+#: index.php:809
+msgid "Save Settings"
+msgstr "Beállítások mentése"
+
+#: index.php:820
+#, php-format
+msgid ""
+"Another Plugin or Theme is using '%s' to handle output buffers. <br />This "
+"prevents actively outputing the buffer on-the-fly and could severely degrade "
+"the performance of this (and many other) Plugins. <br />Consider disabling "
+"caching and compression plugins (at least during the scanning process)."
+msgstr ""
+"Egy másik plugin vagy téma a használja '%s' a kimeneti puffereket. <br />Ez "
+"megakadályozza a puffer menet közbeni aktív kibocsátását, és súlyosan "
+"ronthatja ennek (és sok más) bővítménynek a teljesítményét. <br />Fontolja "
+"meg a caching és a tömörítési bővítmények letiltását (legalábbis a "
+"szkennelési folyamat során)."
+
+#: index.php:822
+msgid "Scanned Files"
+msgstr "Ellenőrzött fájlok"
+
+#: index.php:822
+msgid "Selected Folders"
+msgstr "Kijelölt mappák"
+
+#: index.php:822
+msgid "Scanned Folders"
+msgstr "Ellenőrzött mappák"
+
+#: index.php:822
+msgid "Skipped Folders"
+msgstr "Kihagyott mappák"
+
+#: index.php:822
+msgid "Skipped Files"
+msgstr "Kihagyott fájlok"
+
+#: index.php:822
+msgid "Scan/Read Errors"
+msgstr "Beolvasási/olvasási hibák"
+
+#: index.php:822
+msgid "Quarantined Files"
+msgstr "Karanténba helyezett fájlok"
+
+#: index.php:854
+msgid "WP-Login Updates"
+msgstr "WP-Login frissítések"
+
+#: index.php:886
+msgid "Scan Complete!"
+msgstr "Ellenőrzés kész!"
+
+#: index.php:937
+msgid ""
+"Directory Scan Depth set to 0, no files will be scanned for this type of "
+"threat!"
+msgstr ""
+"A mappa szkennelési mélysége 0-ra van állítva, az ilyen típusú "
+"fenyegetésekre nem lesznek beolvasva a fájlok!"
+
+#: index.php:939
+msgid "You are not currently scanning for this type of threat!"
+msgstr "Jelenleg nem keres ilyen típusú fenyegetést!"
+
+#: index.php:966
+msgid ""
+"Saving these settings requires a valid Nonce Token. No valid Nonce Token was "
+"found at this time, either because the token have expired or because the "
+"data was invalid. Please try re-submitting the form above."
+msgstr ""
+"Ezen beállítások mentéséhez érvényes Nonce Token szükséges. Jelenleg nem "
+"található érvényes Nonce token, vagy azért, mert a token lejárt, vagy azért, "
+"mert az adatok érvénytelenek voltak. Kérjük, küldje el újra a fenti űrlapot."
+
+#: index.php:967 index.php:1127
+msgid "Scan History"
+msgstr "Beolvasási előzmények"
+
+#: index.php:996
+msgid ""
+"The Quick Scan was unable to finish because of a shortage of memory or a "
+"problem accessing a file. Please try using the Complete Scan, it is slower "
+"but it will handle these errors better and continue scanning the rest of the "
+"files."
+msgstr ""
+"A gyorsvizsgálat nem tudta befejezni a memóriahiány, vagy a fájl elérésével "
+"kapcsolatos probléma miatt. Kérjük, próbálja meg a teljes vizsgálatot, ez "
+"lassabb, de jobban kezeli ezeket a hibákat, majd folytassa a szkennelés a "
+"többi fájlt."
+
+#: index.php:1015
+msgid ""
+"NOTE: These are probably not malicious scripts (but it's a good place to "
+"start looking <u>IF</u> your site is infected and no Known Threats were "
+"found)."
+msgstr ""
+"MEGJEGYZÉS: Ezek valószínűleg nem rosszindulatú szkriptek (de ez egy jó hely "
+"arra, hogy elkezdje keresni, <u>ha</u> webhelye fertőzött, és nem találtak "
+"ismert fenyegetéseket)."
+
+#: index.php:1015
+#, php-format
+msgid ""
+"NOTE: We have detected changes to the WordPress Core files on your site. "
+"This could be an intentional modification or the malicious work of a hacker. "
+"We can restore these files to their original state to preserve the integrity "
+"of your original WordPress %s installation."
+msgstr ""
+"Megjegyzés: észleltük változások a WordPress Core fájlokat a webhelyen. Ez "
+"lehet egy szándékos módosítás, vagy egy hacker rosszindulatú munkája. "
+"Visszaállíthatjuk ezeket a fájlokat eredeti állapotukba, hogy megőrizzük az "
+"eredeti WordPress %s telepítés integritását."
+
+#: index.php:1019
+msgid "Scan Details:"
+msgstr "Ellenőrzés részletei:"
+
+#: index.php:1020
+#, php-format
+msgid "Not flushing OB Handlers: %s"
+msgstr "Nem öblíti le az OB kezelőket: %s"
+
+#: index.php:1055
+msgid "Completed!"
+msgstr "Kész!"
+
+#: index.php:1057
+msgid "Starting Scan ..."
+msgstr "Ellenőrzés kezdése..."
+
+#: index.php:1125
+msgid ""
+"Starting a Complete Scan requires a valid Nonce Token. No valid Nonce Token "
+"was found at this time, either because the token have expired or because the "
+"data was invalid. Please try re-submitting the form above."
+msgstr ""
+"A teljes vizsgálat elindításához érvényes Nonce Token szükséges. Ekkor nem "
+"találtak érvényes Nonce Tokent, sem azért, mert a token lejárt, sem azért, "
+"mert az adatok érvénytelenek voltak. Kérjük, próbálja meg újra benyújtani a "
+"fenti űrlapot."
+
+#: index.php:1289
+msgid "Your Server could not start a Session!"
+msgstr "A szerver nem tudott elindítani egy munkamenetet!"
+
+#: index.php:1297
+msgid "Default position"
+msgstr "Alapértelmezett pozíció"
+
+#: index.php:1319
+msgid "New position"
+msgstr "Új pozíció"
+
+#: index.php:1323
+msgid "saved."
+msgstr "mentett."
+
+#: index.php:1336
+msgid "Failed to empty the trash."
+msgstr "Nem sikerült kiüríteni a lomtárat."
+
+#: index.php:1390
+msgid "Failed to remove!"
+msgstr "Nem sikerült eltávolítani!"
+
+#: index.php:1405 index.php:1423
+msgid "Complete!"
+msgstr "Teljesítve!"
+
+#: index.php:1409
+msgid "Restoration Failed!"
+msgstr "A helyreállítás nem sikerült!"
+
+#: index.php:1413
+msgid ""
+"Restoration Aborted, post_content was modified outside of this quarantine!"
+"<pre>"
+msgstr ""
+"A helyreállítás megszakítva, a post_content-et a karanténon kívül "
+"módosították!<pre>"
+
+#: index.php:1417 index.php:1426
+msgid "Restore Failed!"
+msgstr "Visszaállítás sikertelen!"
+
+#: index.php:1451
+#, php-format
+msgid "File %s not found!"
+msgstr "Fájl %s nem található!"
+
+#: index.php:1456
+#, php-format
+msgid ""
+"Because some changes were made we need to check to make sure it did not "
+"break your site. If this stays Red and the frame below does not load please "
+"<a %s>revert the changes</a> made during this automated fix process."
+msgstr ""
+"Mivel néhány változás történt meg kell ellenőrizni, hogy megbizonyosodjon "
+"arról, hogy nem tört a webhely. Ha ez piros marad, és az alábbi keret nem "
+"töltődik be, kérjük, <a %s>állítsa vissza az automatizált javítási folyamat "
+"során végrehajtott</a> változtatásokat."
+
+#: index.php:1456
+msgid "Never mind, it worked!"
+msgstr "Nem baj, működött!"
+
+#: index.php:1458
+msgid "Nothing Selected to be Changed!"
+msgstr "Semmit sem kell megváltoztatni!"
+
+#: index.php:1528
+msgid ""
+"Are you sure you want to delete the record of this file from the quarantine?"
+msgstr "Biztos, hogy törölni szeretné a fájl rekordját a karanténból?"
+
+#: index.php:1530
+msgid "This record no longer exists in the quarantine."
+msgstr "Ez a rekord már nem létezik a karanténban."
+
+#: index.php:1545
+msgid "Re-Starting Database Scan ..."
+msgstr "Adatbázis-ellenőrzés újraindítása ..."
+
+#: index.php:1569
+msgid "Re-Starting Encoded Database Scan ..."
+msgstr "A kódolt adatbázis-keresés újraindítása ..."
+
+#: index.php:1607
+msgid ""
+"Are you sure this file is not infected and you want to ignore it in future "
+"scans?"
+msgstr ""
+"Biztos benne, hogy ez a fájl nem fertőzött, és szeretné figyelmen kívül "
+"hagyni azt a jövőbeni vizsgálatkor?"
+
+#: index.php:1607
+msgid "Potential threats in file:"
+msgstr "Potenciális fenyegetések a fájlban:"
+
+#: index.php:1609
+#, php-format
+msgid "The file %s does not exist, it must have already been deleted."
+msgstr "A fájl (%s) nem létezik, ezért már törölték."
+
+#: safe-load/trace.php:18
+#, php-format
+msgid ": Headers sent by %1$s on line %2$s."
+msgstr ": Headers sent by %1$s a következőre %2$s."
+
+#. Plugin Name of the plugin/theme
+msgid "Anti-Malware Security and Brute-Force Firewall"
+msgstr "Brute-Force anti-malware biztonsági tűzfal"
+
+#. Plugin URI of the plugin/theme
+msgid "https://gotmls.net/"
+msgstr "https://gotmls.net/"
+
+#. Description of the plugin/theme
+msgid ""
+"This Anti-Virus/Anti-Malware plugin searches for Malware and other Virus "
+"like threats and vulnerabilities on your server and helps you remove them. "
+"It's always growing and changing to adapt to new threats so let me know if "
+"it's not working for you."
+msgstr ""
+"A vírusírtó/Anti-Malware plugin megkeresi és más vírus, mint a fenyegetések "
+"és a biztonsági rések a szerveren, és segít eltávolítani őket. A növekvő és "
+"változó annak érdekében, hogy a veszélyforrásokat, tudasd velem, ha nem "
+"működik."
+
+#. Author of the plugin/theme
+msgid "Eli Scheetz"
+msgstr "Eli Scheetz"
+
+#. Author URI of the plugin/theme
+msgid "http://wordpress.ieonly.com/category/my-plugins/anti-malware/"
+msgstr "http://wordpress.ieonly.com/category/my-plugins/anti-malware/"
