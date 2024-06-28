@@ -1,0 +1,268 @@
+// main:../style.scss
+
+// A Clearfix for the Click to Tweets
+.sw-tweet-clear {
+	zoom: 1;
+
+	&:after {
+		clear: both;
+		content: ".";
+		display: block;
+		height: 0;
+		visibility: hidden;
+	}
+}
+
+a.swp_CTT {
+	text-decoration: none!important;
+	cursor: pointer;
+
+	.sw-click-to-tweet {
+		display: block;
+		margin: 15px 0;
+		padding: 15px 30px;
+		position: relative;
+
+		&:after {
+			clear: both;
+			content: ".";
+			display: block;
+			height: 0;
+			line-height: 0;
+			visibility: hidden;
+		}
+
+		.sw-ctt-text {
+			margin: 0 0 10px;
+			padding: 0;
+			position: relative;
+			word-wrap: break-word;
+			display: block;
+			font-size: 24px;
+			font-weight: 500;
+			line-height: 140%;
+			margin: 0;
+			padding: 0;
+			position: relative;
+			text-decoration: none;
+			text-transform: none;
+		}
+
+		.sw-ctt-btn {
+			display: block;
+			float: right;
+			font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+			font-size: 12px;
+			font-weight: bold;
+			line-height: 100%;
+			margin: 10px 0 0;
+			padding: 3px 5px 3px 3px;
+			position: relative;
+			text-decoration: none;
+			text-transform: uppercase;
+		}
+
+		i.swp_twitter_icon {
+			float: right;
+			font-size: 21px;
+			margin-left: 15px !important;
+			margin-top: 2px;
+			text-transform: none;
+		}
+	}
+
+	&.style1 {
+		.sw-click-to-tweet {
+			background-color: #fff;
+			border: 1px solid #ddd;
+			border-radius: 4px;
+
+			i.swp_twitter {
+				color: map-get($network_colors, 'twitter');
+			}
+
+			.sw-ctt-text, .sw-ctt-btn {
+				color: #999;
+				text-decoration: none;
+			}
+		}
+
+		&:hover {
+			.sw-click-to-tweet {
+				.sw-ctt-text, .sw-ctt-btn {
+					color: #666;
+					text-decoration: none;
+				}
+			}
+		}
+	}
+
+	&.style2 {
+		.sw-click-to-tweet {
+			background-color: #fff;
+			border: 4px double #ddd;
+			border-radius: 0;
+
+			.sw-ctt-btn {
+				color: map-get($network_colors, 'twitter');
+			}
+
+			.sw-ctt-text {
+				color: #666;
+				font-style: italic;
+				text-decoration: none;
+			}
+		}
+
+		&:hover {
+			.sw-click-to-tweet {
+				.sw-ctt-text, .sw-ctt-btn {
+					color: #666;
+					text-decoration: none;
+				}
+			}
+		}
+	}
+
+	&.style3 {
+		.sw-click-to-tweet {
+			background-color: map-get($network_colors, 'twitter');
+			border: none;
+			border-left: 10px solid #15202b;
+			border-radius: 0;
+			padding-right: 20px;
+			@include transition();
+
+			.sw-ctt-text, .sw-ctt-btn, i.swp_twitter {
+				color: #fff;
+				text-decoration:none;
+			}
+
+			.sw-ctt-text {
+				font-style: italic;
+			}
+		}
+
+		&:hover  {
+			.sw-click-to-tweet {
+				border-left: 10px solid #15202b;
+				padding-right: 20px;
+				@include transition();
+
+				.sw-ctt-text, .sw-ctt-btn, i.swp_twitter {
+					color: #fff;
+					text-decoration: none;
+				}
+			}
+		}
+	}
+
+	&.style4 {
+		.sw-click-to-tweet {
+			background-color: #333;
+			border-left: 10px solid #c33;
+			border-radius: 0;
+			@include transition();
+
+			.sw-ctt-text, .sw-ctt-btn, i.swp_twitter {
+				color: #fff;
+				text-decoration: none;
+			}
+		}
+
+		&:hover {
+			.sw-click-to-tweet {
+				border-left: 10px solid #000000;
+				@include transition();
+
+				.sw-ctt-text, .sw-ctt-btn, i.swp_twitter {
+					color: #fff;
+					text-decoration: none;
+				}
+			}
+		}
+	}
+
+	&.style5 {
+		.sw-click-to-tweet {
+			background-color: #30394f;
+			border-left: 10px solid #d34250;
+			border-radius: 0;
+			@include transition();
+
+			.sw-ctt-text, .sw-ctt-btn, i.swp_twitter {
+				color: #fff;
+				text-decoration: none;
+			}
+		}
+
+		&:hover {
+			.sw-click-to-tweet {
+				background-color: #d34250;
+				border-left: 10px solid #30394f;
+				@include transition();
+
+				.sw-ctt-text, .sw-ctt-btn {
+					color: #fff;
+					text-decoration: none;
+				}
+			}
+		}
+	}
+
+	&.style6 {
+		.sw-click-to-tweet {
+			background-color: #eee;
+			border-left: 10px solid #d34250;
+			border-radius: 0;
+			@include transition();
+
+			.sw-ctt-text, .sw-ctt-btn, i.swp_twitter {
+				color: #30394f;
+				text-decoration: none;
+			}
+		}
+
+		&:hover {
+			.sw-click-to-tweet {
+				background-color: #ced3dc;
+				border-left: 10px solid #d34250;
+				@include transition();
+
+				.sw-ctt-text, .sw-ctt-btn, i.swp_twitter {
+					color: #2a2d34;
+					text-decoration: none;
+				}
+			}
+		}
+	}
+
+	&.style7 {
+		.sw-click-to-tweet {
+			@include transition();
+			background: #f9f9f9;
+		    color: #0D1014;
+		    border-radius: 10px;
+		    transform: skewX(-15deg);
+		    // box-shadow: 3px 3px 3px rgba(0,0,0,0.1);
+			border:7px dashed #e5e5e5;
+			.sw-ctt-text, .sw-ctt-btn {
+				@include transition();
+				transform: skewX(15deg);
+			}
+		}
+
+		&:hover {
+			.sw-click-to-tweet {
+				@include transition();
+				background:#ffffff;
+				border-color:#DDDDDD;
+				transform:skewX(-10deg) scale(1.02);
+				.sw-ctt-text, .sw-ctt-btn {
+					@include transition();
+					transform: skewX(10deg);
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,106 @@
+// main:../style.scss
+
+// The Primary Social Warfare brand color.
+$social_warfare_red: #ee464f;
+$social_warfare_blue: #30394F;
+
+// Colors for each social network.
+$network_colors: (
+	"blogger": #ff5722,
+	"buffer": #323b43,
+	"ello": #000000,
+	"email": #6bcce9,
+	"evernote": #2dbe60,
+	"facebook": #1877f2,
+	"flickr": #ff0084,
+	"flipboard": #bf2626,
+	"hacker_news": #d85623,
+	"instagram": #ea2454,
+	"linkedin": #2767b1,
+	"medium": #00ab6c,
+	"mix": #f4812c,
+	"more": #ee464f,
+	"parler":#be1e2c,
+	"periscope": #3aa4c6,
+	"pinterest": #e60023,
+	"pocket": #ef4056,
+	"print": #777777,
+	"reddit": #f04b23,
+	"snapchat": #FFFC00,
+	"telegram": #0088CC,
+	"twitter": #0D1014,
+	"tumblr": #39475d,
+	"vimeo": #162221,
+	"viber": #8f5db7,
+	"vk": #4a76a8,
+	"whatsapp": #71c169,
+	"xing": #026466,
+	"yummly": #e26426,
+	"mastodon": #6364FF
+);
+
+// Colors for each of the grayscale themes.
+$gray_colors: (
+	"light_gray": #cccccc,
+	"medium_gray": #999999,
+	"dark_gray": #444444,
+);
+
+// How much to darken the "Accent" color for each network.
+$accent_variance: 10%;
+
+// Icons are populated from an icon font. The following "content" can be used to call them.
+$network_icons: (
+	"blogger": "c",
+	"buffer": "d",
+	"ello": "h",
+	"email": "i",
+	"evernote": "j",
+	"facebook": "k",
+	"flickr": "l",
+	"flipboard": "m",
+	"hacker_news": "o",
+	"instagram": "q",
+	"linkedin": "s",
+	"medium": "u",
+	"mix": "w",
+	"more": "B",
+	"parler":"0",
+	"periscope": "y",
+	"pinterest": "A",
+	"pin": "z",
+	"pocket": "C",
+	"print": "D",
+	"reddit": "E",
+	"share": "G",
+	"social-warfare": "K",
+	"snapchat": "J",
+	"telegram": "L",
+	"tumblr": "M",
+	"twitter": "N",
+	"viber": 'O',
+	"vimeo": "P",
+	"vk": "R",
+	"warfare-plugins": "Z",
+	"whatsapp": "T",
+	"xing": "V",
+	"yummly": "Y",
+	"mastodon": "1"
+);
+
+// Easier way to add vendor prefixes
+@mixin prefix($name, $value) {
+	@each $vendor in ('-webkit-', '-moz-', '-ms-', '-o-', '') {
+		#{$vendor}#{$name}: #{$value};
+	}
+}
+
+// Easy way to call in our default transition.
+@mixin transition( $duration: 0.2s ) {
+	transition: all $duration linear;
+}
+
+// Easy way to call in network icons.
+@mixin icon( $name ) {
+	content: map-get( $network_icons, $name );
+}

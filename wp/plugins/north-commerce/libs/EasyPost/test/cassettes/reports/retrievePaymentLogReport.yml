@@ -1,0 +1,78 @@
+
+-
+    request:
+        method: GET
+        url: 'https://api.easypost.com/v2/reports/plrep_384e1fd824334a4cad127f674f1f60a1'
+        headers:
+            Host: api.easypost.com
+            Accept: application/json
+            Authorization: ''
+            Content-Type: application/json
+            User-Agent: ''
+            X-Client-User-Agent: ''
+            EasyPost-Version: '2'
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            x-frame-options: SAMEORIGIN
+            x-xss-protection: '1; mode=block'
+            x-content-type-options: nosniff
+            x-download-options: noopen
+            x-permitted-cross-domain-policies: none
+            referrer-policy: strict-origin-when-cross-origin
+            x-ep-request-uuid: e739257661704a99e786c183001358c3
+            cache-control: 'no-cache, no-store'
+            pragma: no-cache
+            expires: '0'
+            content-type: 'application/json; charset=utf-8'
+            content-length: '261'
+            etag: 'W/"2b7e01264c15470a86b7aa4eec99640c"'
+            x-request-id: 95294788-2622-440c-8873-7698d8627ca1
+            x-runtime: '0.032559'
+            x-node: bigweb5nuq
+            x-version-label: easypost-202110192143-cc149f31de-master
+            x-backend: easypost
+            x-proxied: ['intlb2nuq d40607e4ab', 'extlb2nuq d40607e4ab']
+            strict-transport-security: 'max-age=31536000; includeSubDomains; preload'
+        body: '{"id":"plrep_384e1fd824334a4cad127f674f1f60a1","object":"PaymentLogReport","created_at":"2021-10-20T16:53:03Z","updated_at":"2021-10-20T16:53:03Z","start_date":"2021-01-03","end_date":"2021-01-04","mode":"test","status":"empty","url":null,"url_expires_at":null}'
+        curl_info:
+            url: 'https://api.easypost.com/v2/reports/plrep_384e1fd824334a4cad127f674f1f60a1'
+            content_type: 'application/json; charset=utf-8'
+            http_code: 200
+            header_size: 774
+            request_size: 535
+            filetime: -1
+            ssl_verify_result: 0
+            redirect_count: 0
+            total_time: 0.231239
+            namelookup_time: 0.001155
+            connect_time: 0.060688
+            pretransfer_time: 0.137612
+            size_upload: !!float 0
+            size_download: !!float 261
+            speed_download: !!float 1128
+            speed_upload: !!float 0
+            download_content_length: !!float 261
+            upload_content_length: !!float 0
+            starttransfer_time: 0.231197
+            redirect_time: !!float 0
+            redirect_url: ''
+            primary_ip: 169.62.110.130
+            certinfo: {  }
+            primary_port: 443
+            local_ip: 10.130.6.4
+            local_port: 50791
+            http_version: 2
+            protocol: 2
+            ssl_verifyresult: 0
+            scheme: HTTPS
+            appconnect_time_us: 137517
+            connect_time_us: 60688
+            namelookup_time_us: 1155
+            pretransfer_time_us: 137612
+            redirect_time_us: 0
+            starttransfer_time_us: 231197
+            total_time_us: 231239

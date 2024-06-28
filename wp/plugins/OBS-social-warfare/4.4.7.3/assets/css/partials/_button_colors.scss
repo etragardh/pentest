@@ -1,0 +1,149 @@
+// main:../style.scss
+
+// The default white text.
+.swp_social_panel.swp_default_full_color a,
+html body .swp_social_panel.swp_individual_full_color .nc_tweetContainer:hover a,
+body .swp_social_panel.swp_other_full_color:hover a {
+	color: white;
+}
+
+// Create the styles for each of the social networks color sets.
+@each $network, $color in $network_colors {
+
+	// Flat & Fresh
+	.swp_social_panel.swp_flat_fresh.swp_default_full_color .swp_#{$network},
+	html body .swp_social_panel.swp_flat_fresh.swp_individual_full_color .swp_#{$network}:hover,
+	body .swp_social_panel.swp_flat_fresh.swp_other_full_color:hover .swp_#{$network}:not(:hover) {
+		border: 1px solid $color;
+	}
+
+	// Full Color Background & Border Colors
+	.swp_social_panel.swp_default_full_color .swp_#{$network},
+	html body .swp_social_panel.swp_individual_full_color .swp_#{$network}:hover,
+	body .swp_social_panel.swp_other_full_color:hover .swp_#{$network} {
+	   background: $color;
+	   border: 1px solid darken( $color, $accent_variance );
+	}
+
+	// 3D Border Accent Colors
+	.swp_social_panel.swp_three_dee.swp_default_full_color .swp_#{$network},
+	html body .swp_social_panel.swp_three_dee.swp_individual_full_color .swp_#{$network}:hover,
+	body .swp_social_panel.swp_three_dee.swp_other_full_color:hover .swp_#{$network} {
+		border-bottom: 3px solid darken( $color, $accent_variance );
+	}
+
+	// Text color for color outlines styles
+	.swp_social_panel.swp_default_color_outlines .swp_#{$network} a,
+	html body .swp_social_panel.swp_individual_color_outlines .swp_#{$network} a:hover,
+	body .swp_social_panel.swp_other_color_outlines:hover .swp_#{$network} a {
+	   color: $color;
+	}
+
+	// Color outlines with transparent backgrounds
+	.swp_social_panel.swp_default_color_outlines .swp_#{$network},
+	html body .swp_social_panel.swp_individual_color_outlines .swp_#{$network}:hover,
+	body .swp_social_panel.swp_other_color_outlines:hover .swp_#{$network} {
+		background: transparent;
+		border: 1px solid $color;
+	}
+
+	.swp-#{$network} {
+		background: $color;
+		border-color: darken( $color, $accent_variance );
+		a {
+		  	color: $color;
+		}
+		a:hover {
+			background: darken( $color, $accent_variance );
+			color: #ffffff;
+		}
+	}
+}
+
+// Create the rules for the grayscale color sets.
+@each $gray_shade, $color in $gray_colors {
+
+	// Solid-colored grayscale themes.
+	.swp_social_panel.swp_default_#{$gray_shade} .nc_tweetContainer,
+	html body .swp_social_panel.swp_individual_#{$gray_shade} .nc_tweetContainer:hover,
+	body .swp_social_panel.swp_other_#{$gray_shade}:hover .nc_tweetContainer {
+		background-color: $color;
+		border: 1px solid $color;
+		a { color:#ffffff; }
+	}
+
+	// 3D grayscale themes.
+	.swp_social_panel.swp_three_dee.swp_default_#{$gray_shade} .nc_tweetContainer,
+	html body .swp_social_panel.swp_three_dee.swp_individual_#{$gray_shade} .nc_tweetContainer:hover,
+	body .swp_social_panel.swp_three_dee.swp_other_#{$gray_shade} .nc_tweetContainer:hover {
+		border-bottom: 3px solid darken( $color, $accent_variance );
+		&.total_sharesalt {
+			border-bottom:none!important;
+		}
+	}
+
+	// Grayscale outlines font color.
+	.swp_social_panel.swp_default_#{$gray_shade}_outlines a,
+	html body .swp_social_panel.swp_individual_#{$gray_shade}_outlines a:hover,
+	body .swp_social_panel.swp_other_#{$gray_shade}_outlines:hover a {
+		color: $color;
+	}
+
+	// Grayscales outlines transparent background and border color.
+	.swp_social_panel.swp_default_#{$gray_shade}_outlines .nc_tweetContainer,
+	html body .swp_social_panel.swp_individual_#{$gray_shade}_outlines .nc_tweetContainer:hover,
+	body .swp_social_panel.swp_other_#{$gray_shade}_outlines:hover .nc_tweetContainer {
+		background: transparent;
+		border: 1px solid $color;
+	}
+}
+
+// Rules that apply to both Modern and Dark themes
+.swp_social_panel.swp_modern, .swp_social_panel.swp_dark {
+	background: #fff;
+	height: 62px;
+	padding: 0;
+	border-radius: 8px;
+	border: 1px solid #eee;
+	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.01), 0 4px 5px 0 rgba(0, 0, 0, 0.014), 0 4px 15px 0 rgba(0, 0, 0, 0.09);
+
+	.swp_share_button {
+		border: none !important;
+	    border-radius: 0 !important;
+	    margin: 0 !important;
+	    height: 61px !important;
+	    padding-bottom: 1px;
+	}
+
+	.swp_share_button.total_shares.total_sharesalt, .swp_share_button.total_shares.total_sharesalt {
+	  padding: 15px !important;
+	}
+
+	.swp_share_link {
+		border-radius: 0;
+		padding: 15px;
+		height: 61px !important;
+	}
+
+	.iconFiller {
+		margin-bottom: 10px !important;
+	}
+
+	.nc_wrapper.bottom {
+		background: transparent !important;
+	}
+}
+
+// Dark specific CSS rules.
+.swp_dark {
+	.swp_share_button {
+		background: #222 !important;
+		border-color: #222 !important;
+		margin: 0 !important;
+		height: 62px !important;
+	}
+
+	.swp_share_link:hover {
+		background: #444;
+	}
+}

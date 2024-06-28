@@ -1,0 +1,316 @@
+// main:../style.scss
+
+// Styles for the side floating buttons panel.
+.swp_social_panelSide {
+	@include transition();
+	flex-direction: column;
+	height: auto;
+	overflow: visible;
+	z-index: 9998;
+	margin: 10px 5px !important;
+	padding: 0;
+
+	// Styles for the fading and sliding of the panel.
+	&.slide, &.fade {
+		@include transition();
+		position: fixed;
+	}
+
+	&.fade {
+		display:none;
+		@each $direction in (left,right) {
+			.swp_float_#{$direction} {
+				#{$direction}: 5px;
+			}
+		}
+	}
+
+	&.hideCounts {
+		a {
+			text-align: center;
+		}
+		.iconFiller {
+			float: none;
+			text-align: left;
+		}
+	}
+
+	&[class*=swp_side] {
+		height: auto;
+		display: flex;
+		position: fixed;
+		padding: 30px 0;
+	}
+
+	&.swp_float_right {
+		align-content: flex-end;
+	}
+
+	@each $direction in (top,bottom) {
+		&.swp_side_#{$direction} {
+			#{$direction}: 15px;
+		}
+	}
+
+	&.swp_default .nc_tweetContainer {
+		.sw {
+			line-height: 32px;
+		}
+
+		.swp_share {
+			line-height: 32px;
+		}
+	}
+
+	span.swp_label {
+		margin-top: 0;
+	}
+
+	.nc_tweetContainer {
+		@include transition(0.1s);
+		border-radius: 3px;
+		clear: both;
+		display: block;
+		font-family: Lato, sans-serif;
+		height: 32px;
+		margin: 3px 0!important;
+		overflow: hidden;
+		padding: 0;
+		width: 90px;
+
+		&.total_shares {
+			background: rgba(0, 0, 0, 0);
+			border: 0!important;
+			font-weight: 800;
+			height: 55px;
+			margin: 0;
+			padding: 0;
+			text-align: center;
+			width: 90px;
+			order:-100;
+
+			.swp_count {
+				color: #444;
+				display: block;
+				font-family: Lato, sans-serif;
+				height: 28px;
+				text-align: center;
+				width: 100%;
+			}
+
+			.swp_label {
+				color: #444;
+				display: block;
+				font-family: Lato, sans-serif;
+				font-size: 50%;
+				position: relative;
+				text-align: center;
+				width: 100%;
+			}
+		}
+
+		&:not(.total_shares) {
+			line-height: 34px;
+		}
+
+		&:hover, &:hover .iconFiller, &:hover .swp_count {
+			@include transition(0.1s);
+		}
+
+		.iconFiller {
+			@include transition(0.1s);
+			display: inline-block;
+			height: 40px;
+			margin: 0 6px;
+			padding: 0;
+			vertical-align: middle;
+			width: 21px;
+		}
+
+		.swp_count {
+			@include transition(0.1s);
+			display: inline-block;
+			font-size: 14px;
+			height: 32px;
+			line-height: 16px;
+			margin: 0;
+			padding: 0;
+			overflow: hidden;
+			text-align: right;
+			vertical-align: top;
+			width: 0;
+		}
+
+		a {
+			@include transition(0.1s);
+			cursor: pointer;
+			display: block;
+			font-weight: 500;
+			height: 36px;
+			margin: 0;
+			padding: 0;
+			text-decoration: none;
+		}
+
+		.sw, .swp_share {
+			float: left;
+			line-height: 34px;
+		}
+
+		.swp_share {
+			font-size: 13px;
+			margin:0;
+		}
+	}
+
+	&.swp_boxed .nc_tweetContainer, &.swp_circles .nc_tweetContainer {
+		margin-bottom: 5px;
+		width: 67.5px !important;
+	}
+
+	&.swp_boxed, &.swp_circles {
+		.nc_tweetContainer, .nc_tweetContainer a {
+			width: 67.5px;
+			height: 67.5px !important;
+			position: relative;
+		}
+
+		.total_shares {
+			padding: 0;
+			width: 67.5px!important;
+		}
+
+		.nc_tweetContainer {
+
+			span.iconFiller {
+				height: 40px;
+				width: 67.5px;
+			}
+
+			i.sw {
+				font-size: 27px;
+				height: 40px;
+				margin: 0;
+				padding-top: 10px;
+				text-align: center;
+				width: 100%;
+			}
+
+			&:not(.total_shares) {
+				span.swp_share {
+					height: 35px;
+					opacity: 0;
+					position: absolute;
+					bottom: 0;
+					left: 0;
+					text-align: center;
+					width: 67.5px;
+				}
+
+				span.swp_count {
+					height: 35px;
+					margin: 0;
+					padding: 0;
+					position: absolute;
+					bottom: 0;
+					left: 0;
+					text-align: center;
+					transition: padding 0.1s linear;
+					width: 100%;
+				}
+
+				.swp_hide span.swp_share,
+				&:hover span.swp_share:not(.swp_hide) {
+					opacity: 1;
+				}
+
+				&:hover span.swp_count:not(.swp_hide) {
+					opacity: 0;
+				}
+
+				.swp_count {
+					padding: 0 8px;
+					width: 48px;
+				}
+
+				.swp_count.swp_hide {
+					padding: 0;
+					width: 100%;
+
+					.iconFiller {
+						display: block;
+						float: none;
+						margin: 0 auto;
+					}
+				}
+
+				&:hover .iconFiller, .spaceManWilly {
+					width: 100%;
+				}
+			}
+
+			&:not(.total_shares) span.swp_count.swp_hide, span.swp_hide .iconFiller, span.swp_hide .spaceManWilly {
+				height: 67.5px;
+				opacity: 1;
+			}
+		}
+	}
+
+	&.swp_circles {
+		.nc_tweetContainer:not(.total_shares), .nc_tweetContainer:not(.total_shares) a {
+			border-radius:50%!important;
+		}
+	}
+
+	&:not(.swp_boxed):not(.swp_circles) .nc_tweetContainer:not(.total_shares) {
+		.iconFiller{
+			margin-left: 2px;
+			width: 30px;
+		}
+
+		&[data-network]:not(.total_shares):hover span.iconFiller,
+		&:not(.total_shares) .spaceManWilly {
+			width: 90px;
+		}
+
+		&:hover {
+			width: 150px;
+		}
+	}
+}
+
+.nc_wrapper {
+	background: white;
+	position: fixed;
+	transition: top 0.5s bottom 0.5s;
+	width: 100%;
+	z-index: 99999;
+
+	&.bottom {
+		bottom: 0;
+		left: 0;
+	}
+
+	&.top {
+		top: 0;
+		left: 0;
+	}
+
+	.swp_social_panel {
+		margin-bottom: 10px!important;
+		margin-top: 10px!important;
+	}
+}
+
+.nc_floater {
+	margin: 10px 0;
+	position: relative;
+}
+
+@each $horizontal_position in (left,right) {
+	@each $vertical_position in (top,center,bottom) {
+		.float-position-#{$vertical_position}-#{$horizontal_position} {
+			transform-origin: #{$vertical_position} #{$horizontal_position};
+		}
+	}
+}

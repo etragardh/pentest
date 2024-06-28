@@ -1,0 +1,24 @@
+// main:../style.scss
+
+// This creates the sizing rules for how big the buttons should appear.
+@for $size from 7 to 15 {
+	.scale-#{$size*10} {
+		transform: scale(calc($size/10));
+	}
+
+	.swp_social_panel:not(.nc_floater).scale-#{$size*10}.scale-full_width {
+		width: calc(10/$size*100) !important;
+	}
+}
+
+// This controls the alignment when the buttons are smaller than 100% in size.
+@each $label, $direction in (left:left,center:center,right:right,full_width:left) {
+	.scale-#{$label} {
+		transform-origin: $direction;
+	}
+}
+
+// The flex size of buttons that have been emphasized.
+div.swp_social_panel .nc_tweetContainer.swp_emphasize {
+	flex: 2;
+}

@@ -1,0 +1,328 @@
+// main:../style.scss
+
+@media print {
+	.swp_social_panel {
+		display: none;
+		opacity: 0;
+		visibility: collapse;
+	}
+}
+
+/* For non-English sites */
+html[lang] .site * i.sw {
+	font-family: sw-icon-font !important;
+}
+
+.swp_social_panel {
+	clear: both;
+	display: flex;
+	height: 34px;
+	line-height: 1;
+	margin-bottom: 20px!important;
+	margin-top: 20px!important;
+	overflow: hidden;
+	padding: 0;
+	align-items: stretch;
+	-webkit-box-align: stretch;
+	-moz-box-align: stretch;
+	-webkit-box-pack: justify;
+	-moz-box-pack: justify;
+	direction: ltr;
+	-ms-flex-align: stretch;
+	-ms-flex-line-pack: center;
+	-ms-flex-pack: justify;
+	flex-wrap: wrap;
+	justify-content: space-between;
+
+	.nc_tweetContainer {
+
+		a.nc_tweet, &.total_shares .swp_count {
+			display: block;
+			display: flex;
+			font-family: Lato, sans-serif;
+			font-size: 18px!important;
+			font-weight: bold;
+			height: 30px;
+			text-decoration: none;
+			text-decoration: none!important;
+			text-transform: none;
+			flex-flow: row wrap;
+			box-shadow:none;
+		}
+
+		&:not(.total_shares):not(.total_sharesalt) {
+			border-radius: 2px;
+			cursor: pointer;
+			float: left;
+			font-family: Lato;
+			height: 32px;
+			margin: 0 5px 3px 5px;
+			min-width: 34px;
+			overflow: hidden;
+			text-align: center;
+			transition: all 0.1s linear;
+		}
+
+		.spaceManWilly {
+			display: block;
+			width: 120px;
+		}
+	}
+
+	.swp_label {
+		display: block;
+		font-size: 9px!important;
+		margin-top: 13px;
+		position: absolute;
+		text-align: center!important;
+		text-transform: uppercase;
+	}
+
+	.swp_share {
+		display: block;
+		float: right;
+		float: left;
+		font-size: 14px;
+		font-weight: normal;
+		height: 30px;
+		line-height: 32px;
+		margin: 0 0 0 6px;
+		max-width: none!important;
+	}
+
+	.total_shares {
+		background: transparent !important;;
+		border: none !important;
+		border-radius: 2px;
+		color: white;
+		cursor: default;
+		display: block;
+		font-size: 19px;
+		padding: 0 10px;
+		flex: none!important;
+
+		.swp_count {
+			line-height: 30px;
+		}
+
+		.swp_label {
+			font-size: 10px;
+			vertical-align: middle;
+		}
+
+		&.total_sharesalt {
+			background: transparent !important;
+			border: none !important;
+
+			&:before {
+				@include icon('share');
+				display: inline-block;
+				font-family: sw-icon-font;
+				margin-top: 7px;
+				vertical-align: top;
+			}
+
+			&.total_sharesalt, &:not(:nth-child(1)) {
+				background: transparent!important;
+				border: none;
+				color: #474b4d;
+				margin-left: 0!important;
+				margin-bottom: 10px !important;
+			}
+
+			.swp_count {
+				color: #474b4d;
+				font-size: 24px;
+			}
+
+			.swp_label {
+				color: #474b4d;
+				letter-spacing: 0;
+				min-width: 40px;
+			}
+		}
+
+	}
+
+	a {
+		.swp_count {
+			font-size: 14px;
+
+			&:not(.swp_hide) {
+				display: inline-block;
+				line-height: 32px;
+				margin: 0;
+				padding: 0 5px;
+				flex: 1;
+			}
+			&.swp_hide {
+				margin: 0 auto;
+				width:auto;
+			}
+		}
+	}
+
+	&:not(.nc_floater):not(.swp_social_panelSide) {
+		width: 100%!important;
+		&.swp_shift {
+			 padding:0 10px;
+		}
+	}
+
+	// Rules specific to the horizontal buttons by excluding the side panel.
+	&:not(.swp_social_panelSide) {
+		transition: opacity 0.2s ease-in-out;
+
+
+		.nc_tweetContainer {
+			flex: 1;
+
+			&.swp-emphasize {
+			  flex: 2;
+			}
+
+			&:nth-child(1) {
+				margin-left: 0;
+			}
+
+			&:nth-last-child(1) {
+				margin-right: 0;
+			}
+		}
+
+		div.total_shares.total_sharesalt {
+			&:before {
+				@include icon('share');
+				display: inline-block;
+				font-family: sw-icon-font;
+				margin-top: 7px;
+				vertical-align: top;
+			}
+
+			.swp_count {
+				display: inline-block;
+				line-height: 0;
+				margin-left: 8px;
+				margin-top: 12px;
+				min-width: 45px;
+				position: relative;
+				vertical-align: middle;
+			}
+
+			&:nth-child(1) {
+				margin-left: 0;
+				margin-right: 15px;
+				padding-left: 0;
+			}
+
+			&:nth-last-child(1) {
+				margin-right: 0;
+				padding-right: 0;
+			}
+		}
+	}
+
+	span:before {
+		content: initial!important;
+	}
+
+	.iconFiller {
+		font-size: 18px;
+		margin: 0 auto;
+		display: block;
+		float: left;
+		height: 30px;
+		overflow: hidden;
+		transition: width 0.1s linear;
+		width: 30px;
+	}
+
+	.sw {
+		float: left;
+		height: 30px;
+		line-height: 32px;
+		margin: 1px 5px 0;
+		text-shadow: none!important;
+		width: 20px;
+	}
+
+	&.notMobile .nc_tweetContainer:nth-child(1) {
+		margin-left: 0;
+	}
+
+	&:hover, &.swp_full_color, &.swp_fade, &.swp_customFull:hover {
+		.total_shares {
+			background: #e08a0f;
+		}
+	}
+
+	&.swp_leaf .nc_tweetContainer {
+		border-radius: 15px 0!important;
+		border-width: 1px;
+	}
+
+	&.swp_pill .nc_tweetContainer {
+		border-radius: 50px !important;
+		border-width: 1px;
+	}
+
+	&.swp_shift .nc_tweetContainer {
+		&:not(.total_shares) {
+			border-width: 1px;
+			transform: skew(-25deg);
+		}
+
+		a {
+			transform: skew(25deg);
+		}
+	}
+	&.swp_connected {
+		&:hover .nc_tweetContainer, .nc_tweetContainer, .nc_tweetContainer:hover {
+			border-radius: 0!important;
+			border-width: 1px;
+			margin: 0!important;
+		}
+	}
+}
+
+.swp_social_panel.mobile .iconFiller ~ .swp_count,
+.sw-content-locator {
+	display: none;
+}
+
+/* The custom color selects in Social WarfareW > Styles */
+div[class*=custom_color][class^=_wrapper] {
+	display: none;
+}
+
+// A little style for the debug information output on the screen.
+pre.swp_debug_data {
+	white-space: pre-wrap;
+	padding: 0 25px;
+	max-width: 1000px;
+	margin: 0 auto 50px auto;
+	border: 3px solid #666;
+}
+
+.wp-editor-container .swp_twitter:before {
+	color: #429cd6;
+}
+
+.swp_powered_by {
+	font-family:helvetica, arial, sans-serif;
+	color:black;
+	span {
+		clear: both;
+		width: 100%;
+		display: block;
+		margin: 36px 0px -30px 0;
+	}
+	a {
+		color:black;
+		text-decoration:none;
+	}
+	img {
+		max-height: 40px;
+		margin-top: 30px;
+	}
+}

@@ -1,0 +1,49 @@
+// main:../style.scss
+
+// Style up the container for the icon.
+.sw {
+	display: inline-block;
+	font-family: sw-icon-font!important;
+	font-size: inherit;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+	font-style: normal;
+	font-weight: normal;
+	text-rendering: auto;
+	text-transform: none!important;
+	transform: translate(0,0);
+	@include prefix( transform, translate(0, 0) );
+	&:before {
+		display: block!important;
+	}
+}
+
+// Loop through and create all of the icons for each network's button.
+@each $network, $icon in $network_icons {
+	i.swp_#{$network}_icon:before {
+		@include icon($network);
+	}
+}
+
+// The Social Warfare icon.
+.sw-social-warfare:before {
+	@include icon('social-warfare');
+}
+
+.wp-editor-container .sw:before {
+	font-size: 18px;
+	line-height: 22px;
+}
+
+.wp-editor-container .sw-social-warfare:before,
+.mce-ico.sw-social-warfare:before,
+.mce-ico.sw-social-warfare {
+	color: $social_warfare_red;
+}
+
+.mce-container .sw-social-warfare {
+	color: $social_warfare_red;
+	font-size: 20px;
+	margin-right: 15px;
+	vertical-align: middle;
+}
